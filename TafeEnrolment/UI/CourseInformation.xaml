@@ -1,0 +1,16 @@
+﻿<Window x:Class="UI.CourseInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="CourseInformation" Height="450" Width="800">
+    <Grid>
+        <Button Content="See all courses which are not offered this semester" HorizontalAlignment="Left" Margin="174,166,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
+        <Button Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,244,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
+        <Button Content="See cluster units for any course and semester." HorizontalAlignment="Left" Margin="174,88,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
+        <Button Content="Display timetable for a course being offered at all locations" HorizontalAlignment="Left" Margin="174,10,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
+
+    </Grid>
+</Window>

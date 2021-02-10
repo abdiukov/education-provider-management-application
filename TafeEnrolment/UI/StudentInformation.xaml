@@ -1,0 +1,21 @@
+﻿<Window x:Class="UI.StudentInformation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="StudentInformation" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Button Content="Search student results for a course" HorizontalAlignment="Left" Margin="438,91,0,0" VerticalAlignment="Top" Width="285" Height="76"/>
+        <Button Content="See students who had enrolled by hadn't paid fees" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="285" Height="76"/>
+        <Button Content="See student enrolment for a course" HorizontalAlignment="Left" Margin="438,172,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="Button_Click"/>
+        <Button Content="Search student results for a location" HorizontalAlignment="Left" Margin="70,91,0,0" VerticalAlignment="Top" Width="285" Height="76"/>
+        <Button Content="See student enrolment for a location" HorizontalAlignment="Left" Margin="70,172,0,0" VerticalAlignment="Top" Width="285" Height="76"/>
+        <Button Content="See part time students for a location" HorizontalAlignment="Left" Margin="70,253,0,0" VerticalAlignment="Top" Width="285" Height="76"/>
+        <Button Content="See full time students for a location" HorizontalAlignment="Left" Margin="438,253,0,0" VerticalAlignment="Top" Width="285" Height="76"/>
+        <Button Content="See part time students for a semester" HorizontalAlignment="Left" Margin="70,334,0,0" VerticalAlignment="Top" Width="285" Height="76"/>
+        <Button Content="See full time students for a semester" HorizontalAlignment="Left" Margin="438,335,0,0" VerticalAlignment="Top" Width="285" Height="76"/>
+    </Grid>
+</Window>
