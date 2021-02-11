@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\App.xaml
-12-479321111
+22640858286
 
-161394650702
+261677950241
 13-1505183044
-CourseInformation.xaml;CourseNotOffered.xaml;MainWindow.xaml;StudentFullTimeSearchLocation.xaml;StudentFullTimeSearchSemester.xaml;StudentInformation.xaml;StudentNoFees.xaml;StudentPartTimeSearchLocation.xaml;StudentPartTimeSearchSemester.xaml;SubjectsClustered.xaml;SubjectsWithNoCourse.xaml;TeacherInformation.xaml;
+CourseInformation.xaml;CourseNotOffered.xaml;CourseTimetableSearch.xaml;MainWindow.xaml;StudentEnrolmentForCousre.xaml;StudentEnrolmentForSemester.xaml;StudentFullTimeSearchLocation.xaml;StudentFullTimeSearchSemester.xaml;StudentInformation.xaml;StudentNoFees.xaml;StudentPartTimeSearchLocation.xaml;StudentPartTimeSearchSemester.xaml;StudentSearchResultByCourse.xaml;StudentSearchResultBySemester.xaml;SubjectsClustered.xaml;SubjectsWithNoCourse.xaml;TeacherCourseHistory.xaml;TeacherInformation.xaml;TeacherOtherThanBasedLocation.xaml;TeacherPartTimeSearchLocation.xaml;TeacherPartTimeSearchSemester.xaml;TeacherSearchByLocation.xaml;
 
 False
 
