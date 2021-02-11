@@ -23,5 +23,35 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void courseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            CourseTimetableSearch pageobj = new CourseTimetableSearch();
+            pageobj.Show();
+            Close();
+        }
+
+
+        //navigation
+        private void clusterUnitCourse_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            SubjectsClustered pageobj = new SubjectsClustered();
+            pageobj.Show();
+            Close();
+        }
+
+        private void courseNotOffered_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            CourseNotOffered pageobj = new CourseNotOffered();
+            pageobj.Show();
+            Close();
+        }
+
+        private void subjectsNotAllocated_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            SubjectsWithNoCourse pageobj = new SubjectsWithNoCourse();
+            pageobj.Show();
+            Close();
+        }
     }
 }

@@ -24,9 +24,70 @@ namespace UI
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
+        //navigation
+        // not done, need to replace Student No Fees with something else
+        private void studentNotPaid_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            StudentNoFees pageobj = new StudentNoFees();
+            pageobj.Show();
+            Close();
+        }
+
+        private void studentResultsLocationByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            // pageobj = new StudentNoFees();
+            //pageobj.Show();
+            //Close();
+        }
+
+        private void studentEnrolmentByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            //StudentNoFees pageobj = new StudentNoFees();
+            //pageobj.Show();
+            //Close();
+        }
+
+        private void studentPartTimeByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            StudentPartTimeSearchLocation pageobj = new StudentPartTimeSearchLocation();
+            pageobj.Show();
+            Close();
+        }
+
+        private void studentEnrolment_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            StudentNoFees pageobj = new StudentNoFees();
+            pageobj.Show();
+            Close();
+        }
+
+        private void studentResult_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            StudentNoFees pageobj = new StudentNoFees();
+            pageobj.Show();
+            Close();
+        }
+
+        private void studentFullTimeTimeByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            StudentFullTimeSearchLocation pageobj = new StudentFullTimeSearchLocation();
+            pageobj.Show();
+            Close();
+        }
+
+        private void studentFullTimeBySemester_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            StudentNoFees pageobj = new StudentNoFees();
+            pageobj.Show();
+            Close();
+        }
+
+        private void studentPartTimeBySemester_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            StudentPartTimeSearchSemester pageobj = new StudentPartTimeSearchSemester();
+            pageobj.Show();
+            Close();
         }
     }
 }

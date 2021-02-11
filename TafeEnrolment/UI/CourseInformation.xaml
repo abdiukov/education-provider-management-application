@@ -8,10 +8,9 @@
         Title="CourseInformation" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Button Content="See all courses which are not offered this semester" HorizontalAlignment="Left" Margin="174,166,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
-        <Button Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,244,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
-        <Button Content="See cluster units for any course and semester." HorizontalAlignment="Left" Margin="174,88,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
-        <Button Content="Display timetable for a course being offered at all locations" HorizontalAlignment="Left" Margin="174,10,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
-
+        <Button Name="courseNotOffered_navigation_btn" Content="See all courses which are not offered this semester" HorizontalAlignment="Left" Margin="174,166,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseNotOffered_navigation_btn_Click"/>
+        <Button Name="subjectsNotAllocated_navigation_btn" Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,244,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="subjectsNotAllocated_navigation_btn_Click"/>
+        <Button Name="clusterUnitCourse_navigation_btn" Content="See cluster units for any course and semester." HorizontalAlignment="Left" Margin="174,88,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="clusterUnitCourse_navigation_btn_Click"/>
+        <Button Name ="courseTimetables_navigation_btn" Content="Display timetable for a course being offered at all locations" HorizontalAlignment="Left" Margin="174,10,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseTimetables_navigation_btn_Click"/>
     </Grid>
 </Window>
