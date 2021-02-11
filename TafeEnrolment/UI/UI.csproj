@@ -58,75 +58,75 @@
     <Compile Include="CourseInformation.xaml.cs">
       <DependentUpon>CourseInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CourseNotOffered.xaml.cs">
+    <Compile Include="Course\CourseNotOffered.xaml.cs">
       <DependentUpon>CourseNotOffered.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CourseTimetableSearch.xaml.cs">
+    <Compile Include="Course\CourseTimetableSearch.xaml.cs">
       <DependentUpon>CourseTimetableSearch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentEnrolmentForCousre.xaml.cs">
+    <Compile Include="Student\StudentEnrolmentForCousre.xaml.cs">
       <DependentUpon>StudentEnrolmentForCousre.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentEnrolmentForSemester.xaml.cs">
+    <Compile Include="Student\StudentEnrolmentForSemester.xaml.cs">
       <DependentUpon>StudentEnrolmentForSemester.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentFullTimeSearchLocation.xaml.cs">
+    <Compile Include="Student\StudentFullTimeSearchLocation.xaml.cs">
       <DependentUpon>StudentFullTimeSearchLocation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentFullTimeSearchSemester.xaml.cs">
+    <Compile Include="Student\StudentFullTimeSearchSemester.xaml.cs">
       <DependentUpon>StudentFullTimeSearchSemester.xaml</DependentUpon>
     </Compile>
     <Compile Include="StudentInformation.xaml.cs">
       <DependentUpon>StudentInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentNoFees.xaml.cs">
+    <Compile Include="Student\StudentNoFees.xaml.cs">
       <DependentUpon>StudentNoFees.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentPartTimeSearchLocation.xaml.cs">
+    <Compile Include="Student\StudentPartTimeSearchLocation.xaml.cs">
       <DependentUpon>StudentPartTimeSearchLocation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentPartTimeSearchSemester.xaml.cs">
+    <Compile Include="Student\StudentPartTimeSearchSemester.xaml.cs">
       <DependentUpon>StudentPartTimeSearchSemester.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentSearchResultByCourse.xaml.cs">
+    <Compile Include="Student\StudentSearchResultByCourse.xaml.cs">
       <DependentUpon>StudentSearchResultByCourse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StudentSearchResultBySemester.xaml.cs">
+    <Compile Include="Student\StudentSearchResultBySemester.xaml.cs">
       <DependentUpon>StudentSearchResultBySemester.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SubjectsClustered.xaml.cs">
+    <Compile Include="Course\SubjectsClustered.xaml.cs">
       <DependentUpon>SubjectsClustered.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SubjectsWithNoCourse.xaml.cs">
+    <Compile Include="Course\SubjectsWithNoCourse.xaml.cs">
       <DependentUpon>SubjectsWithNoCourse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TeacherCourseHistory.xaml.cs">
+    <Compile Include="Teacher\TeacherCourseHistory.xaml.cs">
       <DependentUpon>TeacherCourseHistory.xaml</DependentUpon>
     </Compile>
     <Compile Include="TeacherInformation.xaml.cs">
       <DependentUpon>TeacherInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TeacherOtherThanBasedLocation.xaml.cs">
+    <Compile Include="Teacher\TeacherOtherThanBasedLocation.xaml.cs">
       <DependentUpon>TeacherOtherThanBasedLocation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TeacherPartTimeSearchLocation.xaml.cs">
+    <Compile Include="Teacher\TeacherPartTimeSearchLocation.xaml.cs">
       <DependentUpon>TeacherPartTimeSearchLocation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TeacherPartTimeSearchSemester.xaml.cs">
+    <Compile Include="Teacher\TeacherPartTimeSearchSemester.xaml.cs">
       <DependentUpon>TeacherPartTimeSearchSemester.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TeacherSearchByLocation.xaml.cs">
+    <Compile Include="Teacher\TeacherSearchByLocation.xaml.cs">
       <DependentUpon>TeacherSearchByLocation.xaml</DependentUpon>
     </Compile>
     <Page Include="CourseInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CourseNotOffered.xaml">
+    <Page Include="Course\CourseNotOffered.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CourseTimetableSearch.xaml">
+    <Page Include="Course\CourseTimetableSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,19 +142,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StudentEnrolmentForCousre.xaml">
+    <Page Include="Student\StudentEnrolmentForCousre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentEnrolmentForSemester.xaml">
+    <Page Include="Student\StudentEnrolmentForSemester.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentFullTimeSearchLocation.xaml">
+    <Page Include="Student\StudentFullTimeSearchLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentFullTimeSearchSemester.xaml">
+    <Page Include="Student\StudentFullTimeSearchSemester.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -162,35 +162,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentNoFees.xaml">
+    <Page Include="Student\StudentNoFees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentPartTimeSearchLocation.xaml">
+    <Page Include="Student\StudentPartTimeSearchLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentPartTimeSearchSemester.xaml">
+    <Page Include="Student\StudentPartTimeSearchSemester.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentSearchResultByCourse.xaml">
+    <Page Include="Student\StudentSearchResultByCourse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentSearchResultBySemester.xaml">
+    <Page Include="Student\StudentSearchResultBySemester.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SubjectsClustered.xaml">
+    <Page Include="Course\SubjectsClustered.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SubjectsWithNoCourse.xaml">
+    <Page Include="Course\SubjectsWithNoCourse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeacherCourseHistory.xaml">
+    <Page Include="Teacher\TeacherCourseHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,19 +198,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeacherOtherThanBasedLocation.xaml">
+    <Page Include="Teacher\TeacherOtherThanBasedLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeacherPartTimeSearchLocation.xaml">
+    <Page Include="Teacher\TeacherPartTimeSearchLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeacherPartTimeSearchSemester.xaml">
+    <Page Include="Teacher\TeacherPartTimeSearchSemester.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TeacherSearchByLocation.xaml">
+    <Page Include="Teacher\TeacherSearchByLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

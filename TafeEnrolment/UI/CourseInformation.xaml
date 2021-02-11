@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="CourseInformation" Height="450" Width="800">
+        Title="CourseInformation" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Button Content="See all courses which are not offered this semester" HorizontalAlignment="Left" Margin="174,166,0,0" VerticalAlignment="Top" Width="460" Height="73"/>
         <Button Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,244,0,0" VerticalAlignment="Top" Width="460" Height="73"/>

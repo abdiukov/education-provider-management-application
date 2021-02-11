@@ -29,19 +29,23 @@ namespace UI
         //Navigation
         private void NavigateTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            TeacherInformation pageobj = new TeacherInformation();
+            pageobj.Show();
+            Close();
         }
 
         private void NavigateCourseInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            CourseInformation pageobj = new CourseInformation();
+            pageobj.Show();
+            Close();
         }
 
         private void NavigateStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-
+            StudentInformation pageobj = new StudentInformation();
+            pageobj.Show();
+            Close();
         }
-
-
     }
 }
