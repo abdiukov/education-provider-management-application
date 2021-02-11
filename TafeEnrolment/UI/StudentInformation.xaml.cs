@@ -89,5 +89,15 @@ namespace UI
             pageobj.Show();
             Close();
         }
+
+
+        //back button
+        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow pageobj = new MainWindow();
+            pageobj.Show();
+            Close();
+        }
+
     }
 }

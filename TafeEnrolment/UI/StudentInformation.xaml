@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Button Name="studentResult_navigation_btn" Content="Search student results for a course" HorizontalAlignment="Left" Margin="438,91,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentResult_navigation_btn_Click"/>
-        <Button Name="studentNotPaid_navigation_btn" Content="See students who had enrolled by hadn't paid fees" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentNotPaid_navigation_btn_Click"/>
+        <Button Name="studentNotPaid_navigation_btn" Content="See students who had enrolled by hadn't paid fees" HorizontalAlignment="Left" Margin="438,10,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentNotPaid_navigation_btn_Click"/>
         <Button Name="studentEnrolment_navigation_btn" Content="See student enrolment for a course" HorizontalAlignment="Left" Margin="438,172,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentEnrolment_navigation_btn_Click"/>
         <Button Name="studentResultsLocationByLocation_navigation_btn" Content="Search student results for a location" HorizontalAlignment="Left" Margin="70,91,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentResultsLocationByLocation_navigation_btn_Click"/>
         <Button Name="studentEnrolmentByLocation_navigation_btn" Content="See student enrolment for a location" HorizontalAlignment="Left" Margin="70,172,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentEnrolmentByLocation_navigation_btn_Click"/>
@@ -17,5 +17,6 @@
         <Button Name="studentFullTimeTimeByLocation_navigation_btn" Content="See full time students for a location" HorizontalAlignment="Left" Margin="438,253,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentFullTimeTimeByLocation_navigation_btn_Click"/>
         <Button Name="studentPartTimeBySemester_navigation_btn" Content="See part time students for a semester" HorizontalAlignment="Left" Margin="70,334,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentPartTimeBySemester_navigation_btn_Click"/>
         <Button Name="studentFullTimeBySemester_navigation_btn" Content="See full time students for a semester" HorizontalAlignment="Left" Margin="438,335,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentFullTimeBySemester_navigation_btn_Click"/>
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
     </Grid>
 </Window>

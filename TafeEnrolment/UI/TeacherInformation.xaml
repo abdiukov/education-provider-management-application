@@ -8,12 +8,13 @@
         Title="TeacherInformation" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Button Content="See teacher's past course history" HorizontalAlignment="Left" Margin="117,106,0,0" VerticalAlignment="Top" Width="284" Height="91"/>
-        <Button Content="Search teachers by location" HorizontalAlignment="Left" Margin="452,106,0,0" VerticalAlignment="Top" Width="284" Height="93"/>
-        <Button Content="See all courses the teacher teaches this semester" HorizontalAlignment="Left" Margin="117,202,0,0" VerticalAlignment="Top" Width="284" Height="95"/>
-        <Button Content="See all location the teacher teaches at this semester" HorizontalAlignment="Left" Margin="452,204,0,0" VerticalAlignment="Top" Width="284" Height="93" Click="Button_Click"/>
-        <Button Content="See all part-time teachers for a semester" HorizontalAlignment="Left" Margin="117,10,0,0" VerticalAlignment="Top" Width="284" Height="91"/>
-        <Button Content="See all part-time teachers for a location" HorizontalAlignment="Left" Margin="452,10,0,0" VerticalAlignment="Top" Width="284" Height="91"/>
-        <Button Content="See all the full time teachers who are teaching at locations other than their based location." HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" Width="619" Height="93"/>
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
+        <Button Name="teacherCourseHistory_navigation_btn" Content="See teacher's past course history" HorizontalAlignment="Left" Margin="117,106,0,0" VerticalAlignment="Top" Width="284" Height="91"/>
+        <Button Name="teacherSearchLocation_navigation_btn" Content="Search teachers by location" HorizontalAlignment="Left" Margin="452,106,0,0" VerticalAlignment="Top" Width="284" Height="93"/>
+        <Button Name="placeholder3" Content="See all courses the teacher teaches this semester" HorizontalAlignment="Left" Margin="117,202,0,0" VerticalAlignment="Top" Width="284" Height="95"/>
+        <Button Name="placeholder" Content="See all location the teacher teaches at this semester" HorizontalAlignment="Left" Margin="452,204,0,0" VerticalAlignment="Top" Width="284" Height="93" Click="Button_Click"/>
+        <Button Name="placeholder2" Content="See all part-time teachers for a semester" HorizontalAlignment="Left" Margin="117,10,0,0" VerticalAlignment="Top" Width="284" Height="91"/>
+        <Button Name="placeholder4" Content="See all part-time teachers for a location" HorizontalAlignment="Left" Margin="452,10,0,0" VerticalAlignment="Top" Width="284" Height="91"/>
+        <Button Name="placeholder5" Content="See all the full time teachers who are teaching at locations other than their based location." HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" Width="619" Height="93"/>
     </Grid>
 </Window>

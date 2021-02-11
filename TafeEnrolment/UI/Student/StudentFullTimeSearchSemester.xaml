@@ -11,6 +11,7 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter student's name" VerticalAlignment="Top" Width="595"/>
         <Button Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <ComboBox HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="772" Height="296"/>
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
 
     </Grid>
 </Window>

@@ -23,5 +23,13 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        //go back
+        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TeacherInformation pageobj = new TeacherInformation();
+            pageobj.Show();
+            Close();
+        }
     }
 }

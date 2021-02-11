@@ -8,6 +8,6 @@
         Title="SubjectsWithNoCourse" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,386" Width="80" Click="goBack_navigation_btn_Click"/>
     </Grid>
 </Window>
