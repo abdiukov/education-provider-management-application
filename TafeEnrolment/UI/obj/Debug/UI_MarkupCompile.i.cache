@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ash\Desktop\Diploma Assessments\c# major assessment\app\TafeEnrolment\UI\obj\Debug\
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\
 UI
 none
 false
 DEBUG;TRACE
-C:\Users\Ash\Desktop\Diploma Assessments\c# major assessment\app\TafeEnrolment\UI\App.xaml
-6-1072865801
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\App.xaml
+14824599178
 
-111967038026
+191514752676
 13-1505183044
-CourseInformation.xaml;MainWindow.xaml;StudentFullTimeSearchSemester.xaml;StudentInformation.xaml;StudentNoFees.xaml;TeacherInformation.xaml;
+CourseInformation.xaml;CourseNotOffered.xaml;MainWindow.xaml;StudentFullTimeSearchLocation.xaml;StudentFullTimeSearchSemester.xaml;StudentInformation.xaml;StudentNoFees.xaml;StudentPartTimeSearchLocation.xaml;StudentPartTimeSearchSemester.xaml;SubjectsClustered.xaml;SubjectsWithNoCourse.xaml;TeacherCourseHistory.xaml;TeacherInformation.xaml;TeacherOtherThanBasedLocation.xaml;
 
-False
+True
 

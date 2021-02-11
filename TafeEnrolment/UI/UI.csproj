@@ -58,6 +58,12 @@
     <Compile Include="CourseInformation.xaml.cs">
       <DependentUpon>CourseInformation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CourseNotOffered.xaml.cs">
+      <DependentUpon>CourseNotOffered.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentFullTimeSearchLocation.xaml.cs">
+      <DependentUpon>StudentFullTimeSearchLocation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StudentFullTimeSearchSemester.xaml.cs">
       <DependentUpon>StudentFullTimeSearchSemester.xaml</DependentUpon>
     </Compile>
@@ -67,10 +73,26 @@
     <Compile Include="StudentNoFees.xaml.cs">
       <DependentUpon>StudentNoFees.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StudentPartTimeSearchLocation.xaml.cs">
+      <DependentUpon>StudentPartTimeSearchLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPartTimeSearchSemester.xaml.cs">
+      <DependentUpon>StudentPartTimeSearchSemester.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectsClustered.xaml.cs">
+      <DependentUpon>SubjectsClustered.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectsWithNoCourse.xaml.cs">
+      <DependentUpon>SubjectsWithNoCourse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TeacherInformation.xaml.cs">
       <DependentUpon>TeacherInformation.xaml</DependentUpon>
     </Compile>
     <Page Include="CourseInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CourseNotOffered.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -86,6 +108,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StudentFullTimeSearchLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StudentFullTimeSearchSemester.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,6 +121,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StudentNoFees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentPartTimeSearchLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentPartTimeSearchSemester.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubjectsClustered.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubjectsWithNoCourse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

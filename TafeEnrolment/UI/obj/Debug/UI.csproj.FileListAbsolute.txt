@@ -83,3 +83,15 @@ C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\UI.csproj.Ge
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\UI.exe
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\UI.pdb
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\CourseNotOffered.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\StudentFullTimeSearchLocation.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\StudentPartTimeSearchLocation.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\StudentPartTimeSearchSemester.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\CourseNotOffered.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\StudentFullTimeSearchLocation.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\StudentPartTimeSearchLocation.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\StudentPartTimeSearchSemester.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\SubjectsClustered.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\SubjectsWithNoCourse.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\SubjectsClustered.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\SubjectsWithNoCourse.baml
