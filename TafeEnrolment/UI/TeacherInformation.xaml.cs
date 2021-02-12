@@ -24,16 +24,39 @@ namespace UI
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
 
         //back button
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             MainWindow pageobj = new MainWindow();
+            pageobj.Show();
+            Close();
+        }
+
+        private void teacherPartTimeSearchSemester_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TeacherPartTimeSearchSemester pageobj = new TeacherPartTimeSearchSemester();
+            pageobj.Show();
+            Close();
+        }
+
+        private void teacherPartTimeSearchLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TeacherPartTimeSearchLocation pageobj = new TeacherPartTimeSearchLocation();
+            pageobj.Show();
+            Close();
+        }
+
+        private void teacherOtherThanBasedLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TeacherOtherThanBasedLocation pageobj = new TeacherOtherThanBasedLocation();
+            pageobj.Show();
+            Close();
+        }
+
+        private void teacherCourseHistory_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TeacherCourseHistory pageobj = new TeacherCourseHistory();
             pageobj.Show();
             Close();
         }

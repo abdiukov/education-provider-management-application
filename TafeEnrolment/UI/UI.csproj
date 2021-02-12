@@ -64,8 +64,8 @@
     <Compile Include="Course\CourseTimetableSearch.xaml.cs">
       <DependentUpon>CourseTimetableSearch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Student\StudentEnrolmentForCousre.xaml.cs">
-      <DependentUpon>StudentEnrolmentForCousre.xaml</DependentUpon>
+    <Compile Include="Student\StudentEnrolmentForCourse.xaml.cs">
+      <DependentUpon>StudentEnrolmentForCourse.xaml</DependentUpon>
     </Compile>
     <Compile Include="Student\StudentEnrolmentForSemester.xaml.cs">
       <DependentUpon>StudentEnrolmentForSemester.xaml</DependentUpon>
@@ -142,7 +142,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Student\StudentEnrolmentForCousre.xaml">
+    <Page Include="Student\StudentEnrolmentForCourse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

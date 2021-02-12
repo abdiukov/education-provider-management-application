@@ -36,7 +36,7 @@ namespace UI
 
         private void studentResultsLocationByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            // pageobj = new StudentNoFees();
+            //pageobj = new StudentNoFees();
             //pageobj.Show();
             //Close();
         }
@@ -57,14 +57,14 @@ namespace UI
 
         private void studentEnrolment_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            StudentNoFees pageobj = new StudentNoFees();
+            StudentEnrolmentForCousre pageobj = new StudentEnrolmentForCousre();
             pageobj.Show();
             Close();
         }
 
         private void studentResult_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            StudentNoFees pageobj = new StudentNoFees();
+            StudentSearchResultByCourse pageobj = new StudentSearchResultByCourse();
             pageobj.Show();
             Close();
         }
@@ -78,7 +78,7 @@ namespace UI
 
         private void studentFullTimeBySemester_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            StudentNoFees pageobj = new StudentNoFees();
+            StudentsEnrolmentSearch pageobj = new StudentsEnrolmentSearch();
             pageobj.Show();
             Close();
         }
