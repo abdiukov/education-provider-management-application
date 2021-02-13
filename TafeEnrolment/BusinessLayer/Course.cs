@@ -6,6 +6,11 @@ namespace BusinessLayer
 {
     public class Course
     {
+        public bool isOffered
+        {
+            get;set;
+        }
+
         public string CourseName
         {
             get;set;
@@ -20,6 +25,5 @@ namespace BusinessLayer
         {
             get;set;
         }
-
     }
 }

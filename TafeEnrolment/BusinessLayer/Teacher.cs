@@ -12,7 +12,7 @@ namespace BusinessLayer
         }
 
         public string LastName
-        {
+        {   
             get; set;
         }
 

@@ -4,22 +4,23 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    
-    public class Timetable
-    {   
-        public List<Course> EnrolledCourses
+    class StudentResult
+    {
+        public Student student
         {
             get;set;
         }
 
-        public List<Teacher> TeachersForCourse
-        {
-            get; set;
-        }
-
-        public List<Location> location
+        public Semester semester
         {
             get;set;
         }
+
+        public Course course
+        {
+            get;set;
+        }
+
+
     }
 }
