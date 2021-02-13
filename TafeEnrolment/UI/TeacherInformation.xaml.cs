@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UI.Teacher;
 
 namespace UI
 {
@@ -33,32 +34,47 @@ namespace UI
             Close();
         }
 
-        private void teacherPartTimeSearchSemester_navigation_btn_Click(object sender, RoutedEventArgs e)
+
+        //logic
+        private void SearchTextbox_MouseClick(object sender, MouseButtonEventArgs e)
         {
-            TeacherPartTimeSearchSemester pageobj = new TeacherPartTimeSearchSemester();
+            if (SearchTextbox.Text == "Enter teacher's name")
+            {
+                SearchTextbox.Text = "";
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            //logic to update the datagrid for a specific teacher
+            SearchDataGrid(SearchTextbox.Text);
+
+            //below is placeholder code for testing
+            TeacherProfile pageobj = new TeacherProfile();
             pageobj.Show();
             Close();
         }
 
-        private void teacherPartTimeSearchLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
-            TeacherPartTimeSearchLocation pageobj = new TeacherPartTimeSearchLocation();
+            //logic to go to teacher's page
+
+            TeacherProfile pageobj = new TeacherProfile();
             pageobj.Show();
             Close();
         }
 
-        private void teacherOtherThanBasedLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            TeacherOtherThanBasedLocation pageobj = new TeacherOtherThanBasedLocation();
-            pageobj.Show();
-            Close();
-        }
 
-        private void teacherCourseHistory_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void SearchDataGrid(string searchInput)
         {
-            TeacherCourseHistory pageobj = new TeacherCourseHistory();
-            pageobj.Show();
-            Close();
+            if (SearchTextbox.Text == "Enter teacher's name")
+            {
+                MessageBox.Show("Please enter something into the search bar");
+            }
+            else
+            {
+                MessageBox.Show(searchInput);
+            }
         }
     }
 }

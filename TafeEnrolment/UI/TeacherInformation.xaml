@@ -5,16 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="TeacherInformation" Height="450" Width="800"
+        Title="Search a teacher" Height="450" Width="800" WindowStyle="ToolWindow"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
+        <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter teacher's name" VerticalAlignment="Top" Width="595"/>
+        <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
-        <Button Name="teacherCourseHistory_navigation_btn" Content="See teacher's past course history" HorizontalAlignment="Left" Margin="117,106,0,0" VerticalAlignment="Top" Width="284" Height="91" Click="teacherCourseHistory_navigation_btn_Click"/>
-        <Button Name="placeholder2" Content="Search teachers by location" HorizontalAlignment="Left" Margin="452,106,0,0" VerticalAlignment="Top" Width="284" Height="93"/>
-        <Button Name="placeholder3" Content="See all courses the teacher teaches this semester" HorizontalAlignment="Left" Margin="117,202,0,0" VerticalAlignment="Top" Width="284" Height="95"/>
-        <Button Name="placeholder1" Content="See all location the teacher teaches at this semester" HorizontalAlignment="Left" Margin="452,204,0,0" VerticalAlignment="Top" Width="284" Height="93"/>
-        <Button Name="teacherPartTimeSearchSemester_navigation_btn" Content="See all part-time teachers for a semester" HorizontalAlignment="Left" Margin="117,10,0,0" VerticalAlignment="Top" Width="284" Height="91" Click="teacherPartTimeSearchSemester_navigation_btn_Click"/>
-        <Button Name="teacherPartTimeSearchLocation_navigation_btn" Content="See all part-time teachers for a location" HorizontalAlignment="Left" Margin="452,10,0,0" VerticalAlignment="Top" Width="284" Height="91" Click="teacherPartTimeSearchLocation_navigation_btn_Click"/>
-        <Button Name="teacherOtherThanBasedLocation_navigation_btn" Content="See all the full time teachers who are teaching at locations other than their based location." HorizontalAlignment="Left" Margin="117,302,0,0" VerticalAlignment="Top" Width="619" Height="93" Click="teacherOtherThanBasedLocation_navigation_btn_Click"/>
+        <DataGrid Name="dgTeacherProfiles" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20" FontFamily="Verdana">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
+                <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
+                <DataGridTemplateColumn Header="" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnSelect" Content="Add" Click="BtnSelect_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>

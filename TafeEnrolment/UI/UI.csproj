@@ -115,6 +115,9 @@
     <Compile Include="Teacher\TeacherPartTimeSearchSemester.xaml.cs">
       <DependentUpon>TeacherPartTimeSearchSemester.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\TeacherProfile.xaml.cs">
+      <DependentUpon>TeacherProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\TeacherSearchByLocation.xaml.cs">
       <DependentUpon>TeacherSearchByLocation.xaml</DependentUpon>
     </Compile>
@@ -207,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Teacher\TeacherPartTimeSearchSemester.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Teacher\TeacherProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

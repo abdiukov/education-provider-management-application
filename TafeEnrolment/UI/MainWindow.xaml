@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="TAFE NSW Management Application" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
 
     <Grid>
         <Button x:Name="NavigateTeacherInfo" Click="NavigateTeacherInfo_Click" Content="See teacher information" HorizontalAlignment="Left" Margin="140,209,0,0" VerticalAlignment="Top" Width="180" Height="48"/>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="StudentInformation" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
         <Button Name="studentResult_navigation_btn" Content="Search student results for a course" HorizontalAlignment="Left" Margin="438,91,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentResult_navigation_btn_Click"/>
         <Button Name="studentNotPaid_navigation_btn" Content="See students who had enrolled by hadn't paid fees" HorizontalAlignment="Left" Margin="438,10,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentNotPaid_navigation_btn_Click"/>
