@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UI.Student;
 
 namespace UI
 {
@@ -24,72 +25,46 @@ namespace UI
             InitializeComponent();
         }
 
-
-        //navigation
-        // not done, need to replace Student No Fees with something else
-        private void studentNotPaid_navigation_btn_Click(object sender, RoutedEventArgs e)
+        //logic
+        private void SearchTextbox_MouseClick(object sender, MouseButtonEventArgs e)
         {
-            StudentNoFees pageobj = new StudentNoFees();
+            if (SearchTextbox.Text == "Enter student's name")
+            {
+                SearchTextbox.Text = "";
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            //logic to update the datagrid for a specific teacher
+            SearchDataGrid(SearchTextbox.Text);
+
+            //below is placeholder code for testing
+            StudentProfile pageobj = new StudentProfile();
             pageobj.Show();
             Close();
         }
 
-        private void studentResultsLocationByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
-            //pageobj = new StudentNoFees();
-            //pageobj.Show();
-            //Close();
-        }
-
-        private void studentEnrolmentByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            //StudentNoFees pageobj = new StudentNoFees();
-            //pageobj.Show();
-            //Close();
-        }
-
-        private void studentPartTimeByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            StudentPartTimeSearchLocation pageobj = new StudentPartTimeSearchLocation();
+            //logic to go to teacher's page
+            StudentProfile pageobj = new StudentProfile();
             pageobj.Show();
             Close();
         }
 
-        private void studentEnrolment_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            StudentEnrolmentForCousre pageobj = new StudentEnrolmentForCousre();
-            pageobj.Show();
-            Close();
-        }
 
-        private void studentResult_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void SearchDataGrid(string searchInput)
         {
-            StudentSearchResultByCourse pageobj = new StudentSearchResultByCourse();
-            pageobj.Show();
-            Close();
+            if (SearchTextbox.Text == "Enter student's name")
+            {
+                MessageBox.Show("Please enter something into the search bar");
+            }
+            else
+            {
+                MessageBox.Show(searchInput);
+            }
         }
-
-        private void studentFullTimeTimeByLocation_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            StudentFullTimeSearchLocation pageobj = new StudentFullTimeSearchLocation();
-            pageobj.Show();
-            Close();
-        }
-
-        private void studentFullTimeBySemester_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            StudentsEnrolmentSearch pageobj = new StudentsEnrolmentSearch();
-            pageobj.Show();
-            Close();
-        }
-
-        private void studentPartTimeBySemester_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            StudentPartTimeSearchSemester pageobj = new StudentPartTimeSearchSemester();
-            pageobj.Show();
-            Close();
-        }
-
 
         //back button
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "f0CUSPbXilEn/eY959Gyo/saMwpGNUkIMNty6zmX3U03Dkyhyg0q1NB5a33S6aTX246xEZegf2UXmZaa9dRmTw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\BusinessLayer\\BusinessLayer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ash\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Ash\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

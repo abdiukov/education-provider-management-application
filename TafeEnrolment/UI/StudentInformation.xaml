@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="StudentInformation" Height="450" Width="800"
+        Title="Search a student" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        <Button Name="studentResult_navigation_btn" Content="Search student results for a course" HorizontalAlignment="Left" Margin="438,91,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentResult_navigation_btn_Click"/>
-        <Button Name="studentNotPaid_navigation_btn" Content="See students who had enrolled by hadn't paid fees" HorizontalAlignment="Left" Margin="438,10,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentNotPaid_navigation_btn_Click"/>
-        <Button Name="studentEnrolment_navigation_btn" Content="See student enrolment for a course" HorizontalAlignment="Left" Margin="438,172,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentEnrolment_navigation_btn_Click"/>
-        <Button Name="studentResultsLocationByLocation_navigation_btn" Content="Search student results for a location" HorizontalAlignment="Left" Margin="70,91,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentResultsLocationByLocation_navigation_btn_Click"/>
-        <Button Name="studentEnrolmentByLocation_navigation_btn" Content="See student enrolment for a location" HorizontalAlignment="Left" Margin="70,172,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentEnrolmentByLocation_navigation_btn_Click"/>
-        <Button Name="studentPartTimeByLocation_navigation_btn" Content="See part time students for a location" HorizontalAlignment="Left" Margin="70,253,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentPartTimeByLocation_navigation_btn_Click"/>
-        <Button Name="studentFullTimeTimeByLocation_navigation_btn" Content="See full time students for a location" HorizontalAlignment="Left" Margin="438,253,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentFullTimeTimeByLocation_navigation_btn_Click"/>
-        <Button Name="studentPartTimeBySemester_navigation_btn" Content="See part time students for a semester" HorizontalAlignment="Left" Margin="70,334,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentPartTimeBySemester_navigation_btn_Click"/>
-        <Button Name="studentFullTimeBySemester_navigation_btn" Content="See full time students for a semester" HorizontalAlignment="Left" Margin="438,335,0,0" VerticalAlignment="Top" Width="285" Height="76" Click="studentFullTimeBySemester_navigation_btn_Click"/>
+        <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter student's name" VerticalAlignment="Top" Width="595"/>
+        <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
+        <DataGrid Name="dgStudentProfiles" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20" FontFamily="Verdana">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
+                <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
+                <DataGridTemplateColumn Header="" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnSelect" Content="Add" Click="BtnSelect_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

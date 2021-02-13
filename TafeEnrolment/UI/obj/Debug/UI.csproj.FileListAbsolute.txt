@@ -117,3 +117,7 @@ C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\Stud
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentEnrolmentForCourse.baml
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Teacher\TeacherProfile.g.cs
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Teacher\TeacherProfile.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentProfile.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentProfile.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\LocationInformation.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\LocationInformation.baml

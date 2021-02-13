@@ -1,26 +1,5 @@
 ﻿
 
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\CourseInformation.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Course\CourseNotOffered.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Course\CourseTimetableSearch.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\MainWindow.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentEnrolmentForCourse.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentEnrolmentForSemester.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentFullTimeSearchLocation.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentFullTimeSearchSemester.xaml;;
+FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\LocationInformation.xaml;;
 FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\StudentInformation.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentNoFees.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentPartTimeSearchLocation.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentPartTimeSearchSemester.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentSearchResultByCourse.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Student\StudentSearchResultBySemester.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Course\SubjectsClustered.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Course\SubjectsWithNoCourse.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Teacher\TeacherCourseHistory.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\TeacherInformation.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Teacher\TeacherOtherThanBasedLocation.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Teacher\TeacherPartTimeSearchLocation.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Teacher\TeacherPartTimeSearchSemester.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Teacher\TeacherProfile.xaml;;
-FC:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\Teacher\TeacherSearchByLocation.xaml;;
 

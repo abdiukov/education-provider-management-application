@@ -64,6 +64,9 @@
     <Compile Include="Course\CourseTimetableSearch.xaml.cs">
       <DependentUpon>CourseTimetableSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LocationInformation.xaml.cs">
+      <DependentUpon>LocationInformation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Student\StudentEnrolmentForCourse.xaml.cs">
       <DependentUpon>StudentEnrolmentForCourse.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
     </Compile>
     <Compile Include="Student\StudentPartTimeSearchSemester.xaml.cs">
       <DependentUpon>StudentPartTimeSearchSemester.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Student\StudentProfile.xaml.cs">
+      <DependentUpon>StudentProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Student\StudentSearchResultByCourse.xaml.cs">
       <DependentUpon>StudentSearchResultByCourse.xaml</DependentUpon>
@@ -133,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LocationInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Student\StudentPartTimeSearchSemester.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Student\StudentProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -247,6 +261,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Location\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
