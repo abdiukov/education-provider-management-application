@@ -47,5 +47,12 @@ namespace UI
             pageobj.Show();
             Close();
         }
+
+        private void NavigateLocationInfo_Click(object sender, RoutedEventArgs e)
+        {
+            LocationInformation pageobj = new LocationInformation();
+            pageobj.Show();
+            Close();
+        }
     }
 }

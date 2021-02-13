@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ModelLayer
 {
-    class Control
+    public class Control
     {
         readonly public string _connectionString;
         /// <summary>

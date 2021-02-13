@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using ModelLayer;
 namespace Controller
 {
     public class Logic
     {
-        //private readonly Control control;
+        private readonly Control control;
         /// <summary>
-        /// The consturctor links to the Control.cs in the Data Access Layer
+        /// The consturctor links to the Control.cs in the Model Layer
         /// </summary>
         public Logic()
         {
-          //  control = new Control();
+           this.control = new Control();
         }
+
+
     }
 }
