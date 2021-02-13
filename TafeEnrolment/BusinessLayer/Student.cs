@@ -4,27 +4,35 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class Student
+    public class Student
     {
-        public string FirstName
+        public bool paidFees
         {
             get;set;
         }
-        
+        public string FirstName
+        {
+            get; set;
+        }
+
         public string LastName
         {
-            get;set;
+            get; set;
         }
 
         public string Position
         {
-            get;set;
+            get; set;
         }
 
         public string Location
         {
-            get;set;
+            get; set;
         }
 
+        public Timetable Student_Timetable
+        {
+            get;set;
+        }
     }
 }

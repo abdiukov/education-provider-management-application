@@ -4,7 +4,8 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class Timetable
+    //student timetable
+    public class Timetable
     {
         public string StudentFullName
         {

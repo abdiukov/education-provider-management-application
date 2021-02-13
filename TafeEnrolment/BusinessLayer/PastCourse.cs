@@ -4,20 +4,21 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    public class Location
+    public class PastCourse
     {
-        public string LocationName
-        {
-            get; set;
-        }
-        public List<Student> Students
-        {
-            get; set;
-        }
-        public List<Teacher> Teachers
+        public string CourseName
         {
             get; set;
         }
 
+        public List<Student> enrolledStudents
+        {
+            get; set;
+        }
+
+        public List<Teacher> currentTeachers
+        {
+            get; set;
+        }
     }
 }

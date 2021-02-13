@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class Teacher
+    public class Teacher
     {
         public string FirstName
         {
@@ -24,6 +24,16 @@ namespace BusinessLayer
         public string Location
         {
             get; set;
+        }
+
+        public List<Course> currentCourses
+        {
+            get;set;
+        }
+
+        public List<PastCourse> pastCourses
+        {
+            get;set;
         }
 
     }

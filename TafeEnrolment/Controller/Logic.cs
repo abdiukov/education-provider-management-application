@@ -15,6 +15,49 @@ namespace Controller
            this.control = new Control();
         }
 
+        public IEnumerable<BusinessLayer.Teacher> GetTeachers()
+        {
+            return control.GetTeachers();
+        }
+
+        public IEnumerable<BusinessLayer.Student> GetStudents()
+        {
+            return control.GetStudents();
+        }
+
+        public IEnumerable<BusinessLayer.Student> GetUnpaidFeesStudents()
+        {
+            IEnumerable<BusinessLayer.Student> unsorted_students = control.GetStudents();
+            List<BusinessLayer.Student> output = new List<BusinessLayer.Student>();
+            foreach (var student in unsorted_students)
+            {
+                if(student.paidFees == false)
+                {
+                    output.Add(student);
+                }
+            }
+            return output;
+        }
+
+        public IEnumerable<BusinessLayer.Location> GetLocations()
+        {
+            return control.GetLocations();
+        }
+
+        public IEnumerable<BusinessLayer.Timetable> GetStudentTimetable()
+        {
+            return control.GetStudentTimetable();
+        }
+
+        public IEnumerable<BusinessLayer.PastCourse> GetTeacherPastCourses()
+        {
+            return control.GetPastCourses();
+        }
+
+        public IEnumerable<BusinessLayer.Course> GetCourses()
+        {
+            return control.GetCourses();
+        }
 
     }
 }
