@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\App.xaml
-27-1161304450
+141260549607
 
-321432011931
+19-441005320
 13-1505183044
-CourseInformation.xaml;Course\CourseNotOffered.xaml;Course\CourseTimetableSearch.xaml;LocationInformation.xaml;MainWindow.xaml;SemesterInformation.xaml;Student\StudentEnrolmentForCourse.xaml;Student\StudentEnrolmentForSemester.xaml;Student\StudentFullTimeSearchLocation.xaml;Student\StudentFullTimeSearchSemester.xaml;StudentInformation.xaml;Student\StudentNoFees.xaml;Student\StudentPartTimeSearchLocation.xaml;Student\StudentPartTimeSearchSemester.xaml;Student\StudentProfile.xaml;Student\StudentSearchResultByCourse.xaml;Student\StudentSearchResultBySemester.xaml;Course\SubjectsClustered.xaml;Course\SubjectsWithNoCourse.xaml;Teacher\TeacherCourseHistory.xaml;TeacherInformation.xaml;Teacher\TeacherOtherThanBasedLocation.xaml;Teacher\TeacherPartTimeSearchLocation.xaml;Teacher\TeacherPartTimeSearchSemester.xaml;Teacher\TeacherProfile.xaml;Teacher\TeacherSearchByLocation.xaml;UnitInformation.xaml;
+CourseInformation.xaml;Course\CourseNotOffered.xaml;Course\CourseTimetableSearch.xaml;MainWindow.xaml;StudentInformation.xaml;Student\StudentEnrolmentSearch.xaml;Student\StudentNoFees.xaml;Student\StudentProfile.xaml;Student\StudentResultSearch.xaml;Course\SubjectsClustered.xaml;Course\SubjectsWithNoCourse.xaml;Teacher\TeacherCourseHistory.xaml;TeacherInformation.xaml;Teacher\TeacherProfile.xaml;
 
-True
+False
 

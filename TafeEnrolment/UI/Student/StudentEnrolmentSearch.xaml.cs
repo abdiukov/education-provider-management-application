@@ -12,24 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace UI
+namespace UI.Student
 {
     /// <summary>
-    /// Interaction logic for StudentPartTimeSearchSemester.xaml
+    /// Interaction logic for StudentEnrolmentSearch.xaml
     /// </summary>
-    public partial class StudentPartTimeSearchSemester : Window
+    public partial class StudentEnrolmentSearch : Window
     {
-        public StudentPartTimeSearchSemester()
+        public StudentEnrolmentSearch()
         {
             InitializeComponent();
-        }
-
-        //go back
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            StudentInformation pageobj = new StudentInformation();
-            pageobj.Show();
-            Close();
         }
     }
 }

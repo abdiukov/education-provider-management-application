@@ -64,44 +64,20 @@
     <Compile Include="Course\CourseTimetableSearch.xaml.cs">
       <DependentUpon>CourseTimetableSearch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LocationInformation.xaml.cs">
-      <DependentUpon>LocationInformation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SemesterInformation.xaml.cs">
-      <DependentUpon>SemesterInformation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Student\StudentEnrolmentForCourse.xaml.cs">
-      <DependentUpon>StudentEnrolmentForCourse.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Student\StudentEnrolmentForSemester.xaml.cs">
-      <DependentUpon>StudentEnrolmentForSemester.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Student\StudentFullTimeSearchLocation.xaml.cs">
-      <DependentUpon>StudentFullTimeSearchLocation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Student\StudentFullTimeSearchSemester.xaml.cs">
-      <DependentUpon>StudentFullTimeSearchSemester.xaml</DependentUpon>
-    </Compile>
     <Compile Include="StudentInformation.xaml.cs">
       <DependentUpon>StudentInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Student\StudentEnrolmentSearch.xaml.cs">
+      <DependentUpon>StudentEnrolmentSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Student\StudentNoFees.xaml.cs">
       <DependentUpon>StudentNoFees.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Student\StudentPartTimeSearchLocation.xaml.cs">
-      <DependentUpon>StudentPartTimeSearchLocation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Student\StudentPartTimeSearchSemester.xaml.cs">
-      <DependentUpon>StudentPartTimeSearchSemester.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Student\StudentProfile.xaml.cs">
       <DependentUpon>StudentProfile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Student\StudentSearchResultByCourse.xaml.cs">
-      <DependentUpon>StudentSearchResultByCourse.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Student\StudentSearchResultBySemester.xaml.cs">
-      <DependentUpon>StudentSearchResultBySemester.xaml</DependentUpon>
+    <Compile Include="Student\StudentResultSearch.xaml.cs">
+      <DependentUpon>StudentResultSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Course\SubjectsClustered.xaml.cs">
       <DependentUpon>SubjectsClustered.xaml</DependentUpon>
@@ -115,23 +91,8 @@
     <Compile Include="TeacherInformation.xaml.cs">
       <DependentUpon>TeacherInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Teacher\TeacherOtherThanBasedLocation.xaml.cs">
-      <DependentUpon>TeacherOtherThanBasedLocation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Teacher\TeacherPartTimeSearchLocation.xaml.cs">
-      <DependentUpon>TeacherPartTimeSearchLocation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Teacher\TeacherPartTimeSearchSemester.xaml.cs">
-      <DependentUpon>TeacherPartTimeSearchSemester.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Teacher\TeacherProfile.xaml.cs">
       <DependentUpon>TeacherProfile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Teacher\TeacherSearchByLocation.xaml.cs">
-      <DependentUpon>TeacherSearchByLocation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UnitInformation.xaml.cs">
-      <DependentUpon>UnitInformation.xaml</DependentUpon>
     </Compile>
     <Page Include="CourseInformation.xaml">
       <SubType>Designer</SubType>
@@ -142,10 +103,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Course\CourseTimetableSearch.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LocationInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,27 +118,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SemesterInformation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Student\StudentEnrolmentForCourse.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Student\StudentEnrolmentForSemester.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Student\StudentFullTimeSearchLocation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Student\StudentFullTimeSearchSemester.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="StudentInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Student\StudentEnrolmentSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,23 +130,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Student\StudentPartTimeSearchLocation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Student\StudentPartTimeSearchSemester.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Student\StudentProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Student\StudentSearchResultByCourse.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Student\StudentSearchResultBySemester.xaml">
+    <Page Include="Student\StudentResultSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -225,27 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Teacher\TeacherOtherThanBasedLocation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Teacher\TeacherPartTimeSearchLocation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Teacher\TeacherPartTimeSearchSemester.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Teacher\TeacherProfile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Teacher\TeacherSearchByLocation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UnitInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,9 +185,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Location\" />
-    <Folder Include="Unit\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

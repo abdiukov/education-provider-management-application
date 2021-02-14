@@ -50,23 +50,23 @@ namespace UI
 
         private void NavigateLocationInfo_Click(object sender, RoutedEventArgs e)
         {
-            LocationInformation pageobj = new LocationInformation();
-            pageobj.Show();
-            Close();
+            //LocationInformation pageobj = new LocationInformation();
+            //pageobj.Show();
+            //Close();
         }
 
         private void NavigateSemesterInfo_Click(object sender, RoutedEventArgs e)
         {
-            SemesterInformation pageobj = new SemesterInformation();
-            pageobj.Show();
-            Close();
+            //SemesterInformation pageobj = new SemesterInformation();
+            //pageobj.Show();
+            //Close();
         }
 
         private void NavigateUnitInfo_Click(object sender, RoutedEventArgs e)
         {
-            UnitInformation pageobj = new UnitInformation();
-            pageobj.Show();
-            Close();
+            //UnitInformation pageobj = new UnitInformation();
+            //pageobj.Show();
+            //Close();
         }
     }
 }

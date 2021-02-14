@@ -10,10 +10,7 @@
 
     <Grid>
         <Button x:Name="NavigateTeacherInfo" Click="NavigateTeacherInfo_Click" Content="Search teacher" HorizontalAlignment="Left" Margin="402,209,0,0" VerticalAlignment="Top" Width="180" Height="48"/>
-        <Button x:Name="NavigateCourseInfo" Click="NavigateCourseInfo_Click" Content="See course information" HorizontalAlignment="Left" Margin="402,315,0,0" VerticalAlignment="Top" Width="180" Height="48"/>
+        <Button x:Name="NavigateCourseInfo" Click="NavigateCourseInfo_Click" Content="See course information" HorizontalAlignment="Left" Margin="217,315,0,0" VerticalAlignment="Top" Width="365" Height="48"/>
         <Button x:Name="NavigateStudentInfo" Click="NavigateStudentInfo_Click" Content="Search student" HorizontalAlignment="Left" Margin="217,209,0,0" VerticalAlignment="Top" Width="180" Height="48"/>
-        <Button x:Name="NavigateLocationInfo" Click="NavigateLocationInfo_Click" Content="Search by location" HorizontalAlignment="Left" Margin="217,262,0,0" VerticalAlignment="Top" Width="180" Height="48"/>
-        <Button x:Name="NavigateSemesterInfo" Click="NavigateSemesterInfo_Click"  Content="Search by semester" HorizontalAlignment="Left" Margin="402,262,0,0" VerticalAlignment="Top" Width="180" Height="48"/>
-        <Button x:Name="NavigateUnitInfo" Click="NavigateUnitInfo_Click" Content="See unit information" HorizontalAlignment="Left" Margin="217,315,0,0" VerticalAlignment="Top" Width="180" Height="48"/>
     </Grid>
 </Window>
