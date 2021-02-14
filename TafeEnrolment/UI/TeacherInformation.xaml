@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Search a teacher" Height="450" Width="800" WindowStyle="ToolWindow"
+        Title="Search teacher" Height="450" Width="800" WindowStyle="ToolWindow"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter teacher's name" VerticalAlignment="Top" Width="595"/>
+        <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595"/>
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgTeacherProfiles" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20" FontFamily="Verdana">
+        <DataGrid Name="dgTeacherProfiles" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Path='Name'}"/>
                 <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
+                <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
                 <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
@@ -25,6 +26,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <CheckBox Content="Full Time" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Part Time" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="Teachers who teach at location other than their based location" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
