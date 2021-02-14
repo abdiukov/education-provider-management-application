@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class Unit
+    public class Unit
     {
         public List<Course> AllocatedCourses
         {

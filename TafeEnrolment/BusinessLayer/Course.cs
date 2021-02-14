@@ -25,5 +25,10 @@ namespace BusinessLayer
         {
             get;set;
         }
+
+        public List<Unit> CourseUnits
+        {
+            get;set;
+        }
     }
 }

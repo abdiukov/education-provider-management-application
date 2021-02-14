@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class StudentResult
+    public class StudentResult
     {
         public Student student
         {

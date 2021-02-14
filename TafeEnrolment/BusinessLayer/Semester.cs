@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLayer
 {
-    class Semester
+    public class Semester
     {
     }
 }

@@ -12,7 +12,7 @@ namespace Controller
         /// </summary>
         public Logic()
         {
-           this.control = new Control();
+            this.control = new Control();
         }
 
         public IEnumerable<BusinessLayer.Teacher> GetTeachers()
@@ -31,7 +31,7 @@ namespace Controller
             List<BusinessLayer.Student> output = new List<BusinessLayer.Student>();
             foreach (var student in unsorted_students)
             {
-                if(student.paidFees == false)
+                if (student.paidFees == false)
                 {
                     output.Add(student);
                 }
@@ -72,6 +72,69 @@ namespace Controller
             }
             return output;
         }
+
+        public IEnumerable<BusinessLayer.Teacher> GetPartTimeTeachers()
+        {
+            IEnumerable<BusinessLayer.Teacher> unsorted_teachers = control.GetTeachers();
+            List<BusinessLayer.Teacher> output = new List<BusinessLayer.Teacher>();
+            foreach (var teacher in unsorted_teachers)
+            {
+                if (teacher.Position == "Part Time")
+                {
+                    output.Add(teacher);
+                }
+            }
+            return output;
+        }
+
+
+        public IEnumerable<BusinessLayer.Student> GetPartTimeStudents()
+        {
+            IEnumerable<BusinessLayer.Student> unsorted_students = control.GetStudents();
+            List<BusinessLayer.Student> output = new List<BusinessLayer.Student>();
+            foreach (var student in unsorted_students)
+            {
+                if (student.Position == "Part Time")
+                {
+                    output.Add(student);
+                }
+            }
+            return output;
+        }
+
+        public IEnumerable<BusinessLayer.Student> GetFullTimeStudents()
+        {
+            IEnumerable<BusinessLayer.Student> unsorted_students = control.GetStudents();
+            List<BusinessLayer.Student> output = new List<BusinessLayer.Student>();
+            foreach (var student in unsorted_students)
+            {
+                if (student.Position == "Full Time")
+                {
+                    output.Add(student);
+                }
+            }
+            return output;
+        }
+
+        public IEnumerable<BusinessLayer.Teacher> GetFullTimeTeachersOtherThanBasedLocation()
+        {
+            IEnumerable<BusinessLayer.Teacher> unsorted_teachers = control.GetTeachers();
+            List<BusinessLayer.Teacher> output = new List<BusinessLayer.Teacher>();
+            foreach (var teacher in unsorted_teachers)
+            {
+                if (teacher.Position == "Full Time" //&& teacher's location is other than based location
+                    )
+                {
+                    output.Add(teacher);
+                }
+            }
+            return output;
+        }
+
+
+
+
+
 
     }
 }
