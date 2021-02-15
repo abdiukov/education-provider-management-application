@@ -38,7 +38,7 @@ namespace UI
         //logic
         private void SearchTextbox_MouseClick(object sender, MouseButtonEventArgs e)
         {
-            if (SearchTextbox.Text == "Enter teacher's name")
+            if (SearchTextbox.Text == "Enter keywords by which criteria to search")
             {
                 SearchTextbox.Text = "";
             }
@@ -67,7 +67,7 @@ namespace UI
 
         private void SearchDataGrid(string searchInput)
         {
-            if (SearchTextbox.Text == "Enter teacher's name")
+            if (SearchTextbox.Text == "Enter keywords by which criteria to search" || SearchTextbox.Text=="")
             {
                 MessageBox.Show("Please enter something into the search bar");
             }

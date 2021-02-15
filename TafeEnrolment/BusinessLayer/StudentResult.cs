@@ -21,6 +21,8 @@ namespace BusinessLayer
             get;set;
         }
 
+        //add result attribute
+
 
     }
 }

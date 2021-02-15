@@ -30,5 +30,41 @@ namespace UI
             pageobj.Show();
             Close();
         }
+
+        private void BtnSelect_Click(object sender, RoutedEventArgs e)
+        {
+            //
+        }
+
+        //logic
+        private void SearchTextbox_MouseClick(object sender, MouseButtonEventArgs e)
+        {
+            if (SearchTextbox.Text == "Enter keywords by which criteria to search")
+            {
+                SearchTextbox.Text = "";
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            //logic to update the datagrid for a specific teacher
+            SearchDataGrid(SearchTextbox.Text);
+        }
+
+        private void SearchDataGrid(string searchInput)
+        {
+            if (SearchTextbox.Text == "Enter keywords by which criteria to search" || SearchTextbox.Text == "")
+            {
+                MessageBox.Show("Please enter something into the search bar");
+            }
+            else
+            {
+                MessageBox.Show(searchInput);
+            }
+        }
+
+
+
+
     }
 }

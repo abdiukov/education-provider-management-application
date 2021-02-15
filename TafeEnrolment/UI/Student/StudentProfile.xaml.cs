@@ -22,6 +22,26 @@ namespace UI.Student
         public StudentProfile()
         {
             InitializeComponent();
+            Title = "Placeholder text";
+            textbox_name.Text = "Placeholder text";
+            textbox_placeholder.Text = "Student's position : " + "Full Time";
+            textbox_placeholder2.Text = "Student's name : " + "Placeholder text";
+
+
+
+            bool student_paid_fees = true;
+
+            textbox_placeholder3.Text = student_paid_fees ? 
+                "The student has paid fees" : "The student has not paid fees";
+
+        }
+
+        //go back
+        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            StudentInformation pageobj = new StudentInformation();
+            pageobj.Show();
+            Close();
         }
     }
 }

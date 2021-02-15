@@ -37,5 +37,12 @@ namespace UI.Teacher
             pageobj.Show();
             Close();
         }
+
+        private void Btn_teacherCourseHistory_Click(object sender, RoutedEventArgs e)
+        {
+            TeacherCourseHistory pageobj = new TeacherCourseHistory();
+            pageobj.Show();
+            Close();
+        }
     }
 }

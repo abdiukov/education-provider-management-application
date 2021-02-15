@@ -70,9 +70,6 @@
     <Compile Include="Student\StudentEnrolmentSearch.xaml.cs">
       <DependentUpon>StudentEnrolmentSearch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Student\StudentNoFees.xaml.cs">
-      <DependentUpon>StudentNoFees.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Student\StudentProfile.xaml.cs">
       <DependentUpon>StudentProfile.xaml</DependentUpon>
     </Compile>
@@ -123,10 +120,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Student\StudentEnrolmentSearch.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Student\StudentNoFees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

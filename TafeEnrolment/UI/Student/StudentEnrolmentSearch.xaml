@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Student"
         mc:Ignorable="d"
-        Title="StudentEnrolmentSearch" Height="450" Width="800">
+        Title="DEVELOPMENT PAGE NOT IN USE" Height="450" Width="800">
     <Grid>
-        
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
     </Grid>
 </Window>

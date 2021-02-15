@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UI.Teacher;
 
 namespace UI
 {
@@ -27,7 +28,7 @@ namespace UI
         //go back
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            TeacherInformation pageobj = new TeacherInformation();
+            TeacherProfile pageobj = new TeacherProfile();
             pageobj.Show();
             Close();
         }
