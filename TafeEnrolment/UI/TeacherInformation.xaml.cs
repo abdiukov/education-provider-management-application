@@ -67,14 +67,48 @@ namespace UI
 
         private void SearchDataGrid(string searchInput)
         {
-            if (SearchTextbox.Text == "Enter keywords by which criteria to search" || SearchTextbox.Text=="")
+            searchInput = searchInput == "Enter keywords by which criteria to search" ? "" : searchInput;
+
+            if (checkbox_SearchPartTime.IsChecked == true)
             {
-                MessageBox.Show("Please enter something into the search bar");
+                if (checkbox_SearchTeacherNotBasedLocation.IsChecked == true)
+                {
+                    MessageBox.Show("Show part time teachers who are not teaching at their base location " + searchInput);
+                }
+                else
+                {
+                    MessageBox.Show("Show part time teachers " + searchInput);
+                }
+            }
+            else if (checkbox_SearchFullTime.IsChecked == true)
+            {
+                if (checkbox_SearchTeacherNotBasedLocation.IsChecked == true)
+                {
+                    MessageBox.Show("Show full time teachers who are not teaching at their base location " + searchInput);
+                }
+                else
+                {
+                    MessageBox.Show("Show full time teachers " + searchInput);
+                }
+            }
+            else if (checkbox_SearchTeacherNotBasedLocation.IsChecked == true)
+            {
+                MessageBox.Show("Show all teachers who are not teaching at their base location " + searchInput);
             }
             else
             {
-                MessageBox.Show(searchInput);
+                MessageBox.Show("Search everyone " +searchInput);
             }
+        }
+
+        private void checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
+        {
+            checkbox_SearchFullTime.IsChecked = false;
+        }
+
+        private void checkbox_SearchFullTime_Checked(object sender, RoutedEventArgs e)
+        {
+            checkbox_SearchPartTime.IsChecked = false;
         }
     }
 }

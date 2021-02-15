@@ -26,9 +26,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <CheckBox Content="Full Time" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Part Time" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="Teachers who teach at location other than their based location" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox_SearchFullTime" Checked="checkbox_SearchFullTime_Checked" Content="Full Time" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox_SearchPartTime" Checked="checkbox_SearchPartTime_Checked" Content="Part Time" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox_SearchTeacherNotBasedLocation" Content="Teachers who teach at location other than their based location" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

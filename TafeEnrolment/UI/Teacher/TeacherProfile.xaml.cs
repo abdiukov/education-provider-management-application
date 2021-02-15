@@ -23,8 +23,8 @@ namespace UI.Teacher
         {
             InitializeComponent();
 
-            Title = "Placeholder text";
-            textbox_name.Text = "Placeholder text";
+            Title = "Teacher's name goes here";
+            textbox_name.Text = "Teacher's location : "+"Granville";
             textbox_placeholder.Text = "Teacher's position : " + "Full Time";
             textbox_placeholder2.Text = "Teacher's name : " + "Placeholder text";
             textbox_placeholder3.Text = "Placeholder text4";

@@ -36,7 +36,7 @@ namespace UI
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            //logic to update the datagrid for a specific teacher
+            //logic to update the datagrid for a specific student
             SearchDataGrid(SearchTextbox.Text);
 
             //below is placeholder code for testing
@@ -47,7 +47,7 @@ namespace UI
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
-            //logic to go to teacher's page
+            //logic to go to student's page
             StudentProfile pageobj = new StudentProfile();
             pageobj.Show();
             Close();
@@ -56,13 +56,37 @@ namespace UI
 
         private void SearchDataGrid(string searchInput)
         {
-            if (SearchTextbox.Text == "Enter keywords by which criteria to search" || SearchTextbox.Text=="")
+            searchInput = searchInput == "Enter keywords by which criteria to search" ? "" : searchInput;
+
+            if (checkbox_SearchPartTime.IsChecked == true)
             {
-                MessageBox.Show("Please enter something into the search bar");
+                if (checkbox_EnrolledNoFees.IsChecked == true)
+                {
+                    MessageBox.Show("Show part time students who have not paid fees " + searchInput);
+                }
+                else
+                {
+                    MessageBox.Show("Show part time students " + searchInput);
+                }
+            }
+            else if (checkbox_SearchFullTime.IsChecked == true)
+            {
+                if (checkbox_EnrolledNoFees.IsChecked == true)
+                {
+                    MessageBox.Show("Show full time students who have not paid fees " +searchInput );
+                }
+                else
+                {
+                    MessageBox.Show("Show full time students " + searchInput);
+                }
+            }
+            else if (checkbox_EnrolledNoFees.IsChecked == true)
+            {
+                MessageBox.Show("Show all students who have not paid fees " +searchInput);
             }
             else
             {
-                MessageBox.Show(searchInput);
+                MessageBox.Show("Search everyone" + searchInput);
             }
         }
 
@@ -74,5 +98,14 @@ namespace UI
             Close();
         }
 
+        private void checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
+        {
+            checkbox_SearchFullTime.IsChecked = false;
+        }
+
+        private void checkbox_SearchFullTime_Checked(object sender, RoutedEventArgs e)
+        {
+            checkbox_SearchPartTime.IsChecked = false;
+        }
     }
 }

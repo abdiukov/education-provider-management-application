@@ -75,9 +75,17 @@ namespace UI
         {
             if (searchInput == "Enter keywords by which criteria to search" || searchInput == "")
             {
-                MessageBox.Show("Searches everything");
+                if(checkbox_SearchPastCourse.IsChecked == true || (checkbox_SearchPastCourse.IsChecked == true)){
+
+                    searchInput = "";
+                }
+                else
+                {
+                    MessageBox.Show("Search everything");
+                    goto Exit_Loop;
+                }
             }
-            else if (checkbox_SearchPresentCourse.IsChecked == true)
+            if (checkbox_SearchPresentCourse.IsChecked == true)
             {
                 MessageBox.Show("Display results for current courses : " + searchInput);
             }
@@ -90,8 +98,8 @@ namespace UI
             {
                 MessageBox.Show("Display results for both past and present courses : " + searchInput);
             }
-
-            dgCourseHistory.Visibility = Visibility.Hidden;
+           Exit_Loop:
+            dgCourseHistory.Visibility = Visibility.Visible;
         }
 
         private void SearchTextbox_TextChanged(object sender, TextChangedEventArgs e)
