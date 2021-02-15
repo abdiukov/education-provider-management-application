@@ -15,14 +15,15 @@ using System.Windows.Shapes;
 namespace UI.Student
 {
     /// <summary>
-    /// Interaction logic for StudentEnrolmentSearch.xaml
+    /// Interaction logic for StudentEnrolment.xaml
     /// </summary>
-    public partial class StudentEnrolmentSearch : Window
+    public partial class StudentEnrolment : Window
     {
-        public StudentEnrolmentSearch()
+        public StudentEnrolment()
         {
             InitializeComponent();
         }
+
         //go back
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {

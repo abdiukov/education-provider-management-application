@@ -14,8 +14,7 @@
         <TextBox x:Name="textbox_placeholder2" HorizontalAlignment="Left" Margin="10,70,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" BorderThickness="0" IsReadOnly="True" Height="20" Grid.ColumnSpan="2"/>
         <TextBox x:Name="textbox_placeholder3" HorizontalAlignment="Left" Margin="10,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" BorderThickness="0" IsReadOnly="True" Height="20" Grid.ColumnSpan="2"/>
 
-        <Button Name="Btn_teacherCourseHistory" Content="See teacher's past course history" HorizontalAlignment="Left" Margin="485,339,0,0" VerticalAlignment="Top" Width="181" Height="61" />
-        <Button Name="Btn_placeholder3" Content="See the current teacher's courses" HorizontalAlignment="Left" Margin="87,339,0,0" VerticalAlignment="Top" Width="183" Height="61"/>
-        <Button Name="Btn_placeholder1" Content="See all location the teacher teaches at" HorizontalAlignment="Left" Margin="275,339,0,0" VerticalAlignment="Top" Width="205" Height="61"/>
+        <Button Name="Btn_StudentEnrolment" Content="See the courses the student is enrolled at" HorizontalAlignment="Left" Margin="485,339,0,0" VerticalAlignment="Top" Width="231" Height="61" Click="Btn_StudentEnrolment_Click" />
+        <Button Name="Btn_StudentResult" Content="See the student results" HorizontalAlignment="Left" Margin="87,339,0,0" VerticalAlignment="Top" Width="183" Height="61" Click="Btn_StudentResult_Click"/>
     </Grid>
 </Window>

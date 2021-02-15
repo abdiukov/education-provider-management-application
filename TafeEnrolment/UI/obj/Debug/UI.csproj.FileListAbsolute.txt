@@ -93,7 +93,7 @@ C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Teacher\Teac
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Teacher\TeacherProfile.baml
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentProfile.g.cs
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentProfile.baml
-C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentEnrolmentSearch.g.cs
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentResultSearch.g.cs
-C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentEnrolmentSearch.baml
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentResultSearch.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentEnrolment.g.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentEnrolment.baml

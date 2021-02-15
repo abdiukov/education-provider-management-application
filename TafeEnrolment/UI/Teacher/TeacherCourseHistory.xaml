@@ -5,9 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="See teacher course history" Height="450" Width="800"
+        Title="Search course history" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
+        <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_PreviewMouseDown" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595" KeyDown="SearchTextbox_KeyDown" TextChanged="SearchTextbox_TextChanged"/>
+        <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
+        <DataGrid Name="dgCourseHistory" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20" FontFamily="Verdana">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name of the course" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="Units" Binding="{Binding Path='CourseUnit'}"/>
+                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
+                <DataGridTextColumn Header="Course status" Binding="{Binding Path='CourseStatus'}"/>
+                <DataGridTemplateColumn Header="" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <CheckBox x:Name="checkbox_SearchPastCourse" Checked="checkbox_SearchPastCourse_Checked" Content="Taught in the past" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox_SearchPresentCourse" Checked="checkbox_SearchPresentCourse_Checked" Content="Currently teaches" HorizontalAlignment="Left" Margin="225,80,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

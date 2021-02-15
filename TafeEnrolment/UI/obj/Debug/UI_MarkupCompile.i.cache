@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\App.xaml
-13-291071939
+131279594849
 
-181626829872
+18-1929737259
 13-1505183044
-CourseInformation.xaml;Course\CourseNotOffered.xaml;Course\CourseTimetableSearch.xaml;MainWindow.xaml;StudentInformation.xaml;Student\StudentEnrolmentSearch.xaml;Student\StudentProfile.xaml;Student\StudentResultSearch.xaml;Course\SubjectsClustered.xaml;Course\SubjectsWithNoCourse.xaml;Teacher\TeacherCourseHistory.xaml;TeacherInformation.xaml;Teacher\TeacherProfile.xaml;
+CourseInformation.xaml;Course\CourseNotOffered.xaml;Course\CourseTimetableSearch.xaml;MainWindow.xaml;StudentInformation.xaml;Student\StudentEnrolment.xaml;Student\StudentProfile.xaml;Student\StudentResultSearch.xaml;Course\SubjectsClustered.xaml;Course\SubjectsWithNoCourse.xaml;Teacher\TeacherCourseHistory.xaml;TeacherInformation.xaml;Teacher\TeacherProfile.xaml;
 
-True
+False
 

@@ -43,5 +43,19 @@ namespace UI.Student
             pageobj.Show();
             Close();
         }
+
+        private void Btn_StudentEnrolment_Click(object sender, RoutedEventArgs e)
+        {
+            StudentEnrolment pageobj = new StudentEnrolment();
+            pageobj.Show();
+            Close();
+        }
+
+        private void Btn_StudentResult_Click(object sender, RoutedEventArgs e)
+        {
+            StudentResultSearch pageobj = new StudentResultSearch();
+            pageobj.Show();
+            Close();
+        }
     }
 }
