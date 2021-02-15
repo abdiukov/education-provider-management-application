@@ -8,11 +8,11 @@
         Title="See student results" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        <DataGrid Name="dgStudentResults" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20" FontFamily="Verdana">
+        <DataGrid Name="dgStudentResults" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path='Name'}"/>
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
-                <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
+                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='Course'}"/>
+                <DataGridTextColumn Header="Units" Binding="{Binding Path='Units'}"/>
+                <DataGridTextColumn Header="Satisfactory" Binding="{Binding Path='Satisfactory'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

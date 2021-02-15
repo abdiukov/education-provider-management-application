@@ -22,10 +22,10 @@ namespace UI.Student
         public StudentProfile()
         {
             InitializeComponent();
-            Title = "Placeholder text";
+            Title = "Student's name goes here";
             textbox_name.Text = "Placeholder text";
             textbox_placeholder.Text = "Student's position : " + "Full Time";
-            textbox_placeholder2.Text = "Student's name : " + "Placeholder text";
+            textbox_placeholder2.Text = "Student's name : " + "John Doe";
 
 
 

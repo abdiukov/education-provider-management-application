@@ -30,7 +30,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public Timetable Student_Timetable
+        public Timetable timetable
         {
             get;set;
         }

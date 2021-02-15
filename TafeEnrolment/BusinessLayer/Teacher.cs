@@ -6,6 +6,11 @@ namespace BusinessLayer
 {
     public class Teacher
     {
+        public bool OtherThanBaseLocation
+        {
+            get;set;
+        }
+
         public string FirstName
         {
             get; set;

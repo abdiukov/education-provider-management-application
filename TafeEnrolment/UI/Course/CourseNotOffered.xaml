@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgCourseNotOffered" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20" FontFamily="Verdana">
+        <DataGrid Name="dgCourseNotOffered" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
                 <DataGridTextColumn Header="Course Units" Binding="{Binding Path='CourseUnits'}"/>

@@ -9,11 +9,11 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgStudentProfiles" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="20" FontFamily="Verdana">
+        <DataGrid Name="dgStudentEnrolment" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Path='Name'}"/>
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
-                <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
+                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
+                <DataGridTextColumn Header="Units" Binding="{Binding Path='Units'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
