@@ -1,0 +1,9 @@
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\bin\Debug\netstandard2.0\BusinessLayer.deps.json
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\bin\Debug\netstandard2.0\BusinessLayer.dll
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\bin\Debug\netstandard2.0\BusinessLayer.pdb
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\obj\Debug\netstandard2.0\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\obj\Debug\netstandard2.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\obj\Debug\netstandard2.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\obj\Debug\netstandard2.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\obj\Debug\netstandard2.0\BusinessLayer.dll
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\BusinessLayer\obj\Debug\netstandard2.0\BusinessLayer.pdb

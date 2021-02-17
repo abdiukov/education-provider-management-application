@@ -97,3 +97,11 @@ C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\Stud
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentResultSearch.baml
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentEnrolment.g.cs
 C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\Student\StudentEnrolment.baml
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\bin\Debug\BusinessLayer.dll
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\bin\Debug\ModelLayer.dll
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\bin\Debug\DataLinkLayer.exe
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\bin\Debug\BusinessLayer.pdb
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\bin\Debug\ModelLayer.pdb
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\bin\Debug\DataLinkLayer.pdb
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\bin\Debug\DataLinkLayer.exe.config
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\UI\obj\Debug\UI.csproj.CopyComplete

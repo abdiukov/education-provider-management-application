@@ -1,0 +1,10 @@
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\DataLinkLayer.exe.config
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\DataLinkLayer.exe
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\DataLinkLayer.pdb
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\BusinessLayer.dll
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\DataLinkLayer.csprojAssemblyReference.cache
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\DataLinkLayer.csproj.CoreCompileInputs.cache
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\DataLinkLayer.csproj.CopyComplete
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\DataLinkLayer.exe
+C:\Users\Ash\Desktop\skills\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\DataLinkLayer.pdb
