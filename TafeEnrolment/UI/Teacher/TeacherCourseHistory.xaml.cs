@@ -1,4 +1,5 @@
-﻿using ModelLayer;
+﻿using BusinessLayer;
+using ModelLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace UI
 
             Logic logic = new Logic();
             this.logic = logic;
+            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
         }
 
         //go back

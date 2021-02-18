@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace UI
         public SubjectsClustered()
         {
             InitializeComponent();
+            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
         }
 
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)

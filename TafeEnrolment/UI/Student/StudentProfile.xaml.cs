@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace UI.Student
         {
             InitializeComponent();
             Title = "Student's name goes here";
+            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+
 
             //            bool student_paid_fees = true;
 

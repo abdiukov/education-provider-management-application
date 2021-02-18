@@ -23,36 +23,32 @@ namespace BusinessLayer
 
         //END OF DEFINING THE GLOBAL VAUES THAT WILL BE USED BY THE WHILE PROGRAM
 
-        public void Initialise()
-        {
-            //CHECKING WHETHER THE XML FILE EXISTS
-            //IF THE XML FILE DOESNT EXIST, A NEW ONE IS CREATED
-            //ALSO THE VALUE OF ROOT IS ASSIGNED
-
-            switch (File.Exists("Breadcrumbs.xml"))
-            {
-
-                case true:
-                    breadcrumbs_document_xml.Load("Breadcrumbs.xml");
-                    root = breadcrumbs_document_xml.FirstChild;
-                    break;
-                case false:
-                    root = breadcrumbs_document_xml.CreateElement("root");
-                    breadcrumbs_document_xml.AppendChild(root);
-                    breadcrumbs_document_xml.Save("Breadcrumbs.xml");
-                    break;
-            }
-        }
-
 
         public Breadcrumbs(string currentDocumentName)
         {
+            //if it is the main window, then clear breadcrumbs
+            if (currentDocumentName == "MainWindow")
+            {
+                File.Delete("Breadcrumbs.xml");
+                root = breadcrumbs_document_xml.CreateElement("root");
+                breadcrumbs_document_xml.AppendChild(root);
+                breadcrumbs_document_xml.Save("Breadcrumbs.xml");
+            }
+            else
+            {
+                breadcrumbs_document_xml.Load("Breadcrumbs.xml");
+                root = breadcrumbs_document_xml.FirstChild;
+            }
             this.currentDocumentName = currentDocumentName;
-            Initialise();
+
+
+            //adding the item to breadcrumbs
+            AddItem();
+
         }
 
 
-        public void AddItem()
+        private void AddItem()
         {
             if (currentDocumentName.Length > 0)
             {
