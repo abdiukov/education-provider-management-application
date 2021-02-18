@@ -8,10 +8,44 @@
         Title="" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        <TextBox Name="textbox_name" HorizontalAlignment="Left" Margin="316,32,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" BorderThickness="0" IsReadOnly="True" Height="20" Grid.Column="1"/>
-        <TextBox x:Name="textbox_placeholder" HorizontalAlignment="Left" Margin="10,104,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" BorderThickness="0" IsReadOnly="True" Height="22" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textbox_placeholder2" HorizontalAlignment="Left" Margin="10,70,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" BorderThickness="0" IsReadOnly="True" Height="20" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textbox_placeholder3" HorizontalAlignment="Left" Margin="10,140,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" BorderThickness="0" IsReadOnly="True" Height="20" Grid.ColumnSpan="2"/>
+        <DataGrid Name="dgStudentProfile" HorizontalAlignment="Center" Margin="272,50,272,0" VerticalAlignment="Top" Width="250" Height="200" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding Path='FirstName'}"/>
+                <DataGridTextColumn Header="Surname" Binding="{Binding Path='LastName'}"/>
+                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
+                <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
+            </DataGrid.Columns>
+            <DataGrid.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="90"/>
+                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                </TransformGroup>
+            </DataGrid.LayoutTransform>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90"/>
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style  TargetType="DataGridCell">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90"/>
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
         <Button Name="Btn_teacherCourseHistory" Content="See teacher course history" HorizontalAlignment="Left" Margin="316,341,0,0" VerticalAlignment="Top" Width="181" Height="61" Click="Btn_teacherCourseHistory_Click" />
     </Grid>
