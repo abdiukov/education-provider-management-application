@@ -13,9 +13,14 @@
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <DataGrid Name="dgTimetable" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Placeholder" Binding="{Binding Path='Placeholder'}"/>
-                <DataGridTextColumn Header="Placeholder2" Binding="{Binding Path='Placeholder2'}"/>
-                <DataGridTextColumn Header="Placeholder3" Binding="{Binding Path='Placeholder3'}"/>
+                
+                <DataGridTextColumn Header="Location" Binding="{Binding Path='location'}"/>
+                <DataGridTextColumn Header="Course" Binding="{Binding Path='enrolledCourses'}"/>
+                <DataGridTextColumn Header="Teacher" Binding="{Binding Path='TeachersForCourse'}"/>
+                <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
+                <DataGridTextColumn Header="Start" Binding="{Binding Path='startDate'}"/>
+                <DataGridTextColumn Header="Finish" Binding="{Binding Path='endDate'}"/>
+
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

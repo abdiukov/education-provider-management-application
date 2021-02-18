@@ -41,5 +41,10 @@ namespace BusinessLayer
             get;set;
         }
 
+        public string courseStatus
+        {
+            get;set;
+        }
+
     }
 }
