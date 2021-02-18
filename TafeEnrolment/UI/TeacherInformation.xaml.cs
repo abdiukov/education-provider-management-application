@@ -110,5 +110,17 @@ namespace UI
         {
             checkbox_SearchPartTime.IsChecked = false;
         }
+
+        private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)
+        {
+            TeacherCourseHistory pageobj = new TeacherCourseHistory();
+            pageobj.Show();
+            Close();
+        }
+
+        private void dgTeacherProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+        }
     }
 }

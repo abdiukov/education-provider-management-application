@@ -11,7 +11,7 @@
         <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595"/>
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgTeacherProfiles" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <DataGrid Name="dgTeacherProfiles" MouseRightButtonDown="dgTeacherProfiles_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding Path='FirstName'}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding Path='LastName'}"/>
@@ -22,7 +22,10 @@
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="BtnSelect" Content="Add" Click="BtnSelect_Click" />
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="BtnSelect" Content="See profile" Click="BtnSelect_Click" />
+                                <Button Name="Btn_CourseHistory" Content="See course history" Click="Btn_CourseHistory_Click" />
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

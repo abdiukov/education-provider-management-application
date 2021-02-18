@@ -31,5 +31,15 @@ namespace BusinessLayer
             get;set;
         }
 
+        public DateTime courseStartDate
+        {
+            get;set;
+        }
+
+        public DateTime courseEndDate
+        {
+            get;set;
+        }
+
     }
 }

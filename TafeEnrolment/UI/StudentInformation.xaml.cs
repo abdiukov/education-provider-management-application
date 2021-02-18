@@ -98,6 +98,8 @@ namespace UI
             Close();
         }
 
+
+        //check box logic
         private void checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
         {
             checkbox_SearchFullTime.IsChecked = false;
@@ -106,6 +108,27 @@ namespace UI
         private void checkbox_SearchFullTime_Checked(object sender, RoutedEventArgs e)
         {
             checkbox_SearchPartTime.IsChecked = false;
+        }
+
+
+        private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
+        {
+            StudentResultSearch pageobj = new StudentResultSearch();
+            pageobj.Show();
+            Close();
+        }
+
+        private void dgStudentProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //code for changing the datagrid settings
+            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+        }
+
+        private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
+        {
+            StudentEnrolment pageobj = new StudentEnrolment();
+            pageobj.Show();
+            Close();
         }
     }
 }

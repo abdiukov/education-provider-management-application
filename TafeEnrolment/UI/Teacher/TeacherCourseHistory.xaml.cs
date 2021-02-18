@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModelLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,14 @@ namespace UI
     /// </summary>
     public partial class TeacherCourseHistory : Window
     {
+        private readonly Logic logic;
         public TeacherCourseHistory()
         {
             InitializeComponent();
             dgCourseHistory.Visibility = Visibility.Hidden;
 
-            //Logic logic = new Logic();
+            Logic logic = new Logic();
+            this.logic = logic;
         }
 
         //go back
@@ -75,7 +78,8 @@ namespace UI
         {
             if (searchInput == "Enter keywords by which criteria to search" || searchInput == "")
             {
-                if(checkbox_SearchPastCourse.IsChecked == true || (checkbox_SearchPastCourse.IsChecked == true)){
+                if (checkbox_SearchPastCourse.IsChecked == true || (checkbox_SearchPastCourse.IsChecked == true))
+                {
 
                     searchInput = "";
                 }
@@ -98,16 +102,9 @@ namespace UI
             {
                 MessageBox.Show("Display results for both past and present courses : " + searchInput);
             }
-           Exit_Loop:
+        Exit_Loop:
             dgCourseHistory.Visibility = Visibility.Visible;
         }
 
-        private void SearchTextbox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (SearchTextbox.Text != "Enter keywords by which criteria to search")
-            {
-                dgCourseHistory.Visibility = Visibility.Hidden;
-            }
-        }
     }
 }

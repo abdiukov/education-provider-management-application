@@ -23,16 +23,11 @@ namespace UI.Student
         {
             InitializeComponent();
             Title = "Student's name goes here";
-            textbox_name.Text = "Placeholder text";
-            textbox_placeholder.Text = "Student's position : " + "Full Time";
-            textbox_placeholder2.Text = "Student's name : " + "John Doe";
 
+            //            bool student_paid_fees = true;
 
-
-            bool student_paid_fees = true;
-
-            textbox_placeholder3.Text = student_paid_fees ? 
-                "The student has paid fees" : "The student has not paid fees";
+            //            textbox_placeholder3.Text = student_paid_fees ? 
+            //              "The student has paid fees" : "The student has not paid fees";
 
         }
 
@@ -57,5 +52,6 @@ namespace UI.Student
             pageobj.Show();
             Close();
         }
+
     }
 }
