@@ -25,6 +25,14 @@ namespace UI
         {
             InitializeComponent();
             Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+
+            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+ 
+
+            //foreach (var item in pages)
+            //{
+            //    i++;
+            //}
         }
 
 
@@ -99,7 +107,7 @@ namespace UI
             }
             else
             {
-                MessageBox.Show("Search everyone " +searchInput);
+                MessageBox.Show("Search everyone " + searchInput);
             }
         }
 

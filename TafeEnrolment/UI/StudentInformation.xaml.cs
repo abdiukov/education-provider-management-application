@@ -26,7 +26,7 @@ namespace UI
             InitializeComponent();
             Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
 
-            textbox_BreadCrumbs.Text = brdcrumb_tracker.ToString();
+           // textbox_BreadCrumbs.Text = brdcrumb_tracker.ToString();
         }
 
         //logic

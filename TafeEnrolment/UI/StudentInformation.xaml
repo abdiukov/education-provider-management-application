@@ -36,7 +36,7 @@
         <CheckBox x:Name="checkbox_EnrolledNoFees" Content="Students who have enrolled but not paid the fees" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="textbox_BreadCrumbs" FontSize="13" HorizontalAlignment="Left" 
                    Margin="40,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" 
-                   Height="25" Width="450">
+                   Height="25" Width="732">
         </TextBlock>
     </Grid>
 </Window>

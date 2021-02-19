@@ -79,18 +79,18 @@ namespace BusinessLayer
 
         //START OF "OUTPUT" SECTION OF CODE
 
-        public override string ToString()
+        public List<BreadcrumbsData> GetListOfPagesVisited()
         {
             //output string
-            string output_string = "";
+            List<BreadcrumbsData> output_string = new List<BreadcrumbsData>();
 
             //every item gets formatted in a certain way
             foreach (XmlNode output_node in root.ChildNodes)
             {
-                output_string += output_node.Attributes["Location"].Value+ "/";
+                output_string.Add(new BreadcrumbsData(output_node.Attributes["Location"].Value));
             }
-            //removing the last '/' and outputting
-            return output_string.Substring(0, output_string.Length - 1);
+            // outputting
+            return output_string;
         }
 
         //END OF "OUTPUT" SECTION OF CODE
