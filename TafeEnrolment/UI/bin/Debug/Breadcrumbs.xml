@@ -1,5 +1,14 @@
 <root>
-  <doc>
+  <Page>
     <Name>MainWindow</Name>
-  </doc>
+  </Page>
+  <Page>
+    <Name>StudentInformation</Name>
+  </Page>
+  <Page>
+    <Name>StudentProfile</Name>
+  </Page>
+  <Page>
+    <Name>StudentInformation</Name>
+  </Page>
 </root>

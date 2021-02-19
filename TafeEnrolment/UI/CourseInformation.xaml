@@ -8,7 +8,7 @@
         Title="See course information" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <Button Name="courseNotOffered_navigation_btn" Content="See all courses which are not offered this semester" HorizontalAlignment="Left" Margin="174,166,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseNotOffered_navigation_btn_Click"/>
         <Button Name="subjectsNotAllocated_navigation_btn" Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,244,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="subjectsNotAllocated_navigation_btn_Click"/>
         <Button Name="clusterUnitCourse_navigation_btn" Content="See cluster units for any course and semester." HorizontalAlignment="Left" Margin="174,88,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="clusterUnitCourse_navigation_btn_Click"/>

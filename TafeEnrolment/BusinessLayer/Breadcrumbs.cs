@@ -23,7 +23,6 @@ namespace BusinessLayer
 
         //END OF DEFINING THE GLOBAL VAUES THAT WILL BE USED BY THE WHILE PROGRAM
 
-
         public Breadcrumbs(string currentDocumentName)
         {
             //if it is the main window, then clear breadcrumbs
@@ -47,18 +46,19 @@ namespace BusinessLayer
 
         }
 
+        //START OF "ADD AN ITEM" SECTION OF CODE
 
         private void AddItem()
         {
             if (currentDocumentName.Length > 0)
             {
-                XmlNode doc_tag = breadcrumbs_document_xml.CreateElement("doc");
-                root.AppendChild(doc_tag);
+                XmlNode page_tag = breadcrumbs_document_xml.CreateElement("Page");
+                root.AppendChild(page_tag);
 
                 //creating the xml tags, where the textbox input will be stored
                 DocumentName = breadcrumbs_document_xml.CreateElement("Name");
                 DocumentName.InnerText = currentDocumentName;
-                doc_tag.AppendChild(DocumentName);
+                page_tag.AppendChild(DocumentName);
 
                 breadcrumbs_document_xml.Save("Breadcrumbs.xml");
             }
@@ -69,7 +69,6 @@ namespace BusinessLayer
 
         //START OF "REMOVE AN ITEM" SECTION OF CODE
 
-
         public void RemoveItem(int index_to_remove)
         {
             //selecting the item that is to be removed
@@ -79,6 +78,11 @@ namespace BusinessLayer
             breadcrumbs_document_xml.Save("Breadcrumbs.xml");
         }
 
+        //END OF "REMOVE AN ITEM" SECTION OF CODE
+
+
+        //START OF "OUTPUT" SECTION OF CODE
+
         public override string ToString()
         {
             //output string
@@ -87,11 +91,14 @@ namespace BusinessLayer
             //every item gets formatted in a certain way
             foreach (XmlNode output_node in root.ChildNodes)
             {
-                output_string += output_node.SelectSingleNode("Name") + "/";
+                output_string += output_node.SelectSingleNode("Name").InnerText + "/";
             }
             //removing the last '/'
             return output_string.Substring(0, output_string.Length - 1);
         }
+
+        //END OF "OUTPUT" SECTION OF CODE
+
 
     }
 

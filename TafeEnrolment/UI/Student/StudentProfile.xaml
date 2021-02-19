@@ -47,7 +47,7 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <Button Name="Btn_StudentEnrolment" Content="See the courses the student is enrolled at (PLACEHOLDER)" HorizontalAlignment="Left" Margin="382,339,0,0" VerticalAlignment="Top" Width="371" Height="61" Click="Btn_StudentEnrolment_Click" />
         <Button Name="Btn_StudentResult" Content="See the student result (PLACEHOLDER)" HorizontalAlignment="Left" Margin="87,339,0,0" VerticalAlignment="Top" Width="247" Height="61" Click="Btn_StudentResult_Click"/>
     </Grid>

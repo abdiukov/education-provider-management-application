@@ -10,7 +10,7 @@
     <Grid>
         <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595"/>
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
-        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgStudentProfiles" MouseRightButtonDown="dgStudentProfiles_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding Path='FirstName'}"/>
@@ -34,5 +34,9 @@
         <CheckBox x:Name="checkbox_SearchFullTime" Checked="checkbox_SearchFullTime_Checked" Content="Full Time" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkbox_SearchPartTime"  Checked="checkbox_SearchPartTime_Checked" Content="Part Time" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkbox_EnrolledNoFees" Content="Students who have enrolled but not paid the fees" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textbox_BreadCrumbs" FontSize="13" HorizontalAlignment="Left" 
+                   Margin="40,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" 
+                   Height="25" Width="450">
+        </TextBlock>
     </Grid>
 </Window>

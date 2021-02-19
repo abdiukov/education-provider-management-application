@@ -10,7 +10,7 @@
     <Grid>
         <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_PreviewMouseDown" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595" KeyDown="SearchTextbox_KeyDown" />
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
-        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Height="25" Click="goBack_navigation_btn_Click"/>
+        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgCourseHistory" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name of the course" Binding="{Binding Path='Name'}"/>
