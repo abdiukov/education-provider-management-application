@@ -28,11 +28,6 @@ namespace UI
 
             dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
  
-
-            //foreach (var item in pages)
-            //{
-            //    i++;
-            //}
         }
 
 
@@ -132,5 +127,15 @@ namespace UI
         {
             MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
         }
+
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            MessageBox.Show(dgBreadcrmbs.SelectedItem.ToString());
+            dgBreadcrmbs.CancelEdit();
+        }
+
+
+
+
     }
 }
