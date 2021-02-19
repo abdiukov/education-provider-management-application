@@ -16,7 +16,6 @@ namespace BusinessLayer
 
         XmlDocument breadcrumbs_document_xml = new XmlDocument();
         XmlNode root;
-        XmlNode DocumentName;
 
         //the name of the document is retrieved from consturctor
         private string currentDocumentName;
@@ -55,10 +54,7 @@ namespace BusinessLayer
                 XmlNode page_tag = breadcrumbs_document_xml.CreateElement("Page");
                 root.AppendChild(page_tag);
 
-                //creating the xml tags, where the textbox input will be stored
-                DocumentName = breadcrumbs_document_xml.CreateElement("Name");
-                DocumentName.InnerText = currentDocumentName;
-                page_tag.AppendChild(DocumentName);
+                ((XmlElement)page_tag).SetAttribute("Location", currentDocumentName);
 
                 breadcrumbs_document_xml.Save("Breadcrumbs.xml");
             }
@@ -91,9 +87,9 @@ namespace BusinessLayer
             //every item gets formatted in a certain way
             foreach (XmlNode output_node in root.ChildNodes)
             {
-                output_string += output_node.SelectSingleNode("Name").InnerText + "/";
+                output_string += output_node.Attributes["Location"].Value+ "/";
             }
-            //removing the last '/'
+            //removing the last '/' and outputting
             return output_string.Substring(0, output_string.Length - 1);
         }
 
