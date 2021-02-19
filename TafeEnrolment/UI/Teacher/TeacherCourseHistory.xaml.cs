@@ -31,6 +31,8 @@ namespace UI
             Logic logic = new Logic();
             this.logic = logic;
             Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+
         }
 
         //go back

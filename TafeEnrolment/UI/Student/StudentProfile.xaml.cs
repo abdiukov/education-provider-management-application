@@ -25,6 +25,8 @@ namespace UI.Student
             InitializeComponent();
             Title = "Student's name goes here";
             Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+
 
 
             //            bool student_paid_fees = true;

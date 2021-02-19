@@ -26,6 +26,8 @@ namespace UI.Teacher
 
             Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
             Title = "Teacher's name goes here";
+            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+
         }
 
         //go back

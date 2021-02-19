@@ -24,6 +24,7 @@ namespace UI
         {
             InitializeComponent();
             Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
 
         }
 

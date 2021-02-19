@@ -9,9 +9,52 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <Button Name="courseNotOffered_navigation_btn" Content="See all courses which are not offered this semester" HorizontalAlignment="Left" Margin="174,166,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseNotOffered_navigation_btn_Click"/>
-        <Button Name="subjectsNotAllocated_navigation_btn" Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,244,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="subjectsNotAllocated_navigation_btn_Click"/>
-        <Button Name="clusterUnitCourse_navigation_btn" Content="See cluster units for any course and semester." HorizontalAlignment="Left" Margin="174,88,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="clusterUnitCourse_navigation_btn_Click"/>
-        <Button Name ="courseTimetables_navigation_btn" Content="Display timetable for a course being offered at all locations" HorizontalAlignment="Left" Margin="174,10,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseTimetables_navigation_btn_Click"/>
+        <Button Name="courseNotOffered_navigation_btn" Content="See all courses which are not offered this semester" HorizontalAlignment="Left" Margin="174,234,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseNotOffered_navigation_btn_Click"/>
+        <Button Name="subjectsNotAllocated_navigation_btn" Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,312,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="subjectsNotAllocated_navigation_btn_Click"/>
+        <Button Name="clusterUnitCourse_navigation_btn" Content="See cluster units for any course and semester." HorizontalAlignment="Left" Margin="174,156,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="clusterUnitCourse_navigation_btn_Click"/>
+        <Button Name ="courseTimetables_navigation_btn" Content="Display timetable for a course being offered at all locations" HorizontalAlignment="Left" Margin="174,78,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseTimetables_navigation_btn_Click"/>
+        <DataGrid Name="dgBreadcrmbs" HorizontalAlignment="Left" 
+                   Margin="40,10,0,0" VerticalAlignment="Top" 
+                   Height="732" Width="25"
+                  IsReadOnly="True"
+                  ColumnHeaderHeight="0"
+                  AutoGenerateColumns="False" FontSize="13"
+                  GridLinesVisibility="None"
+                  HeadersVisibility="None"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="" Binding="{Binding Path='Name'}"/>
+            </DataGrid.Columns>
+            <DataGrid.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="90"/>
+                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                </TransformGroup>
+            </DataGrid.LayoutTransform>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90"/>
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style  TargetType="DataGridCell">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90"/>
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
     </Grid>
 </Window>

@@ -34,9 +34,48 @@
         <CheckBox x:Name="checkbox_SearchFullTime" Checked="checkbox_SearchFullTime_Checked" Content="Full Time" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkbox_SearchPartTime"  Checked="checkbox_SearchPartTime_Checked" Content="Part Time" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkbox_EnrolledNoFees" Content="Students who have enrolled but not paid the fees" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textbox_BreadCrumbs" FontSize="13" HorizontalAlignment="Left" 
-                   Margin="40,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" 
-                   Height="25" Width="732">
-        </TextBlock>
+        <DataGrid Name="dgBreadcrmbs" HorizontalAlignment="Left" 
+                   Margin="40,10,0,0" VerticalAlignment="Top" 
+                   Height="732" Width="25"
+                  IsReadOnly="True"
+                  ColumnHeaderHeight="0"
+                  AutoGenerateColumns="False" FontSize="13"
+                  GridLinesVisibility="None"
+                  HeadersVisibility="None"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="" Binding="{Binding Path='Name'}"/>
+            </DataGrid.Columns>
+            <DataGrid.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="90"/>
+                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                </TransformGroup>
+            </DataGrid.LayoutTransform>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90"/>
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style  TargetType="DataGridCell">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90"/>
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
     </Grid>
 </Window>
