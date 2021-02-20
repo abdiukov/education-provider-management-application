@@ -1,5 +1,7 @@
 <root>
   <Page Location="MainWindow" />
-  <Page Location="StudentInformation" />
-  <Page Location="StudentEnrolment" />
+  <Page Location="CourseInformation" />
+  <Page Location="SubjectsClustered" />
+  <Page Location="CourseTimetableSearch" />
+  <Page Location="SubjectsWithNoCourse" />
 </root>

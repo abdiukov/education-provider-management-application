@@ -17,7 +17,7 @@ namespace UI
                 if (!window.IsActive &&
                      window.ToString().Substring(window.ToString().LastIndexOf('.') + 1) == PageToNavigateTo)
                 {
-                    Breadcrumbs.RemoveItem(PageToNavigateTo);
+                   // Breadcrumbs.RemoveItem(PageToNavigateTo);
                     window.Show();
                     return;
                 }
