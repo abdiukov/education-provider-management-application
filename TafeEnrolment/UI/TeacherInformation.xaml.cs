@@ -133,17 +133,12 @@ namespace UI
         {
             string selected_page = dgBreadcrmbs.SelectedItem.ToString();
 
-            //var NewPage =
-
-            //Type.GetType(selected_page) pageobj =  new Type.GetType(selected_page);
-
-            //pageobj.Show();
-
-
             //if the current page is NOT the page the user has clicked on
             if (selected_page != this.GetType().Name)
             {
                 brdcrumb_tracker.RemoveItem(dgBreadcrmbs.SelectedIndex);
+                PageNavigation.Navigate(selected_page);
+                Close();
             }
 
             dgBreadcrmbs.CancelEdit();
