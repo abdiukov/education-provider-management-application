@@ -35,9 +35,8 @@ namespace UI
         //back button
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow pageobj = new MainWindow();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("MainWindow");
+            Hide();
         }
 
 
@@ -56,18 +55,14 @@ namespace UI
             SearchDataGrid(SearchTextbox.Text);
 
             //below is placeholder code for testing
-            TeacherProfile pageobj = new TeacherProfile();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("TeacherProfile");
+            Hide();
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
-            //logic to go to teacher's page
-
-            TeacherProfile pageobj = new TeacherProfile();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("TeacherProfile");
+            Hide();
         }
 
 
@@ -119,9 +114,8 @@ namespace UI
 
         private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)
         {
-            TeacherCourseHistory pageobj = new TeacherCourseHistory();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("TeacherCourseHistory");
+            Hide();
         }
 
         private void dgTeacherProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -136,11 +130,9 @@ namespace UI
             //if the current page is NOT the page the user has clicked on
             if (selected_page != this.GetType().Name)
             {
-                brdcrumb_tracker.RemoveItem(dgBreadcrmbs.SelectedIndex);
                 PageNavigation.Navigate(selected_page);
-                Close();
+                Hide();
             }
-
             dgBreadcrmbs.CancelEdit();
         }
 

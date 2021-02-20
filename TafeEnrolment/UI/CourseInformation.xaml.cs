@@ -29,40 +29,48 @@ namespace UI
 
         private void courseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            CourseTimetableSearch pageobj = new CourseTimetableSearch();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("CourseTimetableSearch");
+            Hide();
         }
 
 
         //navigation
         private void clusterUnitCourse_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            SubjectsClustered pageobj = new SubjectsClustered();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("SubjectsClustered");
+            Hide();
         }
 
         private void courseNotOffered_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            CourseNotOffered pageobj = new CourseNotOffered();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("CourseNotOffered");
+            Hide();
         }
 
         private void subjectsNotAllocated_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            SubjectsWithNoCourse pageobj = new SubjectsWithNoCourse();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("SubjectsWithNoCourse");
+            Hide();
         }
 
         //back button
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow pageobj = new MainWindow();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("MainWindow");
+            Hide();
+        }
+
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
+
+            //if the current page is NOT the page the user has clicked on
+            if (selected_page != this.GetType().Name)
+            {
+                PageNavigation.Navigate(selected_page);
+                Hide();
+            }
+            dgBreadcrmbs.CancelEdit();
         }
     }
 }

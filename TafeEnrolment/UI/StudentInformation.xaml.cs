@@ -25,7 +25,6 @@ namespace UI
         {
             InitializeComponent();
             Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
-
             dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
         }
 
@@ -44,17 +43,15 @@ namespace UI
             SearchDataGrid(SearchTextbox.Text);
 
             //below is placeholder code for testing
-            StudentProfile pageobj = new StudentProfile();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("StudentProfile");
+            Hide();
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
             //logic to go to student's page
-            StudentProfile pageobj = new StudentProfile();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("StudentProfile");
+            Hide();
         }
 
 
@@ -97,9 +94,8 @@ namespace UI
         //back button
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow pageobj = new MainWindow();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("MainWindow");
+            Hide();
         }
 
 
@@ -117,9 +113,8 @@ namespace UI
 
         private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
         {
-            StudentResultSearch pageobj = new StudentResultSearch();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("StudentResultSearch");
+            Hide();
         }
 
         private void dgStudentProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -130,9 +125,21 @@ namespace UI
 
         private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
-            StudentEnrolment pageobj = new StudentEnrolment();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("StudentEnrolment");
+            Hide();
+        }
+
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
+
+            //if the current page is NOT the page the user has clicked on
+            if (selected_page != this.GetType().Name)
+            {
+                PageNavigation.Navigate(selected_page);
+                Hide();
+            }
+            dgBreadcrmbs.CancelEdit();
         }
 
     }

@@ -60,15 +60,26 @@ namespace BusinessLayer
 
         //START OF "REMOVE AN ITEM" SECTION OF CODE
 
-        public void RemoveItem(int index)
+        public static void RemoveItem(string PageLocation)
         {
-            //removing all items until index
-            for(int i = root.ChildNodes.Count; i > index; i--)
+            XmlDocument breadcrumbs_document_xml = new XmlDocument();
+            breadcrumbs_document_xml.Load("Breadcrumbs.xml");
+
+            XmlNode root = breadcrumbs_document_xml.FirstChild;
+
+            foreach (XmlNode item in root.ChildNodes)
             {
-                root.RemoveChild(root.LastChild);
+                if (item.Attributes["Location"].Value == PageLocation)
+                {
+                    //removing the index
+                    root.RemoveChild(item);
+
+                    //saving the file
+                    breadcrumbs_document_xml.Save("Breadcrumbs.xml");
+                    //exiting
+                    return;
+                }
             }
-            //saving the file
-            breadcrumbs_document_xml.Save("Breadcrumbs.xml");
         }
 
         //END OF "REMOVE AN ITEM" SECTION OF CODE
@@ -91,10 +102,5 @@ namespace BusinessLayer
         }
 
         //END OF "OUTPUT" SECTION OF CODE
-
-
     }
-
-
-
 }

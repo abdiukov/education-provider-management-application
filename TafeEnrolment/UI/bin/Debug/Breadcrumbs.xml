@@ -1,3 +1,5 @@
 <root>
   <Page Location="MainWindow" />
+  <Page Location="StudentInformation" />
+  <Page Location="StudentEnrolment" />
 </root>

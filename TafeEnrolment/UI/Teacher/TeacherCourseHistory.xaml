@@ -30,11 +30,10 @@
         <DataGrid Name="dgBreadcrmbs" HorizontalAlignment="Left" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    Height="732" Width="25"
-                  IsReadOnly="True"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="13"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None"
+                  HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Name'}"/>

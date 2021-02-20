@@ -28,34 +28,39 @@ namespace UI.Student
             dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
 
 
-
-            //            bool student_paid_fees = true;
-
-            //            textbox_placeholder3.Text = student_paid_fees ? 
-            //              "The student has paid fees" : "The student has not paid fees";
-
         }
 
         //go back
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            StudentInformation pageobj = new StudentInformation();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("StudentInformation");
+            Hide();
         }
 
         private void Btn_StudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
-            StudentEnrolment pageobj = new StudentEnrolment();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("StudentEnrolment");
+            Hide();
         }
 
         private void Btn_StudentResult_Click(object sender, RoutedEventArgs e)
         {
-            StudentResultSearch pageobj = new StudentResultSearch();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("StudentResultSearch");
+            Hide();
+        }
+
+
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
+
+            //if the current page is NOT the page the user has clicked on
+            if (selected_page != this.GetType().Name)
+            {
+                PageNavigation.Navigate(selected_page);
+                Hide();
+            }
+            dgBreadcrmbs.CancelEdit();
         }
 
     }

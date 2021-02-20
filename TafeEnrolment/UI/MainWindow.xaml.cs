@@ -32,44 +32,21 @@ namespace UI
         //Navigation
         private void NavigateTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
-            TeacherInformation pageobj = new TeacherInformation();
-            pageobj.Show();
+            PageNavigation.Navigate("TeacherInformation");
             Close();
         }
 
         private void NavigateCourseInfo_Click(object sender, RoutedEventArgs e)
         {
-            CourseInformation pageobj = new CourseInformation();
-            pageobj.Show();
+            PageNavigation.Navigate("CourseInformation");
             Close();
         }
 
         private void NavigateStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-            StudentInformation pageobj = new StudentInformation();
-            pageobj.Show();
+            PageNavigation.Navigate("StudentInformation");
             Close();
         }
 
-        private void NavigateLocationInfo_Click(object sender, RoutedEventArgs e)
-        {
-            //LocationInformation pageobj = new LocationInformation();
-            //pageobj.Show();
-            //Close();
-        }
-
-        private void NavigateSemesterInfo_Click(object sender, RoutedEventArgs e)
-        {
-            //SemesterInformation pageobj = new SemesterInformation();
-            //pageobj.Show();
-            //Close();
-        }
-
-        private void NavigateUnitInfo_Click(object sender, RoutedEventArgs e)
-        {
-            //UnitInformation pageobj = new UnitInformation();
-            //pageobj.Show();
-            //Close();
-        }
     }
 }

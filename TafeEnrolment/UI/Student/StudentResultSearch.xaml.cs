@@ -31,9 +31,21 @@ namespace UI.Student
         //go back
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            StudentProfile pageobj = new StudentProfile();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("StudentProfile");
+            Hide();
+        }
+
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
+
+            //if the current page is NOT the page the user has clicked on
+            if (selected_page != this.GetType().Name)
+            {
+                PageNavigation.Navigate(selected_page);
+                Hide();
+            }
+            dgBreadcrmbs.CancelEdit();
         }
     }
 }

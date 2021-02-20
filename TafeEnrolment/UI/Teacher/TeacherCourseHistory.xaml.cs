@@ -38,9 +38,8 @@ namespace UI
         //go back
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            TeacherProfile pageobj = new TeacherProfile();
-            pageobj.Show();
-            Close();
+            PageNavigation.Navigate("TeacherProfile");
+            Hide();
         }
 
         private void SearchTextbox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -110,5 +109,19 @@ namespace UI
             dgCourseHistory.Visibility = Visibility.Visible;
         }
 
+
+
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
+
+            //if the current page is NOT the page the user has clicked on
+            if (selected_page != this.GetType().Name)
+            {
+                PageNavigation.Navigate(selected_page);
+                Hide();
+            }
+            dgBreadcrmbs.CancelEdit();
+        }
     }
 }

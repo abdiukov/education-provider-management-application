@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using BusinessLayer;
+using System.Windows;
 using UI.Student;
 using UI.Teacher;
 
@@ -16,6 +17,7 @@ namespace UI
                 if (!window.IsActive &&
                      window.ToString().Substring(window.ToString().LastIndexOf('.') + 1) == PageToNavigateTo)
                 {
+                    Breadcrumbs.RemoveItem(PageToNavigateTo);
                     window.Show();
                     return;
                 }
@@ -25,9 +27,6 @@ namespace UI
             switch (PageToNavigateTo)
             {
                 case "MainWindow":
-                    MainWindow mainwindow_page = new MainWindow();
-                    mainwindow_page.Show();
-
                     //Closes all the hidden tabs
                     foreach (Window window in App.Current.Windows)
                     {
@@ -36,6 +35,9 @@ namespace UI
                             window.Close();
                         }
                     }
+                    MainWindow mainwindow_page = new MainWindow();
+                    mainwindow_page.Show();
+
                     break;
                 case "TeacherInformation":
                     TeacherInformation teacherinformation_page = new TeacherInformation();
