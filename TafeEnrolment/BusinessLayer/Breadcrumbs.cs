@@ -39,25 +39,20 @@ namespace BusinessLayer
             }
             this.currentDocumentName = currentDocumentName;
 
-
             //adding the item to breadcrumbs
             AddItem();
-
         }
 
         //START OF "ADD AN ITEM" SECTION OF CODE
 
         private void AddItem()
         {
-            if (currentDocumentName.Length > 0)
-            {
-                XmlNode page_tag = breadcrumbs_document_xml.CreateElement("Page");
-                root.AppendChild(page_tag);
+            XmlElement page_tag = breadcrumbs_document_xml.CreateElement("Page");
+            root.AppendChild(page_tag);
 
-                ((XmlElement)page_tag).SetAttribute("Location", currentDocumentName);
+            page_tag.SetAttribute("Location", currentDocumentName);
 
-                breadcrumbs_document_xml.Save("Breadcrumbs.xml");
-            }
+            breadcrumbs_document_xml.Save("Breadcrumbs.xml");
         }
 
 
@@ -65,11 +60,13 @@ namespace BusinessLayer
 
         //START OF "REMOVE AN ITEM" SECTION OF CODE
 
-        public void RemoveItem(int index_to_remove)
+        public void RemoveItem(int index)
         {
-            //selecting the item that is to be removed
-            root.RemoveChild(root.ChildNodes[index_to_remove]);
-
+            //removing all items until index
+            for(int i = root.ChildNodes.Count; i > index; i--)
+            {
+                root.RemoveChild(root.LastChild);
+            }
             //saving the file
             breadcrumbs_document_xml.Save("Breadcrumbs.xml");
         }

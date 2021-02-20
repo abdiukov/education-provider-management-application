@@ -21,13 +21,14 @@ namespace UI
     /// </summary>
     public partial class TeacherInformation : Window
     {
+        private Breadcrumbs brdcrumb_tracker;
         public TeacherInformation()
         {
             InitializeComponent();
-            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
 
             dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
- 
+
         }
 
 
@@ -130,12 +131,23 @@ namespace UI
 
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            MessageBox.Show(dgBreadcrmbs.SelectedItem.ToString());
+            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
+
+            //var NewPage =
+
+            //Type.GetType(selected_page) pageobj =  new Type.GetType(selected_page);
+
+            //pageobj.Show();
+
+
+            //if the current page is NOT the page the user has clicked on
+            if (selected_page != this.GetType().Name)
+            {
+                brdcrumb_tracker.RemoveItem(dgBreadcrmbs.SelectedIndex);
+            }
+
             dgBreadcrmbs.CancelEdit();
         }
-
-
-
 
     }
 }

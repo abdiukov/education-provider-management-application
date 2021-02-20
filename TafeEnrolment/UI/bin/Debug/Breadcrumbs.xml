@@ -1,5 +1,3 @@
 <root>
   <Page Location="MainWindow" />
-  <Page Location="TeacherInformation" />
-  <Page Location="TeacherProfile" />
 </root>
