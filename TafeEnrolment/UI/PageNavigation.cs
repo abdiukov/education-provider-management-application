@@ -1,4 +1,5 @@
-﻿using UI.Student;
+﻿using System.Windows;
+using UI.Student;
 using UI.Teacher;
 
 namespace UI
@@ -7,12 +8,34 @@ namespace UI
     {
         public static void Navigate(string PageToNavigateTo)
         {
+
+            foreach (Window window in App.Current.Windows)
+            {
+                //if the window is hidden and is the window that I am looking for SHOW IT and go back
+                //window.ToString().Substring(window.ToString().LastIndexOf('.') + 1)  = turns the window name from "UI.Teacher.TeacherProfile" into "TeacherProfile" 
+                if (!window.IsActive &&
+                     window.ToString().Substring(window.ToString().LastIndexOf('.') + 1) == PageToNavigateTo)
+                {
+                    window.Show();
+                    return;
+                }
+            }
+
             //listing all the pages that the user can be navigated to
             switch (PageToNavigateTo)
             {
                 case "MainWindow":
                     MainWindow mainwindow_page = new MainWindow();
                     mainwindow_page.Show();
+
+                    //Closes all the hidden tabs
+                    foreach (Window window in App.Current.Windows)
+                    {
+                        if (!window.IsActive)
+                        {
+                            window.Close();
+                        }
+                    }
                     break;
                 case "TeacherInformation":
                     TeacherInformation teacherinformation_page = new TeacherInformation();
@@ -63,10 +86,6 @@ namespace UI
                     subjectswithnocourse_page.Show();
                     break;
             }
-
-
-
-
         }
     }
 }
