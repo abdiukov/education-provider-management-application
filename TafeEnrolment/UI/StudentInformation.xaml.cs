@@ -21,11 +21,11 @@ namespace UI
     /// </summary>
     public partial class StudentInformation : Window
     {
+        Breadcrumbs brdcrumb_tracker;
         public StudentInformation()
         {
             InitializeComponent();
-            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
-            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
         }
 
         //logic
@@ -142,5 +142,12 @@ namespace UI
             dgBreadcrmbs.CancelEdit();
         }
 
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.Visibility == Visibility.Visible)
+            {
+                dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+            }
+        }
     }
 }

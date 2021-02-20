@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Student"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800"
+        Title="" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
         <DataGrid Name="dgStudentProfile" HorizontalAlignment="Center" Margin="272,50,272,0" VerticalAlignment="Top" Width="250" Height="200" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">

@@ -20,14 +20,12 @@ namespace UI.Teacher
     /// </summary>
     public partial class TeacherProfile : Window
     {
+        Breadcrumbs brdcrumb_tracker;
         public TeacherProfile()
         {
             InitializeComponent();
-
-            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
             Title = "Teacher's name goes here";
-            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
-
         }
 
         //go back
@@ -54,6 +52,14 @@ namespace UI.Teacher
                 Hide();
             }
             dgBreadcrmbs.CancelEdit();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.Visibility == Visibility.Visible)
+            {
+                dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+            }
         }
     }
 }

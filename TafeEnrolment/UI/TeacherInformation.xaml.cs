@@ -26,9 +26,6 @@ namespace UI
         {
             InitializeComponent();
             brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
-
-            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
-
         }
 
 
@@ -136,5 +133,12 @@ namespace UI
             dgBreadcrmbs.CancelEdit();
         }
 
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.Visibility == Visibility.Visible)
+            {
+                dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+            }
+        }
     }
 }

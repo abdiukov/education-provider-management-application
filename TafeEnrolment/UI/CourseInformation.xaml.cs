@@ -20,11 +20,11 @@ namespace UI
     /// </summary>
     public partial class CourseInformation : Window
     {
+        Breadcrumbs brdcrumb_tracker;
         public CourseInformation()
         {
             InitializeComponent();
-            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
-            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
         }
 
         private void courseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
@@ -71,6 +71,14 @@ namespace UI
                 Hide();
             }
             dgBreadcrmbs.CancelEdit();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.Visibility == Visibility.Visible)
+            {
+                dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+            }
         }
     }
 }

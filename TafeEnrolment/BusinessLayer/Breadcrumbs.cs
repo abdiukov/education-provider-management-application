@@ -89,7 +89,9 @@ namespace BusinessLayer
 
         public List<BreadcrumbsData> GetListOfPagesVisited()
         {
-            //output string
+            breadcrumbs_document_xml.Load("Breadcrumbs.xml");
+            root = breadcrumbs_document_xml.FirstChild;
+
             List<BreadcrumbsData> output_string = new List<BreadcrumbsData>();
 
             //every item gets formatted in a certain way

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Search teacher" Height="450" Width="800" WindowStyle="ToolWindow"
+        Title="Search teacher" Height="450" Width="800" WindowStyle="ToolWindow" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <TextBox Name="SearchTextbox" PreviewMouseDown="SearchTextbox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595"/>
@@ -41,7 +41,7 @@
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="13"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
+                  HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage" 
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Name'}"/>

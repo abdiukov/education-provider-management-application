@@ -23,6 +23,7 @@ namespace UI
     public partial class TeacherCourseHistory : Window
     {
         private readonly Logic logic;
+        Breadcrumbs brdcrumb_tracker;
         public TeacherCourseHistory()
         {
             InitializeComponent();
@@ -30,9 +31,7 @@ namespace UI
 
             Logic logic = new Logic();
             this.logic = logic;
-            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
-            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
-
+            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
         }
 
         //go back
@@ -122,6 +121,14 @@ namespace UI
                 Hide();
             }
             dgBreadcrmbs.CancelEdit();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.Visibility == Visibility.Visible)
+            {
+                dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+            }
         }
     }
 }

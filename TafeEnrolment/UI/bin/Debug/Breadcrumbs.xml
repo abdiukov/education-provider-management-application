@@ -1,7 +1,6 @@
 <root>
   <Page Location="MainWindow" />
-  <Page Location="CourseInformation" />
-  <Page Location="SubjectsClustered" />
-  <Page Location="CourseTimetableSearch" />
-  <Page Location="SubjectsWithNoCourse" />
+  <Page Location="TeacherInformation" />
+  <Page Location="TeacherProfile" />
+  <Page Location="TeacherCourseHistory" />
 </root>

@@ -20,14 +20,12 @@ namespace UI.Student
     /// </summary>
     public partial class StudentProfile : Window
     {
+        Breadcrumbs brdcrumb_tracker;
         public StudentProfile()
         {
             InitializeComponent();
             Title = "Student's name goes here";
-            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
-            dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
-
-
+            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
         }
 
         //go back
@@ -63,5 +61,12 @@ namespace UI.Student
             dgBreadcrmbs.CancelEdit();
         }
 
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.Visibility == Visibility.Visible)
+            {
+                dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+            }
+        }
     }
 }
