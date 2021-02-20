@@ -46,7 +46,7 @@ namespace UI.Teacher
             string selected_page = dgBreadcrmbs.SelectedItem.ToString();
 
             //if the current page is NOT the page the user has clicked on
-            if (selected_page != this.GetType().Name)
+            if (selected_page[0] != '<')
             {
                 PageNavigation.Navigate(selected_page);
                 Hide();
@@ -58,8 +58,19 @@ namespace UI.Teacher
         {
             if (this.Visibility == Visibility.Visible)
             {
-                dgBreadcrmbs.ItemsSource = brdcrumb_tracker.GetListOfPagesVisited();
+                List<BreadcrumbsData> data = brdcrumb_tracker.GetListOfPagesVisited();
+
+                foreach (var item in data)
+                {
+                    if (item.ToString() == this.GetType().Name)
+                    {
+                        item.Name = "<-- " + item.Name + " -->";
+                        dgBreadcrmbs.ItemsSource = data;
+                        return;
+                    }
+                }
             }
+
         }
     }
 }

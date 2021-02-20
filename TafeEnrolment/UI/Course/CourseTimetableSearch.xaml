@@ -34,7 +34,7 @@
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    Height="732" Width="25"
                   ColumnHeaderHeight="0"
-                  AutoGenerateColumns="False" FontSize="13"
+                  AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
                   HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
                   >
