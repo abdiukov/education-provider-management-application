@@ -38,7 +38,6 @@ namespace BusinessLayer
                 root = breadcrumbs_document_xml.FirstChild;
             }
             this.currentDocumentName = currentDocumentName;
-
             //adding the item to breadcrumbs
             AddItem();
         }
@@ -49,9 +48,7 @@ namespace BusinessLayer
         {
             XmlElement page_tag = breadcrumbs_document_xml.CreateElement("Page");
             root.AppendChild(page_tag);
-
             page_tag.SetAttribute("Location", currentDocumentName);
-
             breadcrumbs_document_xml.Save("Breadcrumbs.xml");
         }
 
@@ -60,27 +57,27 @@ namespace BusinessLayer
 
         //START OF "REMOVE AN ITEM" SECTION OF CODE
 
-        public static void RemoveItem(string PageLocation)
-        {
-            XmlDocument breadcrumbs_document_xml = new XmlDocument();
-            breadcrumbs_document_xml.Load("Breadcrumbs.xml");
+        //public static void RemoveItem(string PageLocation)
+        //{
+        //    XmlDocument breadcrumbs_document_xml = new XmlDocument();
+        //    breadcrumbs_document_xml.Load("Breadcrumbs.xml");
 
-            XmlNode root = breadcrumbs_document_xml.FirstChild;
+        //    XmlNode root = breadcrumbs_document_xml.FirstChild;
 
-            foreach (XmlNode item in root.ChildNodes)
-            {
-                if (item.Attributes["Location"].Value == PageLocation)
-                {
-                    //removing the index
-                    root.RemoveChild(item);
+        //    foreach (XmlNode item in root.ChildNodes)
+        //    {
+        //        if (item.Attributes["Location"].Value == PageLocation)
+        //        {
+        //            //removing the index
+        //            root.RemoveChild(item);
 
-                    //saving the file
-                    breadcrumbs_document_xml.Save("Breadcrumbs.xml");
-                    //exiting
-                    return;
-                }
-            }
-        }
+        //            //saving the file
+        //            breadcrumbs_document_xml.Save("Breadcrumbs.xml");
+        //            //exiting
+        //            return;
+        //        }
+        //    }
+        //}
 
         //END OF "REMOVE AN ITEM" SECTION OF CODE
 

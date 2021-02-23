@@ -7,6 +7,12 @@ namespace UI
 {
     class PageNavigation
     {
+        /// <summary>
+        /// This method responsible for navigation throughout pages
+        /// If the page is not hidden a new page is created and the user is navigated to it.
+        /// If the page is hidden, the page gets unhidden and the user navigates to it
+        /// </summary>
+        /// <param name="PageToNavigateTo">The name of the page that the user wishes to navigate to</param>
         public static void Navigate(string PageToNavigateTo)
         {
 
@@ -17,7 +23,6 @@ namespace UI
                 if (window.Visibility == Visibility.Hidden &&
                      window.ToString().Substring(window.ToString().LastIndexOf('.') + 1) == PageToNavigateTo)
                 {
-                   // Breadcrumbs.RemoveItem(PageToNavigateTo);
                     window.Show();
                     return;
                 }
@@ -28,16 +33,10 @@ namespace UI
             {
                 case "MainWindow":
                     //Closes all the hidden tabs
-                    foreach (Window window in App.Current.Windows)
-                    {
-                        if (window.Visibility==Visibility.Hidden)
-                        {
-                            window.Close();
-                        }
-                    }
+                    ClosePage("AllHidden");
+
                     MainWindow mainwindow_page = new MainWindow();
                     mainwindow_page.Show();
-
                     break;
                 case "TeacherInformation":
                     TeacherInformation teacherinformation_page = new TeacherInformation();
@@ -88,6 +87,40 @@ namespace UI
                     subjectswithnocourse_page.Show();
                     break;
             }
+        }
+
+        /// <summary>
+        /// Closes a specific page,
+        /// Or alternatively, if user requested "AllHidden", closes all the hidden pages
+        /// HOWEVER THIS METHOD DOES NOT REMOVE PAGES FROM XML DATABASE, IT ONLY DOES IT IN THE UI
+        /// </summary>
+        /// <param name="PageToClose">The page that the user wishes to close</param>
+        public static void ClosePage(string PageToClose)
+        {
+            switch (PageToClose)
+            {
+                case "AllHidden":
+                    foreach (Window window in App.Current.Windows)
+                    {
+                        if (window.Visibility == Visibility.Hidden)
+                        {
+                            window.Close();
+                        }
+                    }
+                    break;
+
+                default:
+                    foreach (Window window in App.Current.Windows)
+                    {
+                        if (window.ToString().Substring(window.ToString().LastIndexOf('.') + 1) == PageToClose)
+                        {
+                            window.Close();
+                            return;
+                        }
+                    }
+                    break;
+            }
+
         }
     }
 }
