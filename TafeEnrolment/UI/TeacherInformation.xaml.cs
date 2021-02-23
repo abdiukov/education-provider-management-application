@@ -22,22 +22,84 @@ namespace UI
     public partial class TeacherInformation : Window
     {
         private Breadcrumbs brdcrumb_tracker;
+
+        //START UP CODE
         public TeacherInformation()
         {
             InitializeComponent();
             brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
         }
 
+        /// <summary>
+        /// If the window is opened first time /reopened again by user
+        /// Then 
+        /// 1. Reload the breadcrumbs datagrid
+        /// 2. Find the item that is equal to the current page name and add "<-- -->" to it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (this.Visibility == Visibility.Visible)
+            {
+                List<BreadcrumbsData> data = brdcrumb_tracker.GetListOfPagesVisited();
 
-        //back button
+                foreach (var item in data)
+                {
+                    if (item.ToString() == this.GetType().Name)
+                    {
+                        item.Name = "<-- " + item.Name + " -->";
+                        dgBreadcrmbs.ItemsSource = data;
+                        return;
+                    }
+                }
+            }
+
+        }
+        // END OF START UP CODE
+
+        //NAVIGATION CODE
+
+        /// <summary>
+        /// When the user clicks on the main button
+        /// The user gets redirected to "MainWindow"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.Navigate("MainWindow");
             Hide();
         }
 
+        /// <summary>
+        /// When user clicks on the button to see course history
+        /// The user gets redirected to "TeacherCourseHistory"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
-        //logic
+        private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.Navigate("TeacherCourseHistory");
+            Hide();
+        }
+
+        /// <summary>
+        /// Button redirects to "TeacherProfile"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnSelect_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.Navigate("TeacherProfile");
+            Hide();
+        }
+
+        //END OF NAVIGATION CODE
+
+        // SEARCH TEXTBOX CODE
+
         private void SearchTextbox_MouseClick(object sender, MouseButtonEventArgs e)
         {
             if (SearchTextbox.Text == "Enter keywords by which criteria to search")
@@ -55,13 +117,6 @@ namespace UI
             PageNavigation.Navigate("TeacherProfile");
             Hide();
         }
-
-        private void BtnSelect_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.Navigate("TeacherProfile");
-            Hide();
-        }
-
 
         private void SearchDataGrid(string searchInput)
         {
@@ -109,17 +164,22 @@ namespace UI
             checkbox_SearchPartTime.IsChecked = false;
         }
 
-        private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.Navigate("TeacherCourseHistory");
-            Hide();
-        }
-
+        /// <summary>
+        /// Displays datagrid settings to the user.
+        /// The user can select which parts of the datagrid he wishes to see
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgTeacherProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
         }
 
+        /// <summary>
+        /// Navigates to the page that the user has selected on at the Breadcrumbs datagrid 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             string selected_page = dgBreadcrmbs.SelectedItem.ToString();
@@ -133,23 +193,8 @@ namespace UI
             dgBreadcrmbs.CancelEdit();
         }
 
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (this.Visibility == Visibility.Visible)
-            {
-                List<BreadcrumbsData> data = brdcrumb_tracker.GetListOfPagesVisited();
 
-                foreach (var item in data)
-                {
-                    if(item.ToString() == this.GetType().Name)
-                    {
-                        item.Name = "<-- " + item.Name + " -->";
-                        dgBreadcrmbs.ItemsSource = data;
-                        return;
-                    }
-                }
-            }
 
-        }
+
     }
 }
