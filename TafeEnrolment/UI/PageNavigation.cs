@@ -14,7 +14,7 @@ namespace UI
             {
                 //if the window is hidden and is the window that I am looking for SHOW IT and go back
                 //window.ToString().Substring(window.ToString().LastIndexOf('.') + 1)  = turns the window name from "UI.Teacher.TeacherProfile" into "TeacherProfile" 
-                if (!window.IsActive &&
+                if (window.Visibility == Visibility.Hidden &&
                      window.ToString().Substring(window.ToString().LastIndexOf('.') + 1) == PageToNavigateTo)
                 {
                    // Breadcrumbs.RemoveItem(PageToNavigateTo);
@@ -30,7 +30,7 @@ namespace UI
                     //Closes all the hidden tabs
                     foreach (Window window in App.Current.Windows)
                     {
-                        if (!window.IsActive)
+                        if (window.Visibility==Visibility.Hidden)
                         {
                             window.Close();
                         }

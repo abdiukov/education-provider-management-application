@@ -1,4 +1,3 @@
 <root>
   <Page Location="MainWindow" />
-  <Page Location="TeacherInformation" />
 </root>
