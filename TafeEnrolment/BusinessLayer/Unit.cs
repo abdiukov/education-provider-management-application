@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace BusinessLayer
 {
@@ -8,7 +6,7 @@ namespace BusinessLayer
     {
         public List<Course> AllocatedCourses
         {
-            get;set;
+            get; set;
         }
     }
 }

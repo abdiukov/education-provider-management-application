@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace BusinessLayer
 {
@@ -8,7 +6,7 @@ namespace BusinessLayer
     {
         public bool OtherThanBaseLocation
         {
-            get;set;
+            get; set;
         }
 
         public string FirstName
@@ -17,7 +15,7 @@ namespace BusinessLayer
         }
 
         public string LastName
-        {   
+        {
             get; set;
         }
 
@@ -33,12 +31,12 @@ namespace BusinessLayer
 
         public List<Course> currentCourses
         {
-            get;set;
+            get; set;
         }
 
         public List<PastCourse> pastCourses
         {
-            get;set;
+            get; set;
         }
 
     }

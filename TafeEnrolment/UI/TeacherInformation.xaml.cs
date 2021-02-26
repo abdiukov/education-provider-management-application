@@ -1,17 +1,6 @@
-﻿using BusinessLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UI.Teacher;
 
 namespace UI
@@ -21,13 +10,13 @@ namespace UI
     /// </summary>
     public partial class TeacherInformation : Window
     {
-        private Breadcrumbs brdcrumb_tracker;
+
 
         //START UP CODE
         public TeacherInformation()
         {
             InitializeComponent();
-            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+
         }
 
         /// <summary>
@@ -42,17 +31,9 @@ namespace UI
         {
             if (this.Visibility == Visibility.Visible)
             {
-                List<BreadcrumbsData> data = brdcrumb_tracker.GetListOfPagesVisited();
+                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
 
-                foreach (var item in data)
-                {
-                    if (item.ToString() == this.GetType().Name)
-                    {
-                        item.Name = "<-- " + item.Name + " -->";
-                        dgBreadcrmbs.ItemsSource = data;
-                        return;
-                    }
-                }
+
             }
 
         }
@@ -68,7 +49,7 @@ namespace UI
         /// <param name="e"></param>
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("MainWindow");
+            PageNavigation.GoToNewOrExistingPage(new MainWindow());
             Hide();
         }
 
@@ -81,7 +62,7 @@ namespace UI
 
         private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("TeacherCourseHistory");
+            PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
             Hide();
         }
 
@@ -92,7 +73,7 @@ namespace UI
         /// <param name="e"></param>
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("TeacherProfile");
+            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
             Hide();
         }
 
@@ -114,7 +95,7 @@ namespace UI
             SearchDataGrid(SearchTextbox.Text);
 
             //below is placeholder code for testing
-            PageNavigation.Navigate("TeacherProfile");
+            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
             Hide();
         }
 
@@ -185,11 +166,11 @@ namespace UI
             string selected_page = dgBreadcrmbs.SelectedItem.ToString();
 
             //if the current page is NOT the page the user has clicked on
-            if (selected_page[0] != '<')
-            {
-                PageNavigation.Navigate(selected_page);
-                Hide();
-            }
+            //if (selected_page[0] != '<')
+            // {
+            // PageNavigation.GoToExistingPage(selected_page);
+            //  Hide();
+            //}
             dgBreadcrmbs.CancelEdit();
         }
 

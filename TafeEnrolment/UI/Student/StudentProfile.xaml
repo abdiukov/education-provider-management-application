@@ -59,7 +59,7 @@
                   HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>

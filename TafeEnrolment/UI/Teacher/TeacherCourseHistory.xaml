@@ -13,7 +13,7 @@
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgCourseHistory" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name of the course" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="Name of the course" Binding="{Binding Path='Title'}"/>
                 <DataGridTextColumn Header="Units" Binding="{Binding Path='CourseUnit'}"/>
                 <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
                 <DataGridTextColumn Header="Course status" Binding="{Binding Path='CourseStatus'}"/>
@@ -36,7 +36,7 @@
                   HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>

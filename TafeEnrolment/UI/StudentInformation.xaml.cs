@@ -1,17 +1,6 @@
-﻿using BusinessLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UI.Student;
 
 namespace UI
@@ -21,11 +10,11 @@ namespace UI
     /// </summary>
     public partial class StudentInformation : Window
     {
-        Breadcrumbs brdcrumb_tracker;
+
         public StudentInformation()
         {
             InitializeComponent();
-            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+
         }
 
         //logic
@@ -43,14 +32,14 @@ namespace UI
             SearchDataGrid(SearchTextbox.Text);
 
             //below is placeholder code for testing
-            PageNavigation.Navigate("StudentProfile");
+            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
             Hide();
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
             //logic to go to student's page
-            PageNavigation.Navigate("StudentProfile");
+            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
             Hide();
         }
 
@@ -74,7 +63,7 @@ namespace UI
             {
                 if (checkbox_EnrolledNoFees.IsChecked == true)
                 {
-                    MessageBox.Show("Show full time students who have not paid fees " +searchInput );
+                    MessageBox.Show("Show full time students who have not paid fees " + searchInput);
                 }
                 else
                 {
@@ -83,7 +72,7 @@ namespace UI
             }
             else if (checkbox_EnrolledNoFees.IsChecked == true)
             {
-                MessageBox.Show("Show all students who have not paid fees " +searchInput);
+                MessageBox.Show("Show all students who have not paid fees " + searchInput);
             }
             else
             {
@@ -94,7 +83,7 @@ namespace UI
         //back button
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("MainWindow");
+            PageNavigation.GoToNewOrExistingPage(new MainWindow());
             Hide();
         }
 
@@ -113,7 +102,7 @@ namespace UI
 
         private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("StudentResultSearch");
+            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
             Hide();
         }
 
@@ -125,7 +114,7 @@ namespace UI
 
         private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("StudentEnrolment");
+            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
             Hide();
         }
 
@@ -134,11 +123,11 @@ namespace UI
             string selected_page = dgBreadcrmbs.SelectedItem.ToString();
 
             //if the current page is NOT the page the user has clicked on
-            if (selected_page[0] != '<')
-            {
-                PageNavigation.Navigate(selected_page);
-                Hide();
-            }
+            //if (selected_page[0] != '<')
+            // {
+            // PageNavigation.GoToExistingPage(selected_page);
+            //  Hide();
+            //}
             dgBreadcrmbs.CancelEdit();
         }
 
@@ -146,17 +135,8 @@ namespace UI
         {
             if (this.Visibility == Visibility.Visible)
             {
-                List<BreadcrumbsData> data = brdcrumb_tracker.GetListOfPagesVisited();
+                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
 
-                foreach (var item in data)
-                {
-                    if(item.ToString() == this.GetType().Name)
-                    {
-                        item.Name = "<-- " + item.Name + " -->";
-                        dgBreadcrmbs.ItemsSource = data;
-                        return;
-                    }
-                }
             }
 
         }

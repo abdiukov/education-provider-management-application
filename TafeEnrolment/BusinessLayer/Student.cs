@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessLayer
+﻿namespace BusinessLayer
 {
     public class Student
     {
         public bool paidFees
         {
-            get;set;
+            get; set;
         }
         public string FirstName
         {
@@ -32,7 +28,7 @@ namespace BusinessLayer
 
         public Timetable timetable
         {
-            get;set;
+            get; set;
         }
     }
 }

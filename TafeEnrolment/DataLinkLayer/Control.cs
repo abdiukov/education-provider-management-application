@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataLinkLayer
 {
@@ -38,7 +35,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        //  Student output = new Student(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
+                        //  Student output = new  Student(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
                         // outputlist.Add(output);
                     }
                 }
@@ -72,7 +69,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        //  Teacher output = new Teacher(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
+                        //  Teacher output = new  Teacher(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
                         // outputlist.Add(output);
                     }
                 }
@@ -105,7 +102,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        //  Course output = new Course(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
+                        //  Course output = new  Course(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
                         // outputlist.Add(output);
                     }
                 }
@@ -140,7 +137,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        //  Timetable output = new Timetable(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
+                        //  Timetable output = new  Timetable(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
                         // outputlist.Add(output);
                     }
                 }
@@ -174,7 +171,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        //  PastCourse output = new PastCourse(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
+                        //  PastCourse output = new  PastCourse(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
                         // outputlist.Add(output);
                     }
                 }
@@ -207,7 +204,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        //  Location output = new Location(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
+                        //  Location output = new  Location(dataReader.GetDateTime(2), dataReader.GetInt32(0), dataReader.GetInt32(1));
                         // outputlist.Add(output);
                     }
                 }

@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessLayer
+﻿namespace BusinessLayer
 {
     public class StudentResult
     {
         public Student student
         {
-            get;set;
+            get; set;
         }
 
         public Semester semester
         {
-            get;set;
+            get; set;
         }
 
         public Course course
         {
-            get;set;
+            get; set;
         }
 
         //add result attribute

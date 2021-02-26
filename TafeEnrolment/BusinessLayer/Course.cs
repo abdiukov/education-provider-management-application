@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessLayer
 {
@@ -8,42 +7,42 @@ namespace BusinessLayer
     {
         public bool isOffered
         {
-            get;set;
+            get; set;
         }
 
         public string CourseName
         {
-            get;set;
+            get; set;
         }
 
         public List<Student> Students
         {
-            get;set;
+            get; set;
         }
 
         public List<Teacher> Teachers
         {
-            get;set;
+            get; set;
         }
 
         public List<Unit> CourseUnits
         {
-            get;set;
+            get; set;
         }
 
         public DateTime courseStartDate
         {
-            get;set;
+            get; set;
         }
 
         public DateTime courseEndDate
         {
-            get;set;
+            get; set;
         }
 
         public string courseStatus
         {
-            get;set;
+            get; set;
         }
 
     }

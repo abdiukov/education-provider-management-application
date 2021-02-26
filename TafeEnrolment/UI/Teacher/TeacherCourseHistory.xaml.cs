@@ -1,18 +1,7 @@
-﻿using BusinessLayer;
-using ModelLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ModelLayer;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using UI.Teacher;
 
 namespace UI
@@ -23,7 +12,7 @@ namespace UI
     public partial class TeacherCourseHistory : Window
     {
         private readonly Logic logic;
-        Breadcrumbs brdcrumb_tracker;
+
         public TeacherCourseHistory()
         {
             InitializeComponent();
@@ -31,13 +20,13 @@ namespace UI
 
             Logic logic = new Logic();
             this.logic = logic;
-            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+
         }
 
         //go back
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("TeacherProfile");
+            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
             Hide();
         }
 
@@ -115,11 +104,11 @@ namespace UI
             string selected_page = dgBreadcrmbs.SelectedItem.ToString();
 
             //if the current page is NOT the page the user has clicked on
-            if (selected_page[0] != '<')
-            {
-                PageNavigation.Navigate(selected_page);
-                Hide();
-            }
+            //if (selected_page[0] != '<')
+            // {
+            // PageNavigation.GoToExistingPage(selected_page);
+            //  Hide();
+            //}
             dgBreadcrmbs.CancelEdit();
         }
 
@@ -127,17 +116,9 @@ namespace UI
         {
             if (this.Visibility == Visibility.Visible)
             {
-                List<BreadcrumbsData> data = brdcrumb_tracker.GetListOfPagesVisited();
+                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
 
-                foreach (var item in data)
-                {
-                    if (item.ToString() == this.GetType().Name)
-                    {
-                        item.Name = "<-- " + item.Name + " -->";
-                        dgBreadcrmbs.ItemsSource = data;
-                        return;
-                    }
-                }
+
             }
 
         }

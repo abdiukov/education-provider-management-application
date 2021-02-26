@@ -1,17 +1,5 @@
-﻿using BusinessLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace UI
 {
@@ -20,16 +8,16 @@ namespace UI
     /// </summary>
     public partial class CourseInformation : Window
     {
-        Breadcrumbs brdcrumb_tracker;
+
         public CourseInformation()
         {
             InitializeComponent();
-            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+
         }
 
         private void courseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("CourseTimetableSearch");
+            PageNavigation.GoToNewOrExistingPage(new CourseTimetableSearch());
             Hide();
         }
 
@@ -37,39 +25,35 @@ namespace UI
         //navigation
         private void clusterUnitCourse_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("SubjectsClustered");
+            PageNavigation.GoToNewOrExistingPage(new SubjectsClustered());
             Hide();
         }
 
         private void courseNotOffered_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("CourseNotOffered");
+            PageNavigation.GoToNewOrExistingPage(new CourseNotOffered());
             Hide();
         }
 
         private void subjectsNotAllocated_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("SubjectsWithNoCourse");
+            PageNavigation.GoToNewOrExistingPage(new SubjectsWithNoCourse());
             Hide();
         }
 
         //back button
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("MainWindow");
+            PageNavigation.GoToExistingPage(0);
             Hide();
         }
 
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
 
-            //if the current page is NOT the page the user has clicked on
-            if (selected_page[0] != '<')
-            {
-                PageNavigation.Navigate(selected_page);
-                Hide();
-            }
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+            Hide();
+
             dgBreadcrmbs.CancelEdit();
         }
 
@@ -77,17 +61,9 @@ namespace UI
         {
             if (this.Visibility == Visibility.Visible)
             {
-                List<BreadcrumbsData> data = brdcrumb_tracker.GetListOfPagesVisited();
 
-                foreach (var item in data)
-                {
-                    if (item.ToString() == this.GetType().Name)
-                    {
-                        item.Name = "<-- " + item.Name + " -->";
-                        dgBreadcrmbs.ItemsSource = data;
-                        return;
-                    }
-                }
+                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
+
             }
 
         }

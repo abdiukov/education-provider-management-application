@@ -1,17 +1,5 @@
-﻿using BusinessLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace UI.Student
 {
@@ -20,30 +8,30 @@ namespace UI.Student
     /// </summary>
     public partial class StudentProfile : Window
     {
-        Breadcrumbs brdcrumb_tracker;
+
         public StudentProfile()
         {
             InitializeComponent();
             Title = "Student's name goes here";
-            brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+
         }
 
         //go back
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("StudentInformation");
+            PageNavigation.GoToNewOrExistingPage(new StudentInformation());
             Hide();
         }
 
         private void Btn_StudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("StudentEnrolment");
+            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
             Hide();
         }
 
         private void Btn_StudentResult_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("StudentResultSearch");
+            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
             Hide();
         }
 
@@ -53,11 +41,11 @@ namespace UI.Student
             string selected_page = dgBreadcrmbs.SelectedItem.ToString();
 
             //if the current page is NOT the page the user has clicked on
-            if (selected_page[0] != '<')
-            {
-                PageNavigation.Navigate(selected_page);
-                Hide();
-            }
+            //if (selected_page[0] != '<')
+            // {
+            // PageNavigation.GoToExistingPage(selected_page);
+            //  Hide();
+            //}
             dgBreadcrmbs.CancelEdit();
         }
 
@@ -65,17 +53,9 @@ namespace UI.Student
         {
             if (this.Visibility == Visibility.Visible)
             {
-                List<BreadcrumbsData> data = brdcrumb_tracker.GetListOfPagesVisited();
+                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
 
-                foreach (var item in data)
-                {
-                    if (item.ToString() == this.GetType().Name)
-                    {
-                        item.Name = "<-- " + item.Name + " -->";
-                        dgBreadcrmbs.ItemsSource = data;
-                        return;
-                    }
-                }
+
             }
 
         }

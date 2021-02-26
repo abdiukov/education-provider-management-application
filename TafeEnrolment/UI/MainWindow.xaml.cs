@@ -1,19 +1,6 @@
-﻿using BusinessLayer;
-using ModelLayer;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UI
 {
@@ -22,29 +9,33 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        //declaring a tracker that has all the pages
+        //the page visited tracker can only hold 10 pages, however as the program size increases, this number should be changed
+        public static List <Window> pagesVisitedTracker = new List<Window>();
+
         public MainWindow()
         {
             InitializeComponent();
-            Breadcrumbs brdcrumb_tracker = new Breadcrumbs(this.GetType().Name);
+            pagesVisitedTracker.Append(this);
         }
 
 
         //Navigation
         private void NavigateTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("TeacherInformation");
+            PageNavigation.GoToNewPage(new TeacherInformation());
             Close();
         }
 
         private void NavigateCourseInfo_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("CourseInformation");
+            PageNavigation.GoToNewPage(new CourseInformation());
             Close();
         }
 
         private void NavigateStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.Navigate("StudentInformation");
+            PageNavigation.GoToNewPage(new StudentInformation());
             Close();
         }
 

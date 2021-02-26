@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusinessLayer
+﻿namespace BusinessLayer
 {
     public class Semester
     {

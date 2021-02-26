@@ -14,7 +14,7 @@
                 <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
                 <DataGridTextColumn Header="Start Date" Binding="{Binding Path='StartDate'}"/>
                 <DataGridTextColumn Header="Finish Date" Binding="{Binding Path='FinishDate'}"/>
-                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='Title'}"/>
                 <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
                 <DataGridTextColumn Header="Units" Binding="{Binding Path='Units'}"/>
                 <DataGridTemplateColumn Header="" >
@@ -34,7 +34,7 @@
                   HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>
