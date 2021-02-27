@@ -56,6 +56,18 @@ namespace UI
             PageLogic.SearchCourseTimetable(SearchBox.Text);
         }
 
+
         //END OF SEARCH DATAGRID CODE
+
+
+        //DATAGRID SETTINGS CODE
+
+        private void dgTimetable_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //code for changing the datagrid settings
+            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+        }
+
+        //END OF DATAGRID SETTINGS CODE
     }
 }

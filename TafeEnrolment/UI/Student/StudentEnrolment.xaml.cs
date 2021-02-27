@@ -36,5 +36,14 @@ namespace UI.Student
         }
 
         //END OF NAVIGATION CODE
+
+        //DATAGRID SETTINGS CODE
+
+        private void dgStudentEnrolment_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+        }
+
+        //END OF DATAGRID SETTINGS CODE
     }
 }

@@ -8,7 +8,7 @@
         Title="See student results" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        <DataGrid Name="dgStudentResults" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <DataGrid Name="dgStudentResults"  MouseRightButtonDown="dgStudentResults_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='Course'}"/>
                 <DataGridTextColumn Header="Units" Binding="{Binding Path='Units'}"/>

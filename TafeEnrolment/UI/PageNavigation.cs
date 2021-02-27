@@ -36,7 +36,7 @@ namespace UI
 
         public static void ClearAllPagesExceptMain()
         {
-            for (int i = 1; i < MainWindow.pagesVisitedTracker.Count; i++)
+            for (int i = MainWindow.pagesVisitedTracker.Count - 1; i > 0; i--)
             {
                 MainWindow.pagesVisitedTracker[i].Close();
                 MainWindow.pagesVisitedTracker.RemoveAt(i);

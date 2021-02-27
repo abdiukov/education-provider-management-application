@@ -17,7 +17,7 @@ namespace UI
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
+            if (pagesVisitedTracker.Count != 1 && Visibility == Visibility.Visible)
             {
                 PageNavigation.ClearAllPagesExceptMain();
             }
