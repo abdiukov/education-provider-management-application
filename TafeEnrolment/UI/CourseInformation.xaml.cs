@@ -18,7 +18,7 @@ namespace UI
         private void courseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new CourseTimetableSearch());
-            Hide();
+            this.Visibility = Visibility.Collapsed;
         }
 
 
@@ -26,42 +26,41 @@ namespace UI
         private void clusterUnitCourse_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new SubjectsClustered());
-            Hide();
+            this.Visibility = Visibility.Collapsed;
         }
 
         private void courseNotOffered_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new CourseNotOffered());
-            Hide();
+            this.Visibility = Visibility.Collapsed;
         }
 
         private void subjectsNotAllocated_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new SubjectsWithNoCourse());
-            Hide();
+            this.Visibility = Visibility.Collapsed;
         }
 
         //back button
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToExistingPage(0);
-            Hide();
+            this.Visibility = Visibility.Collapsed;
         }
 
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-
-            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
-            Hide();
-
             dgBreadcrmbs.CancelEdit();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+            this.Visibility = Visibility.Collapsed;
+
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (this.Visibility == Visibility.Visible)
             {
-
+                dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
 
             }

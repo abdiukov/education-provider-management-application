@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="TAFE NSW Management Application" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" IsVisibleChanged="Window_IsVisibleChanged"
+        >
 
     <Grid >
         <Button x:Name="NavigateTeacherInfo" Click="NavigateTeacherInfo_Click" Content="Search teacher" HorizontalAlignment="Left" Margin="402,209,0,0" VerticalAlignment="Top" Width="180" Height="48"/>

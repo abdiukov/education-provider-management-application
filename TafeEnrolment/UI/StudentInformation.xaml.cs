@@ -33,14 +33,14 @@ namespace UI
 
             //below is placeholder code for testing
             PageNavigation.GoToNewOrExistingPage(new StudentProfile());
-            Hide();
+            this.Visibility = Visibility.Hidden;
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
             //logic to go to student's page
             PageNavigation.GoToNewOrExistingPage(new StudentProfile());
-            Hide();
+            this.Visibility = Visibility.Hidden;
         }
 
 
@@ -84,7 +84,7 @@ namespace UI
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new MainWindow());
-            Hide();
+            this.Visibility = Visibility.Hidden;
         }
 
 
@@ -103,7 +103,7 @@ namespace UI
         private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
-            Hide();
+            this.Visibility = Visibility.Hidden;
         }
 
         private void dgStudentProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -115,30 +115,26 @@ namespace UI
         private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
-            Hide();
+            this.Visibility = Visibility.Hidden;
         }
 
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
-
-            //if the current page is NOT the page the user has clicked on
-            //if (selected_page[0] != '<')
-            // {
-            // PageNavigation.GoToExistingPage(selected_page);
-            //  Hide();
-            //}
+            int selected_page = dgBreadcrmbs.SelectedIndex;
             dgBreadcrmbs.CancelEdit();
+            PageNavigation.GoToExistingPage(selected_page);
+            this.Visibility = Visibility.Hidden;
+
+
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (this.Visibility == Visibility.Visible)
             {
+                dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
-
             }
-
         }
     }
 }

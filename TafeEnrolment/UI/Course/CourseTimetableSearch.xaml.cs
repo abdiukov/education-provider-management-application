@@ -19,7 +19,7 @@ namespace UI
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new CourseInformation());
-            Hide();
+            this.Visibility = Visibility.Hidden;
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
@@ -57,14 +57,11 @@ namespace UI
 
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            string selected_page = dgBreadcrmbs.SelectedItem.ToString();
+            int selected_page = dgBreadcrmbs.SelectedIndex;
 
-            //if the current page is NOT the page the user has clicked on
-            //if (selected_page[0] != '<')
-            // {
-            // PageNavigation.GoToExistingPage(selected_page);
-            //  Hide();
-            //}
+              PageNavigation.GoToExistingPage(selected_page);
+              this.Visibility = Visibility.Hidden;
+            
             dgBreadcrmbs.CancelEdit();
         }
 
@@ -72,6 +69,7 @@ namespace UI
         {
             if (this.Visibility == Visibility.Visible)
             {
+                dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
 
 
