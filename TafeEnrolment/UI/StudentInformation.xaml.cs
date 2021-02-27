@@ -5,90 +5,27 @@ using UI.Student;
 
 namespace UI
 {
-    /// <summary>
-    /// Interaction logic for StudentInformation.xaml
-    /// </summary>
+
     public partial class StudentInformation : Window
     {
-
+        //INITIALISATION CODE
         public StudentInformation()
         {
             InitializeComponent();
-
         }
 
-        //logic
-        private void SearchTextbox_MouseClick(object sender, MouseButtonEventArgs e)
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (SearchTextbox.Text == "Enter keywords by which criteria to search")
+            if (Visibility == Visibility.Visible)
             {
-                SearchTextbox.Text = "";
+                dgBreadcrmbs.ItemsSource = null;
+                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
             }
         }
+        //END OF INITIALISATION CODE
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
-        {
-            //logic to update the datagrid for a specific student
-            SearchDataGrid(SearchTextbox.Text);
+        //SEARCH DATAGRID CODE
 
-            //below is placeholder code for testing
-            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
-            this.Visibility = Visibility.Hidden;
-        }
-
-        private void BtnSelect_Click(object sender, RoutedEventArgs e)
-        {
-            //logic to go to student's page
-            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
-            this.Visibility = Visibility.Hidden;
-        }
-
-
-        private void SearchDataGrid(string searchInput)
-        {
-            searchInput = searchInput == "Enter keywords by which criteria to search" ? "" : searchInput;
-
-            if (checkbox_SearchPartTime.IsChecked == true)
-            {
-                if (checkbox_EnrolledNoFees.IsChecked == true)
-                {
-                    MessageBox.Show("Show part time students who have not paid fees " + searchInput);
-                }
-                else
-                {
-                    MessageBox.Show("Show part time students " + searchInput);
-                }
-            }
-            else if (checkbox_SearchFullTime.IsChecked == true)
-            {
-                if (checkbox_EnrolledNoFees.IsChecked == true)
-                {
-                    MessageBox.Show("Show full time students who have not paid fees " + searchInput);
-                }
-                else
-                {
-                    MessageBox.Show("Show full time students " + searchInput);
-                }
-            }
-            else if (checkbox_EnrolledNoFees.IsChecked == true)
-            {
-                MessageBox.Show("Show all students who have not paid fees " + searchInput);
-            }
-            else
-            {
-                MessageBox.Show("Search everyone" + searchInput);
-            }
-        }
-
-        //back button
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.GoToNewOrExistingPage(new MainWindow());
-            this.Visibility = Visibility.Hidden;
-        }
-
-
-        //check box logic
         private void checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
         {
             checkbox_SearchFullTime.IsChecked = false;
@@ -99,42 +36,70 @@ namespace UI
             checkbox_SearchPartTime.IsChecked = false;
         }
 
+        private void SearchBox_MouseClick(object sender, MouseButtonEventArgs e)
+        {
+            SearchBox.Text = PageLogic.SearchBoxReplaceDefaultValue(SearchBox.Text);
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageLogic.SearchStudent(SearchBox.Text, checkbox_SearchPartTime.IsChecked,
+                checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked);
+
+
+            //below is placeholder code for testing
+            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
+            Hide();
+        }
+
+        //END OF SEARCH DATAGRID CODE
+
+
+        //PAGE NAVIGATION CODE
+        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.GoToNewOrExistingPage(new MainWindow());
+            Hide();
+        }
+
+
+        private void BtnSelect_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
+            Hide();
+        }
+
 
         private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
-            this.Visibility = Visibility.Hidden;
+            Hide();
         }
 
+
+        private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
+            Hide();
+        }
+
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            dgBreadcrmbs.CancelEdit();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+            Hide();
+        }
+
+        //END OF PAGE NAVIGATION CODE
+
+        //DATAGRID SETTINGS CODE
         private void dgStudentProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
             MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
         }
 
-        private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
-            this.Visibility = Visibility.Hidden;
-        }
+        //END OF DATAGRID SETTINGS CODE
 
-        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
-        {
-            int selected_page = dgBreadcrmbs.SelectedIndex;
-            dgBreadcrmbs.CancelEdit();
-            PageNavigation.GoToExistingPage(selected_page);
-            this.Visibility = Visibility.Hidden;
-
-
-        }
-
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (this.Visibility == Visibility.Visible)
-            {
-                dgBreadcrmbs.ItemsSource = null;
-                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
-            }
-        }
     }
 }

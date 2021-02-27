@@ -33,5 +33,14 @@ namespace UI
                 GoToNewPage(pageToNavigate);
             }
         }
+
+        public static void ClearAllPagesExceptMain()
+        {
+            for (int i = 1; i < MainWindow.pagesVisitedTracker.Count; i++)
+            {
+                MainWindow.pagesVisitedTracker[i].Close();
+                MainWindow.pagesVisitedTracker.RemoveAt(i);
+            }
+        }
     }
 }

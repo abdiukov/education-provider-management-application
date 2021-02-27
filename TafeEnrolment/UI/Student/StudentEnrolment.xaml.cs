@@ -19,7 +19,7 @@ namespace UI.Student
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new StudentProfile());
-            this.Visibility = Visibility.Hidden;
+            Hide();
         }
 
 
@@ -28,14 +28,14 @@ namespace UI.Student
             int selected_page = dgBreadcrmbs.SelectedIndex;
 
               PageNavigation.GoToExistingPage(selected_page);
-              this.Visibility = Visibility.Hidden;
+              Hide();
             
             dgBreadcrmbs.CancelEdit();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (this.Visibility == Visibility.Visible)
+            if (Visibility == Visibility.Visible)
             {
                 dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;

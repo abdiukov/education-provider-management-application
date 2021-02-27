@@ -64,6 +64,7 @@
     <Compile Include="Course\CourseTimetableSearch.xaml.cs">
       <DependentUpon>CourseTimetableSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageLogic.cs" />
     <Compile Include="PageNavigation.cs" />
     <Compile Include="StudentInformation.xaml.cs">
       <DependentUpon>StudentInformation.xaml</DependentUpon>

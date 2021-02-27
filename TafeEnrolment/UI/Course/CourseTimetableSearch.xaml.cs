@@ -19,7 +19,7 @@ namespace UI
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new CourseInformation());
-            this.Visibility = Visibility.Hidden;
+            Hide();
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
@@ -28,23 +28,23 @@ namespace UI
         }
 
         //logic
-        private void SearchTextbox_MouseClick(object sender, MouseButtonEventArgs e)
+        private void SearchBox_MouseClick(object sender, MouseButtonEventArgs e)
         {
-            if (SearchTextbox.Text == "Enter keywords by which criteria to search")
+            if (SearchBox.Text == "Enter keywords by which criteria to search")
             {
-                SearchTextbox.Text = "";
+                SearchBox.Text = "";
             }
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             //logic to update the datagrid for a specific teacher
-            SearchDataGrid(SearchTextbox.Text);
+            SearchDataGrid(SearchBox.Text);
         }
 
         private void SearchDataGrid(string searchInput)
         {
-            if (SearchTextbox.Text == "Enter keywords by which criteria to search" || SearchTextbox.Text == "")
+            if (SearchBox.Text == "Enter keywords by which criteria to search" || SearchBox.Text == "")
             {
                 MessageBox.Show("Please enter something into the search bar");
             }
@@ -60,14 +60,14 @@ namespace UI
             int selected_page = dgBreadcrmbs.SelectedIndex;
 
               PageNavigation.GoToExistingPage(selected_page);
-              this.Visibility = Visibility.Hidden;
+              Hide();
             
             dgBreadcrmbs.CancelEdit();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (this.Visibility == Visibility.Visible)
+            if (Visibility == Visibility.Visible)
             {
                 dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;

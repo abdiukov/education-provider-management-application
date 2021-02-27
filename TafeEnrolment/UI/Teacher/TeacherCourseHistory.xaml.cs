@@ -16,7 +16,6 @@ namespace UI
         public TeacherCourseHistory()
         {
             InitializeComponent();
-            dgCourseHistory.Visibility = Visibility.Hidden;
 
             Logic logic = new Logic();
             this.logic = logic;
@@ -27,29 +26,29 @@ namespace UI
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
-            this.Visibility = Visibility.Hidden;
+            Hide();
         }
 
-        private void SearchTextbox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void SearchBox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (SearchTextbox.Text == "Enter keywords by which criteria to search")
+            if (SearchBox.Text == "Enter keywords by which criteria to search")
             {
-                SearchTextbox.Text = "";
+                SearchBox.Text = "";
             }
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             //logic to update the datagrid for a specific teacher
-            SearchDataGrid(SearchTextbox.Text);
+            SearchDataGrid(SearchBox.Text);
 
         }
 
-        private void SearchTextbox_KeyDown(object sender, KeyEventArgs e)
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                SearchDataGrid(SearchTextbox.Text);
+                SearchDataGrid(SearchBox.Text);
             }
         }
 
@@ -103,15 +102,15 @@ namespace UI
         {
             int selected_page = dgBreadcrmbs.SelectedIndex;
 
-              PageNavigation.GoToExistingPage(selected_page);
-              this.Visibility = Visibility.Hidden;
-            
+            PageNavigation.GoToExistingPage(selected_page);
+            Hide();
+
             dgBreadcrmbs.CancelEdit();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (this.Visibility == Visibility.Visible)
+            if (Visibility == Visibility.Visible)
             {
                 dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;

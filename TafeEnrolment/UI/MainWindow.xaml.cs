@@ -3,50 +3,46 @@ using System.Windows;
 
 namespace UI
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        //declaring a tracker that has all the pages
-        //the page visited tracker can only hold 10 pages, however as the program size increases, this number should be changed
+        //pagesVisitedTracker is a tracker that contains pages that the user opened.
         public static List<Window> pagesVisitedTracker = new List<Window>();
 
+        //INITIALISATION CODE
         public MainWindow()
         {
             InitializeComponent();
+            pagesVisitedTracker.Add(this);
         }
 
-        //Navigation
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                PageNavigation.ClearAllPagesExceptMain();
+            }
+        }
+        //END OF INITIALISATION CODE
+
+
+        //START OF NAVIGATION CODE
         private void NavigateTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewPage(new TeacherInformation());
-            this.Visibility = Visibility.Hidden;
+            Hide();
         }
 
         private void NavigateCourseInfo_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewPage(new CourseInformation());
-            this.Visibility = Visibility.Hidden;
+            Hide();
         }
 
         private void NavigateStudentInfo_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewPage(new StudentInformation());
-            this.Visibility = Visibility.Hidden;
+            Hide();
         }
-
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (this.Visibility == Visibility.Visible)
-            {
-                for (int i = 1; i < pagesVisitedTracker.Count; i++)
-                {
-                    pagesVisitedTracker[i].Close();
-                }
-                pagesVisitedTracker.Clear();
-                pagesVisitedTracker.Add(this);
-            }
-        }
+        //END OF NAVIGATION CODE
     }
 }
