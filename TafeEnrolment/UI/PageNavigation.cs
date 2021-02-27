@@ -12,19 +12,19 @@ namespace UI
 
         public static void GoToNewPage(Window pageToNavigate)
         {
-            MainWindow.pagesVisitedTracker.Add(pageToNavigate);
+            App.pagesVisitedTracker.Add(pageToNavigate);
             pageToNavigate.Show();
         }
 
         public static void GoToExistingPage(int indexOfPage)
         {
-            MainWindow.pagesVisitedTracker[indexOfPage].Visibility = Visibility.Visible;
+            App.pagesVisitedTracker[indexOfPage].Visibility = Visibility.Visible;
         }
 
         public static void GoToNewOrExistingPage(Window pageToNavigate)
         {
 
-            if (MainWindow.pagesVisitedTracker.Contains(pageToNavigate))
+            if (App.pagesVisitedTracker.Contains(pageToNavigate))
             {
                 pageToNavigate.Visibility = Visibility.Visible;
             }
@@ -36,10 +36,10 @@ namespace UI
 
         public static void ClearAllPagesExceptMain()
         {
-            for (int i = MainWindow.pagesVisitedTracker.Count - 1; i > 0; i--)
+            for (int i = App.pagesVisitedTracker.Count - 1; i > 0; i--)
             {
-                MainWindow.pagesVisitedTracker[i].Close();
-                MainWindow.pagesVisitedTracker.RemoveAt(i);
+                App.pagesVisitedTracker[i].Close();
+                App.pagesVisitedTracker.RemoveAt(i);
             }
         }
     }

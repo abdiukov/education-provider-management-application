@@ -19,7 +19,7 @@ namespace UI
             if (Visibility == Visibility.Visible)
             {
                 dgBreadcrmbs.ItemsSource = null;
-                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
+                dgBreadcrmbs.ItemsSource = App.pagesVisitedTracker;
             }
         }
         //END OF INITIALISATION CODE

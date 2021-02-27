@@ -1634,6 +1634,41 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        }
+      },
+      "DataLinkLayer/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "BusinessLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataLinkLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataLinkLayer.dll": {}
+        }
+      },
+      "ModelLayer/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "BusinessLayer": "1.0.0",
+          "DataLinkLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ModelLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ModelLayer.dll": {}
+        }
       }
     }
   },
@@ -5706,6 +5741,21 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLayer/BusinessLayer.csproj",
+      "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
+    },
+    "DataLinkLayer/1.0.0": {
+      "type": "project",
+      "path": "../DataLinkLayer/DataLinkLayer.csproj",
+      "msbuildProject": "../DataLinkLayer/DataLinkLayer.csproj"
+    },
+    "ModelLayer/1.0.0": {
+      "type": "project",
+      "path": "../ModelLayer/ModelLayer.csproj",
+      "msbuildProject": "../ModelLayer/ModelLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5713,6 +5763,7 @@
       "MSTest.TestAdapter >= 2.1.1",
       "MSTest.TestFramework >= 2.1.1",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
+      "ModelLayer >= 1.0.0",
       "coverlet.collector >= 1.3.0"
     ]
   },
@@ -5747,7 +5798,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\ModelLayer\\ModelLayer.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
