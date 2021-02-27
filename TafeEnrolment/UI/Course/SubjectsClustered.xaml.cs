@@ -3,33 +3,12 @@ using System.Windows.Controls;
 
 namespace UI
 {
-    /// <summary>
-    /// Interaction logic for SubjectsClustered.xaml
-    /// </summary>
     public partial class SubjectsClustered : Window
     {
-
+        //INITIALISATION CODE
         public SubjectsClustered()
         {
             InitializeComponent();
-
-        }
-
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.GoToNewOrExistingPage(new CourseInformation());
-            Hide();
-        }
-
-
-        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
-        {
-            int selected_page = dgBreadcrmbs.SelectedIndex;
-
-              PageNavigation.GoToExistingPage(selected_page);
-              Hide();
-            
-            dgBreadcrmbs.CancelEdit();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -38,10 +17,26 @@ namespace UI
             {
                 dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
-
-
             }
-
         }
+        //END OF INITIALISATION CODE
+
+        //NAVIGATION CODE
+
+        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            PageNavigation.GoToNewOrExistingPage(new CourseInformation());
+        }
+
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            dgBreadcrmbs.CancelEdit();
+            Hide();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+        }
+
+        //END OF NAVIGATION CODE
+
     }
 }

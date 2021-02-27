@@ -5,13 +5,8 @@ using UI.Teacher;
 
 namespace UI
 {
-    /// <summary>
-    /// Interaction logic for TeacherInformation.xaml
-    /// </summary>
     public partial class TeacherInformation : Window
     {
-
-
         //INITIALISATION CODE
         public TeacherInformation()
         {
@@ -57,32 +52,32 @@ namespace UI
         }
 
 
-        //START OF NAVIGATION CODE
+        //NAVIGATION CODE
 
 
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             dgBreadcrmbs.CancelEdit();
-            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
             Hide();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
         }
 
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new MainWindow());
+            PageNavigation.GoToExistingPage(0);
             Hide();
         }
 
         private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
             Hide();
+            PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
             Hide();
+            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
         }
 
         //END OF NAVIGATION CODE

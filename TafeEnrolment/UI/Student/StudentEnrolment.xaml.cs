@@ -3,34 +3,12 @@ using System.Windows.Controls;
 
 namespace UI.Student
 {
-    /// <summary>
-    /// Interaction logic for StudentEnrolment.xaml
-    /// </summary>
     public partial class StudentEnrolment : Window
     {
-
+        //INITIALISATION CODE
         public StudentEnrolment()
         {
             InitializeComponent();
-
-        }
-
-        //go back
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
-            Hide();
-        }
-
-
-        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
-        {
-            int selected_page = dgBreadcrmbs.SelectedIndex;
-
-              PageNavigation.GoToExistingPage(selected_page);
-              Hide();
-            
-            dgBreadcrmbs.CancelEdit();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -39,10 +17,24 @@ namespace UI.Student
             {
                 dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
-
-
             }
-
         }
+        //END OF INITIALISATION CODE
+
+        //NAVIGATION CODE
+
+        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
+        }
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            dgBreadcrmbs.CancelEdit();
+            Hide();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+        }
+
+        //END OF NAVIGATION CODE
     }
 }

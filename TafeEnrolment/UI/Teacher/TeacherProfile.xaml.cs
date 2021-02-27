@@ -3,40 +3,13 @@ using System.Windows.Controls;
 
 namespace UI.Teacher
 {
-    /// <summary>
-    /// Interaction logic for TeacherProfile.xaml
-    /// </summary>
     public partial class TeacherProfile : Window
     {
-
+        //INITIALISATION CODE
         public TeacherProfile()
         {
             InitializeComponent();
-
             Title = "Teacher's name goes here";
-        }
-
-        //go back
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.GoToNewOrExistingPage(new TeacherInformation());
-            Hide();
-        }
-
-        private void Btn_teacherCourseHistory_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
-            Hide();
-        }
-
-        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
-        {
-            int selected_page = dgBreadcrmbs.SelectedIndex;
-
-              PageNavigation.GoToExistingPage(selected_page);
-              Hide();
-            
-            dgBreadcrmbs.CancelEdit();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -45,10 +18,31 @@ namespace UI.Teacher
             {
                 dgBreadcrmbs.ItemsSource = null;
                 dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
-
-
             }
-
         }
+
+        //END OF INITIALISATION CODE
+
+        //NAVIGATION CODE
+        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        {
+            dgBreadcrmbs.CancelEdit();
+            Hide();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+        }
+
+        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            PageNavigation.GoToNewOrExistingPage(new TeacherInformation());
+        }
+
+        private void Btn_teacherCourseHistory_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
+        }
+
+        //END OF NAVIGATION CODE
     }
 }

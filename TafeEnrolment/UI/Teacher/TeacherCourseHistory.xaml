@@ -25,8 +25,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <CheckBox x:Name="checkbox_SearchPastCourse" Checked="checkbox_SearchPastCourse_Checked" Content="Taught in the past" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox_SearchPresentCourse" Checked="checkbox_SearchPresentCourse_Checked" Content="Currently teaches" HorizontalAlignment="Left" Margin="225,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox_SearchPastCourse"  Content="Taught in the past" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkbox_SearchPresentCourse"  Content="Currently teaches" HorizontalAlignment="Left" Margin="225,80,0,0" VerticalAlignment="Top"/>
         <DataGrid Name="dgBreadcrmbs" HorizontalAlignment="Left" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    Height="732" Width="25"

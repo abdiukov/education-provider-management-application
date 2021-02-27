@@ -3,19 +3,24 @@ using System.Windows.Controls;
 
 namespace UI.Student
 {
-    /// <summary>
-    /// Interaction logic for StudentResultSearch.xaml
-    /// </summary>
     public partial class StudentResultSearch : Window
     {
-
+        //INITIALISATION CODE
         public StudentResultSearch()
         {
             InitializeComponent();
-
         }
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                dgBreadcrmbs.ItemsSource = null;
+                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
+            }
+        }
+        //END OF INITIALISATION CODE
 
-        //go back
+        //NAVIGATION CODE
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new StudentProfile());
@@ -24,24 +29,12 @@ namespace UI.Student
 
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            int selected_page = dgBreadcrmbs.SelectedIndex;
-
-              PageNavigation.GoToExistingPage(selected_page);
-              Hide();
-            
             dgBreadcrmbs.CancelEdit();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+            Hide();
         }
 
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (Visibility == Visibility.Visible)
-            {
-                dgBreadcrmbs.ItemsSource = null;
-                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
+        //END OF NAVIGATION CODE
 
-
-            }
-
-        }
     }
 }

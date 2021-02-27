@@ -25,23 +25,23 @@ namespace UI
         //END OF INITIALISATION CODE
 
 
-        //START OF NAVIGATION CODE
+        //NAVIGATION CODE
         private void NavigateTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewPage(new TeacherInformation());
             Hide();
+            PageNavigation.GoToNewPage(new TeacherInformation());
         }
 
         private void NavigateCourseInfo_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewPage(new CourseInformation());
             Hide();
+            PageNavigation.GoToNewPage(new CourseInformation());
         }
 
         private void NavigateStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewPage(new StudentInformation());
             Hide();
+            PageNavigation.GoToNewPage(new StudentInformation());
         }
         //END OF NAVIGATION CODE
     }

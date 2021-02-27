@@ -48,8 +48,8 @@ namespace UI
 
 
             //below is placeholder code for testing
-            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
             Hide();
+            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
         }
 
         //END OF SEARCH DATAGRID CODE
@@ -58,36 +58,36 @@ namespace UI
         //PAGE NAVIGATION CODE
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new MainWindow());
             Hide();
+            PageNavigation.GoToExistingPage(0);
         }
 
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
             Hide();
+            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
         }
 
 
         private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
             Hide();
+            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
         }
 
 
         private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
             Hide();
+            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
         }
 
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             dgBreadcrmbs.CancelEdit();
-            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
             Hide();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
         }
 
         //END OF PAGE NAVIGATION CODE

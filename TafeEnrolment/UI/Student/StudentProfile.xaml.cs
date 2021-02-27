@@ -3,20 +3,26 @@ using System.Windows.Controls;
 
 namespace UI.Student
 {
-    /// <summary>
-    /// Interaction logic for StudentProfile.xaml
-    /// </summary>
     public partial class StudentProfile : Window
     {
-
+        //INITIALISATION CODE
         public StudentProfile()
         {
             InitializeComponent();
             Title = "Student's name goes here";
-
+        }
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                dgBreadcrmbs.ItemsSource = null;
+                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
+            }
         }
 
-        //go back
+        //END OF INITIALISATION CODE
+
+        //NAVIGATION CODE
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToNewOrExistingPage(new StudentInformation());
@@ -35,27 +41,12 @@ namespace UI.Student
             Hide();
         }
 
-
         private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            int selected_page = dgBreadcrmbs.SelectedIndex;
-
-              PageNavigation.GoToExistingPage(selected_page);
-              Hide();
-            
             dgBreadcrmbs.CancelEdit();
+            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+            Hide();
         }
-
-        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (Visibility == Visibility.Visible)
-            {
-                dgBreadcrmbs.ItemsSource = null;
-                dgBreadcrmbs.ItemsSource = MainWindow.pagesVisitedTracker;
-
-
-            }
-
-        }
+        //END OF NAVIGATION CODE
     }
 }
