@@ -34,7 +34,7 @@ namespace UI.Teacher
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToNewOrExistingPage(new TeacherInformation());
+            PageNavigation.GoToExistingPage(new TeacherInformation());
         }
 
         private void Btn_teacherCourseHistory_Click(object sender, RoutedEventArgs e)

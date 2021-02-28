@@ -41,11 +41,23 @@ namespace UI
             SearchBox.Text = PageLogic.SearchBoxReplaceDefaultValue(SearchBox.Text);
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void Search()
         {
             PageLogic.SearchStudent(SearchBox.Text, checkbox_SearchPartTime.IsChecked,
-                checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked);
+    checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked);
+        }
 
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Search();
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            Search();
 
             //below is placeholder code for testing
             Hide();
@@ -59,7 +71,7 @@ namespace UI
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(new MainWindow());
         }
 
 
@@ -98,6 +110,8 @@ namespace UI
             //code for changing the datagrid settings
             MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
         }
+
+
 
         //END OF DATAGRID SETTINGS CODE
 

@@ -95,7 +95,8 @@ namespace UI
 
             switch (v)
             {
-                case 0:
+
+                case 0: //either both x and y are true or none are true
                 case 3:
                     MessageBox.Show("Search everyone " + searchQuery);
                     break;

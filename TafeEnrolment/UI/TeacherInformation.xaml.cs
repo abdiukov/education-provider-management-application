@@ -26,6 +26,28 @@ namespace UI
 
         //SEARCH DATAGRID CODE
 
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            Search();
+            //below is placeholder code for testing
+            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
+            Hide();
+        }
+
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Search();
+            }
+        }
+
+        private void Search()
+        {
+            PageLogic.SearchTeacher(SearchBox.Text, checkbox_SearchPartTime.IsChecked,
+    checkbox_SearchFullTime.IsChecked, checkbox_SearchTeacherNotBasedLocation.IsChecked);
+        }
+
         private void checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
         {
             checkbox_SearchFullTime.IsChecked = false;
@@ -41,15 +63,7 @@ namespace UI
             SearchBox.Text = PageLogic.SearchBoxReplaceDefaultValue(SearchBox.Text);
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
-        {
-            PageLogic.SearchTeacher(SearchBox.Text, checkbox_SearchPartTime.IsChecked,
-                checkbox_SearchFullTime.IsChecked, checkbox_SearchTeacherNotBasedLocation.IsChecked);
 
-            //below is placeholder code for testing
-            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
-            Hide();
-        }
 
 
         //NAVIGATION CODE
@@ -64,7 +78,7 @@ namespace UI
 
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(new MainWindow());
             Hide();
         }
 

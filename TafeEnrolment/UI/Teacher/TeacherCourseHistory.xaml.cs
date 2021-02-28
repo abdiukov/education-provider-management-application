@@ -37,7 +37,7 @@ namespace UI
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
+            PageNavigation.GoToExistingPage(new TeacherProfile());
         }
 
         //END OF NAVIGATION CODE
@@ -49,16 +49,21 @@ namespace UI
             SearchBox.Text = PageLogic.SearchBoxReplaceDefaultValue(SearchBox.Text);
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void Search()
         {
             PageLogic.SearchTeacherCourseHistory(SearchBox.Text, checkbox_SearchPastCourse.IsChecked, checkbox_SearchPresentCourse.IsChecked);
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            Search();
         }
 
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                PageLogic.SearchTeacherCourseHistory(SearchBox.Text, checkbox_SearchPastCourse.IsChecked, checkbox_SearchPresentCourse.IsChecked);
+                Search();
             }
         }
 

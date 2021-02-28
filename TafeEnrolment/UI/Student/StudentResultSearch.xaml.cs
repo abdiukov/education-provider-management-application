@@ -24,7 +24,7 @@ namespace UI.Student
         //NAVIGATION CODE
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
+            PageNavigation.GoToExistingPage(new StudentProfile());
             Hide();
         }
 

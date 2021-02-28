@@ -28,7 +28,7 @@ namespace UI
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToNewOrExistingPage(new CourseInformation());
+            PageNavigation.GoToExistingPage(new CourseInformation());
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)
@@ -46,6 +46,19 @@ namespace UI
 
         //SEARCH DATAGRID CODE
 
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Search();
+            }
+        }
+
+        private void Search()
+        {
+            PageLogic.SearchCourseTimetable(SearchBox.Text);
+        }
+
         private void SearchBox_MouseClick(object sender, MouseButtonEventArgs e)
         {
             PageLogic.SearchBoxReplaceDefaultValue(SearchBox.Text);
@@ -53,7 +66,7 @@ namespace UI
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            PageLogic.SearchCourseTimetable(SearchBox.Text);
+            Search();
         }
 
 
