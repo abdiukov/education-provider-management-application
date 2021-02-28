@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Search student" Height="450" Width="800"
+        Title="Student search" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" IsVisibleChanged="Window_IsVisibleChanged">
     <Grid>
         <TextBox Name="SearchBox" KeyDown="SearchBox_KeyDown" PreviewMouseDown="SearchBox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595"/>
@@ -34,13 +34,13 @@
         <CheckBox x:Name="checkbox_SearchFullTime" Checked="checkbox_SearchFullTime_Checked" Content="Full Time" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkbox_SearchPartTime"  Checked="checkbox_SearchPartTime_Checked" Content="Part Time" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkbox_EnrolledNoFees" Content="Students who have enrolled but not paid the fees" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
-        <DataGrid Name="dgBreadcrmbs" HorizontalAlignment="Left" 
+        <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    Height="732" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
+                  HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>

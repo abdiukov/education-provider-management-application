@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="See course information" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
+        Title="Course information" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
@@ -13,13 +13,13 @@
         <Button Name="subjectsNotAllocated_navigation_btn" Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,312,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="subjectsNotAllocated_navigation_btn_Click"/>
         <Button Name="clusterUnitCourse_navigation_btn" Content="See cluster units for any course and semester." HorizontalAlignment="Left" Margin="174,156,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="clusterUnitCourse_navigation_btn_Click"/>
         <Button Name ="courseTimetables_navigation_btn" Content="Display timetable for a course being offered at all locations" HorizontalAlignment="Left" Margin="174,78,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseTimetables_navigation_btn_Click"/>
-        <DataGrid Name="dgBreadcrmbs" HorizontalAlignment="Left" 
+        <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    Height="732" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
+                  HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>

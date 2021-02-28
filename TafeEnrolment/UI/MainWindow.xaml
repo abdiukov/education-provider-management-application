@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="TAFE NSW Management Application" Height="450" Width="800"
+        Title="Main Menu" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" IsVisibleChanged="Window_IsVisibleChanged"
         >
 

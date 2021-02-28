@@ -15,8 +15,8 @@ namespace UI.Student
         {
             if (Visibility == Visibility.Visible)
             {
-                dgBreadcrmbs.ItemsSource = null;
-                dgBreadcrmbs.ItemsSource = App.pagesVisitedTracker;
+                dgNavigationBar.ItemsSource = null;
+                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
 
@@ -41,10 +41,10 @@ namespace UI.Student
             Hide();
         }
 
-        private void dgBreadcrmbs_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgBreadcrmbs.CancelEdit();
-            PageNavigation.GoToExistingPage(dgBreadcrmbs.SelectedIndex);
+            dgNavigationBar.CancelEdit();
+            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
             Hide();
         }
         //END OF NAVIGATION CODE

@@ -51,13 +51,13 @@
 
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <Button Name="Btn_teacherCourseHistory" Content="See teacher course history" HorizontalAlignment="Left" Margin="316,341,0,0" VerticalAlignment="Top" Width="181" Height="61" Click="Btn_teacherCourseHistory_Click" />
-        <DataGrid Name="dgBreadcrmbs" HorizontalAlignment="Left" 
+        <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    Height="732" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="dgBreadcrmbs_NavigateToSelectedPage"
+                  HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
