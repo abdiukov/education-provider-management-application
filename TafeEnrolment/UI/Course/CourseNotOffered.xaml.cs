@@ -41,7 +41,8 @@ namespace UI
         private void dgCourseNotOffered_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+            DataGridSettings page = new DataGridSettings(dgCourseNotOffered);
+            page.Show();
         }
 
         //END OF DATAGRID SETTINGS CODE

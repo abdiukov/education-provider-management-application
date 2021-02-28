@@ -99,7 +99,8 @@ namespace UI
         //DATAGRID SETTINGS CODE
         private void dgTeacherProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+            DataGridSettings page = new DataGridSettings(dgTeacherProfiles);
+            page.Show();
         }
 
         //END OF DATAGRID SETTINGS CODE

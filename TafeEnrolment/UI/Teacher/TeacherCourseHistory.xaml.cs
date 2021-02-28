@@ -74,7 +74,8 @@ namespace UI
         private void dgCourseHistory_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+            DataGridSettings page = new DataGridSettings(dgCourseHistory);
+            page.Show();
         }
 
         //END OF DATAGRID SETTINGS CODE

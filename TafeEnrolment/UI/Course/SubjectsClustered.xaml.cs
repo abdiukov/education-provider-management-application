@@ -44,7 +44,8 @@ namespace UI
         private void dgClusteredUnits_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+            DataGridSettings page = new DataGridSettings(dgClusteredUnits);
+            page.Show();
         }
 
         //END OF DATAGRID SETTINGS CODE

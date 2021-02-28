@@ -78,7 +78,8 @@ namespace UI
         private void dgTimetable_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            MessageBox.Show("Upon right clicking, there should be datagrid settings displayed to user");
+            DataGridSettings page = new DataGridSettings(dgTimetable);
+            page.Show();
         }
 
         //END OF DATAGRID SETTINGS CODE
