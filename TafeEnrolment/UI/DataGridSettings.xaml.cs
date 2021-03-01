@@ -25,7 +25,8 @@ namespace UI
                     case Visibility.Visible:
                         dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Hidden;
                         break;
-                    default:
+                    case Visibility.Hidden:
+                    case Visibility.Collapsed:
                         dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Visible;
                         break;
                 }
