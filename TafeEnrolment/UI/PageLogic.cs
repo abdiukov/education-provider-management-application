@@ -38,7 +38,7 @@ namespace UI
                 case 5: //x and z are true
                     MessageBox.Show("Search part time no fees " + searchQuery);
                     break;
-                case 6: //x and y are true
+                default: //x and y are true
                     MessageBox.Show("Error! Both part time and full time tick boxes are ticked " + searchQuery);
                     break;
             }
@@ -72,7 +72,7 @@ namespace UI
                 case 5: //x and z are true
                     MessageBox.Show("Search part time and not teaching at their base location " + searchQuery);
                     break;
-                case 6: //x and y are true
+                default: //x and y are true
                     MessageBox.Show("Error! Both part time and full time tick boxes are ticked " + searchQuery);
                     break;
             }

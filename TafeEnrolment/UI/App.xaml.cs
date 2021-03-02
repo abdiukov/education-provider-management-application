@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace UI
@@ -10,6 +12,23 @@ namespace UI
     {
         //pagesVisitedTracker is a tracker that contains pages that the user opened.
         public static List<Window> pagesVisitedTracker = new List<Window>();
+
+        private void Application_Deactivated(object sender, System.EventArgs e)
+        {
+            Task.Delay(30000).ContinueWith(t => CheckIfAppIsClosed());
+        }
+
+        private void CheckIfAppIsClosed()
+        {
+            foreach (var item in pagesVisitedTracker)
+            {
+                if (item.IsVisible == true)
+                {
+                    return;
+                }
+            }
+            Environment.Exit(0);
+        }
 
     }
 }
