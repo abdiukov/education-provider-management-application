@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace UI
@@ -36,11 +37,15 @@ namespace UI
 
         private void Window_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
         {
-            var window = (Window)sender;
-            if (window.Topmost == false && window.IsActive == false)
+            try
             {
-                window.Close();
+                var window = (Window)sender;
+                if (window.IsActive == false && window.Topmost == false)
+                {
+                    window.Close();
+                }
             }
+            catch (Exception) { };
         }
 
     }
