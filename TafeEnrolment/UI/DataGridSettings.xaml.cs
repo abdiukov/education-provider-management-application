@@ -33,5 +33,15 @@ namespace UI
             }
         }
 
+
+        private void Window_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            var window = (Window)sender;
+            if (window.Topmost == false)
+            {
+                window.Close();
+            }
+
+        }
     }
 }
