@@ -2,6 +2,6 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:UI"
-             StartupUri="MainWindow.xaml" Deactivated="Application_Deactivated">
+             StartupUri="MainWindow.xaml" Deactivated="Application_Deactivated" >
     <Application.Resources></Application.Resources>
 </Application>

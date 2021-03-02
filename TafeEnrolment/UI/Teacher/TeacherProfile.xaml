@@ -8,7 +8,7 @@
         Title="" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        <DataGrid Name="dgStudentProfile" HorizontalAlignment="Center" Margin="272,50,272,0" VerticalAlignment="Top" Width="250" Height="200" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <DataGrid Name="dgTeacherProfile" MouseRightButtonDown="dgTeacherProfile_MouseRightButtonDown" HorizontalAlignment="Center" Margin="272,50,272,0" VerticalAlignment="Top" Width="250" Height="200" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding Path='FirstName'}"/>
                 <DataGridTextColumn Header="Surname" Binding="{Binding Path='LastName'}"/>

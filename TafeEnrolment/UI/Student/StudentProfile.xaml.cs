@@ -47,6 +47,13 @@ namespace UI.Student
             PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
             Hide();
         }
+
+        private void dgStudentProfile_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //code for changing the datagrid settings
+            DataGridSettings page = new DataGridSettings(dgStudentProfile);
+            page.Show();
+        }
         //END OF NAVIGATION CODE
     }
 }

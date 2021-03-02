@@ -43,6 +43,13 @@ namespace UI.Teacher
             PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
         }
 
+        private void dgTeacherProfile_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //code for changing the datagrid settings
+            DataGridSettings page = new DataGridSettings(dgTeacherProfile);
+            page.Show();
+        }
+
         //END OF NAVIGATION CODE
     }
 }
