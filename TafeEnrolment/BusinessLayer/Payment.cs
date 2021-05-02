@@ -2,7 +2,7 @@
 
 namespace BusinessLayer
 {
-    public class Semester
+    public class Payment
     {
 
         //PROPERTIES
@@ -11,54 +11,70 @@ namespace BusinessLayer
         {
             get; set;
         }
-        public string Name
+
+        public DateTime Date
         {
             get; set;
         }
 
-        public DateTime StartDate
+        public Student PaymentFrom
         {
             get; set;
         }
 
-        public DateTime FinishDate
+        public Location PaymentTo
         {
             get; set;
         }
 
+        public bool Status
+        {
+            get; set;
+        }
+
+        public enum PaymentType
+        {
+            CreditCard = 0,
+            Cash = 1,
+            Check = 2,
+        }
+
+        public double Amount
+        {
+            get; set;
+        }
 
         //METHODS
 
-        public void AddSemester()
+        public void AddPayment()
         {
             throw new NotImplementedException();
 
         }
 
-        public void DeleteSemester()
+        public void DeletePayment()
         {
             throw new NotImplementedException();
 
         }
 
-        public void UpdateSemester()
+        public void UpdatePayment()
         {
             throw new NotImplementedException();
 
         }
 
-        public void SearchSemester()
+        public void SearchPayment()
         {
             throw new NotImplementedException();
 
         }
 
-        public void ViewAllSemesters()
+        public void ViewAllPayments()
         {
             throw new NotImplementedException();
 
         }
-
 
     }
 }

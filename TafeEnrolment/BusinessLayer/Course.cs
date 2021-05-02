@@ -5,45 +5,95 @@ namespace BusinessLayer
 {
     public class Course
     {
-        public bool isOffered
+        //PROPERTIES
+        public int Id
         {
             get; set;
         }
 
-        public string CourseName
+        public string Name
         {
             get; set;
         }
 
-        public List<Student> Students
+        public int Duration
         {
             get; set;
         }
 
-        public List<Teacher> Teachers
+        public Location CourseLocation
         {
             get; set;
         }
 
-        public List<Unit> CourseUnits
+
+        public List<Semester> CourseSemesters
         {
             get; set;
         }
 
-        public DateTime courseStartDate
+        //METHODS
+
+        public void AddCourse()
         {
-            get; set;
+            throw new NotImplementedException();
         }
 
-        public DateTime courseEndDate
+        public void DeleteCourse()
         {
-            get; set;
+            throw new NotImplementedException();
         }
 
-        public string courseStatus
+        public void UpdateCourse()
         {
-            get; set;
+            throw new NotImplementedException();
         }
+
+        public void SearchCourse()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ViewAllCourses()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        //public bool isOffered
+        //{
+        //    get; set;
+        //}
+
+        //public List<Student> Students
+        //{
+        //    get; set;
+        //}
+
+        //public List<Teacher> Teachers
+        //{
+        //    get; set;
+        //}
+
+        //public List<Unit> CourseUnits
+        //{
+        //    get; set;
+        //}
+
+        //public DateTime courseStartDate
+        //{
+        //    get; set;
+        //}
+
+        //public DateTime courseEndDate
+        //{
+        //    get; set;
+        //}
+
+        //public string courseStatus
+        //{
+        //    get; set;
+        //}
 
     }
 }

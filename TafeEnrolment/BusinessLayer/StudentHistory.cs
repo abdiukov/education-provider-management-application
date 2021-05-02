@@ -2,7 +2,7 @@
 
 namespace BusinessLayer
 {
-    public class Semester
+    public class StudentHistory
     {
 
         //PROPERTIES
@@ -11,7 +11,8 @@ namespace BusinessLayer
         {
             get; set;
         }
-        public string Name
+
+        public Course StudentCourse
         {
             get; set;
         }
@@ -21,44 +22,55 @@ namespace BusinessLayer
             get; set;
         }
 
-        public DateTime FinishDate
+
+        public DateTime EndDate
         {
             get; set;
         }
 
+        public Location CourseLocation
+        {
+            get; set;
+        }
+
+        public enum Outcome
+        {
+            Satisfactory = 1,
+            Unsatisactory = 2,
+            In_Progress = 3,
+        }
 
         //METHODS
 
-        public void AddSemester()
+        public void AddStudentHistory()
         {
             throw new NotImplementedException();
 
         }
 
-        public void DeleteSemester()
+        public void DeleteStudentHistory()
         {
             throw new NotImplementedException();
 
         }
 
-        public void UpdateSemester()
+        public void UpdateStudentHistory()
         {
             throw new NotImplementedException();
 
         }
 
-        public void SearchSemester()
+        public void SearchStudentHistory()
         {
             throw new NotImplementedException();
 
         }
 
-        public void ViewAllSemesters()
+        public void ViewAllStudentHistory()
         {
             throw new NotImplementedException();
 
         }
-
 
     }
 }
