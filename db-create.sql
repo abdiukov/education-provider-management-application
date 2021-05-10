@@ -1,213 +1,226 @@
-USE [master]
+USE [TafeSystem]
 GO
-/****** Object:  Database [TAFE]    Script Date: 30/03/2021 3:02:16 PM ******/
-CREATE DATABASE [TAFE]
- CONTAINMENT = NONE
+/****** Object:  Table [dbo].[Assessment]    Script Date: 10/05/2021 11:50:55 AM ******/
+SET ANSI_NULLS ON
 GO
-ALTER DATABASE [TAFE] SET COMPATIBILITY_LEVEL = 150
+SET QUOTED_IDENTIFIER ON
 GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [TAFE].[dbo].[sp_fulltext_database] @action = 'enable'
-end
+CREATE TABLE [dbo].[Assessment](
+	[id] [int] NOT NULL,
+	[name] [nvarchar](40) NOT NULL,
+	[startDate] [date] NULL,
+	[dueDate] [date] NULL,
+	[type] [int] NOT NULL,
+	[unitID] [int] NOT NULL
+) ON [PRIMARY]
 GO
-ALTER DATABASE [TAFE] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [TAFE] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [TAFE] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [TAFE] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [TAFE] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [TAFE] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [TAFE] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [TAFE] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [TAFE] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [TAFE] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [TAFE] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [TAFE] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [TAFE] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [TAFE] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [TAFE] SET  DISABLE_BROKER 
-GO
-ALTER DATABASE [TAFE] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [TAFE] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [TAFE] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [TAFE] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [TAFE] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [TAFE] SET READ_COMMITTED_SNAPSHOT OFF 
-GO
-ALTER DATABASE [TAFE] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [TAFE] SET RECOVERY FULL 
-GO
-ALTER DATABASE [TAFE] SET  MULTI_USER 
-GO
-ALTER DATABASE [TAFE] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [TAFE] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [TAFE] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [TAFE] SET TARGET_RECOVERY_TIME = 60 SECONDS 
-GO
-ALTER DATABASE [TAFE] SET DELAYED_DURABILITY = DISABLED 
-GO
-ALTER DATABASE [TAFE] SET ACCELERATED_DATABASE_RECOVERY = OFF  
-GO
-EXEC sys.sp_db_vardecimal_storage_format N'TAFE', N'ON'
-GO
-ALTER DATABASE [TAFE] SET QUERY_STORE = OFF
-GO
-USE [TAFE]
-GO
-/****** Object:  Table [dbo].[Cluster]    Script Date: 30/03/2021 3:02:16 PM ******/
+/****** Object:  Table [dbo].[Cluster]    Script Date: 10/05/2021 11:50:55 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Cluster](
-	[courseId] [int] NOT NULL,
-	[unitId] [int] NOT NULL,
-	[cluster] [int] NOT NULL,
+	[id] [int] NOT NULL,
+	[name] [nvarchar](40) NOT NULL,
+	[courseID_ref] [int] NOT NULL,
  CONSTRAINT [PK_Cluster] PRIMARY KEY CLUSTERED 
 (
-	[courseId] ASC,
-	[unitId] ASC
+	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Course]    Script Date: 30/03/2021 3:02:16 PM ******/
+/****** Object:  Table [dbo].[Course]    Script Date: 10/05/2021 11:50:55 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Course](
-	[name] [nvarchar](max) NOT NULL,
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
+	[name] [nvarchar](40) NOT NULL,
+	[duration] [date] NOT NULL,
+	[location] [int] NOT NULL,
+	[startdate] [date] NOT NULL,
  CONSTRAINT [PK_Course] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DeliveryMode]    Script Date: 30/03/2021 3:02:16 PM ******/
+/****** Object:  Table [dbo].[CourseStudent]    Script Date: 10/05/2021 11:50:55 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[DeliveryMode](
-	[id] [tinyint] IDENTITY(1,1) NOT NULL,
-	[mode] [nvarchar](max) NOT NULL,
- CONSTRAINT [PK_DeliveryMode] PRIMARY KEY CLUSTERED 
+CREATE TABLE [dbo].[CourseStudent](
+	[studentID] [int] NOT NULL,
+	[courseID] [int] NOT NULL,
+	[outcome] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CourseTeacher]    Script Date: 10/05/2021 11:50:55 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CourseTeacher](
+	[courseID] [int] NOT NULL,
+	[teacherID] [int] NOT NULL,
+	[clusterID] [int] NOT NULL,
+	[semesterID] [int] NOT NULL,
+	[courseTeacherID] [int] NOT NULL,
+ CONSTRAINT [PK_CourseTeacher] PRIMARY KEY CLUSTERED 
+(
+	[courseTeacherID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Location]    Script Date: 10/05/2021 11:50:55 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Location](
+	[id] [int] NOT NULL,
+	[name] [nvarchar](40) NOT NULL,
+	[address] [nvarchar](40) NOT NULL,
+	[contact_number] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Payment]    Script Date: 10/05/2021 11:50:55 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Payment](
+	[id] [int] NOT NULL,
+	[date] [date] NOT NULL,
+	[studentID] [int] NOT NULL,
+	[courseID] [int] NOT NULL,
+	[status] [bit] NOT NULL,
+	[type] [int] NOT NULL,
+	[amount] [money] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Semester]    Script Date: 10/05/2021 11:50:55 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Semester](
+	[id] [int] NOT NULL,
+	[name] [nvarchar](40) NOT NULL,
+	[startDate] [date] NOT NULL,
+	[finishDate] [date] NOT NULL,
+ CONSTRAINT [PK_Semester] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Fee]    Script Date: 30/03/2021 3:02:16 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Fee](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[fee] [money] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Offering]    Script Date: 30/03/2021 3:02:16 PM ******/
+/****** Object:  Table [dbo].[Student]    Script Date: 10/05/2021 11:50:55 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[Offering](
-	[courseId] [int] NOT NULL,
-	[deliveryModeId] [tinyint] NOT NULL,
-	[feeId] [int] NOT NULL,
- CONSTRAINT [PK_Offering] PRIMARY KEY CLUSTERED 
+CREATE TABLE [dbo].[Student](
+	[id] [int] NOT NULL,
+	[name] [nvarchar](40) NOT NULL,
+	[address] [nvarchar](40) NOT NULL,
+	[gender] [int] NOT NULL,
+	[mobile] [int] NOT NULL,
+	[email] [nvarchar](40) NOT NULL,
+	[locationID] [int] NOT NULL,
+	[dob] [date] NOT NULL,
+ CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED 
 (
-	[courseId] ASC,
-	[deliveryModeId] ASC,
-	[feeId] ASC
+	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Teacher]    Script Date: 30/03/2021 3:02:16 PM ******/
+/****** Object:  Table [dbo].[Teacher]    Script Date: 10/05/2021 11:50:55 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Teacher](
 	[id] [int] NOT NULL,
-	[name] [nvarchar](max) NOT NULL,
+	[name] [nvarchar](40) NOT NULL,
+	[address] [nvarchar](40) NOT NULL,
+	[gender] [nvarchar](40) NOT NULL,
+	[mobile] [int] NOT NULL,
+	[email] [nvarchar](40) NOT NULL,
+	[dob] [date] NOT NULL,
  CONSTRAINT [PK_Teacher] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Unit]    Script Date: 30/03/2021 3:02:16 PM ******/
+/****** Object:  Table [dbo].[Unit]    Script Date: 10/05/2021 11:50:55 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Unit](
 	[id] [int] NOT NULL,
-	[name] [nvarchar](max) NOT NULL
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+	[name] [nvarchar](40) NOT NULL,
+	[hoursAmount] [int] NOT NULL,
+	[courseID] [int] NOT NULL,
+	[unitPackageName] [nvarchar](40) NOT NULL,
+ CONSTRAINT [PK_Unit] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 GO
-SET IDENTITY_INSERT [dbo].[Course] ON 
+/****** Object:  Table [dbo].[User]    Script Date: 10/05/2021 11:50:55 AM ******/
+SET ANSI_NULLS ON
 GO
-INSERT [dbo].[Course] ([name], [id]) VALUES (N'Test Course', 3)
+SET QUOTED_IDENTIFIER ON
 GO
-SET IDENTITY_INSERT [dbo].[Course] OFF
+CREATE TABLE [dbo].[User](
+	[id] [int] NOT NULL,
+	[password] [nvarchar](40) NOT NULL,
+	[username] [nvarchar](40) NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 GO
-SET IDENTITY_INSERT [dbo].[DeliveryMode] ON 
+ALTER TABLE [dbo].[Assessment]  WITH CHECK ADD  CONSTRAINT [FK__Assessmen__unitI__52593CB8] FOREIGN KEY([unitID])
+REFERENCES [dbo].[Unit] ([id])
 GO
-INSERT [dbo].[DeliveryMode] ([id], [mode]) VALUES (1, N'Online')
+ALTER TABLE [dbo].[Assessment] CHECK CONSTRAINT [FK__Assessmen__unitI__52593CB8]
 GO
-INSERT [dbo].[DeliveryMode] ([id], [mode]) VALUES (2, N'Full time')
+ALTER TABLE [dbo].[Cluster]  WITH CHECK ADD FOREIGN KEY([courseID_ref])
+REFERENCES [dbo].[Course] ([id])
 GO
-INSERT [dbo].[DeliveryMode] ([id], [mode]) VALUES (3, N'Part time')
+ALTER TABLE [dbo].[CourseTeacher]  WITH CHECK ADD FOREIGN KEY([clusterID])
+REFERENCES [dbo].[Cluster] ([id])
 GO
-SET IDENTITY_INSERT [dbo].[DeliveryMode] OFF
+ALTER TABLE [dbo].[CourseTeacher]  WITH CHECK ADD FOREIGN KEY([courseID])
+REFERENCES [dbo].[Course] ([id])
 GO
-SET IDENTITY_INSERT [dbo].[Fee] ON 
+ALTER TABLE [dbo].[CourseTeacher]  WITH CHECK ADD  CONSTRAINT [FK__CourseTea__semes__4F7CD00D] FOREIGN KEY([semesterID])
+REFERENCES [dbo].[Semester] ([id])
 GO
-INSERT [dbo].[Fee] ([id], [fee]) VALUES (1, 5000.0000)
+ALTER TABLE [dbo].[CourseTeacher] CHECK CONSTRAINT [FK__CourseTea__semes__4F7CD00D]
 GO
-INSERT [dbo].[Fee] ([id], [fee]) VALUES (2, 50000.0000)
+ALTER TABLE [dbo].[CourseTeacher]  WITH CHECK ADD FOREIGN KEY([teacherID])
+REFERENCES [dbo].[Teacher] ([id])
 GO
-INSERT [dbo].[Fee] ([id], [fee]) VALUES (3, 500000.0000)
+ALTER TABLE [dbo].[CourseTeacher]  WITH CHECK ADD FOREIGN KEY([teacherID])
+REFERENCES [dbo].[Teacher] ([id])
 GO
-SET IDENTITY_INSERT [dbo].[Fee] OFF
+ALTER TABLE [dbo].[CourseTeacher]  WITH CHECK ADD FOREIGN KEY([teacherID])
+REFERENCES [dbo].[Teacher] ([id])
 GO
-INSERT [dbo].[Offering] ([courseId], [deliveryModeId], [feeId]) VALUES (3, 1, 1)
+ALTER TABLE [dbo].[Payment]  WITH CHECK ADD FOREIGN KEY([courseID])
+REFERENCES [dbo].[Course] ([id])
 GO
-INSERT [dbo].[Offering] ([courseId], [deliveryModeId], [feeId]) VALUES (3, 2, 2)
+ALTER TABLE [dbo].[Payment]  WITH CHECK ADD  CONSTRAINT [FK__Payment__student__5441852A] FOREIGN KEY([studentID])
+REFERENCES [dbo].[Student] ([id])
 GO
-ALTER TABLE [dbo].[DeliveryMode]  WITH CHECK ADD  CONSTRAINT [FK_DeliveryMode_DeliveryMode] FOREIGN KEY([id])
-REFERENCES [dbo].[DeliveryMode] ([id])
-GO
-ALTER TABLE [dbo].[DeliveryMode] CHECK CONSTRAINT [FK_DeliveryMode_DeliveryMode]
-GO
-USE [master]
-GO
-ALTER DATABASE [TAFE] SET  READ_WRITE 
+ALTER TABLE [dbo].[Payment] CHECK CONSTRAINT [FK__Payment__student__5441852A]
 GO
