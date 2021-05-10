@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace BusinessLayer
 {
@@ -8,7 +7,7 @@ namespace BusinessLayer
 
         //PROPERTIES
 
-        public int Code
+        public int Id
         {
             get; set;
         }
@@ -18,10 +17,16 @@ namespace BusinessLayer
             get; set;
         }
 
-        public List<Course> CoursesLinkedToUnit
+        public int NumberOfHours
         {
             get; set;
         }
+
+        public string PackageName
+        {
+            get; set;
+        }
+
 
         //METHODS
 

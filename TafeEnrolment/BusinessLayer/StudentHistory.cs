@@ -6,8 +6,7 @@ namespace BusinessLayer
     {
 
         //PROPERTIES
-
-        public int Id
+        public Student student
         {
             get; set;
         }
@@ -17,13 +16,12 @@ namespace BusinessLayer
             get; set;
         }
 
-        public DateTime StartDate
+        public DateTime CourseStartDate
         {
             get; set;
         }
 
-
-        public DateTime EndDate
+        public DateTime CourseEndDate
         {
             get; set;
         }

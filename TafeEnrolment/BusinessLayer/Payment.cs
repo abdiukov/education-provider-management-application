@@ -22,7 +22,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public Location PaymentTo
+        public Course PaymentTo
         {
             get; set;
         }

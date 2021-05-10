@@ -15,7 +15,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public string Location
+        public string Address
         {
             get; set;
         }
