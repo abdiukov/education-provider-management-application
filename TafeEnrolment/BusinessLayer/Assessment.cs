@@ -4,12 +4,23 @@ namespace BusinessLayer
 {
     public class Assessment
     {
+        //CONSTRUCTOR
+
+        public Assessment(int Id, string Name, DateTime StartDate, DateTime DueDate, AssessmentType assessmentType)
+        {
+            this.Id = Id;
+            this.Name = Name;
+            this.StartDate = StartDate;
+            this.DueDate = DueDate;
+            this.assessmentType = assessmentType;
+        }
+
+
         //PROPERTIES
         public int Id
         {
             get; set;
         }
-
         public string Name
         {
             get; set;
@@ -25,7 +36,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public Unit AssessmentUnit
+        public AssessmentType assessmentType
         {
             get; set;
         }

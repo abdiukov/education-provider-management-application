@@ -1,10 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace BusinessLayer
 {
     public class Course
     {
+        //CONSTRUCTOR
+
+        public Course(int Id, string Name, DateTime Duration, int Location, DateTime StartDate)
+        {
+            this.Id = Id;
+            this.Name = Name;
+            this.Duration = Duration;
+            this.Location = Location;
+            this.StartDate = StartDate;
+        }
+
         //PROPERTIES
         public int Id
         {
@@ -16,7 +26,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public int Duration
+        public DateTime Duration
         {
             get; set;
         }
@@ -26,21 +36,19 @@ namespace BusinessLayer
             get; set;
         }
 
-        public Location CourseLocation
+        public int Location
         {
             get; set;
         }
 
-        public List<Semester> CourseSemesters
-        {
-            get; set;
-        }
-
-
-        public List<Unit> UnitsLinkedToCourse
-        {
-            get; set;
-        }
+        //public List<Semester> CourseSemesters
+        //{
+        //    get; set;
+        //}
+        //public List<Unit> UnitsLinkedToCourse
+        //{
+        //    get; set;
+        //}
 
 
         //METHODS

@@ -5,6 +5,19 @@ namespace BusinessLayer
     public class Student
     {
 
+        //CONSTRUCTOR
+
+        public Student(int Id, string Name, string Address, Gender StudentGender, int Mobile, string Email, DateTime DateofBirth)
+        {
+            this.Id = Id;
+            this.Name = Name;
+            this.Address = Address;
+            this.StudentGender = StudentGender;
+            this.Mobile = Mobile;
+            this.Email = Email;
+            this.DateofBirth = DateofBirth;
+        }
+
         //PROPERTIES
 
         public int Id
@@ -22,11 +35,6 @@ namespace BusinessLayer
             get; set;
         }
 
-        public Location StudentLocation
-        {
-            get; set;
-        }
-
         public int Mobile
         {
             get; set;
@@ -37,11 +45,9 @@ namespace BusinessLayer
             get; set;
         }
 
-        public enum Gender
+        public Gender StudentGender
         {
-            Male = 1,
-            Female = 2,
-            Other = 3
+            get; set;
         }
 
         public DateTime DateofBirth
@@ -49,12 +55,15 @@ namespace BusinessLayer
             get; set;
         }
 
-        //public List<Course> StudentCourses
-        //{
-        //    get; set;
-        //}
 
-        //METHODS
+
+        public enum Gender
+        {
+            Male = 1,
+            Female = 2,
+            Other = 3
+        }
+
 
         public void AddStudent()
         {

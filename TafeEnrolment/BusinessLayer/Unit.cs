@@ -4,6 +4,13 @@ namespace BusinessLayer
 {
     public class Unit
     {
+        public Unit(int id, string name, int numberOfHours, string packageName)
+        {
+            Id = id;
+            Name = name;
+            NumberOfHours = numberOfHours;
+            PackageName = packageName;
+        }
 
         //PROPERTIES
 

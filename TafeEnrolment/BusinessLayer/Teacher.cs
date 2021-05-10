@@ -4,6 +4,19 @@ namespace BusinessLayer
 {
     public class Teacher
     {
+
+        //CONSTRUCTOR
+        public Teacher(int id, string name, string address, Gender teacherGender, int mobile, string email, DateTime dateofBirth)
+        {
+            Id = id;
+            Name = name;
+            Address = address;
+            Mobile = mobile;
+            Email = email;
+            TeacherGender = teacherGender;
+            DateofBirth = dateofBirth;
+        }
+
         //PROPERTIES
         public int Id
         {
@@ -29,6 +42,12 @@ namespace BusinessLayer
         {
             get; set;
         }
+
+        public Gender TeacherGender
+        {
+            get; set;
+        }
+
 
         public enum Gender
         {

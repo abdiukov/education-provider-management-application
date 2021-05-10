@@ -5,8 +5,16 @@ namespace BusinessLayer
     public class Location
     {
 
-        //PROPERTIES
+        //CONSTRUCTOR
+        public Location(int id, string name, string address, int locationContactNumber)
+        {
+            Id = id;
+            Name = name;
+            Address = address;
+            LocationContactNumber = locationContactNumber;
+        }
 
+        //PROPERTIES
         public int Id
         {
             get; set;

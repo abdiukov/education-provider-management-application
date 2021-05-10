@@ -4,9 +4,16 @@ namespace BusinessLayer
 {
     public class Semester
     {
+        //CONSTRUCTOR
+        public Semester(int id, string name, DateTime startDate, DateTime finishDate)
+        {
+            Id = id;
+            Name = name;
+            StartDate = startDate;
+            FinishDate = finishDate;
+        }
 
         //PROPERTIES
-
         public int Id
         {
             get; set;
