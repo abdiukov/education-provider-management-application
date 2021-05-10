@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BusinessLayer
 {
@@ -13,6 +14,11 @@ namespace BusinessLayer
         }
 
         public string Name
+        {
+            get; set;
+        }
+
+        public List<Course> CoursesLinkedToUnit
         {
             get; set;
         }
@@ -53,6 +59,9 @@ namespace BusinessLayer
         {
             throw new NotImplementedException();
 
+            //unit may belong to more than one course
+
+            //course may have more than one unit and a unit may belong to more than one course
         }
     }
 }

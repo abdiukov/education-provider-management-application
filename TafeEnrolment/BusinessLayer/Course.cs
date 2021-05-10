@@ -26,11 +26,17 @@ namespace BusinessLayer
             get; set;
         }
 
-
         public List<Semester> CourseSemesters
         {
             get; set;
         }
+
+
+        public List<Unit> UnitsLinkedToCourse
+        {
+            get; set;
+        }
+
 
         //METHODS
 

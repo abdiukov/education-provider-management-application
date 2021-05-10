@@ -4,9 +4,7 @@ namespace BusinessLayer
 {
     public class Assessment
     {
-
         //PROPERTIES
-
         public int Id
         {
             get; set;
