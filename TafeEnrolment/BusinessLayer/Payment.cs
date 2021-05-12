@@ -5,22 +5,16 @@ namespace BusinessLayer
     public class Payment
     {
         //CONSTRUCTOR
-        public Payment(int Id, DateTime Date, bool Status, PaymentType paymentType, double Amount)
+        public Payment(int Id, DateTime Date, bool Status, double AmountPaid, double AmountDue)
         {
             this.Id = Id;
-            this.Date = Date;
             this.Status = Status;
-            this.paymentType = paymentType;
-            this.Amount = Amount;
+            this.AmountPaid = AmountPaid;
+            this.AmountDue = AmountDue;
         }
 
         //PROPERTIES
         public int Id
-        {
-            get; set;
-        }
-
-        public DateTime Date
         {
             get; set;
         }
@@ -30,23 +24,15 @@ namespace BusinessLayer
             get; set;
         }
 
-        public PaymentType paymentType
+        public double AmountPaid
         {
             get; set;
         }
 
-        public double Amount
+        public double AmountDue
         {
             get; set;
         }
-
-        public enum PaymentType
-        {
-            CreditCard = 0,
-            Cash = 1,
-            Check = 2,
-        }
-
 
         //METHODS
 

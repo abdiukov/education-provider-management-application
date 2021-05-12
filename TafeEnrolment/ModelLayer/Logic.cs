@@ -14,10 +14,10 @@ namespace ModelLayer
             this.control = new Control();
         }
 
-        public IEnumerable<BusinessLayer.Teacher> GetTeachers()
-        {
-            return control.GetTeachers();
-        }
+        //public IEnumerable<BusinessLayer.Teacher> GetTeachers()
+        //{
+        //    return control.GetTeachers();
+        //}
 
         public IEnumerable<BusinessLayer.Student> GetStudents()
         {
@@ -43,15 +43,15 @@ namespace ModelLayer
             return control.GetLocations();
         }
 
-        public IEnumerable<BusinessLayer.Timetable> GetStudentTimetable()
-        {
-            return control.GetStudentTimetable();
-        }
+        //public IEnumerable<BusinessLayer.Timetable> GetStudentTimetable()
+        //{
+        //    return control.GetStudentTimetable();
+        //}
 
-        public IEnumerable<BusinessLayer.PastCourse> GetTeacherPastCourses()
-        {
-            return control.GetPastCourses();
-        }
+        //public IEnumerable<BusinessLayer.PastCourse> GetTeacherPastCourses()
+        //{
+        //    return control.GetPastCourses();
+        //}
 
         public IEnumerable<BusinessLayer.Course> GetCourses()
         {

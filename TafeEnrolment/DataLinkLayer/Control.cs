@@ -146,38 +146,38 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public List<Payment> GetPayments()
-        {
-            List<Payment> outputlist = new List<Payment>();
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("exec usp_SelectAllPayment", conn);
-                SqlDataReader dataReader = cmd.ExecuteReader();
+        //public List<Payment> GetPayments()
+        //{
+        //    List<Payment> outputlist = new List<Payment>();
+        //    try
+        //    {
+        //        SqlConnection conn = new SqlConnection(_connectionString);
+        //        //Execute query
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("exec usp_SelectAllPayment", conn);
+        //        SqlDataReader dataReader = cmd.ExecuteReader();
 
-                if (dataReader.HasRows)
-                {
-                    while (dataReader.Read())
-                    {
-                        Payment output = new Payment(dataReader.GetInt32(0), dataReader.GetDateTime(1),
-                            dataReader.GetBoolean(4), (Payment.PaymentType)dataReader.GetInt32(5),
-                            dataReader.GetDouble(6));
-                        outputlist.Add(output);
-                    }
-                }
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error has occured at the GetPayments()\n" + ex.Message);
-            }
-            //output
-            return outputlist;
-        }
+        //        if (dataReader.HasRows)
+        //        {
+        //            while (dataReader.Read())
+        //            {
+        //                Payment output = new Payment(dataReader.GetInt32(0), dataReader.GetDateTime(1),
+        //                    dataReader.GetBoolean(4), (Payment.PaymentType)dataReader.GetInt32(5),
+        //                    dataReader.GetDouble(6));
+        //                outputlist.Add(output);
+        //            }
+        //        }
+        //        //disposing
+        //        conn.Dispose();
+        //        cmd.Dispose();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("An error has occured at the GetPayments()\n" + ex.Message);
+        //    }
+        //    //output
+        //    return outputlist;
+        //}
 
         public List<Semester> GetSemesters()
         {
@@ -227,8 +227,9 @@ namespace DataLinkLayer
                     while (dataReader.Read())
                     {
 
-                        Student output = new Student(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2),
-                            (Student.Gender)dataReader.GetInt32(3), dataReader.GetInt32(4), dataReader.GetString(5), dataReader.GetDateTime(7));
+                        Student output = new Student(dataReader.GetInt32(0), dataReader.GetString(1),
+                            (Student.Gender)dataReader.GetInt32(2), dataReader.GetInt32(3), dataReader.GetString(4),
+                            dataReader.GetDateTime(5), dataReader.GetString(6), dataReader.GetString(7), dataReader.GetBoolean(8), dataReader.GetBoolean(9));
                         outputlist.Add(output);
                     }
                 }
@@ -260,9 +261,9 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        Teacher output = new Teacher(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2),
-                            (Teacher.Gender)dataReader.GetInt32(3), dataReader.GetInt32(4), dataReader.GetString(5), dataReader.GetDateTime(6));
-                        outputlist.Add(output);
+                        //Teacher output = new Teacher(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2),
+                        //    (Teacher.Gender)dataReader.GetInt32(3), dataReader.GetInt32(4), dataReader.GetString(5), dataReader.GetDateTime(6));
+                        //outputlist.Add(new Teacher());
                     }
                 }
                 //disposing

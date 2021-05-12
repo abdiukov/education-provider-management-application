@@ -11,13 +11,18 @@
         <TextBox Name="SearchBox" KeyDown="SearchBox_KeyDown" PreviewMouseDown="SearchBox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595"/>
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgStudentProfiles" MouseRightButtonDown="dgStudentProfiles_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <DataGrid Name="dgStudentProfiles" MouseRightButtonDown="dgStudentProfiles_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="12" FontFamily="Verdana">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path='Id'}"/>
                 <DataGridTextColumn Header="First Name" Binding="{Binding Path='FirstName'}"/>
-                <DataGridTextColumn Header="Surname" Binding="{Binding Path='LastName'}"/>
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
-                <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
-                <DataGridTextColumn Header="Not paid" Binding="{Binding Path='paidFees'}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding Path='LastName'}"/>
+                <DataGridTextColumn Header="Residence Address" Binding="{Binding Path='Address'}"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Path='StudentGender'}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Path='Email'}"/>
+                <DataGridTextColumn Header="Mobile" Binding="{Binding Path='Mobile'}"/>
+                <DataGridTextColumn Header="Date of Birth" Binding="{Binding Path='DateofBirth'}"/>
+                <DataGridTextColumn Header="Not paid" Binding="{Binding Path='isFeesPaid'}"/>
+                <DataGridTextColumn Header="Full Time" Binding="{Binding Path='isFullTime'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
