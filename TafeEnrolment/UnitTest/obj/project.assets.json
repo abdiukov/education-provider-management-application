@@ -5770,20 +5770,22 @@
   "packageFolders": {
     "C:\\Users\\Ash\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\UnitTest\\UnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\UnitTest\\UnitTest.csproj",
       "projectName": "UnitTest",
-      "projectPath": "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\UnitTest\\UnitTest.csproj",
+      "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\UnitTest\\UnitTest.csproj",
       "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\UnitTest\\obj\\",
+      "outputPath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\UnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\Ash\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5802,8 +5804,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }

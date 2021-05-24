@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1ezpwMhleiETAepvY9Lm/5hvAGObNc8XvlOA+aeURKND16CbQDpcKQ/gxTgnth8k3O7WIa/DOmohnA6iFuqRyA==",
+  "dgSpecHash": "Ab7T8YrKLl1Pggja2DsF9eU9CALRApUaTEcGxIirhC8lSbNqo4/4YQ9xe6Ge0DsRy7K4k74n5J1mKvLGIQCByA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\BusinessLayer\\BusinessLayer.csproj",
+  "projectFilePath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ash\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Ash\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"

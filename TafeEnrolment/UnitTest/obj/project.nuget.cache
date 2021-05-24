@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XxKsFX0cfFb2g8t/KTeYvz9isT+U06XUV7oeXYMZbrbKrcNm3d83gFwVRdzjf8i9tpzOfOqUMolfp+gFMr/tvA==",
+  "dgSpecHash": "EYnpA4BznHx3LHRsBhPKRj29VfpV/4jhUM0aviKn/V2X+mpsBIqVE7J6YciG3DxDJnh5YYae/huA7xGxWkFadw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ash\\Desktop\\skills\\EnrolmentWPF\\TafeEnrolment\\UnitTest\\UnitTest.csproj",
+  "projectFilePath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\UnitTest\\UnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ash\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\Ash\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",
