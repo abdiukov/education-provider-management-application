@@ -7,7 +7,7 @@ namespace BusinessLayer
 
         //CONSTRUCTOR
 
-        public Student(int Id, string Address, Gender StudentGender, int Mobile, string Email, DateTime DateofBirth, string FirstName, string LastName, bool isFeesPaid, bool isFullTime)
+        public Student(int Id, string Address, string StudentGender, string Mobile, string Email, DateTime DateofBirth, string FirstName, string LastName, bool isFeesNotPaid, string Position)
         {
             this.Id = Id;
             this.Address = Address;
@@ -17,13 +17,22 @@ namespace BusinessLayer
             this.DateofBirth = DateofBirth;
             this.FirstName = FirstName;
             this.LastName = LastName;
-            this.isFeesPaid = isFeesPaid;
-            this.isFullTime = isFullTime;
+            this.isFeesNotPaid = isFeesNotPaid;
+            this.Position = Position;
         }
 
         //PROPERTIES
 
+        public string Position
+        {
+            get; set;
+        }
+
         public int Id
+        {
+            get; set;
+        }
+        public string StudentGender
         {
             get; set;
         }
@@ -43,7 +52,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public int Mobile
+        public string Mobile
         {
             get; set;
         }
@@ -53,32 +62,17 @@ namespace BusinessLayer
             get; set;
         }
 
-        public Gender StudentGender
-        {
-            get; set;
-        }
-
         public DateTime DateofBirth
         {
             get; set;
         }
 
-        public bool isFeesPaid
+        public bool isFeesNotPaid
         {
             get; set;
         }
 
-        public bool isFullTime
-        {
-            get; set;
-        }
 
-        public enum Gender
-        {
-            Male = 1,
-            Female = 2,
-            Other = 3
-        }
         public void AddStudent()
         {
             throw new NotImplementedException();

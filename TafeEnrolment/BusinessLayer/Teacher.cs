@@ -6,7 +6,8 @@ namespace BusinessLayer
     {
 
         //CONSTRUCTOR
-        public Teacher(int id, string address, Gender teacherGender, int mobile, string email, DateTime dateofBirth, string FirstName, string LastName)
+        public Teacher(int id, string address, string teacherGender, string mobile, string email,
+            DateTime dateofBirth, string FirstName, string LastName)
         {
             Id = id;
             this.FirstName = FirstName;
@@ -38,7 +39,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public Gender TeacherGender
+        public string TeacherGender
         {
             get; set;
         }
@@ -53,19 +54,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public int Mobile
-        {
-            get; set;
-        }
-
-        public enum Gender
-        {
-            Male = 1,
-            Female = 2,
-            Other = 3
-        }
-
-        public bool TeacherOtherThanBaseLocation
+        public string Mobile
         {
             get; set;
         }

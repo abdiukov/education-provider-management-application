@@ -22,7 +22,6 @@
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding Path='DateofBirth'}"/>
                 <DataGridTextColumn Header="Mobile" Binding="{Binding Path='DateofBirth'}"/>
                 <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
-                <DataGridTextColumn Header="Other than base location" Binding="{Binding Path='TeacherOtherThanBaseLocation'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

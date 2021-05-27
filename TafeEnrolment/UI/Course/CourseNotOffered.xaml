@@ -30,7 +30,10 @@
                   HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
+                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
+                <DataGridTextColumn Header="Course" Binding="{Binding Path='Name'}"/>
+                <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
+                <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>

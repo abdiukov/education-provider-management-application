@@ -6,13 +6,12 @@ namespace BusinessLayer
     {
         //CONSTRUCTOR
 
-        public Course(int Id, string Name, DateTime Duration, int Location, DateTime StartDate)
+        public Course(int Id, string Name, string Location, string Delivery)
         {
             this.Id = Id;
             this.Name = Name;
-            this.Duration = Duration;
             this.Location = Location;
-            this.StartDate = StartDate;
+            this.Delivery = Delivery;
         }
 
         //PROPERTIES
@@ -22,6 +21,11 @@ namespace BusinessLayer
         }
 
         public string Name
+        {
+            get; set;
+        }
+
+        public string Delivery
         {
             get; set;
         }
@@ -36,7 +40,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public int Location
+        public string Location
         {
             get; set;
         }

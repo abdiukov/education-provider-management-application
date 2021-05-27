@@ -1,4 +1,6 @@
-﻿namespace DataLinkLayer
+﻿using System.Configuration;
+
+namespace DataLinkLayer
 {
     class Repository
     {
@@ -10,7 +12,7 @@
         /// </summary>
         public Repository()
         {
-            //_connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
+            _connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
             //_connectionString = "Data Source=DESKTOP-SDCBG14\\SQLEXPRESS;Initial Catalog=OrderManagementDb;Integrated Security=True";
         }
 

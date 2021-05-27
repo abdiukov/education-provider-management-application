@@ -14,10 +14,10 @@ namespace ModelLayer
             this.control = new Control();
         }
 
-        //public IEnumerable<BusinessLayer.Teacher> GetTeachers()
-        //{
-        //    return control.GetTeachers();
-        //}
+        public IEnumerable<BusinessLayer.Teacher> GetTeachers()
+        {
+            return control.GetTeachers();
+        }
 
         public IEnumerable<BusinessLayer.Student> GetStudents()
         {

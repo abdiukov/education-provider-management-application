@@ -99,7 +99,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        Course output = new Course(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetDateTime(2), dataReader.GetInt32(3), dataReader.GetDateTime(4));
+                        Course output = new Course(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
                         outputlist.Add(output);
                     }
                 }
@@ -226,13 +226,14 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-
                         Student output = new Student(dataReader.GetInt32(0), dataReader.GetString(1),
-                            (Student.Gender)dataReader.GetInt32(2), dataReader.GetInt32(3), dataReader.GetString(4),
-                            dataReader.GetDateTime(5), dataReader.GetString(6), dataReader.GetString(7), dataReader.GetBoolean(8), dataReader.GetBoolean(9));
+                            dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4),
+                            dataReader.GetDateTime(5), dataReader.GetString(6), dataReader.GetString(7),
+                           (dataReader[8].ToString() == "1"), dataReader.GetString(9));
                         outputlist.Add(output);
                     }
                 }
+
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
@@ -261,9 +262,10 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        //Teacher output = new Teacher(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2),
-                        //    (Teacher.Gender)dataReader.GetInt32(3), dataReader.GetInt32(4), dataReader.GetString(5), dataReader.GetDateTime(6));
-                        //outputlist.Add(new Teacher());
+                        Teacher output = new Teacher(dataReader.GetInt32(0), dataReader.GetString(1),
+                            dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4),
+                            dataReader.GetDateTime(5), dataReader.GetString(6), dataReader.GetString(7));
+                        outputlist.Add(output);
                     }
                 }
                 //disposing
