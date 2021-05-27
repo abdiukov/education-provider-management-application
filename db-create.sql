@@ -1,45 +1,118 @@
+USE [master]
+GO
+/****** Object:  Database [TafeSystem]    Script Date: 27/05/2021 4:45:06 PM ******/
+CREATE DATABASE [TafeSystem]
+GO
+ALTER DATABASE [TafeSystem] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [TafeSystem].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [TafeSystem] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [TafeSystem] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [TafeSystem] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [TafeSystem] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [TafeSystem] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [TafeSystem] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [TafeSystem] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [TafeSystem] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [TafeSystem] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [TafeSystem] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [TafeSystem] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [TafeSystem] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [TafeSystem] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [TafeSystem] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [TafeSystem] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [TafeSystem] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [TafeSystem] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [TafeSystem] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [TafeSystem] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [TafeSystem] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [TafeSystem] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [TafeSystem] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [TafeSystem] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [TafeSystem] SET  MULTI_USER 
+GO
+ALTER DATABASE [TafeSystem] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [TafeSystem] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [TafeSystem] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [TafeSystem] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [TafeSystem] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [TafeSystem] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [TafeSystem] SET QUERY_STORE = OFF
+GO
 USE [TafeSystem]
 GO
-/****** Object:  Table [dbo].[Assessment]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Assessment]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Assessment](
 	[id] [int] IDENTITY(1,1) NOT NULL,
-	[name] [nvarchar](40) NOT NULL,
+	[name] [nvarchar](100) NOT NULL,
+	[unitID] [int] NOT NULL,
  CONSTRAINT [PK_Assessment] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cluster]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Cluster]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Cluster](
-	[id] [int] NOT NULL,
+	[courseID] [int] NOT NULL,
 	[unitID] [int] NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
  CONSTRAINT [PK_Cluster] PRIMARY KEY CLUSTERED 
 (
-	[id] ASC,
-	[unitID] ASC
+	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Course]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Course]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Course](
-	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id] [int] NOT NULL,
 	[name] [nvarchar](40) NOT NULL,
-	[duration_weeks] [int] NOT NULL,
 	[locationID] [int] NOT NULL,
-	[startdate] [date] NOT NULL,
 	[deliveryID] [int] NOT NULL,
  CONSTRAINT [PK_Course] PRIMARY KEY CLUSTERED 
 (
@@ -47,7 +120,22 @@ CREATE TABLE [dbo].[Course](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CourseStudent]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[CourseSemester]    Script Date: 27/05/2021 4:45:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CourseSemester](
+	[courseID] [int] NOT NULL,
+	[semesterID] [int] NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_CourseSemester] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CourseStudent]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -63,7 +151,7 @@ CREATE TABLE [dbo].[CourseStudent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CourseTeacher]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[CourseTeacher]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -71,18 +159,14 @@ GO
 CREATE TABLE [dbo].[CourseTeacher](
 	[courseID] [int] NOT NULL,
 	[teacherID] [int] NOT NULL,
-	[clusterID] [int] NOT NULL,
-	[semesterID] [int] NOT NULL,
-PRIMARY KEY CLUSTERED 
+	[id] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_CourseTeacher] PRIMARY KEY CLUSTERED 
 (
-	[courseID] ASC,
-	[teacherID] ASC,
-	[clusterID] ASC,
-	[semesterID] ASC
+	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Delivery]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Delivery]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -96,7 +180,7 @@ CREATE TABLE [dbo].[Delivery](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Gender]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Gender]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -110,7 +194,7 @@ CREATE TABLE [dbo].[Gender](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Location]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Location]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +210,7 @@ CREATE TABLE [dbo].[Location](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Outcome]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Outcome]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -140,7 +224,7 @@ CREATE TABLE [dbo].[Outcome](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Payment]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Payment]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -156,7 +240,7 @@ CREATE TABLE [dbo].[Payment](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Semester]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Semester]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -172,7 +256,7 @@ CREATE TABLE [dbo].[Semester](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Student]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Student]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -192,7 +276,7 @@ CREATE TABLE [dbo].[Student](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Teacher]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Teacher]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -213,7 +297,7 @@ CREATE TABLE [dbo].[Teacher](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Unit]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[Unit]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -228,7 +312,7 @@ CREATE TABLE [dbo].[Unit](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  Table [dbo].[User]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -242,133 +326,291 @@ CREATE TABLE [dbo].[User](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (1, 1)
+SET IDENTITY_INSERT [dbo].[Assessment] ON 
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (1, 2)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (1, N'SQL Knowledge assessment 1', 1)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (1, 3)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (2, N'SQL Knowledge assessment 2', 1)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (1, 4)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (3, N'C# Project assessment 1', 2)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (1, 5)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (4, N'C# Project assessment 2', 3)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (1, 6)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (5, N'C# Skills assessment 1', 4)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (2, 7)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (6, N'C# Skills assessment 2', 5)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (2, 8)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (7, N'SQL Project assessment 1', 6)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (2, 9)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (8, N'Project Management Skills assessment 1', 7)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (2, 10)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (9, N'Project Management Knowledge assessment 1', 11)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (2, 11)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (10, N'XML Knowledge assessment 1', 9)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (3, 12)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (11, N'XML Knowledge assessment 2', 9)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (3, 13)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (12, N'Java Project assessment 1', 8)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (3, 14)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (13, N'HTML Knowledge assessment 1', 10)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (4, 15)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (14, N'Ocupational Psychology Skills assessment 1', 12)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (4, 16)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (15, N'Team Management Skills assessment 1', 13)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (4, 17)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (16, N'Psychological Manipulation Project assessment 1', 14)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (4, 18)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (17, N'Psychological Manipulation Knowledge assessment 1', 14)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (5, 19)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (18, N'Stove-cooking Knowledge assessment 1', 15)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (5, 20)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (19, N'Stove-cooking Project assessment 1', 15)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (5, 21)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (20, N'Stove-cooking Skills assessment 1', 16)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (5, 22)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (21, N'Food Chemistry Knowledge assessment 1', 16)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (5, 23)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (22, N'Food Management Knowledge assessment 1', 17)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (5, 24)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (23, N'Team Management assessment 1', 18)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (6, 25)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (24, N'Team Management assessment 2', 19)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (6, 26)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (25, N'Plastic Recycling Skills assessment 1', 20)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (6, 27)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (26, N'Waste Detection Project assessment 1', 21)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (6, 28)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (27, N'Waste Detection Knowledge assessment 1', 24)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (6, 29)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (28, N'Tree Planting Skills assessment 1', 22)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (6, 30)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (29, N'Tree Planting Skills assessment 2', 23)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (7, 31)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (30, N'Finance Management Skills assessment 1', 25)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (7, 32)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (31, N'Finance Management Skills assessment 2', 26)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (7, 33)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (32, N'Finance Management Project assessment 1', 27)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (7, 34)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (33, N'Finance Computing Project assessment 1', 28)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (8, 35)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (34, N'Finance Computing Skills assessment 1', 29)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (8, 36)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (35, N'Finance Computing Skills assessment 2', 30)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (8, 37)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (36, N'Hardware Fundamentals Skills assessment 1', 31)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (9, 38)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (37, N'Algorithm Fundamentals Knowledge assessment 1', 32)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (9, 39)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (38, N'Algorithm Fundamentals Knowledge assessment 2', 33)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (10, 40)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (39, N'Computer Learning Project assessment 1', 34)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (10, 41)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (40, N'Supply Management Skills assessment 1', 35)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (11, 42)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (41, N'Database Logistics Project assessment 1', 36)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (11, 43)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (42, N'Supply Management Skills assessment 2', 37)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (11, 44)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (43, N'Water Engineering Fundamentals Skills assessment 1', 38)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (11, 45)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (44, N'Water Engineering Fundamentals Project assessment 1', 38)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (11, 46)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (45, N'Risk Management Knowledge assessment 1', 40)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (12, 47)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (46, N'Risk Management Knowledge assessment 2', 41)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (12, 48)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (47, N'Network Cybersecurity Skills assessment 1', 42)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (12, 49)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (48, N'Network Cybersecurity Skills assessment 2', 45)
 GO
-INSERT [dbo].[Cluster] ([id], [unitID]) VALUES (12, 50)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (49, N'Threat Analysis Knowledge assessment 1', 42)
 GO
-SET IDENTITY_INSERT [dbo].[Course] ON 
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (50, N'Threat Analysis Project assessment 1', 43)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (1, N'Certificate IV in Programming', 26, 1, CAST(N'2021-05-12' AS Date), 1)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (51, N'Threat Analysis Project assessment 2', 44)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (2, N'Diploma in Software Development', 26, 2, CAST(N'2021-05-12' AS Date), 2)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (52, N'Sustainability Analysis Project assessment 1', 46)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (3, N'Diploma in Social Engineering', 52, 3, CAST(N'2020-06-06' AS Date), 3)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (53, N'Psychology Fundamentals Skills assessment 1', 47)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (4, N'Certificate III in Advance Cooking', 17, 4, CAST(N'2019-03-12' AS Date), 1)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (54, N'Psychology Fundamentals Skills assessment 2', 48)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (5, N'Certificate III in Waste Management', 17, 1, CAST(N'2018-05-15' AS Date), 2)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (55, N'Psychology Fundamentals Skills assessment 3', 49)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (6, N'Certificate II in Accounting', 52, 2, CAST(N'2019-05-05' AS Date), 3)
+INSERT [dbo].[Assessment] ([id], [name], [unitID]) VALUES (56, N'Psychology Fundamentals Skills assessment 4', 50)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (7, N'Advance Diploma in Computer Science', 26, 3, CAST(N'2017-12-01' AS Date), 1)
+SET IDENTITY_INSERT [dbo].[Assessment] OFF
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (8, N'Advance Diploma in Logistics', 12, 4, CAST(N'2016-01-01' AS Date), 2)
+SET IDENTITY_INSERT [dbo].[Cluster] ON 
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (9, N'Certificate III in Water Management', 52, 1, CAST(N'2021-07-15' AS Date), 3)
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 1, 1)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (10, N'Certificate IV in Mining', 52, 2, CAST(N'2021-08-01' AS Date), 1)
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 2, 2)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (11, N'Advance Diploma in Software Hacking', 64, 3, CAST(N'2021-09-15' AS Date), 2)
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 3, 3)
 GO
-INSERT [dbo].[Course] ([id], [name], [duration_weeks], [locationID], [startdate], [deliveryID]) VALUES (12, N'Advance Diploma in Psychology', 52, 4, CAST(N'2020-12-01' AS Date), 3)
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 4, 4)
 GO
-SET IDENTITY_INSERT [dbo].[Course] OFF
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 5, 5)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 6, 6)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 7, 7)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 8, 8)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 9, 9)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 10, 10)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 11, 11)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 12, 12)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 13, 13)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 14, 14)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 15, 15)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 16, 16)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 17, 17)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 18, 18)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 19, 19)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 20, 20)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 21, 21)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 22, 22)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 23, 23)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 24, 24)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 25, 25)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 26, 26)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 27, 27)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 28, 28)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 29, 29)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 30, 30)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 31, 31)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 32, 32)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 33, 33)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 34, 34)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 35, 35)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 36, 36)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 37, 37)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (9, 38, 38)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (9, 39, 39)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (10, 40, 40)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (10, 41, 41)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 42, 42)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 43, 43)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 44, 44)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 45, 45)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 46, 46)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 47, 47)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 48, 48)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 49, 49)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 50, 50)
+GO
+SET IDENTITY_INSERT [dbo].[Cluster] OFF
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (1, N'Certificate IV in Programming', 1, 1)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (2, N'Diploma in Software Development', 2, 2)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (3, N'Diploma in Social Engineering', 3, 3)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (4, N'Certificate III in Advance Cooking', 4, 1)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (5, N'Certificate III in Waste Management', 1, 2)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (6, N'Certificate II in Accounting', 2, 3)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (7, N'Advance Diploma in Computer Science', 3, 1)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (8, N'Advance Diploma in Logistics', 4, 2)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (9, N'Certificate III in Water Management', 1, 3)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (10, N'Certificate IV in Mining', 2, 1)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (11, N'Advance Diploma in Software Hacking', 3, 2)
+GO
+INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID]) VALUES (12, N'Advance Diploma in Psychology', 4, 3)
+GO
+SET IDENTITY_INSERT [dbo].[CourseSemester] ON 
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (1, 11, 1)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (2, 11, 2)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (3, 10, 3)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (3, 11, 4)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (4, 7, 5)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (5, 6, 6)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (6, 8, 7)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (6, 9, 8)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (7, 5, 9)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (8, 1, 10)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (9, 12, 11)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (9, 13, 12)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (10, 12, 13)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (10, 13, 14)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (11, 12, 15)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (11, 13, 16)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (11, 14, 17)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (12, 11, 18)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (12, 12, 19)
+GO
+SET IDENTITY_INSERT [dbo].[CourseSemester] OFF
 GO
 SET IDENTITY_INSERT [dbo].[CourseStudent] ON 
 GO
@@ -789,6 +1031,56 @@ GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (120, 11, 2, 208)
 GO
 SET IDENTITY_INSERT [dbo].[CourseStudent] OFF
+GO
+SET IDENTITY_INSERT [dbo].[CourseTeacher] ON 
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (1, 1, 1)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (1, 2, 2)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (2, 3, 3)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (2, 4, 4)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (3, 5, 5)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (3, 6, 6)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (12, 7, 7)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (12, 8, 8)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (9, 9, 9)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (9, 10, 10)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (10, 12, 12)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (11, 13, 13)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (11, 14, 14)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (4, 13, 15)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (4, 14, 16)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (5, 1, 17)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (5, 2, 18)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (6, 3, 19)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (6, 4, 20)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (7, 5, 21)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (7, 6, 22)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (8, 7, 23)
+GO
+INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (8, 8, 24)
+GO
+SET IDENTITY_INSERT [dbo].[CourseTeacher] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Delivery] ON 
 GO
@@ -1252,6 +1544,38 @@ INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALU
 GO
 SET IDENTITY_INSERT [dbo].[Payment] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Semester] ON 
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (1, N'Semester 1 2016', CAST(N'2016-02-01' AS Date), CAST(N'2016-05-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (2, N'Semester 2 2016', CAST(N'2016-06-01' AS Date), CAST(N'2016-11-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (3, N'Semester 1 2017', CAST(N'2017-02-01' AS Date), CAST(N'2017-05-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (4, N'Semester 2 2017', CAST(N'2017-06-01' AS Date), CAST(N'2017-11-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (5, N'Semester 1 2018', CAST(N'2018-02-01' AS Date), CAST(N'2018-05-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (6, N'Semester 2 2018', CAST(N'2018-06-01' AS Date), CAST(N'2018-11-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (7, N'Semester 1 2019', CAST(N'2019-02-01' AS Date), CAST(N'2019-05-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (8, N'Semester 2 2019', CAST(N'2019-06-01' AS Date), CAST(N'2019-11-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (9, N'Semester 1 2020', CAST(N'2020-02-01' AS Date), CAST(N'2020-05-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (10, N'Semester 2 2020', CAST(N'2020-06-01' AS Date), CAST(N'2020-11-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (11, N'Semester 1 2021', CAST(N'2021-02-01' AS Date), CAST(N'2021-05-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (12, N'Semester 2 2021', CAST(N'2021-06-01' AS Date), CAST(N'2021-11-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (13, N'Semester 1 2022', CAST(N'2022-02-01' AS Date), CAST(N'2022-05-01' AS Date))
+GO
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (14, N'Semester 2 2022', CAST(N'2022-06-01' AS Date), CAST(N'2022-11-01' AS Date))
+GO
+SET IDENTITY_INSERT [dbo].[Semester] OFF
+GO
 SET IDENTITY_INSERT [dbo].[Student] ON 
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (1, N'22 Column Street, Blacktown 2133', 1, N'0414-666-123', N'howardee@gmail.com', CAST(N'2003-08-11' AS Date), N'Howard', N'Diz')
@@ -1552,6 +1876,16 @@ INSERT [dbo].[Teacher] ([id], [address], [genderID], [mobile], [email], [dob], [
 GO
 INSERT [dbo].[Teacher] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname], [base_locationID]) VALUES (8, N'12 Uber Street, Liverpool 2700', 2, N'0456-642-235', N'monsmith@hotmail.com', CAST(N'2003-01-11' AS Date), N'Monica', N'Smith', 3)
 GO
+INSERT [dbo].[Teacher] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname], [base_locationID]) VALUES (9, N'23 River Street, Parramatta 2150', 1, N'0451-032-123', N'joerogan@hotmail.com', CAST(N'1950-01-21' AS Date), N'Joe', N'Rogan', 1)
+GO
+INSERT [dbo].[Teacher] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname], [base_locationID]) VALUES (10, N'33 Elevator Street, Richmond 2230', 2, N'0415-035-123', N'salek@gmail.com', CAST(N'1999-01-05' AS Date), N'Svetlana', N'Alexandrovna', 4)
+GO
+INSERT [dbo].[Teacher] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname], [base_locationID]) VALUES (12, N'18 Junior Street, Seven Hills 1998', 1, N'0413-213-321', N'roshik@gmail.com', CAST(N'2001-01-01' AS Date), N'Roshik', N'Wery', 1)
+GO
+INSERT [dbo].[Teacher] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname], [base_locationID]) VALUES (13, N'01 Senior Street, Seven Hills 1950', 3, N'0413-231-321', N'johnbest@gmail.com', CAST(N'1965-03-03' AS Date), N'Johnathan', N'Byest', 3)
+GO
+INSERT [dbo].[Teacher] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname], [base_locationID]) VALUES (14, N'04 Cobble Street, Cabramatta 2176', 1, N'0444-444-123', N'rockjohnson@gmail.com', CAST(N'1970-03-12' AS Date), N'Rock', N'Johnson', 1)
+GO
 SET IDENTITY_INSERT [dbo].[Unit] ON 
 GO
 INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (1, N'Use query language to work with databases', 200)
@@ -1658,13 +1992,29 @@ SET IDENTITY_INSERT [dbo].[Unit] OFF
 GO
 INSERT [dbo].[User] ([password], [username]) VALUES (N'password', N'admin')
 GO
-ALTER TABLE [dbo].[Course]  WITH CHECK ADD FOREIGN KEY([deliveryID])
+ALTER TABLE [dbo].[Assessment]  WITH CHECK ADD  CONSTRAINT [FK__Assessmen__unitI__3B0BC30C] FOREIGN KEY([unitID])
+REFERENCES [dbo].[Unit] ([id])
+GO
+ALTER TABLE [dbo].[Assessment] CHECK CONSTRAINT [FK__Assessmen__unitI__3B0BC30C]
+GO
+ALTER TABLE [dbo].[Cluster]  WITH CHECK ADD FOREIGN KEY([courseID])
+REFERENCES [dbo].[Course] ([id])
+GO
+ALTER TABLE [dbo].[Course]  WITH CHECK ADD  CONSTRAINT [FK__Course__delivery__2CBDA3B5] FOREIGN KEY([deliveryID])
 REFERENCES [dbo].[Delivery] ([id])
+GO
+ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK__Course__delivery__2CBDA3B5]
 GO
 ALTER TABLE [dbo].[Course]  WITH CHECK ADD  CONSTRAINT [FK__Course__location__3F466844] FOREIGN KEY([locationID])
 REFERENCES [dbo].[Location] ([id])
 GO
 ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK__Course__location__3F466844]
+GO
+ALTER TABLE [dbo].[CourseSemester]  WITH CHECK ADD FOREIGN KEY([courseID])
+REFERENCES [dbo].[Course] ([id])
+GO
+ALTER TABLE [dbo].[CourseSemester]  WITH CHECK ADD FOREIGN KEY([semesterID])
+REFERENCES [dbo].[Semester] ([id])
 GO
 ALTER TABLE [dbo].[CourseStudent]  WITH CHECK ADD  CONSTRAINT [FK__CourseStu__cours__0F624AF8] FOREIGN KEY([courseID])
 REFERENCES [dbo].[Course] ([id])
@@ -1691,11 +2041,6 @@ REFERENCES [dbo].[Course] ([id])
 GO
 ALTER TABLE [dbo].[CourseTeacher] CHECK CONSTRAINT [FK__CourseTea__cours__4AB81AF0]
 GO
-ALTER TABLE [dbo].[CourseTeacher]  WITH CHECK ADD  CONSTRAINT [FK__CourseTea__semes__4F7CD00D] FOREIGN KEY([semesterID])
-REFERENCES [dbo].[Semester] ([id])
-GO
-ALTER TABLE [dbo].[CourseTeacher] CHECK CONSTRAINT [FK__CourseTea__semes__4F7CD00D]
-GO
 ALTER TABLE [dbo].[CourseTeacher]  WITH CHECK ADD  CONSTRAINT [FK__CourseTea__teach__4BAC3F29] FOREIGN KEY([teacherID])
 REFERENCES [dbo].[Teacher] ([id])
 GO
@@ -1719,7 +2064,7 @@ REFERENCES [dbo].[Gender] ([id])
 GO
 ALTER TABLE [dbo].[Teacher] CHECK CONSTRAINT [FK__Teacher__genderI__4CA06362]
 GO
-/****** Object:  StoredProcedure [dbo].[usp_AttemptLogin]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_AttemptLogin]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1729,7 +2074,7 @@ as
 select username, [password] from [User]
 where username = @username and password = @password;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllAssessment]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllAssessment]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1738,7 +2083,7 @@ create procedure [dbo].[usp_SelectAllAssessment]
 as
 select * from Assessment;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllCluster]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllCluster]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1747,7 +2092,7 @@ create procedure [dbo].[usp_SelectAllCluster]
 as
 select * from Cluster;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllCourse]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllCourse]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1756,7 +2101,7 @@ create procedure [dbo].[usp_SelectAllCourse]
 as
 select * from Course;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllLocation]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllLocation]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1765,7 +2110,7 @@ create procedure [dbo].[usp_SelectAllLocation]
 as
 select * from Location;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllPayment]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllPayment]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1774,7 +2119,7 @@ create procedure [dbo].[usp_SelectAllPayment]
 as
 select * from Payment;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllSemester]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllSemester]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1784,7 +2129,7 @@ create procedure [dbo].[usp_SelectAllSemester]
 as
 select * from Semester;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllStudent]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllStudent]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1803,7 +2148,7 @@ left join Payment on Payment.studentID = Student.id
 left join CourseStudent on CourseStudent.studentID = Student.id
 order by [delivery] desc;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllTeacher]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllTeacher]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1812,7 +2157,7 @@ create procedure [dbo].[usp_SelectAllTeacher]
 as
 select * from Teacher;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllUnit]    Script Date: 25/05/2021 8:41:33 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllUnit]    Script Date: 27/05/2021 4:45:06 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1820,4 +2165,8 @@ GO
 create procedure [dbo].[usp_SelectAllUnit]
 as
 select * from Unit;
+GO
+USE [master]
+GO
+ALTER DATABASE [TafeSystem] SET  READ_WRITE 
 GO
