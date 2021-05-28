@@ -67,6 +67,9 @@
     <Compile Include="DataGridSettings.xaml.cs">
       <DependentUpon>DataGridSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageLogic.cs" />
     <Compile Include="PageNavigation.cs" />
     <Compile Include="StudentInformation.xaml.cs">
@@ -109,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DataGridSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -48,6 +48,12 @@ namespace ModelLayer
         //    return control.GetStudentTimetable();
         //}
 
+        public bool AttemptLogin(string username, string password)
+        {
+            return control.AttemptLogin(username, password);
+        }
+
+
         //public IEnumerable<BusinessLayer.PastCourse> GetTeacherPastCourses()
         //{
         //    return control.GetPastCourses();

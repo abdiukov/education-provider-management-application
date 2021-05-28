@@ -312,25 +312,25 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public bool AttemptLogin()
+        public bool AttemptLogin(string username, string password)
         {
-            List<User> outputlist = new List<User>();
+            bool result = false;
             try
             {
                 SqlConnection conn = new SqlConnection(_connectionString);
 
                 //Execute query
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("exec usp_AttemptLogin", conn);
+                SqlCommand cmd = new SqlCommand("exec usp_AttemptLogin @username, @password", conn);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
+
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.HasRows)
                 {
-                    while (dataReader.Read())
-                    {
-                        User output = new User(dataReader.GetString(1), dataReader.GetString(2));
-                        outputlist.Add(output);
-                    }
+                    dataReader.Read();
+                    result = (dataReader[0].ToString() == "1");
                 }
                 //disposing
                 conn.Dispose();
@@ -340,13 +340,7 @@ namespace DataLinkLayer
             {
                 Console.WriteLine("An error has occured at the AttemptLogin()\n" + ex.Message);
             }
-
-            //output
-            if (outputlist.Count == 1)
-            {
-                return true;
-            }
-            return false;
+            return result;
         }
 
     }
