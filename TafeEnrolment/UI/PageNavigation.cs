@@ -28,7 +28,6 @@ namespace UI
 
         public static void GoToNewOrExistingPage(Window pageToNavigate)
         {
-
             if (App.pagesVisitedTracker.Contains(pageToNavigate))
             {
                 GoToExistingPage(pageToNavigate);

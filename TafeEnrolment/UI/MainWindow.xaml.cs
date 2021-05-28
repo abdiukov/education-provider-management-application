@@ -8,7 +8,10 @@ namespace UI
         public MainWindow()
         {
             InitializeComponent();
-            App.pagesVisitedTracker.Add(this);
+            if (App.pagesVisitedTracker.Count == 0)
+            {
+                App.pagesVisitedTracker.Add(this);
+            }
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
