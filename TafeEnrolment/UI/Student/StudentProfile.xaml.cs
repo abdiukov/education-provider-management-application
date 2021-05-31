@@ -31,13 +31,13 @@ namespace UI.Student
 
         private void Btn_StudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
+            //  PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
             Hide();
         }
 
         private void Btn_StudentResult_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
+            //  PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
             Hide();
         }
 

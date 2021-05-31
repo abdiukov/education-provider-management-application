@@ -24,6 +24,11 @@ namespace ModelLayer
             return control.GetStudents();
         }
 
+        public IEnumerable<BusinessLayer.Enrolment> GetEnrolmentsByID(int studentID)
+        {
+            return control.GetEnrolmentsByID(studentID);
+        }
+
         //public IEnumerable<BusinessLayer.Student> GetUnpaidFeesStudents()
         //{
         //    IEnumerable<BusinessLayer.Student> unsorted_students = control.GetStudents();
@@ -43,10 +48,12 @@ namespace ModelLayer
             return control.GetLocations();
         }
 
-        //public IEnumerable<BusinessLayer.Timetable> GetStudentTimetable()
-        //{
-        //    return control.GetStudentTimetable();
-        //}
+        //public IEnumerable<>
+
+        public IEnumerable<BusinessLayer.StudentResult> GetStudentResults(int studentID)
+        {
+            return control.GetStudentResults(studentID);
+        }
 
         public bool AttemptLogin(string username, string password)
         {

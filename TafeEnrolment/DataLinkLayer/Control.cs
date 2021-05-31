@@ -52,6 +52,38 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        public List<StudentResult> GetStudentResults(int studentID)
+        {
+
+            List<StudentResult> outputlist = new List<StudentResult>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_StudentResultByID @studentID", conn);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        StudentResult output = new StudentResult(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at the GetStudentResults()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
         public List<Cluster> GetClusters()
         {
             List<Cluster> outputlist = new List<Cluster>();
@@ -146,38 +178,39 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        //public List<Payment> GetPayments()
-        //{
-        //    List<Payment> outputlist = new List<Payment>();
-        //    try
-        //    {
-        //        SqlConnection conn = new SqlConnection(_connectionString);
-        //        //Execute query
-        //        conn.Open();
-        //        SqlCommand cmd = new SqlCommand("exec usp_SelectAllPayment", conn);
-        //        SqlDataReader dataReader = cmd.ExecuteReader();
+        public List<Enrolment> GetEnrolmentsByID(int studentID)
+        {
+            List<Enrolment> outputlist = new List<Enrolment>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectEnrolmentById @studentID", conn);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+                SqlDataReader dataReader = cmd.ExecuteReader();
 
-        //        if (dataReader.HasRows)
-        //        {
-        //            while (dataReader.Read())
-        //            {
-        //                Payment output = new Payment(dataReader.GetInt32(0), dataReader.GetDateTime(1),
-        //                    dataReader.GetBoolean(4), (Payment.PaymentType)dataReader.GetInt32(5),
-        //                    dataReader.GetDouble(6));
-        //                outputlist.Add(output);
-        //            }
-        //        }
-        //        //disposing
-        //        conn.Dispose();
-        //        cmd.Dispose();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("An error has occured at the GetPayments()\n" + ex.Message);
-        //    }
-        //    //output
-        //    return outputlist;
-        //}
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Enrolment output = new Enrolment(dataReader.GetString(0), dataReader.GetString(1),
+                            dataReader.GetString(2), Double.Parse(dataReader[3].ToString()), Double.Parse(dataReader[4].ToString()),
+                             dataReader.GetString(5), dataReader.GetString(6));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at the GetEnrolmentsByID()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
 
         public List<Semester> GetSemesters()
         {

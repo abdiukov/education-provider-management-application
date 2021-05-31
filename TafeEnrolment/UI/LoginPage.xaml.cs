@@ -21,9 +21,7 @@ namespace UI
                 MainWindow pageobj = new MainWindow();
                 pageobj.Show();
                 this.Close();
-
             }
-            //PasswordBox_Password.Password
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ModelLayer;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -6,10 +7,12 @@ namespace UI.Student
 {
     public partial class StudentResultSearch : Window
     {
+        Logic logic = new Logic();
         //INITIALISATION CODE
-        public StudentResultSearch()
+        public StudentResultSearch(int studentID)
         {
             InitializeComponent();
+            dgStudentResults.ItemsSource = logic.GetStudentResults(studentID);
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

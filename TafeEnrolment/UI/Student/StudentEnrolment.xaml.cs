@@ -1,14 +1,17 @@
-﻿using System.Windows;
+﻿using ModelLayer;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace UI.Student
 {
     public partial class StudentEnrolment : Window
     {
+        Logic logic = new Logic();
         //INITIALISATION CODE
-        public StudentEnrolment()
+        public StudentEnrolment(int studentID)
         {
             InitializeComponent();
+            dgStudentEnrolment.ItemsSource = logic.GetEnrolmentsByID(studentID);
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

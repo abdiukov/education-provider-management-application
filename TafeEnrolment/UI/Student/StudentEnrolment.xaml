@@ -9,14 +9,16 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgStudentEnrolment" MouseRightButtonDown="dgStudentEnrolment_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <DataGrid Name="dgStudentEnrolment" MouseRightButtonDown="dgStudentEnrolment_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="10" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
-                <DataGridTextColumn Header="Start Date" Binding="{Binding Path='StartDate'}"/>
-                <DataGridTextColumn Header="Finish Date" Binding="{Binding Path='FinishDate'}"/>
-                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='Title'}"/>
-                <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
-                <DataGridTextColumn Header="Units" Binding="{Binding Path='Units'}"/>
+                <DataGridTextColumn Header="Student First Name" Binding="{Binding Path='FirstName'}"/>
+                <DataGridTextColumn Header="Student Last Name" Binding="{Binding Path='LastName'}"/>
+                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
+                <DataGridTextColumn Header="Amount paid" Binding="{Binding Path='AmountPaid'}"/>
+                <DataGridTextColumn Header="Amount due" Binding="{Binding Path='AmountDue'}"/>
+                <DataGridTextColumn Header="Campus" Binding="{Binding Path='CourseLocation'}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Path='CourseAddress'}"/>
+
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -1,4 +1,6 @@
 ﻿using ModelLayer;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,10 +11,12 @@ namespace UI
     public partial class StudentInformation : Window
     {
         Logic logic = new Logic();
+        List<BusinessLayer.Student> Students = new List<BusinessLayer.Student>();
         //INITIALISATION CODE
         public StudentInformation()
         {
             InitializeComponent();
+            this.Students = (List<BusinessLayer.Student>)logic.GetStudents();
             dgStudentProfiles.ItemsSource = logic.GetStudents();
         }
 
@@ -87,14 +91,18 @@ namespace UI
         private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
+            int selectedStudentID = Students.ElementAt(dgStudentProfiles.SelectedIndex).Id;
+            //
+            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch(selectedStudentID));
         }
 
 
         private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
+            int selectedStudentID = Students.ElementAt(dgStudentProfiles.SelectedIndex).Id;
+
+            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment(selectedStudentID));
         }
 
         private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)

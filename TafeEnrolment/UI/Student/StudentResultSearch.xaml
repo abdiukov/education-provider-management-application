@@ -10,9 +10,10 @@
     <Grid>
         <DataGrid Name="dgStudentResults"  MouseRightButtonDown="dgStudentResults_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='Course'}"/>
-                <DataGridTextColumn Header="Units" Binding="{Binding Path='Units'}"/>
-                <DataGridTextColumn Header="Satisfactory" Binding="{Binding Path='Satisfactory'}"/>
+                <DataGridTextColumn Header="Student id" Binding="{Binding Path='StudentID'}"/>
+                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
+                <DataGridTextColumn Header="Course Location" Binding="{Binding Path='CourseLocation'}"/>
+                <DataGridTextColumn Header="Course Outcome" Binding="{Binding Path='Outcome'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
