@@ -14,6 +14,7 @@ namespace ModelLayer
             this.control = new Control();
         }
 
+
         public IEnumerable<BusinessLayer.Teacher> GetTeachers()
         {
             return control.GetTeachers();
@@ -29,26 +30,11 @@ namespace ModelLayer
             return control.GetEnrolmentsByID(studentID);
         }
 
-        //public IEnumerable<BusinessLayer.Student> GetUnpaidFeesStudents()
-        //{
-        //    IEnumerable<BusinessLayer.Student> unsorted_students = control.GetStudents();
-        //    List<BusinessLayer.Student> output = new List<BusinessLayer.Student>();
-        //    foreach (var student in unsorted_students)
-        //    {
-        //        if (student.paidFees == false)
-        //        {
-        //            output.Add(student);
-        //        }
-        //    }
-        //    return output;
-        //}
 
         public IEnumerable<BusinessLayer.Location> GetLocations()
         {
             return control.GetLocations();
         }
-
-        //public IEnumerable<>
 
         public IEnumerable<BusinessLayer.StudentResult> GetStudentResults(int studentID)
         {
@@ -61,14 +47,14 @@ namespace ModelLayer
         }
 
 
-        //public IEnumerable<BusinessLayer.PastCourse> GetTeacherPastCourses()
-        //{
-        //    return control.GetPastCourses();
-        //}
-
-        public IEnumerable<BusinessLayer.Course> GetCourses()
+        public IEnumerable<BusinessLayer.Cluster> GetClusters()
         {
-            return control.GetCourses();
+            return control.GetClusters();
+        }
+
+        public IEnumerable<BusinessLayer.Course> GetTeacherHistoryByID(int teacherID)
+        {
+            return control.GetTeacherHistoryByID(teacherID);
         }
 
         //public IEnumerable<BusinessLayer.Course> GetNotOfferedCourses()

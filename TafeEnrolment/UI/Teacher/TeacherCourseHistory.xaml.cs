@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ModelLayer;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using UI.Teacher;
@@ -7,10 +8,12 @@ namespace UI
 {
     public partial class TeacherCourseHistory : Window
     {
+        Logic logic = new Logic();
         //INITIALISATION CODE
-        public TeacherCourseHistory()
+        public TeacherCourseHistory(int teacherID)
         {
             InitializeComponent();
+            dgCourseHistory.ItemsSource = logic.GetTeacherHistoryByID(teacherID);
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

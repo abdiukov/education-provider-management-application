@@ -3,10 +3,11 @@
     public class Cluster
     {
         //CONSTRUCTOR
-        public Cluster(int Id, string Name)
+        public Cluster(int Id, string UnitName, int HoursAmount)
         {
             this.Id = Id;
-            this.Name = Name;
+            this.UnitName = UnitName;
+            this.HoursAmount = HoursAmount;
         }
         //PROPERTIES
         public int Id
@@ -14,7 +15,12 @@
             get; set;
         }
 
-        public string Name
+        public string UnitName
+        {
+            get; set;
+        }
+
+        public int HoursAmount
         {
             get; set;
         }

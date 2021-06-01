@@ -13,10 +13,12 @@
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgCourseHistory" MouseRightButtonDown="dgCourseHistory_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name of the course" Binding="{Binding Path='Title'}"/>
-                <DataGridTextColumn Header="Units" Binding="{Binding Path='CourseUnit'}"/>
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
-                <DataGridTextColumn Header="Course status" Binding="{Binding Path='CourseStatus'}"/>
+                <DataGridTextColumn Header="Course name" Binding="{Binding Path='CourseName'}"/>
+                <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
+                <DataGridTextColumn Header="Unit name" Binding="{Binding Path='UnitName'}"/>
+                <DataGridTextColumn Header="Amount of hours per unit" Binding="{Binding Path='UnitHoursAmount'}"/>
+                <DataGridTextColumn Header="Name of campus" Binding="{Binding Path='CampusName'}"/>
+                <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

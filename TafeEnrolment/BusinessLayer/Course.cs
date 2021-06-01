@@ -1,26 +1,41 @@
-﻿using System;
-
-namespace BusinessLayer
+﻿namespace BusinessLayer
 {
     public class Course
     {
         //CONSTRUCTOR
-
-        public Course(int Id, string Name, string Location, string Delivery)
+        public Course(string CourseName, string Semester, string UnitName,
+            int UnitHoursAmount, string CampusName, string Delivery)
         {
-            this.Id = Id;
-            this.Name = Name;
-            this.Location = Location;
+            this.CourseName = CourseName;
+            this.Semester = Semester;
+            this.UnitName = UnitName;
+            this.UnitHoursAmount = UnitHoursAmount;
+            this.CampusName = CampusName;
             this.Delivery = Delivery;
         }
 
         //PROPERTIES
-        public int Id
+        public string CourseName
         {
             get; set;
         }
 
-        public string Name
+        public string Semester
+        {
+            get; set;
+        }
+
+        public string UnitName
+        {
+            get; set;
+        }
+
+        public int UnitHoursAmount
+        {
+            get; set;
+        }
+
+        public string CampusName
         {
             get; set;
         }
@@ -29,94 +44,6 @@ namespace BusinessLayer
         {
             get; set;
         }
-
-        public DateTime Duration
-        {
-            get; set;
-        }
-
-        public DateTime StartDate
-        {
-            get; set;
-        }
-
-        public string Location
-        {
-            get; set;
-        }
-
-        //public List<Semester> CourseSemesters
-        //{
-        //    get; set;
-        //}
-        //public List<Unit> UnitsLinkedToCourse
-        //{
-        //    get; set;
-        //}
-
-
-        //METHODS
-
-        public void AddCourse()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteCourse()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateCourse()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SearchCourse()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ViewAllCourses()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        //public bool isOffered
-        //{
-        //    get; set;
-        //}
-
-        //public List<Student> Students
-        //{
-        //    get; set;
-        //}
-
-        //public List<Teacher> Teachers
-        //{
-        //    get; set;
-        //}
-
-        //public List<Unit> CourseUnits
-        //{
-        //    get; set;
-        //}
-
-        //public DateTime courseStartDate
-        //{
-        //    get; set;
-        //}
-
-        //public DateTime courseEndDate
-        //{
-        //    get; set;
-        //}
-
-        //public string courseStatus
-        //{
-        //    get; set;
-        //}
 
     }
 }

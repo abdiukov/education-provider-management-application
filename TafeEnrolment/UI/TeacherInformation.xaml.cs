@@ -1,4 +1,6 @@
 ﻿using ModelLayer;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,12 +11,14 @@ namespace UI
     public partial class TeacherInformation : Window
     {
         Logic logic = new Logic();
+        List<BusinessLayer.Teacher> Teachers = new List<BusinessLayer.Teacher>();
 
         //INITIALISATION CODE
         public TeacherInformation()
         {
             InitializeComponent();
-            dgTeacherProfiles.ItemsSource = logic.GetTeachers();
+            Teachers = (List<BusinessLayer.Teacher>)logic.GetTeachers();
+            dgTeacherProfiles.ItemsSource = Teachers;
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -89,7 +93,8 @@ namespace UI
         private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
+            int selectedTeacherID = Teachers.ElementAt(dgTeacherProfiles.SelectedIndex).Id;
+            PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory(selectedTeacherID));
         }
 
         private void BtnSelect_Click(object sender, RoutedEventArgs e)

@@ -100,7 +100,7 @@ namespace DataLinkLayer
                     while (dataReader.Read())
                     {
 
-                        Cluster output = new Cluster(dataReader.GetInt32(0), dataReader.GetString(1));
+                        Cluster output = new Cluster(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2));
                         outputlist.Add(output);
                     }
                 }
@@ -116,7 +116,7 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public List<Course> GetCourses()
+        public List<Course> GetTeacherHistoryByID(int teacherID)
         {
             List<Course> outputlist = new List<Course>();
             try
@@ -124,14 +124,17 @@ namespace DataLinkLayer
                 SqlConnection conn = new SqlConnection(_connectionString);
                 //Execute query
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("exec usp_SelectAllCourse", conn);
+                SqlCommand cmd = new SqlCommand("exec usp_SelectTeacherHistoryByID @teacherID", conn);
+                cmd.Parameters.AddWithValue("@teacherID", teacherID);
+
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.HasRows)
                 {
                     while (dataReader.Read())
                     {
-                        Course output = new Course(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+                        Course output = new Course(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2),
+                            dataReader.GetInt32(3), dataReader.GetString(4), dataReader.GetString(5));
                         outputlist.Add(output);
                     }
                 }
@@ -141,7 +144,7 @@ namespace DataLinkLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured at the GetCourse()\n" + ex.Message);
+                Console.WriteLine("An error has occured at the GetTeacherHistoryByID()\n" + ex.Message);
             }
             //output
             return outputlist;

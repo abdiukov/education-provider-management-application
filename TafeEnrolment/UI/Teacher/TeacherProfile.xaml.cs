@@ -40,7 +40,7 @@ namespace UI.Teacher
         private void Btn_teacherCourseHistory_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
+            //  PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory());
         }
 
         private void dgTeacherProfile_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
