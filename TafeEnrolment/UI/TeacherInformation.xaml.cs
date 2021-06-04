@@ -97,12 +97,6 @@ namespace UI
             PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory(selectedTeacherID));
         }
 
-        private void BtnSelect_Click(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
-        }
-
         //END OF NAVIGATION CODE
 
         //DATAGRID SETTINGS CODE

@@ -9,7 +9,7 @@ namespace UI.Student
         public StudentProfile()
         {
             InitializeComponent();
-            Title = "Student's name goes here";
+            Title = "Add new student";
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -25,21 +25,10 @@ namespace UI.Student
         //NAVIGATION CODE
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(new StudentInformation());
+            PageNavigation.GoToExistingPage(new MainWindow());
             Hide();
         }
 
-        private void Btn_StudentEnrolment_Click(object sender, RoutedEventArgs e)
-        {
-            //  PageNavigation.GoToNewOrExistingPage(new StudentEnrolment());
-            Hide();
-        }
-
-        private void Btn_StudentResult_Click(object sender, RoutedEventArgs e)
-        {
-            //  PageNavigation.GoToNewOrExistingPage(new StudentResultSearch());
-            Hide();
-        }
 
         private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
@@ -48,12 +37,6 @@ namespace UI.Student
             Hide();
         }
 
-        private void dgStudentProfile_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            //code for changing the datagrid settings
-            DataGridSettings page = new DataGridSettings(dgStudentProfile);
-            page.Show();
-        }
         //END OF NAVIGATION CODE
     }
 }

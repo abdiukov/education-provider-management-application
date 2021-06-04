@@ -29,7 +29,7 @@ namespace UI.Student
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToExistingPage(new StudentProfile());
+            PageNavigation.GoToExistingPage(new StudentInformation());
         }
         private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {

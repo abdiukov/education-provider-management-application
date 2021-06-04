@@ -22,12 +22,12 @@
                 <DataGridTextColumn Header="Mobile" Binding="{Binding Path='Mobile'}"/>
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding Path='DateofBirth'}"/>
                 <DataGridTextColumn Header="Not paid" Binding="{Binding Path='isFeesNotPaid'}"/>
-                <DataGridTextColumn Header="Full Time" Binding="{Binding Path='Position'}"/>
+                <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
+                <DataGridTextColumn Header="Currently attends" Binding="{Binding Path='isCurrent'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Name="BtnSelect" Content="See student profile" Click="BtnSelect_Click" />
                                 <Button Name="BtnStudentResult" Content="See student resutls" Click="BtnStudentResult_Click" />
                                 <Button Name="BtnStudentEnrolment" Content="See student enrolment" Click="BtnStudentEnrolment_Click" />
                             </StackPanel>

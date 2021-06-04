@@ -17,7 +17,7 @@ namespace UI
         {
             InitializeComponent();
             this.Students = (List<BusinessLayer.Student>)logic.GetStudents();
-            dgStudentProfiles.ItemsSource = logic.GetStudents();
+            dgStudentProfiles.ItemsSource = Students;
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -49,8 +49,19 @@ namespace UI
 
         private void Search()
         {
-            PageLogic.SearchStudent(SearchBox.Text, checkbox_SearchPartTime.IsChecked,
-    checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked);
+            if (!int.TryParse(SearchBox.Text, out int idToSearch))
+            {
+                idToSearch = -99999;
+            }
+
+            List<BusinessLayer.Student> SearchResult = PageLogic.SearchStudent(idToSearch, checkbox_SearchPartTime.IsChecked,
+    checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked, Students);
+
+
+            //making copy
+            List<BusinessLayer.Student> StudentsCopy = Students;
+            dgStudentProfiles.ItemsSource = SearchResult;
+            Students = StudentsCopy;
         }
 
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
@@ -64,10 +75,6 @@ namespace UI
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             Search();
-
-            //below is placeholder code for testing
-            Hide();
-            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
         }
 
         //END OF SEARCH DATAGRID CODE
@@ -78,13 +85,6 @@ namespace UI
         {
             Hide();
             PageNavigation.GoToExistingPage(new MainWindow());
-        }
-
-
-        private void BtnSelect_Click(object sender, RoutedEventArgs e)
-        {
-            Hide();
-            PageNavigation.GoToNewOrExistingPage(new StudentProfile());
         }
 
 

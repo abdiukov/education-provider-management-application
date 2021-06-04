@@ -3,7 +3,7 @@
     public class Enrolment
     {
         public Enrolment(string firstName, string lastName, string courseName, double amountPaid,
-            double amountDue, string courseLocation, string courseAddress)
+            double amountDue, string courseLocation, string courseAddress, bool isCurrent)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -12,8 +12,12 @@
             AmountDue = amountDue;
             CourseLocation = courseLocation;
             CourseAddress = courseAddress;
+            this.isCurrent = isCurrent;
         }
-
+        public bool isCurrent
+        {
+            get; set;
+        }
         public string FirstName
         {
             get; set;

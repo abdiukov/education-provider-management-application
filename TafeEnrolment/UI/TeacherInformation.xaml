@@ -26,7 +26,6 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Name="BtnSelect" Content="See profile" Click="BtnSelect_Click" />
                                 <Button Name="Btn_CourseHistory" Content="See course history" Click="Btn_CourseHistory_Click" />
                             </StackPanel>
                         </DataTemplate>

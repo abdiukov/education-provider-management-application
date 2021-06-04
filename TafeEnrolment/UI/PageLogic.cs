@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 
 namespace UI
 {
@@ -9,39 +11,84 @@ namespace UI
             return searchboxText == "Enter keywords by which criteria to search" ? "" : searchboxText;
         }
 
-        public static void SearchStudent(string searchQuery, bool? searchPartTime, bool? searchFullTime, bool? searchNoFees)
+        public static List<BusinessLayer.Student> SearchStudent(int searchQuery, bool? searchPartTime, bool? searchFullTime,
+            bool? searchNoFees, List<BusinessLayer.Student> Students)
         {
-            searchQuery = SearchBoxReplaceDefaultValue(searchQuery);
-
             int v = 0;
             if ((bool)searchPartTime) { v += 4; } //x
             if ((bool)searchFullTime) { v += 2; } //y
             if ((bool)searchNoFees) { v += 1; } //z
 
+            List<BusinessLayer.Student> output = new List<BusinessLayer.Student>();
             switch (v)
             {
                 case 0: // all false
-                    MessageBox.Show("Search everyone" + searchQuery);
+                    output = Students;
                     break;
                 case 1: // z is true
-                    MessageBox.Show("Search no fees " + searchQuery);
+                    foreach (BusinessLayer.Student item in Students)
+                    {
+                        if (item.isFeesNotPaid == true)
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 2: // y is true
-                    MessageBox.Show("Search full time " + searchQuery);
+                    foreach (BusinessLayer.Student item in Students)
+                    {
+                        if (item.Position == "Full Time")
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 3: // z and y are true
-                    MessageBox.Show("Search full time no fees " + searchQuery);
+                    foreach (BusinessLayer.Student item in Students)
+                    {
+                        if (item.Position == "Full Time" && item.isFeesNotPaid == true)
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 4: // x is true
-                    MessageBox.Show("Search part time " + searchQuery);
+                    foreach (BusinessLayer.Student item in Students)
+                    {
+                        if (item.Position != "Full Time")
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 5: //x and z are true
-                    MessageBox.Show("Search part time no fees " + searchQuery);
+                    foreach (BusinessLayer.Student item in Students)
+                    {
+                        if (item.Position != "Full Time" && item.isFeesNotPaid == true)
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 default: //x and y are true
-                    MessageBox.Show("Error! Both part time and full time tick boxes are ticked " + searchQuery);
+                    MessageBox.Show("Error! Both part time and Full Time tick boxes are ticked " + searchQuery);
+                    output = Students;
                     break;
             }
+
+            if (searchQuery != -99999)
+            {
+                foreach (var item in output.ToList())
+                {
+                    if (item.Id != searchQuery)
+                    {
+                        output.Remove(item);
+                    }
+                }
+            }
+
+
+            return output;
         }
 
         public static void SearchTeacher(string searchQuery, bool? searchPartTime, bool? searchFullTime, bool? searchNotBaseLocation)
@@ -61,10 +108,10 @@ namespace UI
                     MessageBox.Show("Show teachers who are not teaching at their base location " + searchQuery);
                     break;
                 case 2: // y is true
-                    MessageBox.Show("Search full time " + searchQuery);
+                    MessageBox.Show("Search Full Time " + searchQuery);
                     break;
                 case 3: // z and y are true
-                    MessageBox.Show("Search full time and not teaching at their base location " + searchQuery);
+                    MessageBox.Show("Search Full Time and not teaching at their base location " + searchQuery);
                     break;
                 case 4: // x is true
                     MessageBox.Show("Search part time " + searchQuery);
@@ -73,7 +120,7 @@ namespace UI
                     MessageBox.Show("Search part time and not teaching at their base location " + searchQuery);
                     break;
                 default: //x and y are true
-                    MessageBox.Show("Error! Both part time and full time tick boxes are ticked " + searchQuery);
+                    MessageBox.Show("Error! Both part time and Full Time tick boxes are ticked " + searchQuery);
                     break;
             }
         }

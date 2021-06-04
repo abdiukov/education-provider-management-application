@@ -14,17 +14,11 @@
                 <DataGridTextColumn Header="Student First Name" Binding="{Binding Path='FirstName'}"/>
                 <DataGridTextColumn Header="Student Last Name" Binding="{Binding Path='LastName'}"/>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
+                <DataGridTextColumn Header="Is currently in progress" Binding="{Binding Path='isCurrent'}"/>
                 <DataGridTextColumn Header="Amount paid" Binding="{Binding Path='AmountPaid'}"/>
                 <DataGridTextColumn Header="Amount due" Binding="{Binding Path='AmountDue'}"/>
                 <DataGridTextColumn Header="Campus" Binding="{Binding Path='CourseLocation'}"/>
                 <DataGridTextColumn Header="Address" Binding="{Binding Path='CourseAddress'}"/>
-
-                <DataGridTemplateColumn Header="" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 

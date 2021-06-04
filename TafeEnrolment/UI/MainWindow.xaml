@@ -6,12 +6,30 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="Main Menu" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" IsVisibleChanged="Window_IsVisibleChanged"
-        >
+        WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" IsVisibleChanged="Window_IsVisibleChanged">
+    <Grid>
 
-    <Grid >
-        <Button x:Name="NavigateTeacherInfo" Click="NavigateTeacherInfo_Click" Content="Search teacher" HorizontalAlignment="Left" Margin="402,209,0,0" VerticalAlignment="Top" Width="180" Height="48"/>
-        <Button x:Name="NavigateCourseInfo" Click="NavigateCourseInfo_Click" Content="See course information" HorizontalAlignment="Left" Margin="217,315,0,0" VerticalAlignment="Top" Width="365" Height="48"/>
-        <Button x:Name="NavigateStudentInfo" Click="NavigateStudentInfo_Click" Content="Search student" HorizontalAlignment="Left" Margin="217,209,0,0" VerticalAlignment="Top" Width="180" Height="48"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="NavigateTeacherInfo" Click="NavigateTeacherInfo_Click" Content="Search teacher" 
+                Grid.Column="0" Grid.Row="0"/>
+        <Button x:Name="NavigateCourseInfo" Click="NavigateCourseInfo_Click" Content="See course information" 
+                Grid.Column="1" Grid.Row="0"/>
+        <Button x:Name="NavigateStudentInfo" Click="NavigateStudentInfo_Click" Content="Search student" 
+                Grid.Column="2" Grid.Row="0"/>
+        <Button x:Name="AddTeacherInfo" Click="AddTeacherInfo_Click" Content="Add teacher" 
+                Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="AddCourseInfo" Click="AddCourseInfo_Click" Content="Add course" 
+                Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="AddStudentInfo" Click="AddStudentInfo_Click" Content="Add student" 
+                Grid.Column="2" Grid.Row="1"/>
     </Grid>
 </Window>

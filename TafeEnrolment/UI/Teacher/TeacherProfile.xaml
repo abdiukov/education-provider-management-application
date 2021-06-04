@@ -5,52 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Teacher"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
+        Title="Add teacher" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        <DataGrid Name="dgTeacherProfile" MouseRightButtonDown="dgTeacherProfile_MouseRightButtonDown" HorizontalAlignment="Center" Margin="272,50,272,0" VerticalAlignment="Top" Width="250" Height="200" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="First Name" Binding="{Binding Path='FirstName'}"/>
-                <DataGridTextColumn Header="Surname" Binding="{Binding Path='LastName'}"/>
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
-                <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
-            </DataGrid.Columns>
-            <DataGrid.LayoutTransform>
-                <TransformGroup>
-                    <RotateTransform Angle="90"/>
-                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
-                </TransformGroup>
-            </DataGrid.LayoutTransform>
-            <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
-                    <Setter Property="LayoutTransform">
-                        <Setter.Value>
-                            <TransformGroup>
-                                <RotateTransform Angle="-90"/>
-                                <ScaleTransform ScaleX="1" ScaleY="-1" />
-                            </TransformGroup>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </DataGrid.ColumnHeaderStyle>
-            <DataGrid.CellStyle>
-                <Style  TargetType="DataGridCell">
-                    <Setter Property="LayoutTransform">
-                        <Setter.Value>
-                            <TransformGroup>
-                                <RotateTransform Angle="-90"/>
-                                <ScaleTransform ScaleX="1" ScaleY="-1" />
-                            </TransformGroup>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </DataGrid.CellStyle>
-        </DataGrid>
-
-
 
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <Button Name="Btn_teacherCourseHistory" Content="See teacher course history" HorizontalAlignment="Left" Margin="316,341,0,0" VerticalAlignment="Top" Width="181" Height="61" Click="Btn_teacherCourseHistory_Click" />
         <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    Height="732" Width="25"
@@ -93,5 +52,20 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
+
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="150,83,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="150,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Gender" HorizontalAlignment="Left" Margin="50,114,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="150,145,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Phone number" HorizontalAlignment="Left" Margin="50,145,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="150,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="150,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Date of birth" HorizontalAlignment="Left" Margin="50,208,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="150,239,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="50,239,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="150,270,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="50,270,0,0" VerticalAlignment="Top" Width="95"/>
     </Grid>
 </Window>

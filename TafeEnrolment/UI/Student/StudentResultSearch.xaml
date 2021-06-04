@@ -14,12 +14,6 @@
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
                 <DataGridTextColumn Header="Course Location" Binding="{Binding Path='CourseLocation'}"/>
                 <DataGridTextColumn Header="Course Outcome" Binding="{Binding Path='Outcome'}"/>
-                <DataGridTemplateColumn Header="" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>

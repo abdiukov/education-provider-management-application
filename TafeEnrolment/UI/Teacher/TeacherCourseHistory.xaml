@@ -19,12 +19,6 @@
                 <DataGridTextColumn Header="Amount of hours per unit" Binding="{Binding Path='UnitHoursAmount'}"/>
                 <DataGridTextColumn Header="Name of campus" Binding="{Binding Path='CampusName'}"/>
                 <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
-                <DataGridTemplateColumn Header="" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <CheckBox x:Name="checkbox_SearchPastCourse"  Content="Taught in the past" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>

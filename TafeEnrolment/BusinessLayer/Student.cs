@@ -7,7 +7,7 @@ namespace BusinessLayer
 
         //CONSTRUCTOR
 
-        public Student(int Id, string Address, string StudentGender, string Mobile, string Email, DateTime DateofBirth, string FirstName, string LastName, bool isFeesNotPaid, string Position)
+        public Student(int Id, string Address, string StudentGender, string Mobile, string Email, DateTime DateofBirth, string FirstName, string LastName, bool isFeesNotPaid, string Position, bool isCurrent)
         {
             this.Id = Id;
             this.Address = Address;
@@ -19,6 +19,7 @@ namespace BusinessLayer
             this.LastName = LastName;
             this.isFeesNotPaid = isFeesNotPaid;
             this.Position = Position;
+            this.isCurrent = isCurrent;
         }
 
         //PROPERTIES
@@ -68,6 +69,11 @@ namespace BusinessLayer
         }
 
         public bool isFeesNotPaid
+        {
+            get; set;
+        }
+
+        public bool isCurrent
         {
             get; set;
         }

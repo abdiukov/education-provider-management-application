@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using UI.Teacher;
 
 namespace UI
 {
@@ -40,7 +39,7 @@ namespace UI
         private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            PageNavigation.GoToExistingPage(new TeacherProfile());
+            PageNavigation.GoToExistingPage(new TeacherInformation());
         }
 
         //END OF NAVIGATION CODE

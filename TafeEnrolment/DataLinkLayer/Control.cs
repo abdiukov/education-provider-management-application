@@ -199,7 +199,7 @@ namespace DataLinkLayer
                     {
                         Enrolment output = new Enrolment(dataReader.GetString(0), dataReader.GetString(1),
                             dataReader.GetString(2), Double.Parse(dataReader[3].ToString()), Double.Parse(dataReader[4].ToString()),
-                             dataReader.GetString(5), dataReader.GetString(6));
+                             dataReader.GetString(5), dataReader.GetString(6), (dataReader[7].ToString() == "True"));
                         outputlist.Add(output);
                     }
                 }
@@ -265,7 +265,7 @@ namespace DataLinkLayer
                         Student output = new Student(dataReader.GetInt32(0), dataReader.GetString(1),
                             dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4),
                             dataReader.GetDateTime(5), dataReader.GetString(6), dataReader.GetString(7),
-                           (dataReader[8].ToString() == "1"), dataReader.GetString(9));
+                           (dataReader[8].ToString() == "1"), dataReader.GetString(9), (dataReader[10].ToString() == "True"));
                         outputlist.Add(output);
                     }
                 }
