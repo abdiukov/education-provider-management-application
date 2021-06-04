@@ -134,7 +134,8 @@ namespace DataLinkLayer
                     while (dataReader.Read())
                     {
                         Course output = new Course(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2),
-                            dataReader.GetInt32(3), dataReader.GetString(4), dataReader.GetString(5));
+                            dataReader.GetInt32(3), dataReader.GetString(4), dataReader.GetString(5),
+                            (dataReader[6].ToString() == "True"));
                         outputlist.Add(output);
                     }
                 }
@@ -300,7 +301,8 @@ namespace DataLinkLayer
                     {
                         Teacher output = new Teacher(dataReader.GetInt32(0), dataReader.GetString(1),
                             dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4),
-                            dataReader.GetDateTime(5), dataReader.GetString(6), dataReader.GetString(7));
+                            dataReader.GetDateTime(5), dataReader.GetString(6), dataReader.GetString(7), dataReader.GetString(8),
+                             (dataReader[9].ToString() == "True"), (dataReader[10].ToString() != dataReader[11].ToString()));
                         outputlist.Add(output);
                     }
                 }

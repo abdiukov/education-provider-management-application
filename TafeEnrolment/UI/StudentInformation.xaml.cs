@@ -53,13 +53,14 @@ namespace UI
             {
                 idToSearch = -99999;
             }
+            //making copy
+            List<BusinessLayer.Student> StudentsCopy = Students;
 
             List<BusinessLayer.Student> SearchResult = PageLogic.SearchStudent(idToSearch, checkbox_SearchPartTime.IsChecked,
     checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked, Students);
 
 
-            //making copy
-            List<BusinessLayer.Student> StudentsCopy = Students;
+
             dgStudentProfiles.ItemsSource = SearchResult;
             Students = StudentsCopy;
         }

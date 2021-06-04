@@ -1,10 +1,11 @@
 ﻿namespace BusinessLayer
 {
-    public class Course
+    public class NotOfferedCourse
     {
+
         //CONSTRUCTOR
-        public Course(string CourseName, string Semester, string UnitName,
-            int UnitHoursAmount, string CampusName, string Delivery, bool isCurrent)
+        public NotOfferedCourse(string CourseName, string Semester, string UnitName,
+            int UnitHoursAmount, string CampusName, string Delivery)
         {
             this.CourseName = CourseName;
             this.Semester = Semester;
@@ -12,14 +13,9 @@
             this.UnitHoursAmount = UnitHoursAmount;
             this.CampusName = CampusName;
             this.Delivery = Delivery;
-            this.isCurrent = isCurrent;
         }
 
         //PROPERTIES
-        public bool isCurrent
-        {
-            get; set;
-        }
         public string CourseName
         {
             get; set;
@@ -49,6 +45,7 @@
         {
             get; set;
         }
+
 
     }
 }

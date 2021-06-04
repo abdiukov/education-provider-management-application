@@ -8,10 +8,8 @@
         Title="Teacher course history" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        <TextBox Name="SearchBox"  PreviewMouseDown="SearchBox_PreviewMouseDown" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595" KeyDown="SearchBox_KeyDown" />
-        <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgCourseHistory" MouseRightButtonDown="dgCourseHistory_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <DataGrid Name="dgCourseHistory" MouseRightButtonDown="dgCourseHistory_MouseRightButtonDown" HorizontalAlignment="Center" Margin="22,77,22,0" VerticalAlignment="Top" Width="750" Height="323" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Course name" Binding="{Binding Path='CourseName'}"/>
                 <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
@@ -19,10 +17,12 @@
                 <DataGridTextColumn Header="Amount of hours per unit" Binding="{Binding Path='UnitHoursAmount'}"/>
                 <DataGridTextColumn Header="Name of campus" Binding="{Binding Path='CampusName'}"/>
                 <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
+                <DataGridTextColumn Header="Course is currently being taught" Binding="{Binding Path='isCurrent'}"/>
+
             </DataGrid.Columns>
         </DataGrid>
-        <CheckBox x:Name="checkbox_SearchPastCourse"  Content="Taught in the past" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox_SearchPresentCourse"  Content="Currently teaches" HorizontalAlignment="Left" Margin="225,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox Unchecked="checkbox_SearchPastCourse_Unchecked" Checked="checkbox_SearchPastCourse_Checked" x:Name="checkbox_SearchPastCourse"  Content="Taught in the past" HorizontalAlignment="Left" Margin="22,62,0,0" VerticalAlignment="Top"/>
+        <CheckBox Unchecked="checkbox_SearchPresentCourse_Unchecked" Checked="checkbox_SearchPresentCourse_Checked" x:Name="checkbox_SearchPresentCourse"  Content="Currently teaches" HorizontalAlignment="Left" Margin="142,62,0,0" VerticalAlignment="Top"/>
         <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    Height="732" Width="25"

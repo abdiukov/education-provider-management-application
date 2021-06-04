@@ -59,15 +59,8 @@ namespace ModelLayer
 
         //public IEnumerable<BusinessLayer.Course> GetNotOfferedCourses()
         //{
-        //    IEnumerable<BusinessLayer.Course> unsorted_courses = control.GetCourses();
+        //    IEnumerable<BusinessLayer.Course> unsorted_courses = control.AllNotOfferedCourses();
         //    List<BusinessLayer.Course> output = new List<BusinessLayer.Course>();
-        //    foreach (var course in unsorted_courses)
-        //    {
-        //        if (course.isOffered == false)
-        //        {
-        //            output.Add(course);
-        //        }
-        //    }
         //    return output;
         //}
 

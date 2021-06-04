@@ -1,4 +1,5 @@
 ﻿using ModelLayer;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -8,11 +9,13 @@ namespace UI
     public partial class TeacherCourseHistory : Window
     {
         Logic logic = new Logic();
+        List<BusinessLayer.Course> Courses = new List<BusinessLayer.Course>();
         //INITIALISATION CODE
         public TeacherCourseHistory(int teacherID)
         {
             InitializeComponent();
-            dgCourseHistory.ItemsSource = logic.GetTeacherHistoryByID(teacherID);
+            Courses = (List<BusinessLayer.Course>)logic.GetTeacherHistoryByID(teacherID);
+            dgCourseHistory.ItemsSource = Courses;
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -46,28 +49,42 @@ namespace UI
 
         //SEARCH DATAGRID CODE
 
-        private void SearchBox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SearchBox.Text = PageLogic.SearchBoxReplaceDefaultValue(SearchBox.Text);
-        }
 
         private void Search()
         {
-            PageLogic.SearchTeacherCourseHistory(SearchBox.Text, checkbox_SearchPastCourse.IsChecked, checkbox_SearchPresentCourse.IsChecked);
+            //making copy
+            List<BusinessLayer.Course> CoursesCopy = Courses;
+
+            List<BusinessLayer.Course> SearchResult = PageLogic.SearchTeacherCourseHistory(checkbox_SearchPastCourse.IsChecked,
+                checkbox_SearchPresentCourse.IsChecked, Courses);
+
+            dgCourseHistory.ItemsSource = SearchResult;
+            Courses = CoursesCopy;
         }
 
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
+
+        private void checkbox_SearchPastCourse_Checked(object sender, RoutedEventArgs e)
+        {
+            checkbox_SearchPresentCourse.IsChecked = false;
+            Search();
+        }
+
+        private void checkbox_SearchPresentCourse_Checked(object sender, RoutedEventArgs e)
+        {
+            checkbox_SearchPastCourse.IsChecked = false;
+            Search();
+        }
+
+        private void checkbox_SearchPresentCourse_Unchecked(object sender, RoutedEventArgs e)
         {
             Search();
         }
 
-        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        private void checkbox_SearchPastCourse_Unchecked(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                Search();
-            }
+            Search();
         }
+
 
         //END OF SEARCH DATAGRID CODE
 

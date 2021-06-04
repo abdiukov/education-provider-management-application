@@ -7,7 +7,8 @@ namespace BusinessLayer
 
         //CONSTRUCTOR
 
-        public Student(int Id, string Address, string StudentGender, string Mobile, string Email, DateTime DateofBirth, string FirstName, string LastName, bool isFeesNotPaid, string Position, bool isCurrent)
+        public Student(int Id, string Address, string StudentGender, string Mobile, string Email,
+            DateTime DateofBirth, string FirstName, string LastName, bool isFeesNotPaid, string Position, bool isCurrent)
         {
             this.Id = Id;
             this.Address = Address;

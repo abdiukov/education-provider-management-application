@@ -20,8 +20,10 @@
                 <DataGridTextColumn Header="Gender" Binding="{Binding Path='TeacherGender'}"/>
                 <DataGridTextColumn Header="Address" Binding="{Binding Path='Address'}"/>
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding Path='DateofBirth'}"/>
-                <DataGridTextColumn Header="Mobile" Binding="{Binding Path='DateofBirth'}"/>
+                <DataGridTextColumn Header="Mobile" Binding="{Binding Path='Mobile'}"/>
                 <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
+                <DataGridTextColumn Header="Currently teaches" Binding="{Binding Path='isCurrent'}"/>
+                <DataGridTextColumn Header="Other than based location" Binding="{Binding Path='OtherThanBaseLocation'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

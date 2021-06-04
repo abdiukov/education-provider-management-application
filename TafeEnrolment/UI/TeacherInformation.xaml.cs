@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using UI.Teacher;
 
 namespace UI
 {
@@ -37,9 +36,6 @@ namespace UI
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             Search();
-            //below is placeholder code for testing
-            PageNavigation.GoToNewOrExistingPage(new TeacherProfile());
-            Hide();
         }
 
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
@@ -52,8 +48,19 @@ namespace UI
 
         private void Search()
         {
-            PageLogic.SearchTeacher(SearchBox.Text, checkbox_SearchPartTime.IsChecked,
-    checkbox_SearchFullTime.IsChecked, checkbox_SearchTeacherNotBasedLocation.IsChecked);
+            if (!int.TryParse(SearchBox.Text, out int idToSearch))
+            {
+                idToSearch = -99999;
+            }
+            List<BusinessLayer.Teacher> TeachersCopy = Teachers;
+
+            List<BusinessLayer.Teacher> SearchResult = PageLogic.SearchTeacher(idToSearch, checkbox_SearchPartTime.IsChecked,
+    checkbox_SearchFullTime.IsChecked, checkbox_SearchTeacherNotBasedLocation.IsChecked, Teachers);
+
+
+            //making copy
+            dgTeacherProfiles.ItemsSource = SearchResult;
+            Teachers = TeachersCopy;
         }
 
         private void checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)

@@ -91,38 +91,85 @@ namespace UI
             return output;
         }
 
-        public static void SearchTeacher(string searchQuery, bool? searchPartTime, bool? searchFullTime, bool? searchNotBaseLocation)
+        public static List<BusinessLayer.Teacher> SearchTeacher(int searchQuery, bool? searchPartTime, bool? searchFullTime,
+            bool? searchNotBaseLocation, List<BusinessLayer.Teacher> Teachers)
         {
-            searchQuery = SearchBoxReplaceDefaultValue(searchQuery);
             int v = 0;
             if ((bool)searchPartTime) { v += 4; } //x
             if ((bool)searchFullTime) { v += 2; } //y
             if ((bool)searchNotBaseLocation) { v += 1; } //z
 
+            List<BusinessLayer.Teacher> output = new List<BusinessLayer.Teacher>();
+
+
             switch (v)
             {
                 case 0: // all false
-                    MessageBox.Show("Search everyone " + searchQuery);
+                    output = Teachers;
                     break;
                 case 1: // z is true
-                    MessageBox.Show("Show teachers who are not teaching at their base location " + searchQuery);
+                    foreach (BusinessLayer.Teacher item in Teachers)
+                    {
+                        if (item.OtherThanBaseLocation)
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 2: // y is true
-                    MessageBox.Show("Search Full Time " + searchQuery);
+                    foreach (BusinessLayer.Teacher item in Teachers)
+                    {
+                        if (item.Position == "Full Time")
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 3: // z and y are true
-                    MessageBox.Show("Search Full Time and not teaching at their base location " + searchQuery);
+                    foreach (BusinessLayer.Teacher item in Teachers)
+                    {
+                        if (item.Position == "Full Time" && item.OtherThanBaseLocation)
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 4: // x is true
-                    MessageBox.Show("Search part time " + searchQuery);
+                    foreach (BusinessLayer.Teacher item in Teachers)
+                    {
+                        if (item.Position != "Full Time")
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 5: //x and z are true
-                    MessageBox.Show("Search part time and not teaching at their base location " + searchQuery);
+                    foreach (BusinessLayer.Teacher item in Teachers)
+                    {
+                        if (item.Position != "Full Time" && item.OtherThanBaseLocation)
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 default: //x and y are true
                     MessageBox.Show("Error! Both part time and Full Time tick boxes are ticked " + searchQuery);
+                    output = Teachers;
                     break;
             }
+
+            if (searchQuery != -99999)
+            {
+                foreach (var item in output.ToList())
+                {
+                    if (item.Id != searchQuery)
+                    {
+                        output.Remove(item);
+                    }
+                }
+            }
+
+            return output;
         }
 
         public static void SearchCourseTimetable(string searchQuery)
@@ -132,28 +179,41 @@ namespace UI
             MessageBox.Show(searchQuery);
         }
 
-        public static void SearchTeacherCourseHistory(string searchQuery, bool? searchPastCourse, bool? searchPresentCourse)
+        public static List<BusinessLayer.Course> SearchTeacherCourseHistory(bool? searchPastCourse, bool? searchPresentCourse, List<BusinessLayer.Course> Courses)
         {
-            searchQuery = SearchBoxReplaceDefaultValue(searchQuery);
-
             int v = 0;
             if ((bool)searchPastCourse) { v += 2; } //x
             if ((bool)searchPresentCourse) { v += 1; } //y
 
+            List<BusinessLayer.Course> output = new List<BusinessLayer.Course>();
+
             switch (v)
             {
-
-                case 0: //either both x and y are true or none are true
-                case 3:
-                    MessageBox.Show("Search everyone " + searchQuery);
-                    break;
                 case 1: // y is true
-                    MessageBox.Show("Show past courses" + searchQuery);
+                    foreach (BusinessLayer.Course item in Courses)
+                    {
+                        if (item.isCurrent == true)
+                        {
+                            output.Add(item);
+                        }
+                    }
                     break;
                 case 2: // x is true
-                    MessageBox.Show("Search current courses " + searchQuery);
+                    foreach (BusinessLayer.Course item in Courses)
+                    {
+                        if (item.isCurrent == false)
+                        {
+                            output.Add(item);
+                        }
+                    }
+                    break;
+                default:
+                    output = Courses;
                     break;
             }
+            return output;
+
+
 
         }
 
