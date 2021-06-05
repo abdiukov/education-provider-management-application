@@ -59,8 +59,6 @@ namespace UI
             List<BusinessLayer.Student> SearchResult = PageLogic.SearchStudent(idToSearch, checkbox_SearchPartTime.IsChecked,
     checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked, Students);
 
-
-
             dgStudentProfiles.ItemsSource = SearchResult;
             Students = StudentsCopy;
         }
@@ -93,7 +91,8 @@ namespace UI
         {
             Hide();
             int selectedStudentID = Students.ElementAt(dgStudentProfiles.SelectedIndex).Id;
-            //
+            //string studentName = Students.ElementAt(dgStudentProfiles.SelectedIndex).FirstName + " " + Students.ElementAt(dgStudentProfiles.SelectedIndex).LastName;
+
             PageNavigation.GoToNewOrExistingPage(new StudentResultSearch(selectedStudentID));
         }
 
@@ -102,6 +101,7 @@ namespace UI
         {
             Hide();
             int selectedStudentID = Students.ElementAt(dgStudentProfiles.SelectedIndex).Id;
+            //string studentName = Students.ElementAt(dgStudentProfiles.SelectedIndex).FirstName + " " + Students.ElementAt(dgStudentProfiles.SelectedIndex).LastName;
 
             PageNavigation.GoToNewOrExistingPage(new StudentEnrolment(selectedStudentID));
         }

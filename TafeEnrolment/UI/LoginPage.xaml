@@ -21,7 +21,7 @@
         <Label Content="Username: " Grid.Row="1" Grid.Column="0"></Label>
         <TextBox x:Name="Textbox_Username" Grid.Row="1" Grid.Column="1"></TextBox>
         <Label Content="Password: " Grid.Row="2" Grid.Column="0"></Label>
-        <PasswordBox x:Name="PasswordBox_Password"  Grid.Row="2" Grid.Column="1"></PasswordBox>
+        <PasswordBox KeyDown="PasswordBox_Password_KeyDown" x:Name="PasswordBox_Password"  Grid.Row="2" Grid.Column="1"></PasswordBox>
         <Button Content="Sign in" x:Name="Btn_AttemptLogin" Click="Btn_AttemptLogin_Click" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"></Button>
     </Grid>
 </Window>

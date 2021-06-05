@@ -13,6 +13,7 @@ namespace UI.Student
         {
             InitializeComponent();
             dgStudentResults.ItemsSource = logic.GetStudentResults(studentID);
+            this.Title = "Results for ID " + studentID;
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

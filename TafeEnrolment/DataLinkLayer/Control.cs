@@ -44,6 +44,14 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetAssessments()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetAssessments()\n" + ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at the GetAssessments()\n" + ex.Message);
@@ -75,6 +83,14 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetUnallocatedUnits()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetUnallocatedUnits()\n" + ex.Message);
             }
             catch (Exception ex)
             {
@@ -111,6 +127,14 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetTimetables()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetTimetables()\n" + ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at the GetTimetables()\n" + ex.Message);
@@ -142,6 +166,14 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  AllNotOfferedCourses()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  AllNotOfferedCourses()\n" + ex.Message);
             }
             catch (Exception ex)
             {
@@ -176,6 +208,14 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetStudentResults()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetStudentResults()\n" + ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at the GetStudentResults()\n" + ex.Message);
@@ -206,6 +246,14 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetClusters()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetClusters()\n" + ex.Message);
             }
             catch (Exception ex)
             {
@@ -242,6 +290,14 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetTeacherHistoryByID()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetTeacherHistoryByID()\n" + ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at the GetTeacherHistoryByID()\n" + ex.Message);
@@ -272,6 +328,14 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetLocations()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetLocations()\n" + ex.Message);
             }
             catch (Exception ex)
             {
@@ -307,6 +371,14 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetEnrolmentsByID()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetEnrolmentsByID()\n" + ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at the GetEnrolmentsByID()\n" + ex.Message);
@@ -337,6 +409,14 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetSemesters()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetSemesters()\n" + ex.Message);
             }
             catch (Exception ex)
             {
@@ -374,6 +454,14 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetStudents()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetStudents()\n" + ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at the GetStudents()\n" + ex.Message);
@@ -409,6 +497,14 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetTeachers()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetTeachers()\n" + ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at the GetTeachers()\n" + ex.Message);
@@ -441,6 +537,14 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  GetUnits()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  GetUnits()\n" + ex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at the GetUnits()\n" + ex.Message);
@@ -472,6 +576,14 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at  AttemptLogin()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at  AttemptLogin()\n" + ex.Message);
             }
             catch (Exception ex)
             {

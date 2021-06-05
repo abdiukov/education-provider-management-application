@@ -14,6 +14,7 @@ namespace UI
         public TeacherCourseHistory(int teacherID)
         {
             InitializeComponent();
+            this.Title = "Course history for ID " + teacherID;
             Courses = (List<BusinessLayer.Course>)logic.GetTeacherHistoryByID(teacherID);
             dgCourseHistory.ItemsSource = Courses;
         }

@@ -12,6 +12,8 @@ namespace UI.Student
         {
             InitializeComponent();
             dgStudentEnrolment.ItemsSource = logic.GetEnrolmentsByID(studentID);
+            this.Title = "Enrolments for ID " + studentID;
+
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
