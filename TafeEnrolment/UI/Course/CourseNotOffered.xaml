@@ -11,14 +11,10 @@
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgCourseNotOffered" MouseRightButtonDown="dgCourseNotOffered_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Course ID" Binding="{Binding Path='CourseID'}"/>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
-                <DataGridTextColumn Header="Course Units" Binding="{Binding Path='CourseUnits'}"/>
-                <DataGridTemplateColumn Header="" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
+                <DataGridTextColumn Header="Campus" Binding="{Binding Path='CampusName'}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
@@ -30,10 +26,7 @@
                   HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
-                <DataGridTextColumn Header="Course" Binding="{Binding Path='Name'}"/>
-                <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
-                <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
+                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>

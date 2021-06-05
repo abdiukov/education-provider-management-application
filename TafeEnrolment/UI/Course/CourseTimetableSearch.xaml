@@ -13,21 +13,17 @@
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
         <DataGrid Name="dgTimetable" MouseRightButtonDown="dgTimetable_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
-
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='location'}"/>
-                <DataGridTextColumn Header="Course" Binding="{Binding Path='enrolledCourses'}"/>
-                <DataGridTextColumn Header="Teacher" Binding="{Binding Path='TeachersForCourse'}"/>
-                <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
+                <DataGridTextColumn Header="Course id" Binding="{Binding Path='CourseID'}"/>
+                <DataGridTextColumn Header="Course name" Binding="{Binding Path='CourseName'}"/>
                 <DataGridTextColumn Header="Start" Binding="{Binding Path='startDate'}"/>
                 <DataGridTextColumn Header="Finish" Binding="{Binding Path='endDate'}"/>
-
-                <DataGridTemplateColumn Header="" >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Name="BtnSelect" Content="Add" Click="BtnSelect_Click" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
+                <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
+                <DataGridTextColumn Header="Contact Number" Binding="{Binding Path='ContactNumber'}"/>
+                <DataGridTextColumn Header="Amount of units" Binding="{Binding Path='AmountOfUnits'}"/>
+                <DataGridTextColumn Header="Amount of teachers" Binding="{Binding Path='AmountOfTeachers'}"/>
+                <DataGridTextColumn Header="Amount of students" Binding="{Binding Path='AmountOfStudents'}"/>
+                <DataGridTextColumn Header="Course is currently being taught" Binding="{Binding Path='IsCurrent'}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 

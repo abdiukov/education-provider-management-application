@@ -57,12 +57,20 @@ namespace ModelLayer
             return control.GetTeacherHistoryByID(teacherID);
         }
 
-        //public IEnumerable<BusinessLayer.Course> GetNotOfferedCourses()
-        //{
-        //    IEnumerable<BusinessLayer.Course> unsorted_courses = control.AllNotOfferedCourses();
-        //    List<BusinessLayer.Course> output = new List<BusinessLayer.Course>();
-        //    return output;
-        //}
+        public IEnumerable<BusinessLayer.NotOfferedCourse> GetNotOfferedCourses()
+        {
+            return control.AllNotOfferedCourses();
+        }
+
+        public IEnumerable<BusinessLayer.Cluster> GetUnallocatedUnits()
+        {
+            return control.GetUnallocatedUnits();
+        }
+
+        public IEnumerable<BusinessLayer.Timetable> GetTimetables()
+        {
+            return control.GetTimetables();
+        }
 
         //public IEnumerable<BusinessLayer.Teacher> GetPartTimeTeachers()
         //{

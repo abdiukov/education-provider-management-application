@@ -4,34 +4,21 @@
     {
 
         //CONSTRUCTOR
-        public NotOfferedCourse(string CourseName, string Semester, string UnitName,
-            int UnitHoursAmount, string CampusName, string Delivery)
+        public NotOfferedCourse(int CourseID, string CourseName, string Delivery, string CampusName)
         {
             this.CourseName = CourseName;
-            this.Semester = Semester;
-            this.UnitName = UnitName;
-            this.UnitHoursAmount = UnitHoursAmount;
             this.CampusName = CampusName;
             this.Delivery = Delivery;
+            this.CourseID = CourseID;
         }
 
         //PROPERTIES
+        public int CourseID
+        {
+            get; set;
+        }
+
         public string CourseName
-        {
-            get; set;
-        }
-
-        public string Semester
-        {
-            get; set;
-        }
-
-        public string UnitName
-        {
-            get; set;
-        }
-
-        public int UnitHoursAmount
         {
             get; set;
         }

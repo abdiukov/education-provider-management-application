@@ -52,6 +52,105 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        public IEnumerable<Cluster> GetUnallocatedUnits()
+        {
+            List<Cluster> outputlist = new List<Cluster>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectUnallocatedUnits", conn);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+
+                        Cluster output = new Cluster(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at the GetUnallocatedUnits()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+        public IEnumerable<Timetable> GetTimetables()
+        {
+            List<Timetable> outputlist = new List<Timetable>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectAllTimetables", conn);
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Timetable output = new Timetable(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetDateTime(2),
+                            dataReader.GetDateTime(3), dataReader.GetString(4), dataReader.GetString(5), dataReader.GetString(6),
+                            dataReader.GetInt32(7), dataReader.GetInt32(8), dataReader.GetInt32(9),
+                            (dataReader[10].ToString() == "True"));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at the GetTimetables()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+        public IEnumerable<NotOfferedCourse> AllNotOfferedCourses()
+        {
+            List<NotOfferedCourse> outputlist = new List<NotOfferedCourse>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectAllNotOfferedCourse", conn);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        NotOfferedCourse output = new NotOfferedCourse(dataReader.GetInt32(0), dataReader.GetString(1),
+                            dataReader.GetString(2), dataReader.GetString(3));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at the AllNotOfferedCourses()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
         public List<StudentResult> GetStudentResults(int studentID)
         {
 

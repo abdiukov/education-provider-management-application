@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ModelLayer;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -6,11 +7,12 @@ namespace UI
 {
     public partial class CourseTimetableSearch : Window
     {
+        Logic logic = new Logic();
         //INITIALISATION CODE
         public CourseTimetableSearch()
         {
             InitializeComponent();
-
+            dgTimetable.ItemsSource = logic.GetTimetables();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -32,10 +34,6 @@ namespace UI
             PageNavigation.GoToExistingPage(new CourseInformation());
         }
 
-        private void BtnSelect_Click(object sender, RoutedEventArgs e)
-        {
-            //
-        }
 
         private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {

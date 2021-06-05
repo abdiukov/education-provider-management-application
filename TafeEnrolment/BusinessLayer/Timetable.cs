@@ -1,22 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace BusinessLayer
 {
 
     public class Timetable
     {
-        public List<Course> EnrolledCourses
+        //CONSTRUCTOR
+
+        public Timetable(int CourseID, string courseName, DateTime startDate, DateTime endDate, string location, string ContactNumber,
+            string delivery, int amountOfUnits, int amountOfTeachers, int amountOfStudents, bool IsCurrent)
+        {
+            this.CourseID = CourseID;
+            CourseName = courseName;
+            this.startDate = startDate;
+            this.endDate = endDate;
+            Location = location;
+            Delivery = delivery;
+            this.ContactNumber = ContactNumber;
+            AmountOfUnits = amountOfUnits;
+            AmountOfTeachers = amountOfTeachers;
+            AmountOfStudents = amountOfStudents;
+            this.IsCurrent = IsCurrent;
+        }
+
+
+        //PROPERTIES
+
+        public int CourseID
         {
             get; set;
         }
 
-        public List<Teacher> TeachersForCourse
-        {
-            get; set;
-        }
-
-        public List<Location> location
+        public string CourseName
         {
             get; set;
         }
@@ -30,5 +45,42 @@ namespace BusinessLayer
         {
             get; set;
         }
+
+        public string Location
+        {
+            get; set;
+        }
+
+        public string ContactNumber
+        {
+            get; set;
+        }
+
+
+        public string Delivery
+        {
+            get; set;
+        }
+
+        public int AmountOfUnits
+        {
+            get; set;
+        }
+
+        public int AmountOfTeachers
+        {
+            get; set;
+        }
+
+        public int AmountOfStudents
+        {
+            get; set;
+        }
+
+        public bool IsCurrent
+        {
+            get; set;
+        }
+
     }
 }
