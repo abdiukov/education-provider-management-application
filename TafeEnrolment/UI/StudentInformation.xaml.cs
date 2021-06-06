@@ -12,6 +12,7 @@ namespace UI
     {
         Logic logic = new Logic();
         List<BusinessLayer.Student> Students = new List<BusinessLayer.Student>();
+
         //INITIALISATION CODE
         public StudentInformation()
         {
@@ -54,11 +55,10 @@ namespace UI
                 idToSearch = -99999;
             }
             //making copy
-            List<BusinessLayer.Student> StudentsCopy = Students;
+            List<BusinessLayer.Student> StudentsCopy = new List<BusinessLayer.Student>(Students);
 
             List<BusinessLayer.Student> SearchResult = PageLogic.SearchStudent(idToSearch, checkbox_SearchPartTime.IsChecked,
     checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked, Students);
-
             dgStudentProfiles.ItemsSource = SearchResult;
             Students = StudentsCopy;
         }

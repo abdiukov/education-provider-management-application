@@ -61,6 +61,9 @@
     <Compile Include="Course\CourseNotOffered.xaml.cs">
       <DependentUpon>CourseNotOffered.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Course\CourseProfile.xaml.cs">
+      <DependentUpon>CourseProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Course\CourseTimetableSearch.xaml.cs">
       <DependentUpon>CourseTimetableSearch.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Course\CourseNotOffered.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

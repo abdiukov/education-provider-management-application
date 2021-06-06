@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace BusinessLayer
+﻿namespace BusinessLayer
 {
     public class Location
     {
 
         //CONSTRUCTOR
-        public Location(int id, string name, string address, int locationContactNumber)
+        public Location(int id, string name, string address, string locationContactNumber)
         {
             Id = id;
             Name = name;
@@ -30,51 +28,17 @@ namespace BusinessLayer
             get; set;
         }
 
-        public int LocationContactNumber
+        public string LocationContactNumber
         {
             get; set;
         }
 
         //METHODS
 
-        public void AddLocation()
+        public override string ToString()
         {
-            throw new NotImplementedException();
-
+            return Name;
         }
-
-        public void DeleteLocation()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void UpdateLocation()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void SearchLocation()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void ViewAllLocations()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        //public List<Student> Students
-        //{
-        //    get; set;
-        //}
-        //public List<Teacher> Teachers
-        //{
-        //    get; set;
-        //}
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using UI.Course;
 using UI.Student;
 using UI.Teacher;
 
@@ -54,8 +55,7 @@ namespace UI
         private void AddCourseInfo_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            //  PageNavigation.GoToNewPage(new C());
-
+            PageNavigation.GoToNewPage(new CourseProfile());
         }
 
         private void AddStudentInfo_Click(object sender, RoutedEventArgs e)

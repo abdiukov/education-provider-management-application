@@ -1,11 +1,11 @@
-﻿<Window x:Class="UI.Teacher.TeacherProfile"
+﻿<Window x:Class="UI.Course.CourseProfile"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UI.Teacher"
+        xmlns:local="clr-namespace:UI.Course"
         mc:Ignorable="d"
-        Title="Add new teacher" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
+        Title="Add new course" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
 
@@ -82,7 +82,7 @@
         <Label Content="Base location" HorizontalAlignment="Left" Margin="50,332,0,0" VerticalAlignment="Top" Width="95"/>
         <ComboBox x:Name="comboBox_Locations" HorizontalAlignment="Left" Margin="150,332,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
 
-        <Button Name="BtnAddTeacher" Content="Insert new teacher" HorizontalAlignment="Left" Margin="397,83,0,0" VerticalAlignment="Top" Width="220" Height="57" Click="BtnAddTeacher_Click"/>
+        <Button Name="BtnAddTeacher" Content="Insert new course" HorizontalAlignment="Left" Margin="397,83,0,0" VerticalAlignment="Top" Width="220" Height="57" Click="BtnAddTeacher_Click"/>
 
     </Grid>
 </Window>

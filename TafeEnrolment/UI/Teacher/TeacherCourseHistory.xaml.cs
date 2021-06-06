@@ -10,6 +10,8 @@ namespace UI
     {
         Logic logic = new Logic();
         List<BusinessLayer.Course> Courses = new List<BusinessLayer.Course>();
+        List<BusinessLayer.Course> CoursesCopy = new List<BusinessLayer.Course>();
+
         //INITIALISATION CODE
         public TeacherCourseHistory(int teacherID)
         {
@@ -17,6 +19,7 @@ namespace UI
             this.Title = "Course history for ID " + teacherID;
             Courses = (List<BusinessLayer.Course>)logic.GetTeacherHistoryByID(teacherID);
             dgCourseHistory.ItemsSource = Courses;
+            CoursesCopy = Courses;
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -53,8 +56,6 @@ namespace UI
 
         private void Search()
         {
-            //making copy
-            List<BusinessLayer.Course> CoursesCopy = Courses;
 
             List<BusinessLayer.Course> SearchResult = PageLogic.SearchTeacherCourseHistory(checkbox_SearchPastCourse.IsChecked,
                 checkbox_SearchPresentCourse.IsChecked, Courses);

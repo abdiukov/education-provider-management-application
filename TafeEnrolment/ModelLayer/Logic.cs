@@ -20,6 +20,11 @@ namespace ModelLayer
             return control.GetTeachers();
         }
 
+        public IEnumerable<BusinessLayer.CourseSelection> GetCourses()
+        {
+            return control.GetCourses();
+        }
+
         public IEnumerable<BusinessLayer.Student> GetStudents()
         {
             return control.GetStudents();
@@ -71,6 +76,31 @@ namespace ModelLayer
         {
             return control.GetTimetables();
         }
+
+        public string InsertNewStudent(string address, int genderID, string mobile, string email, string dob,
+            string firstName, string lastName, int courseID, double courseCost)
+        {
+            return control.InsertNewStudent(address, genderID, mobile, email, dob, firstName,
+                lastName, courseID, courseCost);
+        }
+
+
+        public string InsertNewTeacher(string address, int genderID, string mobile, string email, string dob,
+    string firstName, string lastName, int courseID, int locationID)
+        {
+            return control.InsertNewTeacher(address, genderID, mobile, email, dob, firstName,
+                lastName, courseID, locationID);
+        }
+
+
+        public IEnumerable<BusinessLayer.Gender> GetGenders()
+        {
+            return control.GetGenders();
+        }
+
+
+
+
 
         //public IEnumerable<BusinessLayer.Teacher> GetPartTimeTeachers()
         //{

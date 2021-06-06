@@ -52,7 +52,7 @@ namespace UI
             {
                 idToSearch = -99999;
             }
-            List<BusinessLayer.Teacher> TeachersCopy = Teachers;
+            List<BusinessLayer.Teacher> TeachersCopy = new List<BusinessLayer.Teacher>(Teachers);
 
             List<BusinessLayer.Teacher> SearchResult = PageLogic.SearchTeacher(idToSearch, checkbox_SearchPartTime.IsChecked,
     checkbox_SearchFullTime.IsChecked, checkbox_SearchTeacherNotBasedLocation.IsChecked, Teachers);

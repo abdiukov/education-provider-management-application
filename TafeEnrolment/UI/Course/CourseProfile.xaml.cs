@@ -3,19 +3,23 @@ using ModelLayer;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace UI.Student
+namespace UI.Course
 {
-    public partial class StudentProfile : Window
+    /// <summary>
+    /// Interaction logic for CourseProfile.xaml
+    /// </summary>
+    public partial class CourseProfile : Window
     {
         Logic logic = new Logic();
         //INITIALISATION CODE
-        public StudentProfile()
+        public CourseProfile()
         {
             InitializeComponent();
             comboBox_GenderSelection.ItemsSource = logic.GetGenders();
             comboBox_Course.ItemsSource = logic.GetCourses();
-
+            comboBox_Locations.ItemsSource = logic.GetLocations();
         }
+
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
@@ -28,21 +32,20 @@ namespace UI.Student
         //END OF INITIALISATION CODE
 
         //NAVIGATION CODE
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
-        {
-            PageNavigation.GoToExistingPage(new MainWindow());
-            Hide();
-        }
-
-
         private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             dgNavigationBar.CancelEdit();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
             Hide();
+            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
         }
 
-        private void BtnAddStudent_Click(object sender, RoutedEventArgs e)
+        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            PageNavigation.GoToExistingPage(new MainWindow());
+        }
+
+        private void BtnAddTeacher_Click(object sender, RoutedEventArgs e)
         {
             string address = textBox_Address.Text;
 
@@ -51,7 +54,6 @@ namespace UI.Student
             string dob = datePicker_DateOfBirth.SelectedDate.ToString();
             string firstName = textBox_FirstName.Text;
             string lastName = textBox_LastName.Text;
-
 
             if (string.IsNullOrWhiteSpace(address))
             {
@@ -63,9 +65,9 @@ namespace UI.Student
 
             if (selectedGender is null)
             {
-                MessageBox.Show("Please enter a gender");
-                return;
+                MessageBox.Show("Please select teacher gender field ");
             }
+
             int genderID = selectedGender.GenderID;
 
             if (string.IsNullOrWhiteSpace(mobile))
@@ -102,24 +104,27 @@ namespace UI.Student
 
             if (selectedCourse is null)
             {
-                MessageBox.Show("Please select a course which the student will be enrolled into");
+                MessageBox.Show("Please select a course which the teacher will be enrolled into");
                 return;
             }
             int courseID = selectedCourse.CourseID;
 
+            Location selectedLocation = (Location)comboBox_Locations.SelectedItem;
 
-            if (!double.TryParse(textBox_CourseCost.Text, out double CourseCost))
+            if (selectedLocation is null)
             {
-                MessageBox.Show("Please enter a number into 'Course cost' field ");
+                MessageBox.Show("Please select the teacher's base location");
                 return;
             }
 
-            string outcome = logic.InsertNewStudent(address, genderID, mobile, email, dob,
-                firstName, lastName, courseID, CourseCost);
+            int locationID = selectedLocation.Id;
+
+
+
+            string outcome = logic.InsertNewTeacher(address, genderID, mobile, email, dob,
+              firstName, lastName, courseID, locationID);
 
             MessageBox.Show(outcome);
         }
-
-        //END OF NAVIGATION CODE
     }
 }
