@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [TafeSystem]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Database [TafeSystem]    Script Date: 7/06/2021 5:02:21 AM ******/
 CREATE DATABASE [TafeSystem]
 GO
 ALTER DATABASE [TafeSystem] SET COMPATIBILITY_LEVEL = 150
@@ -74,7 +74,7 @@ ALTER DATABASE [TafeSystem] SET QUERY_STORE = OFF
 GO
 USE [TafeSystem]
 GO
-/****** Object:  Table [dbo].[Course]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Course]    Script Date: 7/06/2021 5:02:21 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -91,7 +91,7 @@ CREATE TABLE [dbo].[Course](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Semester]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Semester]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -107,7 +107,7 @@ CREATE TABLE [dbo].[Semester](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CourseSemester]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[CourseSemester]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,7 +122,7 @@ CREATE TABLE [dbo].[CourseSemester](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_SelectCourseStartEndDates]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  View [dbo].[vw_SelectCourseStartEndDates]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,7 +136,7 @@ left join Course on CourseSemester.courseID = Course.id
 left join Semester on Semester.id = CourseSemester.semesterID
 group by Course.id
 GO
-/****** Object:  Table [dbo].[Cluster]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Cluster]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -151,7 +151,7 @@ CREATE TABLE [dbo].[Cluster](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_SelectUnitAmountPerCourse]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  View [dbo].[vw_SelectUnitAmountPerCourse]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,7 +164,7 @@ from Course
 left join Cluster on Cluster.courseID = Course.id
 group by Course.id
 GO
-/****** Object:  Table [dbo].[CourseTeacher]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[CourseTeacher]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -179,7 +179,7 @@ CREATE TABLE [dbo].[CourseTeacher](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_SelectAmountTeacherPerCourse]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  View [dbo].[vw_SelectAmountTeacherPerCourse]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -192,7 +192,7 @@ from Course
 left join CourseTeacher on CourseTeacher.courseID = Course.id
 group by Course.id
 GO
-/****** Object:  Table [dbo].[CourseStudent]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[CourseStudent]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -208,7 +208,7 @@ CREATE TABLE [dbo].[CourseStudent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_SelectStudentAmounPerCourse]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  View [dbo].[vw_SelectStudentAmounPerCourse]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -221,7 +221,7 @@ from Course
 left join CourseStudent on CourseStudent.courseID = Course.id
 group by Course.id
 GO
-/****** Object:  View [dbo].[vw_SelectStudentAmountPerCourse]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  View [dbo].[vw_SelectStudentAmountPerCourse]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -234,7 +234,18 @@ from Course
 left join CourseStudent on CourseStudent.courseID = Course.id
 group by Course.id
 GO
-/****** Object:  Table [dbo].[Payment]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  View [dbo].[vw_SelectCurrentStudentIDs]    Script Date: 7/06/2021 5:02:22 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create view [dbo].[vw_SelectCurrentStudentIDs]
+as
+select CourseStudent.studentID from CourseStudent
+left join Course on CourseStudent.courseID = Course.id
+where Course.isCurrent = 1
+GO
+/****** Object:  Table [dbo].[Payment]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -250,7 +261,7 @@ CREATE TABLE [dbo].[Payment](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_UnpaidCourseID]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  View [dbo].[vw_UnpaidCourseID]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -262,7 +273,7 @@ as
 		from Payment
 		where Payment.amountPaid < Payment.amountDue
 GO
-/****** Object:  Table [dbo].[Unit]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Unit]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -277,7 +288,7 @@ CREATE TABLE [dbo].[Unit](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[view_SelectAllCluster]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  View [dbo].[view_SelectAllCluster]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -287,7 +298,7 @@ as
 select Cluster.courseID, Unit.name, Unit.hoursAmount from Cluster
 inner join Unit on Unit.id = Cluster.unitID
 GO
-/****** Object:  Table [dbo].[Assessment]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Assessment]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -302,7 +313,7 @@ CREATE TABLE [dbo].[Assessment](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Delivery]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Delivery]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -316,7 +327,7 @@ CREATE TABLE [dbo].[Delivery](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Gender]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Gender]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -330,7 +341,7 @@ CREATE TABLE [dbo].[Gender](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Location]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Location]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -346,7 +357,7 @@ CREATE TABLE [dbo].[Location](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Outcome]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Outcome]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -360,7 +371,7 @@ CREATE TABLE [dbo].[Outcome](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Student]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Student]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -380,7 +391,7 @@ CREATE TABLE [dbo].[Student](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Teacher]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[Teacher]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -401,7 +412,7 @@ CREATE TABLE [dbo].[Teacher](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  Table [dbo].[User]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1639,33 +1650,33 @@ SET IDENTITY_INSERT [dbo].[Payment] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Semester] ON 
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (1, N'Semester 1 2016', CAST(N'2016-02-01' AS Date), CAST(N'2016-05-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (1, N'Semester 1 2016', CAST(N'2016-02-01' AS Date), CAST(N'2016-07-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (2, N'Semester 2 2016', CAST(N'2016-06-01' AS Date), CAST(N'2016-11-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (2, N'Semester 2 2016', CAST(N'2016-08-01' AS Date), CAST(N'2016-12-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (3, N'Semester 1 2017', CAST(N'2017-02-01' AS Date), CAST(N'2017-05-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (3, N'Semester 1 2017', CAST(N'2017-02-01' AS Date), CAST(N'2017-07-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (4, N'Semester 2 2017', CAST(N'2017-06-01' AS Date), CAST(N'2017-11-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (4, N'Semester 2 2017', CAST(N'2017-08-01' AS Date), CAST(N'2017-12-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (5, N'Semester 1 2018', CAST(N'2018-02-01' AS Date), CAST(N'2018-05-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (5, N'Semester 1 2018', CAST(N'2018-02-01' AS Date), CAST(N'2018-07-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (6, N'Semester 2 2018', CAST(N'2018-06-01' AS Date), CAST(N'2018-11-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (6, N'Semester 2 2018', CAST(N'2018-08-01' AS Date), CAST(N'2018-12-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (7, N'Semester 1 2019', CAST(N'2019-02-01' AS Date), CAST(N'2019-05-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (7, N'Semester 1 2019', CAST(N'2019-02-01' AS Date), CAST(N'2019-07-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (8, N'Semester 2 2019', CAST(N'2019-06-01' AS Date), CAST(N'2019-11-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (8, N'Semester 2 2019', CAST(N'2019-08-01' AS Date), CAST(N'2019-12-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (9, N'Semester 1 2020', CAST(N'2020-02-01' AS Date), CAST(N'2020-05-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (9, N'Semester 1 2020', CAST(N'2020-02-01' AS Date), CAST(N'2020-07-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (10, N'Semester 2 2020', CAST(N'2020-06-01' AS Date), CAST(N'2020-11-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (10, N'Semester 2 2020', CAST(N'2020-08-01' AS Date), CAST(N'2020-12-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (11, N'Semester 1 2021', CAST(N'2021-02-01' AS Date), CAST(N'2021-05-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (11, N'Semester 1 2021', CAST(N'2021-02-01' AS Date), CAST(N'2021-07-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (12, N'Semester 2 2021', CAST(N'2021-06-01' AS Date), CAST(N'2021-11-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (12, N'Semester 2 2021', CAST(N'2021-08-01' AS Date), CAST(N'2021-12-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (13, N'Semester 1 2022', CAST(N'2022-02-01' AS Date), CAST(N'2022-05-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (13, N'Semester 1 2022', CAST(N'2022-02-01' AS Date), CAST(N'2022-07-01' AS Date))
 GO
-INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (14, N'Semester 2 2022', CAST(N'2022-06-01' AS Date), CAST(N'2022-11-01' AS Date))
+INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (14, N'Semester 2 2022', CAST(N'2022-08-01' AS Date), CAST(N'2022-12-01' AS Date))
 GO
 SET IDENTITY_INSERT [dbo].[Semester] OFF
 GO
@@ -2165,7 +2176,7 @@ REFERENCES [dbo].[Gender] ([id])
 GO
 ALTER TABLE [dbo].[Teacher] CHECK CONSTRAINT [FK__Teacher__genderI__4CA06362]
 GO
-/****** Object:  StoredProcedure [dbo].[usp_AttemptLogin]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_AttemptLogin]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2175,12 +2186,84 @@ as
 select count(*) from [User]
 where username = @username and password = @password;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertStudent]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertCluster]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create procedure [dbo].[usp_InsertStudent] 	
+create procedure [dbo].[usp_InsertCluster] @courseID int, @unitID int
+as
+begin
+insert into dbo.Cluster values(@courseID, @unitID)
+end
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertCourse]    Script Date: 7/06/2021 5:02:22 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_InsertCourse] 	@name nvarchar(40) ,
+	@locationID int ,
+	@deliveryID int ,
+	@isCurrent bit
+as
+begin
+
+insert into dbo.Course values(@name, @locationID, @deliveryID, @isCurrent)
+
+declare @CourseID int;
+set @CourseID =(select top(1) Course.id from Course
+					where Course.name = @name and Course.locationID = @locationID and Course.deliveryID = @deliveryID
+					and Course.isCurrent = @isCurrent)
+
+select @CourseID;
+
+end
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertCourseSemester]    Script Date: 7/06/2021 5:02:22 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_InsertCourseSemester] @courseID int, @semesterID int
+as
+begin
+insert into dbo.CourseSemester values(@courseID, @semesterID)
+end
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertCourseStudentPayment]    Script Date: 7/06/2021 5:02:22 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_InsertCourseStudentPayment] @studentID int, @courseID int, @amountDue money
+as
+begin
+insert into CourseStudent values(@studentID,@courseID,3 )
+
+declare @CourseStudentID int;
+set @CourseStudentID = IDENT_CURRENT( 'CourseStudent' )
+insert into dbo.Payment values (0, @amountDue, @CourseStudentID)
+
+end
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertCourseTeacher]    Script Date: 7/06/2021 5:02:22 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_InsertCourseTeacher] @courseID int, @teacherID int
+as
+begin
+insert into dbo.CourseTeacher values(@courseID, @teacherID)
+end
+GO
+/****** Object:  StoredProcedure [dbo].[usp_InsertStudent]    Script Date: 7/06/2021 5:02:22 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[usp_InsertStudent] 	
 	@address nvarchar(40), @genderID int,
 	@mobile nvarchar(40),
 	@email nvarchar(40),
@@ -2202,13 +2285,12 @@ insert into dbo.CourseStudent values(@StudentID, @courseID, 3)
 
 declare @CourseStudentID int
 
-set @CourseStudentID = (select top(1) CourseStudent.id from CourseStudent
-						where CourseStudent.outcomeID = 3 and CourseStudent.studentID = @StudentID and CourseStudent.courseID = @courseID)
+set @CourseStudentID = IDENT_CURRENT('CourseStudent')  
 
 insert into dbo.Payment values(0, @amountDue, @CourseStudentID)
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertTeacher]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertTeacher]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2235,7 +2317,7 @@ insert into CourseTeacher values(@courseID, @TeacherID)
 
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllAssessment]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllAssessment]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2244,7 +2326,7 @@ create procedure [dbo].[usp_SelectAllAssessment]
 as
 select * from Assessment;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllCluster]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllCluster]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2253,7 +2335,7 @@ CREATE procedure [dbo].[usp_SelectAllCluster]
 as
 select * from view_SelectAllCluster
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllCourse]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllCourse]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2264,7 +2346,7 @@ select Course.id, Course.name,  [Location].name, Delivery.description from dbo.C
 inner join [Location] on [Location].id = Course.locationID
 inner join Delivery on Delivery.id = Course.deliveryID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllGender]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllGender]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2273,7 +2355,7 @@ create procedure [dbo].[usp_SelectAllGender]
 as
 select Gender.id, Gender.description from Gender
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllLocation]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllLocation]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2282,7 +2364,7 @@ create procedure [dbo].[usp_SelectAllLocation]
 as
 select * from Location;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllNotOfferedCourse]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllNotOfferedCourse]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2294,7 +2376,7 @@ inner join [Location] on [Location].id = Course.locationID
 inner join Delivery on Delivery.id = Course.deliveryID
 where  Course.isCurrent != 1
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllPayment]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllPayment]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2303,7 +2385,7 @@ create procedure [dbo].[usp_SelectAllPayment]
 as
 select * from Payment;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllSemester]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllSemester]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2313,7 +2395,7 @@ create procedure [dbo].[usp_SelectAllSemester]
 as
 select * from Semester;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllStudent]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllStudent]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2336,7 +2418,7 @@ select	Student.id,Student.address, Gender.description,
 	left join Course on CourseStudent.courseID = Course.id
 	left join Delivery on Course.deliveryID = Delivery.id
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllTeacher]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllTeacher]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2354,7 +2436,7 @@ inner join Course on Course.id = CourseTeacher.courseID
 inner join Delivery on Course.deliveryID = Delivery.id
 order by Teacher.id asc
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllTimetables]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllTimetables]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2376,7 +2458,7 @@ left join CourseSemester on CourseSemester.courseID = Course.id
 left join Semester on Semester.id = CourseSemester.id
 left join Cluster on Cluster.courseID = Course.id
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllUnit]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllUnit]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2385,7 +2467,7 @@ create procedure [dbo].[usp_SelectAllUnit]
 as
 select * from Unit;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectEnrolmentById]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectEnrolmentById]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2399,7 +2481,7 @@ inner join Course on Course.id = CourseStudent.courseID
 inner join Location on Location.id = Course.locationID
 where Student.id = @studentID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectTeacherHistoryByID]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectTeacherHistoryByID]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2417,7 +2499,7 @@ left join CourseSemester on CourseSemester.courseID = Course.id
 left join Semester on Semester.id = CourseSemester.semesterID
 where CourseTeacher.teacherID = @TeacherID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectUnallocatedUnits]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectUnallocatedUnits]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2431,7 +2513,18 @@ select unitID from dbo.Course
 inner join Cluster on Cluster.courseID = Course.id
 where  Course.isCurrent = 1)
 GO
-/****** Object:  StoredProcedure [dbo].[usp_StudentResultByID]    Script Date: 7/06/2021 3:36:20 AM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectUnenrolledStudents]    Script Date: 7/06/2021 5:02:22 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[usp_SelectUnenrolledStudents]
+as
+select Student.id, Student.firstname, Student.lastname, Student.address
+from Student
+where Student.id not in (select * from vw_SelectCurrentStudentIDs)
+GO
+/****** Object:  StoredProcedure [dbo].[usp_StudentResultByID]    Script Date: 7/06/2021 5:02:22 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
