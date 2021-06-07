@@ -1,4 +1,6 @@
-﻿using DataLinkLayer;
+﻿using BusinessLayer;
+using DataLinkLayer;
+using System;
 using System.Collections.Generic;
 
 namespace ModelLayer
@@ -23,6 +25,11 @@ namespace ModelLayer
         public IEnumerable<BusinessLayer.CourseSelection> GetCourses()
         {
             return control.GetCourses();
+        }
+
+        public IEnumerable<BusinessLayer.Delivery> GetDelivery()
+        {
+            return control.GetDelivery();
         }
 
         public IEnumerable<BusinessLayer.Student> GetStudents()
@@ -98,8 +105,51 @@ namespace ModelLayer
             return control.GetGenders();
         }
 
+        public IEnumerable<BusinessLayer.Semester> GetSemesters()
+        {
+            return control.GetSemesters();
+        }
 
 
+        public bool InsertCourse(string courseName, int locationID, int deliveryID, Semester startSemester, Semester endSemester,
+            double courseCost, List<int> studentIDs, List<int> teacherIDs, List<int> unitIDs)
+        {
+            int isCurrent = 0;
+
+            if (endSemester.FinishDate > DateTime.Now)
+            {
+                isCurrent = 1;
+            }
+
+            int courseID = control.InsertCourse(courseName, locationID, deliveryID, isCurrent);
+
+            if (courseID == -9999)
+            {
+                return false;
+            }
+
+            foreach (int unitID in unitIDs)
+            {
+                control.InsertCluster(courseID, unitID);
+            }
+
+            foreach (int teacherID in teacherIDs)
+            {
+                control.InsertCourseTeacher(courseID, teacherID);
+            }
+
+            foreach (int studentID in studentIDs)
+            {
+                control.InsertCourseStudentPayment(studentID, courseID, courseCost);
+            }
+
+            for (int i = startSemester.Id; i < endSemester.Id; i++)
+            {
+                control.InsertCourseSemester(courseID, i);
+            }
+
+            return true;
+        }
 
 
         //public IEnumerable<BusinessLayer.Teacher> GetPartTimeTeachers()

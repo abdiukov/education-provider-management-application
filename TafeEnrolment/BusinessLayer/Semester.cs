@@ -35,35 +35,9 @@ namespace BusinessLayer
 
 
         //METHODS
-
-        public void AddSemester()
+        public override string ToString()
         {
-            throw new NotImplementedException();
-
-        }
-
-        public void DeleteSemester()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void UpdateSemester()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void SearchSemester()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void ViewAllSemesters()
-        {
-            throw new NotImplementedException();
-
+            return Name + ". " + StartDate.ToString("dd/MM/yyyy").Replace('-', '/') + " - " + FinishDate.ToString("dd/MM/yyyy").Replace('-', '/');
         }
 
 

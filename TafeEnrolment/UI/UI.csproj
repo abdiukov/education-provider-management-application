@@ -64,6 +64,15 @@
     <Compile Include="Course\CourseProfile.xaml.cs">
       <DependentUpon>CourseProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Course\CourseSelectStudent.xaml.cs">
+      <DependentUpon>CourseSelectStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\CourseSelectTeacher.xaml.cs">
+      <DependentUpon>CourseSelectTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\CourseSelectUnits.xaml.cs">
+      <DependentUpon>CourseSelectUnits.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Course\CourseTimetableSearch.xaml.cs">
       <DependentUpon>CourseTimetableSearch.xaml</DependentUpon>
     </Compile>
@@ -111,6 +120,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Course\CourseProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseSelectStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseSelectTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseSelectUnits.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

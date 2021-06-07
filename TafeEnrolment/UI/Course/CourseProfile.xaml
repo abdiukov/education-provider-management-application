@@ -53,36 +53,35 @@
             </DataGrid.CellStyle>
         </DataGrid>
 
-        <Label Content="Address" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_Address" HorizontalAlignment="Left" Height="26" Margin="150,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Course name" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox Name="textBox_CourseName" HorizontalAlignment="Left" Height="26" Margin="150,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Gender" HorizontalAlignment="Left" Margin="50,114,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_GenderSelection" HorizontalAlignment="Left" Margin="150,114,0,0" 
-                  VerticalAlignment="Top" Width="120" Height="26">
-        </ComboBox>
+        <Label Content="Location" HorizontalAlignment="Left" Margin="50,114,0,0" VerticalAlignment="Top" Width="95"/>
+        <ComboBox x:Name="comboBox_Locations" HorizontalAlignment="Left" Margin="150,114,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
 
-        <Label Content="Phone number" HorizontalAlignment="Left" Margin="50,145,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_PhoneNumber" HorizontalAlignment="Left" Height="26" Margin="150,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Delivery" HorizontalAlignment="Left" Margin="50,145,0,0" VerticalAlignment="Top" Width="95"/>
+        <ComboBox Name="comboBox_Delivery" HorizontalAlignment="Left" Margin="150,145,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
 
-        <Label Content="Email" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_Email" HorizontalAlignment="Left" Height="26" Margin="150,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Start semester" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" Width="95"/>
+        <ComboBox Name="comboBox_SemesterStart" HorizontalAlignment="Left" Margin="150,176,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
 
-        <Label Content="Date of birth" HorizontalAlignment="Left" Margin="50,208,0,0" VerticalAlignment="Top" Width="95"/>
-        <DatePicker Name="datePicker_DateOfBirth" HorizontalAlignment="Left" Margin="150,209,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+        <Label Content="End semester" HorizontalAlignment="Left" Margin="50,208,0,0" VerticalAlignment="Top" Width="95"/>
+        <ComboBox x:Name="comboBox_SemesterEnd" HorizontalAlignment="Left" Margin="150,207,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
 
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="50,239,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_FirstName" HorizontalAlignment="Left" Height="26" Margin="150,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Course cost" HorizontalAlignment="Left" Margin="50,239,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox Name="textBox_CourseCost" HorizontalAlignment="Left" Height="26" Margin="150,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="50,270,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_LastName" HorizontalAlignment="Left" Height="26" Margin="150,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Students" HorizontalAlignment="Left" Margin="50,270,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Click="BtnSelectStudents_Click" Name="BtnSelectStudents" Content="Select students" HorizontalAlignment="Left" Margin="150,270,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
 
-        <Label Content="Course" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_Course" HorizontalAlignment="Left" Margin="150,301,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label Content="Teachers" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Click="BtnSelectTeachers_Click" Name="BtnSelectTeachers" Content="Select teachers" HorizontalAlignment="Left" Margin="150,301,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
 
-        <Label Content="Base location" HorizontalAlignment="Left" Margin="50,332,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox x:Name="comboBox_Locations" HorizontalAlignment="Left" Margin="150,332,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label Content="Units" HorizontalAlignment="Left" Margin="50,332,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button Click="BtnSelectUnits_Click" Name="BtnSelectUnits" Content="Select teachers" HorizontalAlignment="Left" Margin="150,332,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
 
-        <Button Name="BtnAddTeacher" Content="Insert new course" HorizontalAlignment="Left" Margin="397,83,0,0" VerticalAlignment="Top" Width="220" Height="57" Click="BtnAddTeacher_Click"/>
+
+        <Button Name="BtnAddCourse" Content="Insert new course" HorizontalAlignment="Left" Margin="397,83,0,0" VerticalAlignment="Top" Width="220" Height="57"  Click="BtnAddCourse_Click"/>
 
     </Grid>
 </Window>

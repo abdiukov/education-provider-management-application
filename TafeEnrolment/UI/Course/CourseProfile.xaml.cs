@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using ModelLayer;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,14 +11,28 @@ namespace UI.Course
     /// </summary>
     public partial class CourseProfile : Window
     {
+        //VARIABLE DECLARATIONS
+
+
+        //  private List<Student> AllStudents = new List<Student>();
+
+
+
+
         Logic logic = new Logic();
         //INITIALISATION CODE
         public CourseProfile()
         {
             InitializeComponent();
-            comboBox_GenderSelection.ItemsSource = logic.GetGenders();
-            comboBox_Course.ItemsSource = logic.GetCourses();
+
             comboBox_Locations.ItemsSource = logic.GetLocations();
+            comboBox_Delivery.ItemsSource = logic.GetDelivery();
+
+            IEnumerable<Semester> availableSemesters = logic.GetSemesters();
+
+            comboBox_SemesterStart.ItemsSource = availableSemesters;
+            comboBox_SemesterEnd.ItemsSource = availableSemesters;
+
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -45,86 +60,32 @@ namespace UI.Course
             PageNavigation.GoToExistingPage(new MainWindow());
         }
 
-        private void BtnAddTeacher_Click(object sender, RoutedEventArgs e)
+        //END OF NAVIGATION CODE
+
+        private void BtnSelectTeachers_Click(object sender, RoutedEventArgs e)
         {
-            string address = textBox_Address.Text;
-
-            string mobile = textBox_PhoneNumber.Text;
-            string email = textBox_Email.Text;
-            string dob = datePicker_DateOfBirth.SelectedDate.ToString();
-            string firstName = textBox_FirstName.Text;
-            string lastName = textBox_LastName.Text;
-
-            if (string.IsNullOrWhiteSpace(address))
-            {
-                MessageBox.Show("Please enter something into 'Address' field ");
-                return;
-            }
-
-            Gender selectedGender = (Gender)comboBox_GenderSelection.SelectedItem;
-
-            if (selectedGender is null)
-            {
-                MessageBox.Show("Please select teacher gender field ");
-            }
-
-            int genderID = selectedGender.GenderID;
-
-            if (string.IsNullOrWhiteSpace(mobile))
-            {
-                MessageBox.Show("Please enter something into 'Phone number' field ");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                MessageBox.Show("Please enter something into 'Email' field ");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(dob))
-            {
-                MessageBox.Show("Select a valid date of birth");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(firstName))
-            {
-                MessageBox.Show("Please enter something into 'First name' field ");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(lastName))
-            {
-                MessageBox.Show("Please enter something into 'Last name' field ");
-                return;
-            }
-
-            CourseSelection selectedCourse = (CourseSelection)comboBox_Course.SelectedItem;
-
-            if (selectedCourse is null)
-            {
-                MessageBox.Show("Please select a course which the teacher will be enrolled into");
-                return;
-            }
-            int courseID = selectedCourse.CourseID;
-
-            Location selectedLocation = (Location)comboBox_Locations.SelectedItem;
-
-            if (selectedLocation is null)
-            {
-                MessageBox.Show("Please select the teacher's base location");
-                return;
-            }
-
-            int locationID = selectedLocation.Id;
-
-
-
-            string outcome = logic.InsertNewTeacher(address, genderID, mobile, email, dob,
-              firstName, lastName, courseID, locationID);
-
-            MessageBox.Show(outcome);
+            CourseSelectTeacher pageobj = new CourseSelectTeacher();
+            pageobj.Show();
         }
+
+        private void BtnSelectUnits_Click(object sender, RoutedEventArgs e)
+        {
+            CourseSelectUnits pageobj = new CourseSelectUnits();
+            pageobj.Show();
+        }
+
+        private void BtnSelectStudents_Click(object sender, RoutedEventArgs e)
+        {
+            CourseSelectStudent pageobj = new CourseSelectStudent();
+            pageobj.Show();
+        }
+
+        private void BtnAddCourse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
     }
 }

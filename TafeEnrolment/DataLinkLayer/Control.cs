@@ -60,6 +60,217 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        public IEnumerable<Delivery> GetDelivery()
+        {
+            List<Delivery> outputlist = new List<Delivery>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectAllDelivery", conn);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Delivery output = new Delivery(dataReader.GetInt32(0), dataReader.GetString(1));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at GetDelivery()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at GetDelivery()\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetDelivery()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+        public int InsertCourse(string courseName, int locationID, int deliveryID, int isCurrent)
+        {
+            int output = -9999;
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCourse @name, @locationID, @deliveryID, @isCurrent", conn);
+                cmd.Parameters.AddWithValue("@name", courseName);
+                cmd.Parameters.AddWithValue("@locationID", locationID);
+                cmd.Parameters.AddWithValue("@deliveryID", deliveryID);
+                cmd.Parameters.AddWithValue("@isCurrent", isCurrent);
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Read();
+
+                output = dataReader.GetInt32(0);
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at InsertCourse()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at InsertCourse()\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCourse()\n" + ex.Message);
+            }
+            //output
+            return output;
+        }
+
+        public void InsertCourseSemester(int courseID, int semesterID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCourseSemester @courseID, @semesterID", conn);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@semesterID", semesterID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at InsertCourseStudentPayment()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at InsertCourseStudentPayment()\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCourseStudentPayment()\n" + ex.Message);
+            }
+        }
+
+        public void InsertCourseStudentPayment(int studentID, int courseID, double courseCost)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCourseStudentPayment @studentID, @courseID, @amountDue", conn);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@amountDue", courseCost);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at InsertCourseStudentPayment()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at InsertCourseStudentPayment()\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCourseStudentPayment()\n" + ex.Message);
+            }
+        }
+
+        public void InsertCourseTeacher(int courseID, int teacherID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCourseTeacher @courseID, @teacherID", conn);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@teacherID", teacherID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at InsertCourseTeacher()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at InsertCourseTeacher()\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCourseTeacher()\n" + ex.Message);
+            }
+        }
+
+
+
+        public void InsertCluster(int courseID, int unitID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCluster @courseID, @unitID", conn);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@unitID", unitID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at InsertCluster()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at InsertCluster()\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCluster()\n" + ex.Message);
+            }
+        }
+
         public IEnumerable<CourseSelection> GetCourses()
         {
             List<CourseSelection> outputlist = new List<CourseSelection>();
@@ -113,7 +324,7 @@ namespace DataLinkLayer
                 cmd.Parameters.AddWithValue("@genderID", genderID);
                 cmd.Parameters.AddWithValue("@mobile", mobile);
                 cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@dob", dob);
+                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(dob));
                 cmd.Parameters.AddWithValue("@firstname", firstName);
                 cmd.Parameters.AddWithValue("@lastname", lastName);
                 cmd.Parameters.AddWithValue("@base_locationID", locationID);
