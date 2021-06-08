@@ -78,79 +78,21 @@ namespace BusinessLayer
         }
 
 
+        public bool isSelected
+        {
+            get; set;
+        }
+
+        public string IsSelectedString
+        {
+            get { return isSelected ? "Selected" : "Not selected"; }
+        }
+
         //METHODS
 
-        public void AddTeacher()
+        public override string ToString()
         {
-            throw new NotImplementedException();
-
+            return Id + " | " + FirstName + " | " + LastName;
         }
-
-        public void DeleteTeacher()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void UpdateTeacher()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void SearchTeacher()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void ViewAllTeachers()
-        {
-            throw new NotImplementedException();
-
-
-        }
-
-        public void AssignTimetable()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        //public bool OtherThanBaseLocation
-        //{
-        //    get; set;
-        //}
-
-        //public string FirstName
-        //{
-        //    get; set;
-        //}
-
-        //public string LastName
-        //{
-        //    get; set;
-        //}
-
-        //public string Position
-        //{
-        //    get; set;
-        //}
-
-        //public string Location
-        //{
-        //    get; set;
-        //}
-
-        //public List<Course> currentCourses
-        //{
-        //    get; set;
-        //}
-
-        //public List<PastCourse> pastCourses
-        //{
-        //    get; set;
-        //}
-
     }
 }

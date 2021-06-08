@@ -800,6 +800,48 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        public List<Student> GetAvailableStudents()
+        {
+            List<Student> outputlist = new List<Student>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectUnenrolledStudents", conn);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Student output = new Student(dataReader.GetInt32(0), dataReader.GetString(1),
+                            dataReader.GetString(2), dataReader.GetString(3));
+                        outputlist.Add(output);
+                    }
+                }
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                Console.WriteLine("Primary key violation has occured at GetAvailableStudents()\n" + ex.Message);
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                Console.WriteLine("Foreign key violation has occured at GetAvailableStudents()\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetAvailableStudents()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
         public List<Student> GetStudents()
         {
             List<Student> outputlist = new List<Student>();
@@ -903,7 +945,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        Unit output = new Unit(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2), dataReader.GetString(4));
+                        Unit output = new Unit(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2));
                         outputlist.Add(output);
                     }
                 }

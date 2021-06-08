@@ -14,9 +14,17 @@ namespace UI.Course
         //VARIABLE DECLARATIONS
 
 
-        //  private List<Student> AllStudents = new List<Student>();
+        public static List<BusinessLayer.Student> allStudents = new List<BusinessLayer.Student>();
 
+        private List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
 
+        private List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
+
+        public static List<BusinessLayer.Student> selectedStudents;
+
+        public static List<BusinessLayer.Unit> selectedUnits;
+
+        public static List<BusinessLayer.Teacher> selectedTeachers;
 
 
         Logic logic = new Logic();
@@ -25,13 +33,23 @@ namespace UI.Course
         {
             InitializeComponent();
 
+            //UI
             comboBox_Locations.ItemsSource = logic.GetLocations();
             comboBox_Delivery.ItemsSource = logic.GetDelivery();
-
             IEnumerable<Semester> availableSemesters = logic.GetSemesters();
-
             comboBox_SemesterStart.ItemsSource = availableSemesters;
             comboBox_SemesterEnd.ItemsSource = availableSemesters;
+
+            //LOGIC
+            allStudents = (List<BusinessLayer.Student>)logic.GetAvailableStudents();
+            allUnits = (List<Unit>)logic.GetUnits();
+            allTeachers = (List<BusinessLayer.Teacher>)logic.GetTeachers();
+
+            //RESETTING STATIC PUBLIC VALUES
+
+            selectedStudents = new List<BusinessLayer.Student>();
+            selectedUnits = new List<BusinessLayer.Unit>();
+            selectedTeachers = new List<BusinessLayer.Teacher>();
 
         }
 
@@ -64,13 +82,13 @@ namespace UI.Course
 
         private void BtnSelectTeachers_Click(object sender, RoutedEventArgs e)
         {
-            CourseSelectTeacher pageobj = new CourseSelectTeacher();
+            CourseSelectTeacher pageobj = new CourseSelectTeacher(allTeachers);
             pageobj.Show();
         }
 
         private void BtnSelectUnits_Click(object sender, RoutedEventArgs e)
         {
-            CourseSelectUnits pageobj = new CourseSelectUnits();
+            CourseSelectUnits pageobj = new CourseSelectUnits(allUnits);
             pageobj.Show();
         }
 

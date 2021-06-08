@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Course"
         mc:Ignorable="d"
-        Title="CourseSelectTeacher" Height="450" Width="800">
+        Height="250" Width="600" Title="Select teachers" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow"
+        PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus"
+        >
     <Grid>
-        
+        <ListBox Name="lbSelectTeacher" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <Grid Margin="0,2" MouseLeftButtonUp="Grid_MouseLeftButtonUp">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding .}" />
+                        <TextBlock Grid.Column="1" Text="{Binding IsSelectedString}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

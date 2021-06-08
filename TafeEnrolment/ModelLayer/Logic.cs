@@ -37,6 +37,12 @@ namespace ModelLayer
             return control.GetStudents();
         }
 
+        public IEnumerable<BusinessLayer.Student> GetAvailableStudents()
+        {
+            return control.GetAvailableStudents();
+        }
+
+
         public IEnumerable<BusinessLayer.Enrolment> GetEnrolmentsByID(int studentID)
         {
             return control.GetEnrolmentsByID(studentID);
@@ -151,6 +157,11 @@ namespace ModelLayer
             return true;
         }
 
+
+        public IEnumerable<Unit> GetUnits()
+        {
+            return control.GetUnits();
+        }
 
         //public IEnumerable<BusinessLayer.Teacher> GetPartTimeTeachers()
         //{

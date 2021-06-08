@@ -11,6 +11,7 @@ namespace UI.Course
         public CourseSelectStudent()
         {
             InitializeComponent();
+            lbSelectStudent.ItemsSource = CourseProfile.allStudents;
         }
 
         private void Window_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
@@ -24,6 +25,17 @@ namespace UI.Course
                 }
             }
             catch (Exception) { };
+        }
+
+        private void Grid_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (lbSelectStudent.SelectedIndex != -1)
+            {
+                BusinessLayer.Student selectedItem = (BusinessLayer.Student)lbSelectStudent.SelectedItem;
+                selectedItem.isSelected = !selectedItem.isSelected;
+                lbSelectStudent.ItemsSource = null;
+                lbSelectStudent.ItemsSource = CourseProfile.allStudents;
+            }
         }
     }
 }

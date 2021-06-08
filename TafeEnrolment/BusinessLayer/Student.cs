@@ -21,6 +21,16 @@ namespace BusinessLayer
             this.isFeesNotPaid = isFeesNotPaid;
             this.Position = Position;
             this.isCurrent = isCurrent;
+            this.isSelected = false;
+        }
+
+        public Student(int Id, string FirstName, string LastName, string Address)
+        {
+            this.Id = Id;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.Address = Address;
+            this.isSelected = false;
         }
 
         //PROPERTIES
@@ -79,81 +89,22 @@ namespace BusinessLayer
             get; set;
         }
 
-
-        public void AddStudent()
+        public bool isSelected
         {
-            throw new NotImplementedException();
-
+            get; set;
         }
 
-        public void DeleteStudent()
+        public string IsSelectedString
         {
-            throw new NotImplementedException();
-
+            get { return isSelected ? "Selected" : "Not selected"; }
         }
 
-        public void UpdateStudent()
-        {
-            throw new NotImplementedException();
+        //METHODS
 
+        public override string ToString()
+        {
+            return Id + " | " + FirstName + " " + LastName + " | " + Address;
         }
 
-        public void SearchStudent()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void ViewAllStudents()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void EnrollStudent()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void CreateResult()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void UnenrollStudent()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        //public bool paidFees
-        //{
-        //    get; set;
-        //}
-        //public string FirstName
-        //{
-        //    get; set;
-        //}
-
-        //public string LastName
-        //{
-        //    get; set;
-        //}
-
-        //public string Position
-        //{
-        //    get; set;
-        //}
-
-        //public string Location
-        //{
-        //    get; set;
-        //}
-
-        //public Timetable timetable
-        //{
-        //    get; set;
     }
 }

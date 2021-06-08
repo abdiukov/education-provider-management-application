@@ -1,15 +1,12 @@
-﻿using System;
-
-namespace BusinessLayer
+﻿namespace BusinessLayer
 {
     public class Unit
     {
-        public Unit(int id, string name, int numberOfHours, string packageName)
+        public Unit(int id, string name, int numberOfHours)
         {
             Id = id;
             Name = name;
             NumberOfHours = numberOfHours;
-            PackageName = packageName;
         }
 
         //PROPERTIES
@@ -29,51 +26,21 @@ namespace BusinessLayer
             get; set;
         }
 
-        public string PackageName
+        public bool isSelected
         {
             get; set;
         }
 
+        public string IsSelectedString
+        {
+            get { return isSelected ? "Selected" : "Not selected"; }
+        }
 
         //METHODS
 
-        public void AddUnit()
+        public override string ToString()
         {
-            throw new NotImplementedException();
-
-        }
-
-        public void DeleteUnit()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void UpdateUnit()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void SearchUnit()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void ViewAllUnits()
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public void AssignCourse()
-        {
-            throw new NotImplementedException();
-
-            //unit may belong to more than one course
-
-            //course may have more than one unit and a unit may belong to more than one course
+            return Id + " | " + Name + " | Hours: " + NumberOfHours;
         }
     }
 }
