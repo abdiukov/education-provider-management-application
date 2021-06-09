@@ -179,7 +179,38 @@ namespace ModelLayer
             return true;
         }
 
+        public string DeleteTeacher(int teacherID)
+        {
+            return control.DeleteTeacher(teacherID);
+        }
 
+        public string DeleteStudent(int studentID)
+        {
+            return control.DeleteTeacher(studentID);
+        }
+
+        public string DeleteUnit(int unitID)
+        {
+            return control.DeleteUnit(unitID);
+        }
+
+
+        public string EditUnit(int unitID, string unitName, int hoursAmount)
+        {
+            return control.EditUnit(unitID, unitName, hoursAmount);
+        }
+
+        public string EditTeacher(int teacherID, string address, int genderID, string mobile, string email, string dob,
+            string firstName, string lastName, int locationID)
+        {
+            return control.EditTeacher(teacherID, address, genderID, mobile, email, dob, firstName, lastName, locationID);
+        }
+
+        public string EditStudent(int studentID, string address, int genderID, string mobile, string email, string dob,
+    string firstName, string lastName)
+        {
+            return control.EditStudent(studentID, address, genderID, mobile, email, dob, firstName, lastName);
+        }
         public IEnumerable<Unit> GetUnits()
         {
             return control.GetUnits();

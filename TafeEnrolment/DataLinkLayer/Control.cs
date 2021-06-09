@@ -393,6 +393,220 @@ namespace DataLinkLayer
             }
         }
 
+
+        public string EditStudent(int studentID, string address, int genderID, string mobile, string email, string dob,
+    string firstName, string lastName)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditStudent @studentID, @address, @genderID, @mobile, @email, @dob, @firstname, @lastname", conn);
+                cmd.Parameters.AddWithValue("@address", address);
+                cmd.Parameters.AddWithValue("@genderID", genderID);
+                cmd.Parameters.AddWithValue("@mobile", mobile);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@dob", dob);
+                cmd.Parameters.AddWithValue("@firstname", firstName);
+                cmd.Parameters.AddWithValue("@lastname", lastName);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The student has been successfully edited";
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                return "Failed to edit student. Primary key violation has occured at EditStudent()\n" + ex.Message;
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                return "Failed to edit student. Foreign key violation has occured at EditStudent()\n" + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit student. An error has occured at EditStudent()\n" + ex.Message;
+            }
+        }
+
+        public string EditTeacher(int teacherID, string address, int genderID, string mobile, string email, string dob,
+            string firstName, string lastName, int locationID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditTeacher @teacherID, @address, @genderID, @mobile, @email, @dob, @firstname, @lastname, @base_locationID", conn);
+                cmd.Parameters.AddWithValue("@teacherID", teacherID);
+                cmd.Parameters.AddWithValue("@address", address);
+                cmd.Parameters.AddWithValue("@genderID", genderID);
+                cmd.Parameters.AddWithValue("@mobile", mobile);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(dob));
+                cmd.Parameters.AddWithValue("@firstname", firstName);
+                cmd.Parameters.AddWithValue("@lastname", lastName);
+                cmd.Parameters.AddWithValue("@base_locationID", locationID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The teacher has been successfully edited";
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                return "Failed to edit teacher. Primary key violation has occured at EditTeacher()\n" + ex.Message;
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                return "Failed to edit teacher. Foreign key violation has occured at EditTeacher()\n" + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit teacher. An error has occured at EditTeacher()\n" + ex.Message;
+            }
+        }
+
+        public string EditUnit(int unitID, string unitName, int hoursAmount)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditUnit @unitID, @unitName, @hoursAmount", conn);
+                cmd.Parameters.AddWithValue("@unitID", unitID);
+                cmd.Parameters.AddWithValue("@unitName", unitName);
+                cmd.Parameters.AddWithValue("@hoursAmount", hoursAmount);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The unit has been successfully edited";
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                return "Failed to edit unit. Primary key violation has occured at EditUnit()\n" + ex.Message;
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                return "Failed to edit unit. Foreign key violation has occured at EditUnit()\n" + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit unit. An error has occured at EditUnit()\n" + ex.Message;
+            }
+        }
+
+        public string DeleteUnit(int unitID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteUnit @unitID", conn);
+                cmd.Parameters.AddWithValue("@unitID", unitID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The unit has been successfully deleted";
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                return "Failed to delete unit. Primary key violation has occured at DeleteUnit()\n" + ex.Message;
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                return "Failed to delete unit. Foreign key violation has occured at DeleteUnit()\n" + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete unit. An error has occured at DeleteUnit()\n" + ex.Message;
+            }
+        }
+
+        public string DeleteStudent(int studentID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteStudent @studentID", conn);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The student has been successfully deleted";
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                return "Failed to delete student. Primary key violation has occured at DeleteStudent()\n" + ex.Message;
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                return "Failed to delete student. Foreign key violation has occured at DeleteStudent()\n" + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete student. An error has occured at DeleteStudent()\n" + ex.Message;
+            }
+        }
+
+        public string DeleteTeacher(int teacherID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(_connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteTeacher @teacherID", conn);
+                cmd.Parameters.AddWithValue("@teacherID", teacherID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The teacher has been successfully deleted";
+            }
+            catch (SqlException ex) when (ex.Number == 2627)
+            {
+                return "Failed to delete teacher. Primary key violation has occured at DeleteTeacher()\n" + ex.Message;
+            }
+            catch (SqlException ex) when (ex.Number == 547)
+            {
+                return "Failed to delete teacher. Foreign key violation has occured at DeleteTeacher()\n" + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete teacher. An error has occured at DeleteTeacher()\n" + ex.Message;
+            }
+        }
+
+
+
         public IEnumerable<Gender> GetGenders()
         {
             List<Gender> outputlist = new List<Gender>();
@@ -1007,6 +1221,7 @@ namespace DataLinkLayer
             }
             return result;
         }
+
 
     }
 }
