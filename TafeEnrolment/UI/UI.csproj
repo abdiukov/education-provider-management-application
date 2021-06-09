@@ -79,6 +79,15 @@
     <Compile Include="DataGridSettings.xaml.cs">
       <DependentUpon>DataGridSettings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Edit\EditStudent.xaml.cs">
+      <DependentUpon>EditStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditTeacher.xaml.cs">
+      <DependentUpon>EditTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditUnit.xaml.cs">
+      <DependentUpon>EditUnit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -140,6 +149,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DataGridSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditUnit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

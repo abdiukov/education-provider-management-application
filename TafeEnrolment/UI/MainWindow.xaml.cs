@@ -67,20 +67,20 @@ namespace UI
 
         private void AlterTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
-            //Hide();
-            //PageNavigation.GoToNewPage(new StudentProfile());
+            Hide();
+            PageNavigation.GoToNewPage(new Edit.EditTeacher());
         }
 
         private void AlterStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-            //Hide();
-            //PageNavigation.GoToNewPage(new StudentProfile());
+            Hide();
+            PageNavigation.GoToNewPage(new Edit.EditStudent());
         }
 
         private void AlterUnitInfo_Click(object sender, RoutedEventArgs e)
         {
-            //Hide();
-            //PageNavigation.GoToNewPage(new StudentProfile());
+            Hide();
+            PageNavigation.GoToNewPage(new Edit.EditUnit());
         }
 
         //END OF NAVIGATION CODE
