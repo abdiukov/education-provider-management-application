@@ -7,7 +7,8 @@ namespace BusinessLayer
 
         //CONSTRUCTOR
         public Teacher(int id, string address, string teacherGender, string mobile, string email,
-            DateTime dateofBirth, string FirstName, string LastName, string Position, bool isCurrent, bool OtherThanBaseLocation)
+            DateTime dateofBirth, string FirstName, string LastName, string Position, bool isCurrent, bool OtherThanBaseLocation,
+            int BaseLocation)
         {
             Id = id;
             this.FirstName = FirstName;
@@ -20,6 +21,7 @@ namespace BusinessLayer
             this.Position = Position;
             this.isCurrent = isCurrent;
             this.OtherThanBaseLocation = OtherThanBaseLocation;
+            this.BaseLocation = BaseLocation;
         }
 
         //PROPERTIES
@@ -88,6 +90,10 @@ namespace BusinessLayer
             get { return isSelected ? "Selected" : "Not selected"; }
         }
 
+        public int BaseLocation
+        {
+            get; set;
+        }
         //METHODS
 
         public override string ToString()

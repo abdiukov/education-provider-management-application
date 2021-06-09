@@ -51,36 +51,35 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Label Content="Address" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_Address" HorizontalAlignment="Left" Height="26" Margin="150,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="50,144,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox FontSize="10" Name="textBox_Address" HorizontalAlignment="Left" Height="26" Margin="150,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
 
-        <Label Content="Gender" HorizontalAlignment="Left" Margin="50,114,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_GenderSelection" HorizontalAlignment="Left" Margin="150,114,0,0" 
-                  VerticalAlignment="Top" Width="120" Height="26">
+        <Label Content="Gender" HorizontalAlignment="Left" Margin="50,175,0,0" VerticalAlignment="Top" Width="95"/>
+        <ComboBox Name="comboBox_GenderSelection" HorizontalAlignment="Left" Margin="150,175,0,0" 
+                  VerticalAlignment="Top" Width="228" Height="26">
         </ComboBox>
 
-        <Label Content="Phone number" HorizontalAlignment="Left" Margin="50,145,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_PhoneNumber" HorizontalAlignment="Left" Height="26" Margin="150,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Phone number" HorizontalAlignment="Left" Margin="50,206,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox Name="textBox_PhoneNumber" HorizontalAlignment="Left" Height="26" Margin="150,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
 
-        <Label Content="Email" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_Email" HorizontalAlignment="Left" Height="26" Margin="150,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="50,238,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox Name="textBox_Email" HorizontalAlignment="Left" Height="26" Margin="150,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
 
-        <Label Content="Date of birth" HorizontalAlignment="Left" Margin="50,208,0,0" VerticalAlignment="Top" Width="95"/>
-        <DatePicker Name="datePicker_DateOfBirth" HorizontalAlignment="Left" Margin="150,209,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+        <Label Content="Date of birth" HorizontalAlignment="Left" Margin="433,205,0,0" VerticalAlignment="Top" Width="95"/>
+        <DatePicker Name="datePicker_DateOfBirth" HorizontalAlignment="Left" Margin="533,206,0,0" VerticalAlignment="Top" Height="26" Width="228"/>
 
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="50,239,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_FirstName" HorizontalAlignment="Left" Height="26" Margin="150,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="433,145,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox Name="textBox_FirstName" HorizontalAlignment="Left" Height="26" Margin="533,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
 
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="50,270,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_LastName" HorizontalAlignment="Left" Height="26" Margin="150,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="433,176,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox Name="textBox_LastName" HorizontalAlignment="Left" Height="26" Margin="533,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Button Name="BtnEditTeacher" Content="Alter teacher details" HorizontalAlignment="Left" Margin="50,343,0,0" VerticalAlignment="Top" Width="328" Height="57" Click="BtnEditTeacher_Click"/>
+        <Button x:Name="BtnDeleteTeacher" Content="Delete teacher" HorizontalAlignment="Left" Margin="433,343,0,0" VerticalAlignment="Top" Width="328" Height="57" Click="BtnDeleteTeacher_Click"/>
+        <ComboBox SelectedIndex="0" Name="cbSelectTeacher" SelectionChanged="cbSelectTeacher_SelectionChanged" HorizontalAlignment="Left" Margin="50,76,0,0" VerticalAlignment="Top" Width="328" Height="38"/>
+        <Label Content="Select teacher you wish to edit" HorizontalAlignment="Left" Margin="50,45,0,0" VerticalAlignment="Top"/>
 
-        <Label Content="Course" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_Course" HorizontalAlignment="Left" Margin="150,301,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-        <Label Content="Base location" HorizontalAlignment="Left" Margin="50,332,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox x:Name="comboBox_Locations" HorizontalAlignment="Left" Margin="150,332,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-        <Button Name="BtnAddTeacher" Content="Insert new teacher" HorizontalAlignment="Left" Margin="397,83,0,0" VerticalAlignment="Top" Width="220" Height="57" />
+        <Label Content="Base location" HorizontalAlignment="Left" Margin="433,237,0,0" VerticalAlignment="Top" Width="94"/>
+        <ComboBox x:Name="comboBox_Locations" HorizontalAlignment="Left" Margin="533,237,0,0" VerticalAlignment="Top" Width="228" Height="26"/>
 
     </Grid>
 </Window>

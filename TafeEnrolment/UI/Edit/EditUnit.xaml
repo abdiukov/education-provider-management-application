@@ -51,5 +51,15 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="50,144,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox Name="textBox_Name" HorizontalAlignment="Left" Height="26" Margin="150,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+
+        <Label Content="Hours amount" HorizontalAlignment="Left" Margin="433,145,0,0" VerticalAlignment="Top" Width="95"/>
+        <TextBox Name="textBox_Hours" HorizontalAlignment="Left" Height="26" Margin="533,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Button Name="BtnEditUnit" Content="Alter unit details" Click="BtnEditUnit_Click" HorizontalAlignment="Left" Margin="50,343,0,0" VerticalAlignment="Top" Width="328" Height="57" />
+        <Button Name="BtnDeleteUnit" Content="Delete unit" Click="BtnDeleteUnit_Click" HorizontalAlignment="Left" Margin="433,343,0,0" VerticalAlignment="Top" Width="328" Height="57"/>
+        <ComboBox SelectedIndex="0" Name="cbSelectUnit" SelectionChanged="cbSelectUnit_SelectionChanged" HorizontalAlignment="Left" Margin="50,76,0,0" VerticalAlignment="Top" Width="328" Height="38"/>
+        <Label Content="Select unit you wish to edit" HorizontalAlignment="Left" Margin="50,45,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

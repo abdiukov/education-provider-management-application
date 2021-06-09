@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [TafeSystem]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Database [TafeSystem]    Script Date: 9/06/2021 8:00:57 PM ******/
 CREATE DATABASE [TafeSystem]
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
@@ -72,7 +72,7 @@ ALTER DATABASE [TafeSystem] SET QUERY_STORE = OFF
 GO
 USE [TafeSystem]
 GO
-/****** Object:  Table [dbo].[Course]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Course]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -89,7 +89,7 @@ CREATE TABLE [dbo].[Course](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Semester]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Semester]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -105,7 +105,7 @@ CREATE TABLE [dbo].[Semester](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CourseSemester]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[CourseSemester]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -120,7 +120,7 @@ CREATE TABLE [dbo].[CourseSemester](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_SelectCourseStartEndDates]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  View [dbo].[vw_SelectCourseStartEndDates]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -134,7 +134,7 @@ left join Course on CourseSemester.courseID = Course.id
 left join Semester on Semester.id = CourseSemester.semesterID
 group by Course.id
 GO
-/****** Object:  Table [dbo].[Cluster]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Cluster]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -149,7 +149,7 @@ CREATE TABLE [dbo].[Cluster](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_SelectUnitAmountPerCourse]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  View [dbo].[vw_SelectUnitAmountPerCourse]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -162,7 +162,7 @@ from Course
 left join Cluster on Cluster.courseID = Course.id
 group by Course.id
 GO
-/****** Object:  Table [dbo].[CourseTeacher]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[CourseTeacher]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -177,7 +177,7 @@ CREATE TABLE [dbo].[CourseTeacher](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_SelectAmountTeacherPerCourse]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  View [dbo].[vw_SelectAmountTeacherPerCourse]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -190,7 +190,7 @@ from Course
 left join CourseTeacher on CourseTeacher.courseID = Course.id
 group by Course.id
 GO
-/****** Object:  Table [dbo].[CourseStudent]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[CourseStudent]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -206,7 +206,7 @@ CREATE TABLE [dbo].[CourseStudent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_SelectStudentAmounPerCourse]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  View [dbo].[vw_SelectStudentAmounPerCourse]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -219,7 +219,7 @@ from Course
 left join CourseStudent on CourseStudent.courseID = Course.id
 group by Course.id
 GO
-/****** Object:  View [dbo].[vw_SelectStudentAmountPerCourse]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  View [dbo].[vw_SelectStudentAmountPerCourse]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -232,7 +232,7 @@ from Course
 left join CourseStudent on CourseStudent.courseID = Course.id
 group by Course.id
 GO
-/****** Object:  View [dbo].[vw_SelectCurrentStudentIDs]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  View [dbo].[vw_SelectCurrentStudentIDs]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -243,7 +243,7 @@ select CourseStudent.studentID from CourseStudent
 left join Course on CourseStudent.courseID = Course.id
 where Course.isCurrent = 1
 GO
-/****** Object:  Table [dbo].[Payment]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Payment]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -259,7 +259,7 @@ CREATE TABLE [dbo].[Payment](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[vw_UnpaidCourseID]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  View [dbo].[vw_UnpaidCourseID]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -271,7 +271,7 @@ as
 		from Payment
 		where Payment.amountPaid < Payment.amountDue
 GO
-/****** Object:  Table [dbo].[Unit]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Unit]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -286,7 +286,7 @@ CREATE TABLE [dbo].[Unit](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[view_SelectAllCluster]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  View [dbo].[view_SelectAllCluster]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -296,7 +296,7 @@ as
 select Cluster.courseID, Unit.name, Unit.hoursAmount from Cluster
 inner join Unit on Unit.id = Cluster.unitID
 GO
-/****** Object:  Table [dbo].[Assessment]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Assessment]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -311,7 +311,7 @@ CREATE TABLE [dbo].[Assessment](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Delivery]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Delivery]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -325,7 +325,7 @@ CREATE TABLE [dbo].[Delivery](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Gender]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Gender]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -339,7 +339,7 @@ CREATE TABLE [dbo].[Gender](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Location]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Location]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -355,7 +355,7 @@ CREATE TABLE [dbo].[Location](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Outcome]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Outcome]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -369,7 +369,7 @@ CREATE TABLE [dbo].[Outcome](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Student]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Student]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -389,7 +389,7 @@ CREATE TABLE [dbo].[Student](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Teacher]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[Teacher]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -410,7 +410,7 @@ CREATE TABLE [dbo].[Teacher](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 9/06/2021 2:07:54 PM ******/
+/****** Object:  Table [dbo].[User]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -832,10 +832,6 @@ INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (30, 6, 1, 60)
 GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (31, 2, 3, 61)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (31, 6, 2, 62)
-GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (32, 2, 3, 63)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (32, 6, 2, 64)
@@ -847,10 +843,6 @@ GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (34, 2, 3, 67)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (34, 6, 1, 68)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (35, 2, 3, 69)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (35, 6, 1, 70)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (36, 2, 3, 71)
 GO
@@ -924,10 +916,6 @@ INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (53, 7, 2, 106)
 GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (54, 3, 3, 107)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (54, 7, 1, 108)
-GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (55, 3, 3, 109)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (55, 7, 1, 110)
@@ -996,10 +984,6 @@ INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (71, 12, 3, 142)
 GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (72, 8, 2, 143)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (72, 12, 3, 144)
-GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (73, 8, 2, 145)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (73, 12, 3, 146)
@@ -1011,10 +995,6 @@ GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (75, 8, 1, 149)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (75, 12, 3, 150)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (76, 8, 2, 151)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (76, 12, 3, 152)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (77, 8, 2, 153)
 GO
@@ -1040,8 +1020,6 @@ INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (84, 4, 1, 164)
 GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (85, 4, 2, 165)
-GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (86, 4, 2, 166)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (87, 4, 1, 167)
@@ -1053,8 +1031,6 @@ GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (90, 4, 2, 170)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (91, 9, 2, 171)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (92, 9, 2, 172)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (93, 9, 1, 173)
 GO
@@ -1069,10 +1045,6 @@ GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (98, 9, 2, 178)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (99, 9, 1, 179)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (100, 9, 1, 180)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (100, 10, 1, 181)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (101, 4, 1, 182)
 GO
@@ -1106,8 +1078,6 @@ INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (109, 10, 2, 197)
 GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (110, 10, 2, 198)
-GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (111, 10, 2, 199)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (112, 10, 2, 200)
@@ -1127,8 +1097,6 @@ GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (119, 11, 1, 207)
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (120, 11, 2, 208)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (141, 12, 3, 209)
 GO
 SET IDENTITY_INSERT [dbo].[CourseStudent] OFF
 GO
@@ -1344,10 +1312,6 @@ INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALU
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (60, 4000.0000, 5000.0000, 60)
 GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (61, 3000.0000, 4000.0000, 61)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (62, 7000.0000, 9000.0000, 62)
-GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (63, 4000.0000, 7000.0000, 63)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (64, 2000.0000, 9000.0000, 64)
@@ -1359,10 +1323,6 @@ GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (67, 9000.0000, 9000.0000, 67)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (68, 4000.0000, 4000.0000, 68)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (69, 1000.0000, 1000.0000, 69)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (70, 4000.0000, 5000.0000, 70)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (71, 8000.0000, 8000.0000, 71)
 GO
@@ -1436,10 +1396,6 @@ INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALU
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (106, 4000.0000, 10000.0000, 106)
 GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (107, 4000.0000, 4000.0000, 107)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (108, 1000.0000, 8000.0000, 108)
-GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (109, 4000.0000, 4000.0000, 109)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (110, 3000.0000, 3000.0000, 110)
@@ -1508,10 +1464,6 @@ INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALU
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (142, 5000.0000, 5000.0000, 142)
 GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (143, 6000.0000, 6000.0000, 143)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (144, 4000.0000, 6000.0000, 144)
-GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (145, 7000.0000, 7000.0000, 145)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (146, 6000.0000, 6000.0000, 146)
@@ -1523,10 +1475,6 @@ GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (149, 1000.0000, 3000.0000, 149)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (150, 3000.0000, 3000.0000, 150)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (151, 8000.0000, 8000.0000, 151)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (152, 10000.0000, 10000.0000, 152)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (153, 2000.0000, 2000.0000, 153)
 GO
@@ -1552,8 +1500,6 @@ INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALU
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (164, 5000.0000, 8000.0000, 164)
 GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (165, 3000.0000, 7000.0000, 165)
-GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (166, 5000.0000, 9000.0000, 166)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (167, 5000.0000, 8000.0000, 167)
@@ -1565,8 +1511,6 @@ GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (170, 1000.0000, 5000.0000, 170)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (171, 1000.0000, 7000.0000, 171)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (172, 3000.0000, 3000.0000, 172)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (173, 3000.0000, 5000.0000, 173)
 GO
@@ -1581,10 +1525,6 @@ GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (178, 1000.0000, 1000.0000, 178)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (179, 4000.0000, 4000.0000, 179)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (180, 5000.0000, 5000.0000, 180)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (181, 8000.0000, 8000.0000, 181)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (182, 1000.0000, 2000.0000, 182)
 GO
@@ -1618,8 +1558,6 @@ INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALU
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (197, 3000.0000, 7000.0000, 197)
 GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (198, 1000.0000, 5000.0000, 198)
-GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (199, 3000.0000, 3000.0000, 199)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (200, 1000.0000, 5000.0000, 200)
@@ -1639,8 +1577,6 @@ GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (207, 2000.0000, 7000.0000, 207)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (208, 6000.0000, 10000.0000, 208)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (209, 0.0000, 310.0000, 209)
 GO
 SET IDENTITY_INSERT [dbo].[Payment] OFF
 GO
@@ -1724,7 +1660,7 @@ INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (24, N'20 JEFFREY STREET,CANTERBURY,NSW,2193', 1, N'0442-876-084', N'Sammy.Fiallos@gmail.com', CAST(N'1973-05-25' AS Date), N'Sammy', N'Fiallos')
 GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (25, N'12 WEXFORD PLACE,KILLARNEY HEIGHTS,NSW,2', 1, N'0498-423-049', N'Alton.Gladysiewski@gmail.com', CAST(N'1954-12-24' AS Date), N'Alton', N'Gladysiewski')
+INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (25, N'12 Wexford Street, Small HEIGHTS,NSW,223', 1, N'0498-555-555', N'Anton.Jeakoshvili@gmail.com', CAST(N'1954-01-12' AS Date), N'Anton', N'Jeakoshvili')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (26, N'147 SPINKS ROAD,GLOSSODIA,NSW,2756', 1, N'0420-868-168', N'Jeffery.Lenarz@gmail.com', CAST(N'1990-09-07' AS Date), N'Jeffery', N'Lenarz')
 GO
@@ -1736,15 +1672,11 @@ INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (30, N'77 OXFORD ROAD,INGLEBURN,NSW,2565', 2, N'0407-627-162', N'Emilia.Maurizio@gmail.com', CAST(N'1998-02-04' AS Date), N'Emilia', N'Maurizio')
 GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (31, N'1 CORELLA COURT,WEST PENNANT HILLS,NSW,2', 1, N'0459-090-464', N'Oren.Jeannoel@gmail.com', CAST(N'1988-06-02' AS Date), N'Oren', N'Jeannoel')
-GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (32, N'19B GARDEN STREET,EASTLAKES,NSW,2018', 2, N'0414-652-546', N'Jayne.Pasch@gmail.com', CAST(N'1997-10-09' AS Date), N'Jayne', N'Pasch')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (33, N'34A SAMUEL STREET,MONA VALE,NSW,2103', 1, N'0415-100-344', N'Mohamed.Devoto@gmail.com', CAST(N'1988-11-05' AS Date), N'Mohamed', N'Devoto')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (34, N'14 MARMION ROAD,KATOOMBA,NSW,2780', 1, N'0468-318-423', N'Harland.Aurelio@gmail.com', CAST(N'1972-04-13' AS Date), N'Harland', N'Aurelio')
-GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (35, N'104 THE COMENARRA PARKWAY,SOUTH TURRAMUR', 2, N'0414-255-911', N'Rossie.Worthing@gmail.com', CAST(N'1971-07-20' AS Date), N'Rossie', N'Worthing')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (36, N'14 ANDERSON STREET,WESTMEAD,NSW,2145', 2, N'0417-196-495', N'Hermelinda.Ellingson@gmail.com', CAST(N'1992-03-11' AS Date), N'Hermelinda', N'Ellingson')
 GO
@@ -1782,8 +1714,6 @@ INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (53, N'348 PACIFIC HIGHWAY,LINDFIELD,NSW,2070', 1, N'0414-270-609', N'Billie.Adler@gmail.com', CAST(N'1957-12-24' AS Date), N'Billie', N'Adler')
 GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (54, N'79 GRAND HAVEN ROAD,EAST KURRAJONG,NSW,2', 2, N'0434-809-328', N'Marisha.Mashiah@gmail.com', CAST(N'1989-12-01' AS Date), N'Marisha', N'Mashiah')
-GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (55, N'2A UNION STREET,ERSKINEVILLE,NSW,2043', 2, N'0496-019-429', N'Carli.Hosfield@gmail.com', CAST(N'1961-02-16' AS Date), N'Carli', N'Hosfield')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (56, N'2 PACIFIC HIGHWAY,MOONEY MOONEY,NSW,2083', 2, N'0488-174-812', N'Ashton.Gambardella@gmail.com', CAST(N'1960-08-11' AS Date), N'Ashton', N'Gambardella')
@@ -1818,15 +1748,11 @@ INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (71, N'62 MELBA DRIVE,EAST RYDE,NSW,2113', 1, N'0481-683-582', N'Steve.Sarault@gmail.com', CAST(N'1969-05-17' AS Date), N'Steve', N'Sarault')
 GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (72, N'37 GREAT WESTERN HIGHWAY,GLENBROOK,NSW,2', 1, N'0463-619-482', N'Emmett.Herschelman@gmail.com', CAST(N'1959-04-26' AS Date), N'Emmett', N'Herschelman')
-GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (73, N'104 GROSVENOR ROAD,LINDFIELD,NSW,2070', 2, N'0485-531-406', N'Lael.Kingry@gmail.com', CAST(N'1983-01-11' AS Date), N'Lael', N'Kingry')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (74, N'12 JORDON STREET,CAMBRIDGE PARK,NSW,2747', 1, N'0445-689-101', N'Federico.Gal@gmail.com', CAST(N'1957-04-03' AS Date), N'Federico', N'Gal')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (75, N'13 FLEMING STREET,SPRING FARM,NSW,2570', 1, N'0402-523-374', N'Hobert.Gravenstein@gmail.com', CAST(N'1962-06-04' AS Date), N'Hobert', N'Gravenstein')
-GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (76, N'11 RANDALL COURT,COLLAROY PLATEAU,NSW,20', 2, N'0436-113-535', N'Marilyn.Whitford@gmail.com', CAST(N'1976-11-05' AS Date), N'Marilyn', N'Whitford')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (77, N'82 MINNAMORRA AVENUE,EARLWOOD,NSW,2206', 2, N'0424-734-483', N'Dora.Dekeyser@gmail.com', CAST(N'1999-10-17' AS Date), N'Dora', N'Dekeyser')
 GO
@@ -1844,8 +1770,6 @@ INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (84, N'59 JACARANDA CRESCENT,CASULA,NSW,2170', 1, N'0452-544-493', N'Damion.Verkler@gmail.com', CAST(N'1982-04-16' AS Date), N'Damion', N'Verkler')
 GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (85, N'59 GREENDALE TERRACE,QUAKERS HILL,NSW,27', 2, N'0474-673-815', N'Katharine.Wosher@gmail.com', CAST(N'1990-11-18' AS Date), N'Katharine', N'Wosher')
-GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (86, N'11 THE ESPLANADE,DRUMMOYNE,NSW,2047', 2, N'0494-364-658', N'Andrea.Rehberg@gmail.com', CAST(N'1967-10-21' AS Date), N'Andrea', N'Rehberg')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (87, N'19 LAMONT PLACE,SOUTH WINDSOR,NSW,2756', 1, N'0446-079-554', N'Guy.Steifle@gmail.com', CAST(N'1984-10-17' AS Date), N'Guy', N'Steifle')
@@ -1857,8 +1781,6 @@ GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (90, N'27 STAPYLTON STREET,WIN1E,NSW,2777', 1, N'0453-892-029', N'Normand.Baatz@gmail.com', CAST(N'1957-12-24' AS Date), N'Normand', N'Baatz')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (91, N'21 CHAPLIN DRIVE,LANE COVE WEST,NSW,2066', 2, N'0466-974-241', N'Donita.Whetsell@gmail.com', CAST(N'1952-01-04' AS Date), N'Donita', N'Whetsell')
-GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (92, N'141 LITTLE EVELEIGH STREET,REDFERN,NSW,2', 1, N'0482-349-936', N'Leonard.Follmer@gmail.com', CAST(N'1955-02-22' AS Date), N'Leonard', N'Follmer')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (93, N'153 WOODPARK ROAD,SMITHFIELD,NSW,2164', 1, N'0434-470-066', N'Gilbert.Cuthbert@gmail.com', CAST(N'1972-06-22' AS Date), N'Gilbert', N'Cuthbert')
 GO
@@ -1873,8 +1795,6 @@ GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (98, N'65 WARATAH STREET,OATLEY,NSW,2223', 2, N'0403-090-853', N'Lesley.Revak@gmail.com', CAST(N'1958-12-03' AS Date), N'Lesley', N'Revak')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (99, N'18 VALERIE STREET,TAHMOOR,NSW,2573', 1, N'0409-605-849', N'Ross.Flammang@gmail.com', CAST(N'1985-10-28' AS Date), N'Ross', N'Flammang')
-GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (100, N'40 HUNTINGDON PARADE,CAMBRIDGE GARDENS,N', 2, N'0495-473-611', N'Genevieve.Gomoran@gmail.com', CAST(N'1984-12-16' AS Date), N'Genevieve', N'Gomoran')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (101, N'55 STURT STREET,CAMPBELLTOWN,NSW,2560', 2, N'0486-549-382', N'Kimberlie.Santaloci@gmail.com', CAST(N'1993-06-08' AS Date), N'Kimberlie', N'Santaloci')
 GO
@@ -1893,8 +1813,6 @@ GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (108, N'13 HURLSTONE AVENUE,SUMMER HILL,NSW,2130', 2, N'0455-734-818', N'Adela.Ducat@gmail.com', CAST(N'1995-04-03' AS Date), N'Adela', N'Ducat')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (109, N'143 PROBERT STREET,NEWTOWN,NSW,2042', 1, N'0449-634-318', N'Daren.Dunlavy@gmail.com', CAST(N'1963-11-03' AS Date), N'Daren', N'Dunlavy')
-GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (110, N'1004 BELLS LINE OF ROAD,KURRAJONG HILLS,', 2, N'0492-445-261', N'Candance.Broll@gmail.com', CAST(N'1952-06-11' AS Date), N'Candance', N'Broll')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (111, N'29 SHANNON STREET,GREENACRE,NSW,2190', 2, N'0494-303-276', N'Rubi.Lalley@gmail.com', CAST(N'1991-10-15' AS Date), N'Rubi', N'Lalley')
 GO
@@ -1955,8 +1873,6 @@ GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (139, N'24 ADAH STREET,GUILDFORD,NSW,2161', 1, N'0479-038-971', N'Roman.Kym@gmail.com', CAST(N'1951-01-14' AS Date), N'Roman', N'Kym')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (140, N'61 WAIROA AVENUE,NORTH BONDI,NSW,2026', 2, N'0484-530-191', N'Tiffiny.Koelzer@gmail.com', CAST(N'1978-11-03' AS Date), N'Tiffiny', N'Koelzer')
-GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (141, N'18 Michaelss Strett', 1, N'2315912', N'michael@michel.com', CAST(N'2021-09-06' AS Date), N'Michael', N'Best')
 GO
 SET IDENTITY_INSERT [dbo].[Student] OFF
 GO
@@ -2174,7 +2090,7 @@ REFERENCES [dbo].[Gender] ([id])
 GO
 ALTER TABLE [dbo].[Teacher] CHECK CONSTRAINT [FK__Teacher__genderI__4CA06362]
 GO
-/****** Object:  StoredProcedure [dbo].[usp_AttemptLogin]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_AttemptLogin]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2184,7 +2100,7 @@ as
 select count(*) from [User]
 where username = @username and password = @password;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_DeleteStudent]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_DeleteStudent]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2197,7 +2113,7 @@ delete from dbo.Payment where Payment.CourseStudentID in (select CourseStudent.i
 delete from dbo.CourseStudent where CourseStudent.studentID = @studentID
 delete from dbo.Student where Student.id = @studentID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_DeleteTeacher]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_DeleteTeacher]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2209,7 +2125,7 @@ delete from CourseTeacher where CourseTeacher.teacherID = @teacherID
 delete from dbo.Teacher where Teacher.id = @teacherID   
 
 GO
-/****** Object:  StoredProcedure [dbo].[usp_DeleteUnit]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_DeleteUnit]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2218,7 +2134,7 @@ create procedure [dbo].[usp_DeleteUnit] @unitID int
 as
 delete from dbo.Unit where Unit.id = @unitID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_EditStudent]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_EditStudent]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2236,7 +2152,7 @@ set Student.address = @address, Student.dob = @dob,
 Student.email = @email, Student.firstname = @firstname, Student.genderID = @genderID, Student.lastname = @lastname, Student.mobile = @mobile
 where Student.id = @studentID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_EditTeacher]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_EditTeacher]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2254,7 +2170,7 @@ set Teacher.address = @address, Teacher.base_locationID = @base_locationID, Teac
 Teacher.email = @email, Teacher.firstname = @firstname, Teacher.genderID = @genderID, Teacher.lastname = @lastname, Teacher.mobile = @mobile
 where Teacher.id = @teacherID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_EditUnit]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_EditUnit]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2265,7 +2181,7 @@ update Unit
 set Unit.hoursAmount = @hoursAmount, Unit.name = @unitName
 where Unit.id = @unitID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertCluster]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertCluster]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2276,7 +2192,7 @@ begin
 insert into dbo.Cluster values(@courseID, @unitID)
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertCourse]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertCourse]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2299,7 +2215,7 @@ select @CourseID;
 
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertCourseSemester]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertCourseSemester]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2310,7 +2226,7 @@ begin
 insert into dbo.CourseSemester values(@courseID, @semesterID)
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertCourseStudentPayment]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertCourseStudentPayment]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2326,7 +2242,7 @@ insert into dbo.Payment values (0, @amountDue, @CourseStudentID)
 
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertCourseTeacher]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertCourseTeacher]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2337,7 +2253,7 @@ begin
 insert into dbo.CourseTeacher values(@courseID, @teacherID)
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertStudent]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertStudent]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2369,7 +2285,7 @@ set @CourseStudentID = IDENT_CURRENT('CourseStudent')
 insert into dbo.Payment values(0, @amountDue, @CourseStudentID)
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_InsertTeacher]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_InsertTeacher]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2396,7 +2312,7 @@ insert into CourseTeacher values(@courseID, @TeacherID)
 
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllAssessment]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllAssessment]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2405,7 +2321,7 @@ create procedure [dbo].[usp_SelectAllAssessment]
 as
 select * from Assessment;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllCluster]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllCluster]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2414,7 +2330,7 @@ CREATE procedure [dbo].[usp_SelectAllCluster]
 as
 select * from view_SelectAllCluster
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllCourse]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllCourse]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2425,7 +2341,7 @@ select Course.id, Course.name,  [Location].name, Delivery.description from dbo.C
 inner join [Location] on [Location].id = Course.locationID
 inner join Delivery on Delivery.id = Course.deliveryID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllDelivery]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllDelivery]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2436,7 +2352,7 @@ begin
 select Delivery.id, Delivery.description from Delivery
 end
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllGender]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllGender]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2445,7 +2361,7 @@ create procedure [dbo].[usp_SelectAllGender]
 as
 select Gender.id, Gender.description from Gender
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllLocation]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllLocation]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2454,7 +2370,7 @@ create procedure [dbo].[usp_SelectAllLocation]
 as
 select * from Location;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllNotOfferedCourse]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllNotOfferedCourse]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2466,7 +2382,7 @@ inner join [Location] on [Location].id = Course.locationID
 inner join Delivery on Delivery.id = Course.deliveryID
 where  Course.isCurrent != 1
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllPayment]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllPayment]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2475,7 +2391,7 @@ create procedure [dbo].[usp_SelectAllPayment]
 as
 select * from Payment;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllSemester]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllSemester]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2485,7 +2401,7 @@ create procedure [dbo].[usp_SelectAllSemester]
 as
 select * from Semester;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllStudent]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllStudent]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2508,7 +2424,7 @@ select	Student.id,Student.address, Gender.description,
 	inner join Course on CourseStudent.courseID = Course.id
 	inner join Delivery on Course.deliveryID = Delivery.id
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllTeacher]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllTeacher]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2526,7 +2442,7 @@ inner join Course on Course.id = CourseTeacher.courseID
 inner join Delivery on Course.deliveryID = Delivery.id
 order by Teacher.id asc
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllTimetables]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllTimetables]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2548,7 +2464,7 @@ left join CourseSemester on CourseSemester.courseID = Course.id
 left join Semester on Semester.id = CourseSemester.id
 left join Cluster on Cluster.courseID = Course.id
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectAllUnit]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectAllUnit]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2557,7 +2473,7 @@ create procedure [dbo].[usp_SelectAllUnit]
 as
 select * from Unit;
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectEnrolmentById]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectEnrolmentById]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2571,7 +2487,7 @@ inner join Course on Course.id = CourseStudent.courseID
 inner join Location on Location.id = Course.locationID
 where Student.id = @studentID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectTeacherHistoryByID]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectTeacherHistoryByID]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2589,7 +2505,7 @@ left join CourseSemester on CourseSemester.courseID = Course.id
 left join Semester on Semester.id = CourseSemester.semesterID
 where CourseTeacher.teacherID = @TeacherID
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectUnallocatedUnits]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectUnallocatedUnits]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2603,7 +2519,7 @@ select unitID from dbo.Course
 inner join Cluster on Cluster.courseID = Course.id
 where  Course.isCurrent = 1)
 GO
-/****** Object:  StoredProcedure [dbo].[usp_SelectUnenrolledStudents]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_SelectUnenrolledStudents]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2614,7 +2530,7 @@ select Student.id, Student.firstname, Student.lastname, Student.address
 from Student
 where Student.id not in (select * from vw_SelectCurrentStudentIDs)
 GO
-/****** Object:  StoredProcedure [dbo].[usp_StudentResultByID]    Script Date: 9/06/2021 2:07:55 PM ******/
+/****** Object:  StoredProcedure [dbo].[usp_StudentResultByID]    Script Date: 9/06/2021 8:00:58 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

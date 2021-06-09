@@ -54,9 +54,31 @@ namespace ModelLayer
             return control.GetDelivery();
         }
 
-        public IEnumerable<BusinessLayer.Student> GetStudents()
+        public IEnumerable<BusinessLayer.Student> GetStudents(bool sortTheOutput)
         {
-            return control.GetStudents();
+            IEnumerable<BusinessLayer.Student> unsortedList = control.GetStudents();
+
+            if (sortTheOutput)
+            {
+                List<BusinessLayer.Student> sortedList = new List<BusinessLayer.Student>();
+                int idToSortBy = -1;
+
+                foreach (var item in unsortedList)
+                {
+                    if (idToSortBy != item.Id)
+                    {
+                        sortedList.Add(item);
+                    }
+                    idToSortBy = item.Id;
+                }
+                return sortedList;
+
+            }
+            else
+            {
+                return unsortedList;
+            }
+
         }
 
         public IEnumerable<BusinessLayer.Student> GetAvailableStudents()
@@ -186,7 +208,7 @@ namespace ModelLayer
 
         public string DeleteStudent(int studentID)
         {
-            return control.DeleteTeacher(studentID);
+            return control.DeleteStudent(studentID);
         }
 
         public string DeleteUnit(int unitID)

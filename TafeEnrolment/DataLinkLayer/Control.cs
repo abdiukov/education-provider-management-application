@@ -605,8 +605,6 @@ namespace DataLinkLayer
             }
         }
 
-
-
         public IEnumerable<Gender> GetGenders()
         {
             List<Gender> outputlist = new List<Gender>();
@@ -1119,7 +1117,7 @@ namespace DataLinkLayer
                         Teacher output = new Teacher(dataReader.GetInt32(0), dataReader.GetString(1),
                             dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4),
                             dataReader.GetDateTime(5), dataReader.GetString(6), dataReader.GetString(7), dataReader.GetString(8),
-                             (dataReader[9].ToString() == "True"), (dataReader[10].ToString() != dataReader[11].ToString()));
+                             (dataReader[9].ToString() == "True"), (dataReader[10].ToString() != dataReader[11].ToString()), dataReader.GetInt32(10));
                         outputlist.Add(output);
                     }
                 }
