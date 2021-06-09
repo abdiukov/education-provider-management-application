@@ -3,7 +3,6 @@ using ModelLayer;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-
 namespace UI.Course
 {
     /// <summary>
@@ -16,15 +15,10 @@ namespace UI.Course
 
         public static List<BusinessLayer.Student> allStudents = new List<BusinessLayer.Student>();
 
-        private List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
+        public static List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
 
-        private List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
+        public static List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
 
-        public static List<BusinessLayer.Student> selectedStudents;
-
-        public static List<BusinessLayer.Unit> selectedUnits;
-
-        public static List<BusinessLayer.Teacher> selectedTeachers;
 
 
         Logic logic = new Logic();
@@ -43,13 +37,9 @@ namespace UI.Course
             //LOGIC
             allStudents = (List<BusinessLayer.Student>)logic.GetAvailableStudents();
             allUnits = (List<Unit>)logic.GetUnits();
-            allTeachers = (List<BusinessLayer.Teacher>)logic.GetTeachers();
+            allTeachers = (List<BusinessLayer.Teacher>)logic.GetTeachers(true);
 
             //RESETTING STATIC PUBLIC VALUES
-
-            selectedStudents = new List<BusinessLayer.Student>();
-            selectedUnits = new List<BusinessLayer.Unit>();
-            selectedTeachers = new List<BusinessLayer.Teacher>();
 
         }
 
@@ -82,13 +72,13 @@ namespace UI.Course
 
         private void BtnSelectTeachers_Click(object sender, RoutedEventArgs e)
         {
-            CourseSelectTeacher pageobj = new CourseSelectTeacher(allTeachers);
+            CourseSelectTeacher pageobj = new CourseSelectTeacher();
             pageobj.Show();
         }
 
         private void BtnSelectUnits_Click(object sender, RoutedEventArgs e)
         {
-            CourseSelectUnits pageobj = new CourseSelectUnits(allUnits);
+            CourseSelectUnits pageobj = new CourseSelectUnits();
             pageobj.Show();
         }
 
@@ -100,6 +90,129 @@ namespace UI.Course
 
         private void BtnAddCourse_Click(object sender, RoutedEventArgs e)
         {
+
+            string courseName = textBox_CourseName.Text;
+
+            if (string.IsNullOrWhiteSpace(courseName))
+            {
+                MessageBox.Show("Please enter something into \"Course name\" field");
+                return;
+            }
+
+            Location selectedLocation = (Location)comboBox_Locations.SelectedItem;
+
+            if (selectedLocation is null)
+            {
+                MessageBox.Show("Please select the location");
+                return;
+            }
+
+            int selectedLocationId = selectedLocation.Id;
+
+            Delivery selectedDelivery = (Delivery)comboBox_Delivery.SelectedItem;
+
+            if (selectedDelivery is null)
+            {
+                MessageBox.Show("Please select the delivery of the course");
+                return;
+            }
+
+            int selectedDeliveryId = selectedDelivery.ID;
+
+            Semester startSemester = (Semester)comboBox_SemesterStart.SelectedItem;
+
+            if (startSemester is null)
+            {
+                MessageBox.Show("Please select the start semester");
+                return;
+            }
+
+            Semester endSemester = (Semester)comboBox_SemesterEnd.SelectedItem;
+
+            if (endSemester is null)
+            {
+                MessageBox.Show("Please select the end semester");
+                return;
+            }
+
+            if (endSemester.StartDate < startSemester.StartDate)
+            {
+                MessageBox.Show("The start semester is bigger than end semester. Please select appropriate semesters");
+                return;
+            }
+
+            if (!double.TryParse(textBox_CourseCost.Text, out double courseCost))
+            {
+                MessageBox.Show("Please enter a number into \"Course Cost\" field");
+                return;
+            }
+
+            if (courseCost < 0)
+            {
+                MessageBox.Show("The course cost cannot be a negative number");
+                return;
+            }
+
+
+            List<int> selectedStudentIDs = new List<int>();
+            List<int> selectedTeacherIDs = new List<int>();
+            List<int> selectedUnitIDs = new List<int>();
+
+
+            foreach (var item in allStudents)
+            {
+                if (item.isSelected)
+                {
+                    selectedStudentIDs.Add(item.Id);
+                }
+            }
+
+            foreach (var item in allTeachers)
+            {
+                if (item.isSelected)
+                {
+                    selectedTeacherIDs.Add(item.Id);
+                }
+            }
+
+            foreach (var item in allUnits)
+            {
+                if (item.isSelected)
+                {
+                    selectedUnitIDs.Add(item.Id);
+                }
+            }
+
+            if (selectedStudentIDs.Count < 1)
+            {
+                MessageBox.Show("Please select at least one student to attend the course.");
+                return;
+            }
+
+            if (selectedTeacherIDs.Count < 1)
+            {
+                MessageBox.Show("Please select at least one teacher to teach the course.");
+                return;
+            }
+
+            if (selectedUnitIDs.Count < 1)
+            {
+                MessageBox.Show("Please select at least one unit that needs to be taught.");
+                return;
+            }
+
+            bool success = logic.InsertCourse(courseName, selectedLocationId, selectedDeliveryId, startSemester,
+                endSemester, courseCost, selectedStudentIDs, selectedTeacherIDs, selectedUnitIDs);
+
+            if (success)
+            {
+                MessageBox.Show("The course has been successfully inserted");
+            }
+            else
+            {
+                MessageBox.Show("Failed to insert the course. Please contact the administrator");
+            }
+
 
         }
 

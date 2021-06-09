@@ -17,9 +17,31 @@ namespace ModelLayer
         }
 
 
-        public IEnumerable<BusinessLayer.Teacher> GetTeachers()
+        public IEnumerable<BusinessLayer.Teacher> GetTeachers(bool sortTheOutput)
         {
-            return control.GetTeachers();
+            IEnumerable<BusinessLayer.Teacher> unsortedList = control.GetTeachers();
+
+            if (sortTheOutput)
+            {
+                List<BusinessLayer.Teacher> sortedList = new List<BusinessLayer.Teacher>();
+                int idToSortBy = -1;
+
+                foreach (var item in unsortedList)
+                {
+                    if (idToSortBy != item.Id)
+                    {
+                        sortedList.Add(item);
+                    }
+                    idToSortBy = item.Id;
+                }
+                return sortedList;
+
+            }
+            else
+            {
+                return unsortedList;
+            }
+
         }
 
         public IEnumerable<BusinessLayer.CourseSelection> GetCourses()

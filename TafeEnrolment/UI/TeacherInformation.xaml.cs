@@ -16,7 +16,7 @@ namespace UI
         public TeacherInformation()
         {
             InitializeComponent();
-            Teachers = (List<BusinessLayer.Teacher>)logic.GetTeachers();
+            Teachers = (List<BusinessLayer.Teacher>)logic.GetTeachers(false);
             dgTeacherProfiles.ItemsSource = Teachers;
         }
 

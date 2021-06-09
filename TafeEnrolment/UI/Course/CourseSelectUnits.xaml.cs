@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 
 namespace UI.Course
@@ -9,9 +8,10 @@ namespace UI.Course
     /// </summary>
     public partial class CourseSelectUnits : Window
     {
-        public CourseSelectUnits(List<BusinessLayer.Unit> allUnits)
+        public CourseSelectUnits()
         {
             InitializeComponent();
+            lbSelectUnits.ItemsSource = CourseProfile.allUnits;
 
         }
         private void Window_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
@@ -31,10 +31,10 @@ namespace UI.Course
         {
             if (lbSelectUnits.SelectedIndex != -1)
             {
-                //BusinessLayer.Student selectedItem = (BusinessLayer.Student)lbSelectStudent.SelectedItem;
-                //selectedItem.isSelected = !selectedItem.isSelected;
-                //lbSelectUnits.ItemsSource = null;
-                //lbSelectUnits.ItemsSource = CourseProfile.allStudents;
+                BusinessLayer.Unit selectedItem = (BusinessLayer.Unit)lbSelectUnits.SelectedItem;
+                selectedItem.isSelected = !selectedItem.isSelected;
+                lbSelectUnits.ItemsSource = null;
+                lbSelectUnits.ItemsSource = CourseProfile.allUnits;
             }
         }
 

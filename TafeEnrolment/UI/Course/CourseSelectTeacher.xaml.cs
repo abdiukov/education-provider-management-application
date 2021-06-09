@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 
 namespace UI.Course
@@ -9,10 +8,10 @@ namespace UI.Course
     /// </summary>
     public partial class CourseSelectTeacher : Window
     {
-        public CourseSelectTeacher(List<BusinessLayer.Teacher> allTeachers)
+        public CourseSelectTeacher()
         {
             InitializeComponent();
-            //   lbSelectTeacher.ItemsSource = CourseProfile.;
+            lbSelectTeacher.ItemsSource = CourseProfile.allTeachers;
         }
 
         private void Window_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
@@ -32,10 +31,10 @@ namespace UI.Course
         {
             if (lbSelectTeacher.SelectedIndex != -1)
             {
-                //BusinessLayer.Student selectedItem = (BusinessLayer.Student)lbSelectStudent.SelectedItem;
-                //selectedItem.isSelected = !selectedItem.isSelected;
-                //lbSelectTeacher.ItemsSource = null;
-                //lbSelectTeacher.ItemsSource = CourseProfile.allStudents;
+                BusinessLayer.Teacher selectedItem = (BusinessLayer.Teacher)lbSelectTeacher.SelectedItem;
+                selectedItem.isSelected = !selectedItem.isSelected;
+                lbSelectTeacher.ItemsSource = null;
+                lbSelectTeacher.ItemsSource = CourseProfile.allTeachers;
             }
         }
     }
