@@ -10,20 +10,21 @@
     <Grid>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button x:Name="NavigateTeacherInfo" Click="NavigateTeacherInfo_Click" Content="Search teacher" 
+        <Button x:Name="NavigateTeacherInfo" Click="NavigateTeacherInfo_Click" Content="View teachers" 
                 Grid.Column="0" Grid.Row="0"/>
         <Button x:Name="NavigateCourseInfo" Click="NavigateCourseInfo_Click" Content="See course information" 
                 Grid.Column="1" Grid.Row="0"/>
-        <Button x:Name="NavigateStudentInfo" Click="NavigateStudentInfo_Click" Content="Search student" 
+        <Button x:Name="NavigateStudentInfo" Click="NavigateStudentInfo_Click" Content="View students" 
                 Grid.Column="2" Grid.Row="0"/>
         <Button x:Name="AddTeacherInfo" Click="AddTeacherInfo_Click" Content="Add teacher" 
                 Grid.Column="0" Grid.Row="1"/>
@@ -31,5 +32,12 @@
                 Grid.Column="1" Grid.Row="1"/>
         <Button x:Name="AddStudentInfo" Click="AddStudentInfo_Click" Content="Add student" 
                 Grid.Column="2" Grid.Row="1"/>
+        <Button x:Name="AlterTeacherInfo" Click="AlterTeacherInfo_Click" Content="Delete/modify teacher" 
+                Grid.Column="0" Grid.Row="3"/>
+        <Button x:Name="AlterUnitInfo" Click="AlterUnitInfo_Click" Content="Delete/modify units" 
+                Grid.Column="1" Grid.Row="3"/>
+        <Button x:Name="AlterStudentInfo" Click="AlterStudentInfo_Click" Content="Delete/modify student" 
+                Grid.Column="3" Grid.Row="3"/>
+
     </Grid>
 </Window>

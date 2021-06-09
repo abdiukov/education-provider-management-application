@@ -64,6 +64,26 @@ namespace UI
             PageNavigation.GoToNewPage(new StudentProfile());
 
         }
+
+        private void AlterTeacherInfo_Click(object sender, RoutedEventArgs e)
+        {
+            //Hide();
+            //PageNavigation.GoToNewPage(new StudentProfile());
+        }
+
+        private void AlterStudentInfo_Click(object sender, RoutedEventArgs e)
+        {
+            //Hide();
+            //PageNavigation.GoToNewPage(new StudentProfile());
+        }
+
+        private void AlterUnitInfo_Click(object sender, RoutedEventArgs e)
+        {
+            //Hide();
+            //PageNavigation.GoToNewPage(new StudentProfile());
+        }
+
         //END OF NAVIGATION CODE
+
     }
 }
