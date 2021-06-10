@@ -193,7 +193,7 @@ namespace ModelLayer
                 control.InsertCourseStudentPayment(studentID, courseID, courseCost);
             }
 
-            for (int i = startSemester.Id; i < endSemester.Id; i++)
+            for (int i = startSemester.Id; i <= endSemester.Id; i++)
             {
                 control.InsertCourseSemester(courseID, i);
             }
