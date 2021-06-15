@@ -13,8 +13,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Course ID" Binding="{Binding Path='CourseID'}"/>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
-                <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
-                <DataGridTextColumn Header="Campus" Binding="{Binding Path='CampusName'}"/>
+                <DataGridTextColumn Header="Delivery" Binding="{Binding Path='CampusName'}"/>
+                <DataGridTextColumn Header="Campus" Binding="{Binding Path='Delivery'}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
