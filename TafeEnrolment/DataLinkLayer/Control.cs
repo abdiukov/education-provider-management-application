@@ -237,8 +237,6 @@ namespace DataLinkLayer
             }
         }
 
-
-
         public void InsertCluster(int courseID, int unitID)
         {
             try
