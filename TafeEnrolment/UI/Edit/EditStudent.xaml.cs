@@ -86,7 +86,7 @@ namespace UI.Edit
             string address = textBox_Address.Text;
             string mobile = textBox_PhoneNumber.Text;
             string email = textBox_Email.Text;
-            string dob = datePicker_DateOfBirth.SelectedDate.ToString();
+            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-mm-dd");
             string firstName = textBox_FirstName.Text;
             string lastName = textBox_LastName.Text;
             BusinessLayer.Student selectedStudent = (BusinessLayer.Student)cbSelectStudent.SelectedItem;

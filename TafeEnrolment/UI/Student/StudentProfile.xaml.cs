@@ -48,7 +48,7 @@ namespace UI.Student
 
             string mobile = textBox_PhoneNumber.Text;
             string email = textBox_Email.Text;
-            string dob = datePicker_DateOfBirth.SelectedDate.ToString();
+            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
             string firstName = textBox_FirstName.Text;
             string lastName = textBox_LastName.Text;
 

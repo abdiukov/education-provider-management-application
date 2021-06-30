@@ -2141,8 +2141,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE procedure [dbo].[usp_DeleteTeacher] @teacherID int
 as
+delete from CourseTeacher where CourseTeacher.teacherID = @teacherID
 delete from dbo.Teacher where Teacher.id = @teacherID   
-
 GO
 /****** Object:  StoredProcedure [dbo].[usp_DeleteUnit]    Script Date: 15/06/2021 2:28:29 PM ******/
 SET ANSI_NULLS ON
