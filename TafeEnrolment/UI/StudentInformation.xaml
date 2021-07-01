@@ -18,7 +18,7 @@
                 <DataGridTextColumn Header="First Name" Binding="{Binding Path='FirstName'}"/>
                 <DataGridTextColumn Header="Last Name" Binding="{Binding Path='LastName'}"/>
                 <DataGridTextColumn Header="Residence Address" Binding="{Binding Path='Address'}"/>
-                <DataGridTextColumn Header="Gender" Binding="{Binding Path='StudentGender'}"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Path='PersonGender'}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Path='Email'}"/>
                 <DataGridTextColumn Header="Mobile" Binding="{Binding Path='Mobile'}"/>
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding Path='DateofBirth',StringFormat=dd-MM-yyyy }"/>

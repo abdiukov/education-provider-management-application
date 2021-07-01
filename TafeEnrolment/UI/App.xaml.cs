@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace UI
@@ -15,7 +14,7 @@ namespace UI
 
         private void Application_Deactivated(object sender, System.EventArgs e)
         {
-            Task.Delay(30000).ContinueWith(t => CheckIfAppIsClosed());
+            //Task.Delay(30000).ContinueWith(t => CheckIfAppIsClosed());
         }
 
         private void CheckIfAppIsClosed()

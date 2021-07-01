@@ -71,7 +71,7 @@ namespace UI.Edit
             foreach (Gender item in allGenders)
             {
                 selectedGenderIndex++;
-                if (item.GenderDescription == selectedStudent.StudentGender)
+                if (item.GenderDescription == selectedStudent.PersonGender)
                 {
                     break;
                 }

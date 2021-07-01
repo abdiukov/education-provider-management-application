@@ -726,9 +726,9 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public IEnumerable<NotOfferedCourse> AllNotOfferedCourses()
+        public IEnumerable<CourseSelection> AllNotOfferedCourses()
         {
-            List<NotOfferedCourse> outputlist = new List<NotOfferedCourse>();
+            List<CourseSelection> outputlist = new List<CourseSelection>();
             try
             {
                 SqlConnection conn = new SqlConnection(_connectionString);
@@ -741,7 +741,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        NotOfferedCourse output = new NotOfferedCourse(dataReader.GetInt32(0), dataReader.GetString(1),
+                        CourseSelection output = new CourseSelection(dataReader.GetInt32(0), dataReader.GetString(1),
                             dataReader.GetString(2), dataReader.GetString(3));
                         outputlist.Add(output);
                     }

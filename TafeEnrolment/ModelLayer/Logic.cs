@@ -119,7 +119,7 @@ namespace ModelLayer
             return control.GetTeacherHistoryByID(teacherID);
         }
 
-        public IEnumerable<BusinessLayer.NotOfferedCourse> GetNotOfferedCourses()
+        public IEnumerable<BusinessLayer.CourseSelection> GetNotOfferedCourses()
         {
             return control.AllNotOfferedCourses();
         }
