@@ -114,7 +114,7 @@ namespace ModelLayer
             return control.GetClusters();
         }
 
-        public IEnumerable<BusinessLayer.Course> GetTeacherHistoryByID(int teacherID)
+        public IEnumerable<BusinessLayer.TeacherCourseHistory> GetTeacherHistoryByID(int teacherID)
         {
             return control.GetTeacherHistoryByID(teacherID);
         }
@@ -164,14 +164,14 @@ namespace ModelLayer
         public bool InsertCourse(string courseName, int locationID, int deliveryID, Semester startSemester, Semester endSemester,
             double courseCost, List<int> studentIDs, List<int> teacherIDs, List<int> unitIDs)
         {
-            int isCurrent = 0;
+            int IsCurrent = 0;
 
             if (endSemester.FinishDate > DateTime.Now)
             {
-                isCurrent = 1;
+                IsCurrent = 1;
             }
 
-            int courseID = control.InsertCourse(courseName, locationID, deliveryID, isCurrent);
+            int courseID = control.InsertCourse(courseName, locationID, deliveryID, IsCurrent);
 
             if (courseID == -9999)
             {

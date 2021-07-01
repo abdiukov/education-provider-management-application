@@ -9,15 +9,15 @@ namespace UI
     public partial class TeacherCourseHistory : Window
     {
         Logic logic = new Logic();
-        List<BusinessLayer.Course> Courses = new List<BusinessLayer.Course>();
-        List<BusinessLayer.Course> CoursesCopy = new List<BusinessLayer.Course>();
+        List<BusinessLayer.TeacherCourseHistory> Courses = new List<BusinessLayer.TeacherCourseHistory>();
+        List<BusinessLayer.TeacherCourseHistory> CoursesCopy = new List<BusinessLayer.TeacherCourseHistory>();
 
         //INITIALISATION CODE
         public TeacherCourseHistory(int teacherID)
         {
             InitializeComponent();
             this.Title = "Course history for ID " + teacherID;
-            Courses = (List<BusinessLayer.Course>)logic.GetTeacherHistoryByID(teacherID);
+            Courses = (List<BusinessLayer.TeacherCourseHistory>)logic.GetTeacherHistoryByID(teacherID);
             dgCourseHistory.ItemsSource = Courses;
             CoursesCopy = Courses;
         }
@@ -57,7 +57,7 @@ namespace UI
         private void Search()
         {
 
-            List<BusinessLayer.Course> SearchResult = PageLogic.SearchTeacherCourseHistory(checkbox_SearchPastCourse.IsChecked,
+            List<BusinessLayer.TeacherCourseHistory> SearchResult = PageLogic.SearchTeacherCourseHistory(checkbox_SearchPastCourse.IsChecked,
                 checkbox_SearchPresentCourse.IsChecked, Courses);
 
             dgCourseHistory.ItemsSource = SearchResult;

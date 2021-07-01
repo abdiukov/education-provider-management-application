@@ -1,13 +1,19 @@
 ﻿namespace BusinessLayer
 {
-    public class CourseSelection
+    /// <summary>
+    /// Class contains general information about courses
+    /// </summary>
+    public class CourseSelection : Course
     {
         //CONSTRUCTOR
+
+
+        /// <param name="CourseName">Name of the course e.g Certificate IV in Programming</param>
+        /// <param name="CampusName">Name of the campus e.g Granville</param>
+        /// <param name="Delivery">How the course is delivered e.g Full Time</param>
         public CourseSelection(int CourseID, string CourseName, string Delivery, string CampusName)
+            : base(CourseName, Delivery, CampusName)
         {
-            this.CourseName = CourseName;
-            this.CampusName = CampusName;
-            this.Delivery = Delivery;
             this.CourseID = CourseID;
         }
 
@@ -17,21 +23,7 @@
             get; set;
         }
 
-        public string CourseName
-        {
-            get; set;
-        }
-
-        public string CampusName
-        {
-            get; set;
-        }
-
-        public string Delivery
-        {
-            get; set;
-        }
-
+        //METHODS
         public override string ToString()
         {
             return CourseName + " - " + CampusName + " - " + Delivery;

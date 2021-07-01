@@ -18,48 +18,6 @@ namespace DataLinkLayer
             _connectionString = conn_string._connectionString;
         }
 
-        public List<Assessment> GetAssessments()
-        {
-            List<Assessment> outputlist = new List<Assessment>();
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("exec usp_SelectAllAssessment", conn);
-                SqlDataReader dataReader = cmd.ExecuteReader();
-
-                if (dataReader.HasRows)
-                {
-                    while (dataReader.Read())
-                    {
-
-                        Assessment output = new Assessment(dataReader.GetInt32(0), dataReader.GetString(1),
-                            dataReader.GetDateTime(2), dataReader.GetDateTime(3),
-                            (Assessment.AssessmentType)dataReader.GetInt32(4));
-                        outputlist.Add(output);
-                    }
-                }
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetAssessments()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetAssessments()\n" + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error has occured at GetAssessments()\n" + ex.Message);
-            }
-            //output
-            return outputlist;
-        }
-
         public IEnumerable<Delivery> GetDelivery()
         {
             List<Delivery> outputlist = new List<Delivery>();
@@ -99,7 +57,7 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public int InsertCourse(string courseName, int locationID, int deliveryID, int isCurrent)
+        public int InsertCourse(string courseName, int locationID, int deliveryID, int IsCurrent)
         {
             int output = -9999;
             try
@@ -108,11 +66,11 @@ namespace DataLinkLayer
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand
-                    ("exec usp_InsertCourse @name, @locationID, @deliveryID, @isCurrent", conn);
+                    ("exec usp_InsertCourse @name, @locationID, @deliveryID, @IsCurrent", conn);
                 cmd.Parameters.AddWithValue("@name", courseName);
                 cmd.Parameters.AddWithValue("@locationID", locationID);
                 cmd.Parameters.AddWithValue("@deliveryID", deliveryID);
-                cmd.Parameters.AddWithValue("@isCurrent", isCurrent);
+                cmd.Parameters.AddWithValue("@IsCurrent", IsCurrent);
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -846,9 +804,9 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public List<Course> GetTeacherHistoryByID(int teacherID)
+        public List<TeacherCourseHistory> GetTeacherHistoryByID(int teacherID)
         {
-            List<Course> outputlist = new List<Course>();
+            List<TeacherCourseHistory> outputlist = new List<TeacherCourseHistory>();
             try
             {
                 SqlConnection conn = new SqlConnection(_connectionString);
@@ -863,9 +821,9 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        Course output = new Course(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2),
-                            dataReader.GetInt32(3), dataReader.GetString(4), dataReader.GetString(5),
-                            (dataReader[6].ToString() == "True"));
+                        TeacherCourseHistory output = new TeacherCourseHistory(
+                            dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2),
+                            dataReader.GetString(3), (dataReader[4].ToString() == "True"));
                         outputlist.Add(output);
                     }
                 }

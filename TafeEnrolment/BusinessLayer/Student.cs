@@ -4,12 +4,10 @@ namespace BusinessLayer
 {
     public class Student : Person
     {
-
-
         //CONSTRUCTOR
         public Student(int id, string address, string personGender, string mobile, string email,
-            DateTime dateofBirth, string FirstName, string LastName, bool isFeesNotPaid, string Position, bool isCurrent)
-            : base(id, address, personGender, mobile, email, dateofBirth, FirstName, LastName, Position, isCurrent)
+            DateTime dateofBirth, string FirstName, string LastName, bool isFeesNotPaid, string Position, bool IsCurrent)
+            : base(id, address, personGender, mobile, email, dateofBirth, FirstName, LastName, Position, IsCurrent)
         {
             this.isSelected = false;
             this.isFeesNotPaid = isFeesNotPaid;

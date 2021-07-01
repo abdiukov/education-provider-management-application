@@ -13,7 +13,7 @@
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgStudentProfiles" MouseRightButtonDown="dgStudentProfiles_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="750" Height="250" IsReadOnly="True" AutoGenerateColumns="False" FontSize="12" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Currently attends" Binding="{Binding Path='isCurrent'}"/>
+                <DataGridTextColumn Header="Currently attends" Binding="{Binding Path='IsCurrent'}"/>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path='Id'}"/>
                 <DataGridTextColumn Header="First Name" Binding="{Binding Path='FirstName'}"/>
                 <DataGridTextColumn Header="Last Name" Binding="{Binding Path='LastName'}"/>

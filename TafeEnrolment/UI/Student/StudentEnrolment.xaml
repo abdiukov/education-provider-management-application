@@ -14,7 +14,7 @@
                 <DataGridTextColumn Header="Student First Name" Binding="{Binding Path='FirstName'}"/>
                 <DataGridTextColumn Header="Student Last Name" Binding="{Binding Path='LastName'}"/>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
-                <DataGridTextColumn Header="Is currently in progress" Binding="{Binding Path='isCurrent'}"/>
+                <DataGridTextColumn Header="Is currently in progress" Binding="{Binding Path='IsCurrent'}"/>
                 <DataGridTextColumn Header="Amount paid" Binding="{Binding Path='AmountPaid'}"/>
                 <DataGridTextColumn Header="Amount due" Binding="{Binding Path='AmountDue'}"/>
                 <DataGridTextColumn Header="Campus" Binding="{Binding Path='CourseLocation'}"/>

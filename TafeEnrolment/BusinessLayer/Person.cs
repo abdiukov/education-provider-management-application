@@ -6,7 +6,7 @@ namespace BusinessLayer
     {
         //CONSTRUCTOR
         public Person(int id, string address, string personGender, string mobile, string email,
-            DateTime dateofBirth, string FirstName, string LastName, string Position, bool isCurrent)
+            DateTime dateofBirth, string FirstName, string LastName, string Position, bool IsCurrent)
         {
             Id = id;
             this.FirstName = FirstName;
@@ -17,7 +17,7 @@ namespace BusinessLayer
             PersonGender = personGender;
             DateofBirth = dateofBirth;
             this.Position = Position;
-            this.isCurrent = isCurrent;
+            this.IsCurrent = IsCurrent;
         }
 
         public Person(int Id, string FirstName, string LastName, string Address)
@@ -34,7 +34,7 @@ namespace BusinessLayer
             get; set;
         }
 
-        public bool isCurrent
+        public bool IsCurrent
         {
             get; set;
         }

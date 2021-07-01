@@ -97,7 +97,7 @@ namespace UI.Teacher
                 return;
             }
 
-            CourseSelection selectedCourse = (CourseSelection)comboBox_Course.SelectedItem;
+            dynamic selectedCourse = comboBox_Course.SelectedItem;
 
             if (selectedCourse is null)
             {

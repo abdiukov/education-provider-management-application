@@ -8,9 +8,9 @@ namespace BusinessLayer
         //CONSTRUCTOR
         public Teacher(int id, string address, string personGender, string mobile, string email,
             DateTime dateofBirth, string FirstName, string LastName,
-            string Position, bool isCurrent, bool OtherThanBaseLocation,
+            string Position, bool IsCurrent, bool OtherThanBaseLocation,
             int BaseLocation)
-            : base(id, address, personGender, mobile, email, dateofBirth, FirstName, LastName, Position, isCurrent)
+            : base(id, address, personGender, mobile, email, dateofBirth, FirstName, LastName, Position, IsCurrent)
         {
             this.Position = Position;
             this.OtherThanBaseLocation = OtherThanBaseLocation;

@@ -179,29 +179,30 @@ namespace UI
             MessageBox.Show(searchQuery);
         }
 
-        public static List<BusinessLayer.Course> SearchTeacherCourseHistory(bool? searchPastCourse, bool? searchPresentCourse, List<BusinessLayer.Course> Courses)
+        public static List<BusinessLayer.TeacherCourseHistory> SearchTeacherCourseHistory
+            (bool? searchPastCourse, bool? searchPresentCourse, List<BusinessLayer.TeacherCourseHistory> Courses)
         {
             int v = 0;
             if ((bool)searchPastCourse) { v += 2; } //x
             if ((bool)searchPresentCourse) { v += 1; } //y
 
-            List<BusinessLayer.Course> output = new List<BusinessLayer.Course>();
+            List<BusinessLayer.TeacherCourseHistory> output = new List<BusinessLayer.TeacherCourseHistory>();
 
             switch (v)
             {
                 case 1: // y is true
-                    foreach (BusinessLayer.Course item in Courses)
+                    foreach (BusinessLayer.TeacherCourseHistory item in Courses)
                     {
-                        if (item.isCurrent == true)
+                        if (item.IsCurrent == true)
                         {
                             output.Add(item);
                         }
                     }
                     break;
                 case 2: // x is true
-                    foreach (BusinessLayer.Course item in Courses)
+                    foreach (BusinessLayer.TeacherCourseHistory item in Courses)
                     {
-                        if (item.isCurrent == false)
+                        if (item.IsCurrent == false)
                         {
                             output.Add(item);
                         }

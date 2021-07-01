@@ -17,7 +17,7 @@
                 <DataGridTextColumn Header="Amount of hours per unit" Binding="{Binding Path='UnitHoursAmount'}"/>
                 <DataGridTextColumn Header="Name of campus" Binding="{Binding Path='CampusName'}"/>
                 <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
-                <DataGridTextColumn Header="Course is currently being taught" Binding="{Binding Path='isCurrent'}"/>
+                <DataGridTextColumn Header="Course is currently being taught" Binding="{Binding Path='IsCurrent'}"/>
 
             </DataGrid.Columns>
         </DataGrid>
