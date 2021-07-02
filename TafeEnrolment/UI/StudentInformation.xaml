@@ -22,7 +22,7 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Path='Email'}"/>
                 <DataGridTextColumn Header="Mobile" Binding="{Binding Path='Mobile'}"/>
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding Path='DateofBirth',StringFormat=dd-MM-yyyy }"/>
-                <DataGridTextColumn Header="Not paid" Binding="{Binding Path='isFeesNotPaid'}"/>
+                <DataGridTextColumn Header="Not paid" Binding="{Binding Path='IsFeesNotPaid'}"/>
                 <DataGridTextColumn Header="Position" Binding="{Binding Path='Position'}"/>
                 <DataGridTemplateColumn Header="" >
                     <DataGridTemplateColumn.CellTemplate>

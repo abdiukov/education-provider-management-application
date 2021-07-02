@@ -28,7 +28,7 @@ namespace UI
                 case 1: // z is true
                     foreach (BusinessLayer.Student item in Students)
                     {
-                        if (item.isFeesNotPaid == true)
+                        if (item.IsFeesNotPaid == true)
                         {
                             output.Add(item);
                         }
@@ -46,7 +46,7 @@ namespace UI
                 case 3: // z and y are true
                     foreach (BusinessLayer.Student item in Students)
                     {
-                        if (item.Position == "Full Time" && item.isFeesNotPaid == true)
+                        if (item.Position == "Full Time" && item.IsFeesNotPaid == true)
                         {
                             output.Add(item);
                         }
@@ -64,7 +64,7 @@ namespace UI
                 case 5: //x and z are true
                     foreach (BusinessLayer.Student item in Students)
                     {
-                        if (item.Position != "Full Time" && item.isFeesNotPaid == true)
+                        if (item.Position != "Full Time" && item.IsFeesNotPaid == true)
                         {
                             output.Add(item);
                         }

@@ -1,7 +1,7 @@
 ﻿namespace BusinessLayer
 {
     /// <summary>
-    /// Contains infromation about a real course that is eihter being offered or has been offered in the past. 
+    /// Contains infromation about a real course that is either being offered or has been offered in the past. 
     /// </summary>
     public class TeacherCourseHistory : Course
     {

@@ -13,8 +13,6 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Course name" Binding="{Binding Path='CourseName'}"/>
                 <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
-                <DataGridTextColumn Header="Unit name" Binding="{Binding Path='UnitName'}"/>
-                <DataGridTextColumn Header="Amount of hours per unit" Binding="{Binding Path='UnitHoursAmount'}"/>
                 <DataGridTextColumn Header="Name of campus" Binding="{Binding Path='CampusName'}"/>
                 <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
                 <DataGridTextColumn Header="Course is currently being taught" Binding="{Binding Path='IsCurrent'}"/>

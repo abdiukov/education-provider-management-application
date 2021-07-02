@@ -32,7 +32,7 @@ namespace UI.Course
             if (lbSelectStudent.SelectedIndex != -1)
             {
                 BusinessLayer.Student selectedItem = (BusinessLayer.Student)lbSelectStudent.SelectedItem;
-                selectedItem.isSelected = !selectedItem.isSelected;
+                selectedItem.IsSelected = !selectedItem.IsSelected;
                 lbSelectStudent.ItemsSource = null;
                 lbSelectStudent.ItemsSource = CourseProfile.allStudents;
             }

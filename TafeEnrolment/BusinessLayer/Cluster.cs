@@ -7,9 +7,9 @@
     {
         //CONSTRUCTOR
 
-        /// <param name="ClusterID">ID of the Cluster</param>
-        /// <param name="UnitName">Name of unit that belongs to that Cluster</param>
-        /// <param name="HoursAmount">How many hours the unit(that belongs to cluster) contains</param>
+        /// <param name="ClusterID">ID of the Cluster e.g 15</param>
+        /// <param name="UnitName">Name of unit that belongs to that Cluster e.g Advanced algorithms </param>
+        /// <param name="HoursAmount">How many hours the unit(that belongs to cluster) contains e.g 200</param>
         public Cluster(int ClusterID, string UnitName, int HoursAmount)
         {
             this.ClusterID = ClusterID;

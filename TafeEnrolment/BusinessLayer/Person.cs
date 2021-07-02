@@ -2,20 +2,24 @@
 
 namespace BusinessLayer
 {
+    /// <summary>
+    /// Abstract class that is inherited by Teacher.cs and Student.cs
+    /// Abstract class contains personal information about a person
+    /// </summary>
     public abstract class Person
     {
         //CONSTRUCTOR
-        public Person(int id, string address, string personGender, string mobile, string email,
-            DateTime dateofBirth, string FirstName, string LastName, string Position, bool IsCurrent)
+        public Person(int Id, string Address, string PersonGender, string Mobile, string Email,
+            DateTime DateofBirth, string FirstName, string LastName, string Position, bool IsCurrent)
         {
-            Id = id;
+            this.Id = Id;
             this.FirstName = FirstName;
             this.LastName = LastName;
-            Address = address;
-            Mobile = mobile;
-            Email = email;
-            PersonGender = personGender;
-            DateofBirth = dateofBirth;
+            this.Address = Address;
+            this.Mobile = Mobile;
+            this.Email = Email;
+            this.PersonGender = PersonGender;
+            this.DateofBirth = DateofBirth;
             this.Position = Position;
             this.IsCurrent = IsCurrent;
         }
@@ -29,64 +33,21 @@ namespace BusinessLayer
         }
 
         //PROPERTIES
-        public string Position
-        {
-            get; set;
-        }
-
-        public bool IsCurrent
-        {
-            get; set;
-        }
-
-        public int Id
-        {
-            get; set;
-        }
-
-        public string FirstName
-        {
-            get; set;
-        }
-
-        public string LastName
-        {
-            get; set;
-        }
-        public string Email
-        {
-            get; set;
-        }
-
-        public string PersonGender
-        {
-            get; set;
-        }
-
-        public string Address
-        {
-            get; set;
-        }
-
-        public DateTime DateofBirth
-        {
-            get; set;
-        }
-
-        public string Mobile
-        {
-            get; set;
-        }
-
-
-        public bool isSelected
-        {
-            get; set;
-        }
+        public string Position { get; set; }
+        public bool IsCurrent { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PersonGender { get; set; }
+        public string Address { get; set; }
+        public DateTime DateofBirth { get; set; }
+        public string Mobile { get; set; }
+        public bool IsSelected { get; set; }
 
         public string IsSelectedString
         {
-            get { return isSelected ? "Selected" : "Not selected"; }
+            get { return IsSelected ? "Selected" : "Not selected"; }
         }
     }
 }

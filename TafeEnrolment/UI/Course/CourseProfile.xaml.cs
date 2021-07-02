@@ -21,7 +21,7 @@ namespace UI.Course
 
 
 
-        Logic logic = new Logic();
+        readonly Logic logic = new Logic();
         //INITIALISATION CODE
         public CourseProfile()
         {
@@ -117,7 +117,7 @@ namespace UI.Course
                 return;
             }
 
-            int selectedDeliveryId = selectedDelivery.ID;
+            int selectedDeliveryId = selectedDelivery.Id;
 
             Semester startSemester = (Semester)comboBox_SemesterStart.SelectedItem;
 
@@ -161,7 +161,7 @@ namespace UI.Course
 
             foreach (var item in allStudents)
             {
-                if (item.isSelected)
+                if (item.IsSelected)
                 {
                     selectedStudentIDs.Add(item.Id);
                 }
@@ -169,7 +169,7 @@ namespace UI.Course
 
             foreach (var item in allTeachers)
             {
-                if (item.isSelected)
+                if (item.IsSelected)
                 {
                     selectedTeacherIDs.Add(item.Id);
                 }
@@ -177,7 +177,7 @@ namespace UI.Course
 
             foreach (var item in allUnits)
             {
-                if (item.isSelected)
+                if (item.IsSelected)
                 {
                     selectedUnitIDs.Add(item.Id);
                 }

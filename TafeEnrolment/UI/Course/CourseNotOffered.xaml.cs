@@ -6,7 +6,7 @@ namespace UI
 {
     public partial class CourseNotOffered : Window
     {
-        Logic logic = new Logic();
+        readonly Logic logic = new Logic();
         //INITIALISATION CODE
         public CourseNotOffered()
         {
