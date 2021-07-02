@@ -13,9 +13,9 @@
         <Button Name="subjectsNotAllocated_navigation_btn" Content="See all units/subjects which are not allocated to any course in any semester." HorizontalAlignment="Left" Margin="174,312,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="subjectsNotAllocated_navigation_btn_Click"/>
         <Button Name="clusterUnitCourse_navigation_btn" Content="See cluster units for any course and semester." HorizontalAlignment="Left" Margin="174,156,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="clusterUnitCourse_navigation_btn_Click"/>
         <Button Name ="courseTimetables_navigation_btn" Content="Display course timetables" HorizontalAlignment="Left" Margin="174,78,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseTimetables_navigation_btn_Click"/>
-        <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
+        <DataGrid Name="dgNavigationBar" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
-                   Height="732" Width="25"
+                   HorizontalAlignment="Stretch" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"

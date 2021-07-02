@@ -21,9 +21,9 @@
         </DataGrid>
         <CheckBox Unchecked="checkbox_SearchPastCourse_Unchecked" Checked="checkbox_SearchPastCourse_Checked" x:Name="checkbox_SearchPastCourse"  Content="Taught in the past" HorizontalAlignment="Left" Margin="22,62,0,0" VerticalAlignment="Top"/>
         <CheckBox Unchecked="checkbox_SearchPresentCourse_Unchecked" Checked="checkbox_SearchPresentCourse_Checked" x:Name="checkbox_SearchPresentCourse"  Content="Currently teaches" HorizontalAlignment="Left" Margin="142,62,0,0" VerticalAlignment="Top"/>
-        <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
+        <DataGrid Name="dgNavigationBar" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
-                   Height="732" Width="25"
+                   HorizontalAlignment="Stretch" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"

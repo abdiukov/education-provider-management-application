@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="Courses currenty not offered" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen"   WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgCourseNotOffered" MouseRightButtonDown="dgCourseNotOffered_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <DataGrid Name="dgCourseNotOffered" MouseRightButtonDown="dgCourseNotOffered_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,60,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Course ID" Binding="{Binding Path='CourseID'}"/>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
@@ -17,9 +17,9 @@
                 <DataGridTextColumn Header="Campus" Binding="{Binding Path='Delivery'}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
+        <DataGrid Name="dgNavigationBar"
                    Margin="40,10,0,0" VerticalAlignment="Top" 
-                   Height="732" Width="25"
+                   HorizontalAlignment="Stretch" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"

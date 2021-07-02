@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgStudentEnrolment" MouseRightButtonDown="dgStudentEnrolment_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="12" FontFamily="Verdana">
+        <DataGrid Name="dgStudentEnrolment" MouseRightButtonDown="dgStudentEnrolment_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" AutoGenerateColumns="False" FontSize="12" FontFamily="Verdana" Margin="0,60,0,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Student First Name" Binding="{Binding Path='FirstName'}"/>
                 <DataGridTextColumn Header="Student Last Name" Binding="{Binding Path='LastName'}"/>
@@ -21,9 +21,9 @@
                 <DataGridTextColumn Header="Address" Binding="{Binding Path='CourseAddress'}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 
+        <DataGrid Name="dgNavigationBar" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
-                   Height="732" Width="25"
+                   HorizontalAlignment="Stretch" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
