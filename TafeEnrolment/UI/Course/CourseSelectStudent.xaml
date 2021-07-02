@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI.Course"
         mc:Ignorable="d"
         Height="250" Width="600" Title="Select students" 
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" 
+        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow" 
         PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus"
         >
 

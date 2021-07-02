@@ -179,7 +179,7 @@ namespace UI.Course
             {
                 if (item.IsSelected)
                 {
-                    selectedUnitIDs.Add(item.Id);
+                    selectedUnitIDs.Add(item.UnitID);
                 }
             }
 

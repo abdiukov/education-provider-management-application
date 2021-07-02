@@ -6,21 +6,29 @@
     /// </summary>
     public class Unit
     {
-        //CONSTRUCTOR
+        //CONSTRUCTORS
 
-        /// <param name="Id">ID of unit e.g 20</param>
-        /// <param name="Name">Name of unit e.g Advanced algorithms</param>
+        /// <param name="UnitID">ID of unit e.g 20</param>
+        /// <param name="UnitName">Name of unit e.g Advanced algorithms</param>
         /// <param name="NumberOfHours">Number of hours requried to complete the unit e.g 200</param>
-        public Unit(int Id, string Name, int NumberOfHours)
+        public Unit(int UnitID, string UnitName, int NumberOfHours)
         {
-            this.Id = Id;
-            this.Name = Name;
+            this.UnitID = UnitID;
+            this.UnitName = UnitName;
+            this.NumberOfHours = NumberOfHours;
+        }
+
+        /// <param name="UnitName">Name of unit e.g Advanced algorithms</param>
+        /// <param name="NumberOfHours">Number of hours requried to complete the unit e.g 200</param>
+        public Unit(string UnitName, int NumberOfHours)
+        {
+            this.UnitName = UnitName;
             this.NumberOfHours = NumberOfHours;
         }
 
         //PROPERTIES
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int UnitID { get; set; }
+        public string UnitName { get; set; }
         public int NumberOfHours { get; set; }
         public bool IsSelected { get; set; }
         public string IsSelectedString
@@ -31,7 +39,7 @@
         //METHODS
         public override string ToString()
         {
-            return Id + " | " + Name + " | Hours: " + NumberOfHours;
+            return UnitID + " | " + UnitName + " | Hours: " + NumberOfHours;
         }
     }
 }

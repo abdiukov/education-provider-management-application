@@ -124,7 +124,7 @@ namespace ModelLayer
             return control.AllNotOfferedCourses();
         }
 
-        public IEnumerable<BusinessLayer.Cluster> GetUnallocatedUnits()
+        public IEnumerable<BusinessLayer.Unit> GetUnallocatedUnits()
         {
             return control.GetUnallocatedUnits();
         }

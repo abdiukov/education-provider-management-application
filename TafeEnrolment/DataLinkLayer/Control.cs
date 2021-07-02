@@ -601,9 +601,9 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public IEnumerable<Cluster> GetUnallocatedUnits()
+        public IEnumerable<Unit> GetUnallocatedUnits()
         {
-            List<Cluster> outputlist = new List<Cluster>();
+            List<Unit> outputlist = new List<Unit>();
             try
             {
                 SqlConnection conn = new SqlConnection(_connectionString);
@@ -617,7 +617,7 @@ namespace DataLinkLayer
                     while (dataReader.Read())
                     {
 
-                        Cluster output = new Cluster(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2));
+                        Unit output = new Unit(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2));
                         outputlist.Add(output);
                     }
                 }

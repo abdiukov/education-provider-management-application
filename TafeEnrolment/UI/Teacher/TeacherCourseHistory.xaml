@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="Teacher course history" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgCourseHistory" MouseRightButtonDown="dgCourseHistory_MouseRightButtonDown" HorizontalAlignment="Center" Margin="22,77,22,0" VerticalAlignment="Top" Width="750" Height="323" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">

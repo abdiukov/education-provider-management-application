@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="Cluster units" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen"   WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgClusteredUnits" MouseRightButtonDown="dgClusteredUnits_MouseRightButtonDown" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Width="750" Height="300" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Cluster ID" Binding="{Binding Path='Id'}"/>
+                <DataGridTextColumn Header="Cluster ID" Binding="{Binding Path='ClusterID'}"/>
                 <DataGridTextColumn Header="Unit name" Binding="{Binding Path='UnitName'}"/>
-                <DataGridTextColumn Header="Amount of hours for unit" Binding="{Binding Path='HoursAmount'}"/>
+                <DataGridTextColumn Header="Amount of hours for unit" Binding="{Binding Path='NumberOfHours'}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 

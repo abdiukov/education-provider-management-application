@@ -51,14 +51,14 @@ namespace UI.Edit
         {
             Unit selectedUnit = (Unit)cbSelectUnit.SelectedItem;
 
-            textBox_Name.Text = selectedUnit.Name;
+            textBox_Name.Text = selectedUnit.UnitName;
             textBox_Hours.Text = selectedUnit.NumberOfHours.ToString(); ;
         }
 
         private void BtnDeleteUnit_Click(object sender, RoutedEventArgs e)
         {
             Unit selectedUnit = (Unit)cbSelectUnit.SelectedItem;
-            string outcome = logic.DeleteUnit(selectedUnit.Id);
+            string outcome = logic.DeleteUnit(selectedUnit.UnitID);
             MessageBox.Show(outcome);
             GoBack();
         }
@@ -82,7 +82,7 @@ namespace UI.Edit
                 return;
             }
 
-            string outcome = logic.EditUnit(selectedUnit.Id, unitName, amountOfHours);
+            string outcome = logic.EditUnit(selectedUnit.UnitID, unitName, amountOfHours);
             MessageBox.Show(outcome);
             GoBack();
         }

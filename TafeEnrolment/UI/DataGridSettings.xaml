@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="Hide columns" Height="250" Width="250" 
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus">
+        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow" PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus">
     <Grid>
         <ListBox Name="lbDataGridSettings" HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>

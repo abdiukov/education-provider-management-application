@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI.Edit"
         mc:Ignorable="d"
         Title="Edit student" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <DataGrid Name="dgNavigationBar" HorizontalAlignment="Left" 

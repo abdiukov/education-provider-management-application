@@ -45,30 +45,6 @@ namespace UI
 
         //SEARCH DATAGRID CODE
 
-        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                Search();
-            }
-        }
-
-        private void Search()
-        {
-            PageLogic.SearchCourseTimetable(SearchBox.Text);
-        }
-
-        private void SearchBox_MouseClick(object sender, MouseButtonEventArgs e)
-        {
-            PageLogic.SearchBoxReplaceDefaultValue(SearchBox.Text);
-        }
-
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
-        {
-            Search();
-        }
-
-
         //END OF SEARCH DATAGRID CODE
 
 

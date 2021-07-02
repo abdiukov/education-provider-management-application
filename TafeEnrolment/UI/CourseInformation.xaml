@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         Title="Course information" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
         <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
         <Button Name="courseNotOffered_navigation_btn" Content="See all courses which are not offered this semester" HorizontalAlignment="Left" Margin="174,234,0,0" VerticalAlignment="Top" Width="460" Height="73" Click="courseNotOffered_navigation_btn_Click"/>
