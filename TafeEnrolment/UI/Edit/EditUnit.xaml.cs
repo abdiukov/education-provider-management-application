@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using ModelLayer;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,13 +10,13 @@ namespace UI.Edit
     /// </summary>
     public partial class EditUnit : Window
     {
-        Logic logic = new Logic();
+
         public static List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
 
         public EditUnit()
         {
             InitializeComponent();
-            allUnits = (List<Unit>)logic.GetUnits();
+            allUnits = (List<Unit>)App.logic.GetUnits();
             cbSelectUnit.ItemsSource = allUnits;
         }
 
@@ -58,7 +57,7 @@ namespace UI.Edit
         private void BtnDeleteUnit_Click(object sender, RoutedEventArgs e)
         {
             Unit selectedUnit = (Unit)cbSelectUnit.SelectedItem;
-            string outcome = logic.DeleteUnit(selectedUnit.UnitID);
+            string outcome = App.logic.DeleteUnit(selectedUnit.UnitID);
             MessageBox.Show(outcome);
             GoBack();
         }
@@ -82,7 +81,7 @@ namespace UI.Edit
                 return;
             }
 
-            string outcome = logic.EditUnit(selectedUnit.UnitID, unitName, amountOfHours);
+            string outcome = App.logic.EditUnit(selectedUnit.UnitID, unitName, amountOfHours);
             MessageBox.Show(outcome);
             GoBack();
         }

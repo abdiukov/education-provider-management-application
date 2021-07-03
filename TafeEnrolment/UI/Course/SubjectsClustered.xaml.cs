@@ -1,17 +1,16 @@
-﻿using ModelLayer;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace UI
 {
     public partial class SubjectsClustered : Window
     {
-        Logic logic = new Logic();
+
         //INITIALISATION CODE
         public SubjectsClustered()
         {
             InitializeComponent();
-            dgClusteredUnits.ItemsSource = logic.GetClusters();
+            dgClusteredUnits.ItemsSource = App.logic.GetClusters();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

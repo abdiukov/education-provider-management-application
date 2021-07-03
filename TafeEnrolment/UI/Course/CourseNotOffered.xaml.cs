@@ -1,17 +1,15 @@
-﻿using ModelLayer;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace UI
 {
     public partial class CourseNotOffered : Window
     {
-        readonly Logic logic = new Logic();
         //INITIALISATION CODE
         public CourseNotOffered()
         {
             InitializeComponent();
-            dgCourseNotOffered.ItemsSource = logic.GetNotOfferedCourses();
+            dgCourseNotOffered.ItemsSource = App.logic.GetNotOfferedCourses();
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

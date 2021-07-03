@@ -1,5 +1,4 @@
-﻿using ModelLayer;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -8,7 +7,7 @@ namespace UI
 {
     public partial class TeacherCourseHistory : Window
     {
-        Logic logic = new Logic();
+
         List<BusinessLayer.TeacherCourseHistory> Courses = new List<BusinessLayer.TeacherCourseHistory>();
         List<BusinessLayer.TeacherCourseHistory> CoursesCopy = new List<BusinessLayer.TeacherCourseHistory>();
 
@@ -17,7 +16,7 @@ namespace UI
         {
             InitializeComponent();
             this.Title = "Course history for ID " + teacherID;
-            Courses = (List<BusinessLayer.TeacherCourseHistory>)logic.GetTeacherHistoryByID(teacherID);
+            Courses = (List<BusinessLayer.TeacherCourseHistory>)App.logic.GetTeacherHistoryByID(teacherID);
             dgCourseHistory.ItemsSource = Courses;
             CoursesCopy = Courses;
         }

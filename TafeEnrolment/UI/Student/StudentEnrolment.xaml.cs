@@ -1,17 +1,16 @@
-﻿using ModelLayer;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace UI.Student
 {
     public partial class StudentEnrolment : Window
     {
-        Logic logic = new Logic();
+
         //INITIALISATION CODE
         public StudentEnrolment(int studentID)
         {
             InitializeComponent();
-            dgStudentEnrolment.ItemsSource = logic.GetEnrolmentsByID(studentID);
+            dgStudentEnrolment.ItemsSource = App.logic.GetEnrolmentsByID(studentID);
             this.Title = "Enrolments for ID " + studentID;
 
         }

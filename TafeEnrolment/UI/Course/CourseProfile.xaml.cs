@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using ModelLayer;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,23 +20,23 @@ namespace UI.Course
 
 
 
-        readonly Logic logic = new Logic();
+
         //INITIALISATION CODE
         public CourseProfile()
         {
             InitializeComponent();
 
             //UI
-            comboBox_Locations.ItemsSource = logic.GetLocations();
-            comboBox_Delivery.ItemsSource = logic.GetDelivery();
-            IEnumerable<Semester> availableSemesters = logic.GetSemesters();
+            comboBox_Locations.ItemsSource = App.logic.GetLocations();
+            comboBox_Delivery.ItemsSource = App.logic.GetDelivery();
+            IEnumerable<Semester> availableSemesters = App.logic.GetSemesters();
             comboBox_SemesterStart.ItemsSource = availableSemesters;
             comboBox_SemesterEnd.ItemsSource = availableSemesters;
 
             //LOGIC
-            allStudents = (List<BusinessLayer.Student>)logic.GetAvailableStudents();
-            allUnits = (List<Unit>)logic.GetUnits();
-            allTeachers = (List<BusinessLayer.Teacher>)logic.GetTeachers(true);
+            allStudents = (List<BusinessLayer.Student>)App.logic.GetAvailableStudents();
+            allUnits = (List<Unit>)App.logic.GetUnits();
+            allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetTeachers(true);
 
             //RESETTING STATIC PUBLIC VALUES
 
@@ -201,7 +200,7 @@ namespace UI.Course
                 return;
             }
 
-            bool success = logic.InsertCourse(courseName, selectedLocationId, selectedDeliveryId, startSemester,
+            bool success = App.logic.InsertCourse(courseName, selectedLocationId, selectedDeliveryId, startSemester,
                 endSemester, courseCost, selectedStudentIDs, selectedTeacherIDs, selectedUnitIDs);
 
             if (success)

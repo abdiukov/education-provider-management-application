@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using ModelLayer;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,13 +6,13 @@ namespace UI.Student
 {
     public partial class StudentProfile : Window
     {
-        Logic logic = new Logic();
+
         //INITIALISATION CODE
         public StudentProfile()
         {
             InitializeComponent();
-            comboBox_GenderSelection.ItemsSource = logic.GetGenders();
-            comboBox_Course.ItemsSource = logic.GetCourses();
+            comboBox_GenderSelection.ItemsSource = App.logic.GetGenders();
+            comboBox_Course.ItemsSource = App.logic.GetCourses();
 
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -114,7 +113,7 @@ namespace UI.Student
                 return;
             }
 
-            string outcome = logic.InsertNewStudent(address, genderID, mobile, email, dob,
+            string outcome = App.logic.InsertNewStudent(address, genderID, mobile, email, dob,
                 firstName, lastName, courseID, CourseCost);
 
             MessageBox.Show(outcome);

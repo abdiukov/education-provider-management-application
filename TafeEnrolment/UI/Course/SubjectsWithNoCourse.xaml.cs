@@ -1,17 +1,16 @@
-﻿using ModelLayer;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace UI
 {
     public partial class SubjectsWithNoCourse : Window
     {
-        Logic logic = new Logic();
+
         //INITIALISATION CODE
         public SubjectsWithNoCourse()
         {
             InitializeComponent();
-            dgSubjectNoCourse.ItemsSource = logic.GetUnallocatedUnits();
+            dgSubjectNoCourse.ItemsSource = App.logic.GetUnallocatedUnits();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

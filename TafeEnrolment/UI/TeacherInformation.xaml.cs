@@ -1,5 +1,4 @@
-﻿using ModelLayer;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,14 +8,14 @@ namespace UI
 {
     public partial class TeacherInformation : Window
     {
-        Logic logic = new Logic();
+
         List<BusinessLayer.Teacher> Teachers = new List<BusinessLayer.Teacher>();
 
         //INITIALISATION CODE
         public TeacherInformation()
         {
             InitializeComponent();
-            Teachers = (List<BusinessLayer.Teacher>)logic.GetTeachers(false);
+            Teachers = (List<BusinessLayer.Teacher>)App.logic.GetTeachers(false);
             dgTeacherProfiles.ItemsSource = Teachers;
         }
 

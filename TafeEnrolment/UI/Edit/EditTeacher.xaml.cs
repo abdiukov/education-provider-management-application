@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using ModelLayer;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,16 +11,16 @@ namespace UI.Edit
     public partial class EditTeacher : Window
     {
 
-        Logic logic = new Logic();
+
         private List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
         private List<Gender> allGenders = new List<Gender>();
         private List<Location> allLocations = new List<Location>();
         public EditTeacher()
         {
             InitializeComponent();
-            allTeachers = (List<BusinessLayer.Teacher>)logic.GetTeachers(true);
-            allGenders = (List<BusinessLayer.Gender>)logic.GetGenders();
-            allLocations = (List<Location>)logic.GetLocations();
+            allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetTeachers(true);
+            allGenders = (List<BusinessLayer.Gender>)App.logic.GetGenders();
+            allLocations = (List<Location>)App.logic.GetLocations();
             comboBox_GenderSelection.ItemsSource = allGenders;
             cbSelectTeacher.ItemsSource = allTeachers;
             comboBox_Locations.ItemsSource = allLocations;
@@ -157,7 +156,7 @@ namespace UI.Edit
             }
 
 
-            string outcome = logic.EditTeacher(teacherID, address, genderID,
+            string outcome = App.logic.EditTeacher(teacherID, address, genderID,
                 mobile, email, dob, firstName, lastName, selectedLocation.Id);
             MessageBox.Show(outcome);
 
@@ -168,7 +167,7 @@ namespace UI.Edit
         {
             BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)cbSelectTeacher.SelectedItem;
 
-            string outcome = logic.DeleteTeacher(selectedTeacher.Id);
+            string outcome = App.logic.DeleteTeacher(selectedTeacher.Id);
             MessageBox.Show(outcome);
             GoBack();
         }

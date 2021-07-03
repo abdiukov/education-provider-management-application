@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using ModelLayer;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,7 +10,7 @@ namespace UI.Edit
     /// </summary>
     public partial class EditStudent : Window
     {
-        Logic logic = new Logic();
+
 
         private List<BusinessLayer.Student> allStudents = new List<BusinessLayer.Student>();
 
@@ -21,8 +20,8 @@ namespace UI.Edit
         public EditStudent()
         {
             InitializeComponent();
-            allStudents = (List<BusinessLayer.Student>)logic.GetStudents(true);
-            allGenders = (List<BusinessLayer.Gender>)logic.GetGenders();
+            allStudents = (List<BusinessLayer.Student>)App.logic.GetStudents(true);
+            allGenders = (List<BusinessLayer.Gender>)App.logic.GetGenders();
 
             cbSelectStudent.ItemsSource = allStudents;
             comboBox_GenderSelection.ItemsSource = allGenders;
@@ -137,7 +136,7 @@ namespace UI.Edit
                 return;
             }
 
-            string outcome = logic.EditStudent(studentID, address, genderID, mobile, email, dob, firstName, lastName);
+            string outcome = App.logic.EditStudent(studentID, address, genderID, mobile, email, dob, firstName, lastName);
             MessageBox.Show(outcome);
 
             GoBack();
@@ -147,7 +146,7 @@ namespace UI.Edit
         {
             BusinessLayer.Student selectedStudent = (BusinessLayer.Student)cbSelectStudent.SelectedItem;
 
-            string outcome = logic.DeleteStudent(selectedStudent.Id);
+            string outcome = App.logic.DeleteStudent(selectedStudent.Id);
             MessageBox.Show(outcome);
 
             GoBack();

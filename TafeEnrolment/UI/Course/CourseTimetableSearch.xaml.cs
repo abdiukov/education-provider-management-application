@@ -1,5 +1,4 @@
-﻿using ModelLayer;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -7,12 +6,12 @@ namespace UI
 {
     public partial class CourseTimetableSearch : Window
     {
-        Logic logic = new Logic();
+
         //INITIALISATION CODE
         public CourseTimetableSearch()
         {
             InitializeComponent();
-            dgTimetable.ItemsSource = logic.GetTimetables();
+            dgTimetable.ItemsSource = App.logic.GetTimetables();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

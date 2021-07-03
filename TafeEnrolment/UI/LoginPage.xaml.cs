@@ -1,5 +1,4 @@
-﻿using ModelLayer;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace UI
@@ -9,7 +8,7 @@ namespace UI
     /// </summary>
     public partial class LoginPage : Window
     {
-        Logic logic = new Logic();
+
         public LoginPage()
         {
             InitializeComponent();
@@ -31,7 +30,7 @@ namespace UI
 
         private void AttemptLogin()
         {
-            if (logic.AttemptLogin(Textbox_Username.Text, PasswordBox_Password.Password))
+            if (App.logic.AttemptLogin(Textbox_Username.Text, PasswordBox_Password.Password))
             {
                 MainWindow pageobj = new MainWindow();
                 pageobj.Show();
