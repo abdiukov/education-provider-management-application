@@ -17,29 +17,29 @@ namespace UI
         {
             InitializeComponent();
             this.Students = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetStudents");
-            dgStudentProfiles.ItemsSource = Students;
+            DgStudentProfiles.ItemsSource = Students;
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
         //END OF INITIALISATION CODE
 
         //SEARCH DATAGRID CODE
 
-        private void checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
+        private void Checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
         {
-            checkbox_SearchFullTime.IsChecked = false;
+            Checkbox_SearchFullTime.IsChecked = false;
         }
 
-        private void checkbox_SearchFullTime_Checked(object sender, RoutedEventArgs e)
+        private void Checkbox_SearchFullTime_Checked(object sender, RoutedEventArgs e)
         {
-            checkbox_SearchPartTime.IsChecked = false;
+            Checkbox_SearchPartTime.IsChecked = false;
         }
 
         private void SearchBox_MouseClick(object sender, MouseButtonEventArgs e)
@@ -56,9 +56,9 @@ namespace UI
             //making copy
             List<BusinessLayer.Student> StudentsCopy = new List<BusinessLayer.Student>(Students);
 
-            List<BusinessLayer.Student> SearchResult = PageLogic.SearchStudent(idToSearch, checkbox_SearchPartTime.IsChecked,
-    checkbox_SearchFullTime.IsChecked, checkbox_EnrolledNoFees.IsChecked, Students);
-            dgStudentProfiles.ItemsSource = SearchResult;
+            List<BusinessLayer.Student> SearchResult = PageLogic.SearchStudent(idToSearch, Checkbox_SearchPartTime.IsChecked,
+    Checkbox_SearchFullTime.IsChecked, Checkbox_EnrolledNoFees.IsChecked, Students);
+            DgStudentProfiles.ItemsSource = SearchResult;
             Students = StudentsCopy;
         }
 
@@ -79,7 +79,7 @@ namespace UI
 
 
         //PAGE NAVIGATION CODE
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToExistingPage(new MainWindow());
@@ -89,8 +89,8 @@ namespace UI
         private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            int selectedStudentID = Students.ElementAt(dgStudentProfiles.SelectedIndex).Id;
-            //string studentName = Students.ElementAt(dgStudentProfiles.SelectedIndex).FirstName + " " + Students.ElementAt(dgStudentProfiles.SelectedIndex).LastName;
+            int selectedStudentID = Students.ElementAt(DgStudentProfiles.SelectedIndex).Id;
+            //string studentName = Students.ElementAt(DgStudentProfiles.SelectedIndex).FirstName + " " + Students.ElementAt(DgStudentProfiles.SelectedIndex).LastName;
 
             PageNavigation.GoToNewOrExistingPage(new StudentResultSearch(selectedStudentID));
         }
@@ -99,26 +99,26 @@ namespace UI
         private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            int selectedStudentID = Students.ElementAt(dgStudentProfiles.SelectedIndex).Id;
-            //string studentName = Students.ElementAt(dgStudentProfiles.SelectedIndex).FirstName + " " + Students.ElementAt(dgStudentProfiles.SelectedIndex).LastName;
+            int selectedStudentID = Students.ElementAt(DgStudentProfiles.SelectedIndex).Id;
+            //string studentName = Students.ElementAt(DgStudentProfiles.SelectedIndex).FirstName + " " + Students.ElementAt(DgStudentProfiles.SelectedIndex).LastName;
 
             PageNavigation.GoToNewOrExistingPage(new StudentEnrolment(selectedStudentID));
         }
 
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
+            DgNavigationBar.CancelEdit();
             Hide();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
 
         //END OF PAGE NAVIGATION CODE
 
         //DATAGRID SETTINGS CODE
-        private void dgStudentProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void DgStudentProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            DataGridSettings page = new DataGridSettings(dgStudentProfiles);
+            DataGridSettings page = new DataGridSettings(DgStudentProfiles);
             page.Show();
         }
 

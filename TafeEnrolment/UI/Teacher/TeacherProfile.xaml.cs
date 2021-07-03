@@ -20,22 +20,22 @@ namespace UI.Teacher
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
 
         //END OF INITIALISATION CODE
 
         //NAVIGATION CODE
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
+            DgNavigationBar.CancelEdit();
             Hide();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
 
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToExistingPage(new MainWindow());
@@ -57,14 +57,14 @@ namespace UI.Teacher
                 return;
             }
 
-            Gender selectedGender = (Gender)comboBox_GenderSelection.SelectedItem;
+            Gender selecteDgender = (Gender)comboBox_GenderSelection.SelectedItem;
 
-            if (selectedGender is null)
+            if (selecteDgender is null)
             {
                 MessageBox.Show("Please select teacher gender field ");
             }
 
-            int genderID = selectedGender.GenderID;
+            int genderID = selecteDgender.GenderID;
 
             if (string.IsNullOrWhiteSpace(mobile))
             {

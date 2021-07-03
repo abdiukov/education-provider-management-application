@@ -19,25 +19,25 @@ namespace UI.Student
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
 
         //END OF INITIALISATION CODE
 
         //NAVIGATION CODE
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToExistingPage(new MainWindow());
             Hide();
         }
 
 
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            DgNavigationBar.CancelEdit();
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
             Hide();
         }
 
@@ -58,14 +58,14 @@ namespace UI.Student
                 return;
             }
 
-            Gender selectedGender = (Gender)comboBox_GenderSelection.SelectedItem;
+            Gender selecteDgender = (Gender)comboBox_GenderSelection.SelectedItem;
 
-            if (selectedGender is null)
+            if (selecteDgender is null)
             {
                 MessageBox.Show("Please enter a gender");
                 return;
             }
-            int genderID = selectedGender.GenderID;
+            int genderID = selecteDgender.GenderID;
 
             if (string.IsNullOrWhiteSpace(mobile))
             {

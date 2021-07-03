@@ -9,26 +9,26 @@ namespace UI
     /// </summary>
     public partial class DataGridSettings : Window
     {
-        private DataGrid dg;
-        public DataGridSettings(DataGrid dg)
+        private readonly DataGrid Dg;
+        public DataGridSettings(DataGrid Dg)
         {
             InitializeComponent();
-            this.dg = dg;
-            lbDataGridSettings.ItemsSource = dg.Columns;
+            this.Dg = Dg;
+            lbDataGridSettings.ItemsSource = Dg.Columns;
         }
 
         private void lbDataGridSettings_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (lbDataGridSettings.SelectedIndex != -1)
             {
-                switch (dg.Columns[lbDataGridSettings.SelectedIndex].Visibility)
+                switch (Dg.Columns[lbDataGridSettings.SelectedIndex].Visibility)
                 {
                     case Visibility.Visible:
-                        dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Hidden;
+                        Dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Hidden;
                         break;
                     case Visibility.Hidden:
                     case Visibility.Collapsed:
-                        dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Visible;
+                        Dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Visible;
                         break;
                 }
             }

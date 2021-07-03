@@ -11,30 +11,30 @@ namespace UI.Student
         public StudentResultSearch(int studentID)
         {
             InitializeComponent();
-            dgStudentResults.ItemsSource = App.logic.GetFromDB("GetStudentResults", new object[] { studentID });
+            DgStudentResults.ItemsSource = App.logic.GetFromDB("GetStudentResults", new object[] { studentID });
             this.Title = "Results for ID " + studentID;
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
         //END OF INITIALISATION CODE
 
         //NAVIGATION CODE
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToExistingPage(new StudentInformation());
             Hide();
         }
 
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            DgNavigationBar.CancelEdit();
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
             Hide();
         }
 
@@ -42,10 +42,10 @@ namespace UI.Student
 
         //DATAGRID SETTINGS CODE
 
-        private void dgStudentResults_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void DgStudentResults_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            DataGridSettings page = new DataGridSettings(dgStudentResults);
+            DataGridSettings page = new DataGridSettings(DgStudentResults);
             page.Show();
         }
 

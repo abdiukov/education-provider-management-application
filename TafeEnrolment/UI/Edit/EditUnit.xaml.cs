@@ -17,7 +17,7 @@ namespace UI.Edit
         {
             InitializeComponent();
             allUnits = (List<Unit>)App.logic.GetFromDB("GetUnits");
-            cbSelectUnit.ItemsSource = allUnits;
+            ComboBoxSelectUnit.ItemsSource = allUnits;
         }
 
         private void GoBack()
@@ -25,30 +25,30 @@ namespace UI.Edit
             Hide();
             PageNavigation.GoToExistingPage(new MainWindow());
         }
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             GoBack();
         }
 
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
+            DgNavigationBar.CancelEdit();
             Hide();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
 
-        private void cbSelectUnit_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBoxSelectUnit_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Unit selectedUnit = (Unit)cbSelectUnit.SelectedItem;
+            Unit selectedUnit = (Unit)ComboBoxSelectUnit.SelectedItem;
 
             textBox_Name.Text = selectedUnit.UnitName;
             textBox_Hours.Text = selectedUnit.NumberOfHours.ToString(); ;
@@ -56,7 +56,7 @@ namespace UI.Edit
 
         private void BtnDeleteUnit_Click(object sender, RoutedEventArgs e)
         {
-            Unit selectedUnit = (Unit)cbSelectUnit.SelectedItem;
+            Unit selectedUnit = (Unit)ComboBoxSelectUnit.SelectedItem;
             string outcome = App.logic.ManageDB("DeleteUnit", new object[] { selectedUnit.UnitID });
             MessageBox.Show(outcome);
             GoBack();
@@ -64,7 +64,7 @@ namespace UI.Edit
 
         private void BtnEditUnit_Click(object sender, RoutedEventArgs e)
         {
-            Unit selectedUnit = (Unit)cbSelectUnit.SelectedItem;
+            Unit selectedUnit = (Unit)ComboBoxSelectUnit.SelectedItem;
 
             string unitName = textBox_Name.Text;
 

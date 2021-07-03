@@ -12,9 +12,9 @@ namespace UI.Edit
     {
 
 
-        private List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
-        private List<Gender> allGenders = new List<Gender>();
-        private List<Location> allLocations = new List<Location>();
+        private readonly List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
+        private readonly List<Gender> allGenders = new List<Gender>();
+        private readonly List<Location> allLocations = new List<Location>();
         public EditTeacher()
         {
             InitializeComponent();
@@ -23,12 +23,12 @@ namespace UI.Edit
             allGenders = (List<BusinessLayer.Gender>)App.logic.GetFromDB("GetGenders");
             allLocations = (List<Location>)App.logic.GetFromDB("GetLocations");
             comboBox_GenderSelection.ItemsSource = allGenders;
-            cbSelectTeacher.ItemsSource = allTeachers;
+            ComboBoxSelectTeacher.ItemsSource = allTeachers;
             comboBox_Locations.ItemsSource = allLocations;
         }
 
 
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             GoBack();
         }
@@ -39,25 +39,25 @@ namespace UI.Edit
             PageNavigation.GoToExistingPage(new MainWindow());
         }
 
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
+            DgNavigationBar.CancelEdit();
             Hide();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
 
-        private void cbSelectTeacher_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBoxSelectTeacher_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)cbSelectTeacher.SelectedItem;
+            BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)ComboBoxSelectTeacher.SelectedItem;
 
             textBox_Address.Text = selectedTeacher.Address;
             textBox_PhoneNumber.Text = selectedTeacher.Mobile;
@@ -65,11 +65,11 @@ namespace UI.Edit
             textBox_FirstName.Text = selectedTeacher.FirstName;
             textBox_LastName.Text = selectedTeacher.LastName;
 
-            int selectedGenderIndex = -1;
+            int selecteDgenderIndex = -1;
 
             foreach (Gender item in allGenders)
             {
-                selectedGenderIndex++;
+                selecteDgenderIndex++;
                 if (item.GenderDescription == selectedTeacher.PersonGender)
                 {
                     break;
@@ -88,7 +88,7 @@ namespace UI.Edit
             }
 
 
-            comboBox_GenderSelection.SelectedIndex = selectedGenderIndex;
+            comboBox_GenderSelection.SelectedIndex = selecteDgenderIndex;
             datePicker_DateOfBirth.SelectedDate = selectedTeacher.DateofBirth;
             comboBox_Locations.SelectedIndex = selectedLocationIndex;
         }
@@ -101,7 +101,7 @@ namespace UI.Edit
             string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
             string firstName = textBox_FirstName.Text;
             string lastName = textBox_LastName.Text;
-            BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)cbSelectTeacher.SelectedItem;
+            BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)ComboBoxSelectTeacher.SelectedItem;
             int teacherID = selectedTeacher.Id;
 
             if (string.IsNullOrWhiteSpace(address))
@@ -110,14 +110,14 @@ namespace UI.Edit
                 return;
             }
 
-            Gender selectedGender = (Gender)comboBox_GenderSelection.SelectedItem;
+            Gender selecteDgender = (Gender)comboBox_GenderSelection.SelectedItem;
 
-            if (selectedGender is null)
+            if (selecteDgender is null)
             {
                 MessageBox.Show("Please enter a gender");
                 return;
             }
-            int genderID = selectedGender.GenderID;
+            int genderID = selecteDgender.GenderID;
 
             if (string.IsNullOrWhiteSpace(mobile))
             {
@@ -166,7 +166,7 @@ namespace UI.Edit
 
         private void BtnDeleteTeacher_Click(object sender, RoutedEventArgs e)
         {
-            BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)cbSelectTeacher.SelectedItem;
+            BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)ComboBoxSelectTeacher.SelectedItem;
 
             string outcome = App.logic.ManageDB("DeleteTeacher", new object[] { selectedTeacher.Id });
             MessageBox.Show(outcome);

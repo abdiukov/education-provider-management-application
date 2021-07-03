@@ -10,8 +10,8 @@
     <Grid>
         <TextBox Name="SearchBox" KeyDown="SearchBox_KeyDown" PreviewMouseDown="SearchBox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595"/>
         <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="692,52,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="SearchButton_Click"/>
-        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgTeacherProfiles" MouseRightButtonDown="dgTeacherProfiles_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,160,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="12" FontFamily="Verdana">
+        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
+        <DataGrid Name="DgTeacherProfiles" MouseRightButtonDown="DgTeacherProfiles_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,160,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="12" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Currently teaches" Binding="{Binding Path='IsCurrent'}"/>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path='Id'}"/>
@@ -35,17 +35,17 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <CheckBox x:Name="checkbox_SearchFullTime" Checked="checkbox_SearchFullTime_Checked" Content="Full Time" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox_SearchPartTime" Checked="checkbox_SearchPartTime_Checked" Content="Part Time" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkbox_SearchTeacherNotBasedLocation" Content="Teachers who teach at location other than their based location" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Checkbox_SearchFullTime" Checked="Checkbox_SearchFullTime_Checked" Content="Full Time" HorizontalAlignment="Left" Margin="77,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Checkbox_SearchPartTime" Checked="Checkbox_SearchPartTime_Checked" Content="Part Time" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="Checkbox_SearchTeacherNotBasedLocation" Content="Teachers who teach at location other than their based location" HorizontalAlignment="Left" Margin="77,114,0,0" VerticalAlignment="Top"/>
 
-        <DataGrid Name="dgNavigationBar" 
+        <DataGrid Name="DgNavigationBar" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    HorizontalAlignment="Stretch" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage" 
+                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage" 
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>

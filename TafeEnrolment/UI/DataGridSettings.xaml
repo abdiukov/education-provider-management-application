@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Hide columns" Height="250" Width="250" 
+        Title="Hide columns" Height="250" Width="300" 
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow" PreviewLostKeyboardFocus="Window_PreviewLostKeyboardFocus">
     <Grid>
         <ListBox Name="lbDataGridSettings" HorizontalContentAlignment="Stretch">

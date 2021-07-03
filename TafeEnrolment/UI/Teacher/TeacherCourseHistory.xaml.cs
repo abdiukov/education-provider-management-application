@@ -9,7 +9,7 @@ namespace UI
     {
 
         List<BusinessLayer.TeacherCourseHistory> Courses = new List<BusinessLayer.TeacherCourseHistory>();
-        List<BusinessLayer.TeacherCourseHistory> CoursesCopy = new List<BusinessLayer.TeacherCourseHistory>();
+        readonly List<BusinessLayer.TeacherCourseHistory> CoursesCopy = new List<BusinessLayer.TeacherCourseHistory>();
 
         //INITIALISATION CODE
         public TeacherCourseHistory(int teacherID)
@@ -17,7 +17,7 @@ namespace UI
             InitializeComponent();
             this.Title = "Course history for ID " + teacherID;
             Courses = (List<BusinessLayer.TeacherCourseHistory>)App.logic.GetFromDB("GetTeacherHistoryByID", new object[] { teacherID });
-            dgCourseHistory.ItemsSource = Courses;
+            DgCourseHistory.ItemsSource = Courses;
             CoursesCopy = Courses;
         }
 
@@ -25,8 +25,8 @@ namespace UI
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
 
@@ -35,14 +35,14 @@ namespace UI
 
         //NAVIGATION CODE
 
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
+            DgNavigationBar.CancelEdit();
             Hide();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
 
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToExistingPage(new TeacherInformation());
@@ -56,32 +56,32 @@ namespace UI
         private void Search()
         {
 
-            List<BusinessLayer.TeacherCourseHistory> SearchResult = PageLogic.SearchTeacherCourseHistory(checkbox_SearchPastCourse.IsChecked,
-                checkbox_SearchPresentCourse.IsChecked, Courses);
+            List<BusinessLayer.TeacherCourseHistory> SearchResult = PageLogic.SearchTeacherCourseHistory(Checkbox_SearchPastCourse.IsChecked,
+                Checkbox_SearchPresentCourse.IsChecked, Courses);
 
-            dgCourseHistory.ItemsSource = SearchResult;
+            DgCourseHistory.ItemsSource = SearchResult;
             Courses = CoursesCopy;
         }
 
 
-        private void checkbox_SearchPastCourse_Checked(object sender, RoutedEventArgs e)
+        private void Checkbox_SearchPastCourse_Checked(object sender, RoutedEventArgs e)
         {
-            checkbox_SearchPresentCourse.IsChecked = false;
+            Checkbox_SearchPresentCourse.IsChecked = false;
             Search();
         }
 
-        private void checkbox_SearchPresentCourse_Checked(object sender, RoutedEventArgs e)
+        private void Checkbox_SearchPresentCourse_Checked(object sender, RoutedEventArgs e)
         {
-            checkbox_SearchPastCourse.IsChecked = false;
+            Checkbox_SearchPastCourse.IsChecked = false;
             Search();
         }
 
-        private void checkbox_SearchPresentCourse_Unchecked(object sender, RoutedEventArgs e)
+        private void Checkbox_SearchPresentCourse_Unchecked(object sender, RoutedEventArgs e)
         {
             Search();
         }
 
-        private void checkbox_SearchPastCourse_Unchecked(object sender, RoutedEventArgs e)
+        private void Checkbox_SearchPastCourse_Unchecked(object sender, RoutedEventArgs e)
         {
             Search();
         }
@@ -91,10 +91,10 @@ namespace UI
 
         //DATAGRID SETTINGS CODE
 
-        private void dgCourseHistory_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void DgCourseHistory_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            DataGridSettings page = new DataGridSettings(dgCourseHistory);
+            DataGridSettings page = new DataGridSettings(DgCourseHistory);
             page.Show();
         }
 

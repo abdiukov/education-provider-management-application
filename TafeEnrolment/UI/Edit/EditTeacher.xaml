@@ -8,14 +8,14 @@
         Title="Edit teacher" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
-        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgNavigationBar" 
+        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
+        <DataGrid Name="DgNavigationBar" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    HorizontalAlignment="Stretch" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage"
+                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
@@ -75,7 +75,7 @@
         <TextBox Name="textBox_LastName" HorizontalAlignment="Left" Height="26" Margin="533,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <Button Name="BtnEditTeacher" Content="Alter teacher details" HorizontalAlignment="Left" Margin="50,343,0,0" VerticalAlignment="Top" Width="328" Height="57" Click="BtnEditTeacher_Click"/>
         <Button x:Name="BtnDeleteTeacher" Content="Delete teacher" HorizontalAlignment="Left" Margin="433,343,0,0" VerticalAlignment="Top" Width="328" Height="57" Click="BtnDeleteTeacher_Click"/>
-        <ComboBox SelectedIndex="0" Name="cbSelectTeacher" SelectionChanged="cbSelectTeacher_SelectionChanged" HorizontalAlignment="Left" Margin="50,76,0,0" VerticalAlignment="Top" Width="328" Height="38"/>
+        <ComboBox SelectedIndex="0" Name="ComboBoxSelectTeacher" SelectionChanged="ComboBoxSelectTeacher_SelectionChanged" HorizontalAlignment="Left" Margin="50,76,0,0" VerticalAlignment="Top" Width="328" Height="38"/>
         <Label Content="Select teacher you wish to edit" HorizontalAlignment="Left" Margin="50,45,0,0" VerticalAlignment="Top"/>
 
         <Label Content="Base location" HorizontalAlignment="Left" Margin="433,237,0,0" VerticalAlignment="Top" Width="94"/>

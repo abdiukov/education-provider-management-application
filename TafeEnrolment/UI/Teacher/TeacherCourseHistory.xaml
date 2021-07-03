@@ -8,8 +8,8 @@
         Title="Teacher course history" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
-        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgCourseHistory" MouseRightButtonDown="dgCourseHistory_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,90,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
+        <DataGrid Name="DgCourseHistory" MouseRightButtonDown="DgCourseHistory_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,90,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Course name" Binding="{Binding Path='CourseName'}"/>
                 <DataGridTextColumn Header="Semester" Binding="{Binding Path='Semester'}"/>
@@ -19,15 +19,15 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <CheckBox Unchecked="checkbox_SearchPastCourse_Unchecked" Checked="checkbox_SearchPastCourse_Checked" x:Name="checkbox_SearchPastCourse"  Content="Taught in the past" HorizontalAlignment="Left" Margin="22,62,0,0" VerticalAlignment="Top"/>
-        <CheckBox Unchecked="checkbox_SearchPresentCourse_Unchecked" Checked="checkbox_SearchPresentCourse_Checked" x:Name="checkbox_SearchPresentCourse"  Content="Currently teaches" HorizontalAlignment="Left" Margin="142,62,0,0" VerticalAlignment="Top"/>
-        <DataGrid Name="dgNavigationBar" 
+        <CheckBox Unchecked="Checkbox_SearchPastCourse_Unchecked" Checked="Checkbox_SearchPastCourse_Checked" x:Name="Checkbox_SearchPastCourse"  Content="Taught in the past" HorizontalAlignment="Left" Margin="22,62,0,0" VerticalAlignment="Top"/>
+        <CheckBox Unchecked="Checkbox_SearchPresentCourse_Unchecked" Checked="Checkbox_SearchPresentCourse_Checked" x:Name="Checkbox_SearchPresentCourse"  Content="Currently teaches" HorizontalAlignment="Left" Margin="142,62,0,0" VerticalAlignment="Top"/>
+        <DataGrid Name="DgNavigationBar" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    HorizontalAlignment="Stretch" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage"
+                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>

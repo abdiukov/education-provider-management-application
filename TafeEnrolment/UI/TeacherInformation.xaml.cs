@@ -16,15 +16,15 @@ namespace UI
         {
             InitializeComponent();
             Teachers = (List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers");
-            dgTeacherProfiles.ItemsSource = Teachers;
+            DgTeacherProfiles.ItemsSource = Teachers;
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
         //END OF INITIALISATION CODE
@@ -53,23 +53,23 @@ namespace UI
             }
             List<BusinessLayer.Teacher> TeachersCopy = new List<BusinessLayer.Teacher>(Teachers);
 
-            List<BusinessLayer.Teacher> SearchResult = PageLogic.SearchTeacher(idToSearch, checkbox_SearchPartTime.IsChecked,
-    checkbox_SearchFullTime.IsChecked, checkbox_SearchTeacherNotBasedLocation.IsChecked, Teachers);
+            List<BusinessLayer.Teacher> SearchResult = PageLogic.SearchTeacher(idToSearch, Checkbox_SearchPartTime.IsChecked,
+    Checkbox_SearchFullTime.IsChecked, Checkbox_SearchTeacherNotBasedLocation.IsChecked, Teachers);
 
 
             //making copy
-            dgTeacherProfiles.ItemsSource = SearchResult;
+            DgTeacherProfiles.ItemsSource = SearchResult;
             Teachers = TeachersCopy;
         }
 
-        private void checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
+        private void Checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
         {
-            checkbox_SearchFullTime.IsChecked = false;
+            Checkbox_SearchFullTime.IsChecked = false;
         }
 
-        private void checkbox_SearchFullTime_Checked(object sender, RoutedEventArgs e)
+        private void Checkbox_SearchFullTime_Checked(object sender, RoutedEventArgs e)
         {
-            checkbox_SearchPartTime.IsChecked = false;
+            Checkbox_SearchPartTime.IsChecked = false;
         }
 
         private void SearchBox_MouseClick(object sender, MouseButtonEventArgs e)
@@ -83,14 +83,14 @@ namespace UI
         //NAVIGATION CODE
 
 
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
+            DgNavigationBar.CancelEdit();
             Hide();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
 
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToExistingPage(new MainWindow());
             Hide();
@@ -99,16 +99,16 @@ namespace UI
         private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            int selectedTeacherID = Teachers.ElementAt(dgTeacherProfiles.SelectedIndex).Id;
+            int selectedTeacherID = Teachers.ElementAt(DgTeacherProfiles.SelectedIndex).Id;
             PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory(selectedTeacherID));
         }
 
         //END OF NAVIGATION CODE
 
         //DATAGRID SETTINGS CODE
-        private void dgTeacherProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void DgTeacherProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DataGridSettings page = new DataGridSettings(dgTeacherProfiles);
+            DataGridSettings page = new DataGridSettings(DgTeacherProfiles);
             page.Show();
         }
 

@@ -9,29 +9,29 @@ namespace UI
         public CourseNotOffered()
         {
             InitializeComponent();
-            dgCourseNotOffered.ItemsSource = App.logic.GetFromDB("AllNotOfferedCourses");
+            DgCourseNotOffered.ItemsSource = App.logic.GetFromDB("AllNotOfferedCourses");
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
         //END OF INITIALISATION CODE
 
         //PAGE NAVIGATION CODE
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToExistingPage(new CourseInformation());
         }
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
+            DgNavigationBar.CancelEdit();
             Hide();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
 
 
@@ -39,10 +39,10 @@ namespace UI
 
         //DATAGRID SETTINGS CODE
 
-        private void dgCourseNotOffered_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void DgCourseNotOffered_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            DataGridSettings page = new DataGridSettings(dgCourseNotOffered);
+            DataGridSettings page = new DataGridSettings(DgCourseNotOffered);
             page.Show();
         }
 

@@ -8,7 +8,7 @@
         Title="Student results" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
-        <DataGrid Name="dgStudentResults" MouseRightButtonDown="dgStudentResults_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,60,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <DataGrid Name="DgStudentResults" MouseRightButtonDown="DgStudentResults_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,60,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Student id" Binding="{Binding Path='StudentID'}"/>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
@@ -16,14 +16,14 @@
                 <DataGridTextColumn Header="Course Outcome" Binding="{Binding Path='Outcome'}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Name="goBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="goBack_navigation_btn_Click"/>
-        <DataGrid Name="dgNavigationBar" 
+        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
+        <DataGrid Name="DgNavigationBar" 
                    Margin="40,10,0,0" VerticalAlignment="Top" 
                    HorizontalAlignment="Stretch" Width="25"
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="dgNavigationBar_NavigateToSelectedPage"
+                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>

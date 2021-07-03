@@ -11,15 +11,15 @@ namespace UI
         public CourseTimetableSearch()
         {
             InitializeComponent();
-            dgTimetable.ItemsSource = App.logic.GetFromDB("GetTimetables");
+            DgTimetable.ItemsSource = App.logic.GetFromDB("GetTimetables");
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                dgNavigationBar.ItemsSource = null;
-                dgNavigationBar.ItemsSource = App.pagesVisitedTracker;
+                DgNavigationBar.ItemsSource = null;
+                DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
 
@@ -27,18 +27,18 @@ namespace UI
 
         //NAVIGATION CODE
 
-        private void goBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToExistingPage(new CourseInformation());
         }
 
 
-        private void dgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
-            dgNavigationBar.CancelEdit();
+            DgNavigationBar.CancelEdit();
             Hide();
-            PageNavigation.GoToExistingPage(dgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
         //END OF NAVIGATION CODE
 
@@ -49,10 +49,10 @@ namespace UI
 
         //DATAGRID SETTINGS CODE
 
-        private void dgTimetable_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void DgTimetable_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
-            DataGridSettings page = new DataGridSettings(dgTimetable);
+            DataGridSettings page = new DataGridSettings(DgTimetable);
             page.Show();
         }
 
