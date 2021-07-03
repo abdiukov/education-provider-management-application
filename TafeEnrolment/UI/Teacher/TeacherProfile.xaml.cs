@@ -117,8 +117,8 @@ namespace UI.Teacher
 
 
 
-            string outcome = App.logic.InsertNewTeacher(address, genderID, mobile, email, dob,
-              firstName, lastName, courseID, locationID);
+            string outcome =
+                App.logic.ManageDB("InsertNewTeacher", new object[] { address, genderID, mobile, email, dob, firstName, lastName, courseID, locationID });
 
             MessageBox.Show(outcome);
         }

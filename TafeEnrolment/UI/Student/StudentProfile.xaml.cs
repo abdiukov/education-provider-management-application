@@ -113,8 +113,8 @@ namespace UI.Student
                 return;
             }
 
-            string outcome = App.logic.InsertNewStudent(address, genderID, mobile, email, dob,
-                firstName, lastName, courseID, CourseCost);
+            string outcome = App.logic.ManageDB("InsertNewStudent", new object[]{address, genderID, mobile, email, dob,
+                firstName, lastName, courseID, CourseCost });
 
             MessageBox.Show(outcome);
         }

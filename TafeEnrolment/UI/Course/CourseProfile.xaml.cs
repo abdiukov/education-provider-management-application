@@ -36,7 +36,8 @@ namespace UI.Course
             //LOGIC
             allStudents = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetAvailableStudents");
             allUnits = (List<Unit>)App.logic.GetFromDB("GetUnits");
-            allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetTeachers(true);
+            allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers");
+            allTeachers = (List<BusinessLayer.Teacher>)App.logic.SortTeacherList(allTeachers);
 
             //RESETTING STATIC PUBLIC VALUES
 

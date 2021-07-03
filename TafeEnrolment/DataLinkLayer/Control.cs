@@ -744,7 +744,6 @@ namespace DataLinkLayer
         /// </summary>
         /// <param name="courseID">ID of the course e.g 12</param>
         /// <param name="semesterID">ID of the semester e.g 5</param>
-        /// <param name="semesterID">ID of the semester e.g 5</param>
         public void InsertCourseSemester(int courseID, int semesterID)
         {
             try

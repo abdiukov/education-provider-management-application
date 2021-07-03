@@ -3,7 +3,7 @@
 namespace BusinessLayer
 {
     /// <summary>
-    /// Abstract class that is inherited by Teacher.cs and Student.cs
+    /// Abstract class that is inherited by Teacher.cs and Student.cs.
     /// Abstract class contains personal information about a person
     /// </summary>
     public abstract class Person

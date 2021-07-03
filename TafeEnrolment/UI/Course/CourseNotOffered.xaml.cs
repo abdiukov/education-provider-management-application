@@ -9,7 +9,7 @@ namespace UI
         public CourseNotOffered()
         {
             InitializeComponent();
-            dgCourseNotOffered.ItemsSource = App.logic.GetFromDB("GetNotOfferedCourses");
+            dgCourseNotOffered.ItemsSource = App.logic.GetFromDB("AllNotOfferedCourses");
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

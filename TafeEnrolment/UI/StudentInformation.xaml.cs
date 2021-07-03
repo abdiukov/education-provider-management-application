@@ -16,7 +16,7 @@ namespace UI
         public StudentInformation()
         {
             InitializeComponent();
-            this.Students = (List<BusinessLayer.Student>)App.logic.GetStudents(false);
+            this.Students = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetStudents");
             dgStudentProfiles.ItemsSource = Students;
         }
 

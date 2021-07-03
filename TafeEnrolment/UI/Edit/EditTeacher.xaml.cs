@@ -18,7 +18,8 @@ namespace UI.Edit
         public EditTeacher()
         {
             InitializeComponent();
-            allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetTeachers(true);
+            allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers");
+            allTeachers = (List<BusinessLayer.Teacher>)App.logic.SortTeacherList(allTeachers);
             allGenders = (List<BusinessLayer.Gender>)App.logic.GetFromDB("GetGenders");
             allLocations = (List<Location>)App.logic.GetFromDB("GetLocations");
             comboBox_GenderSelection.ItemsSource = allGenders;
@@ -156,8 +157,8 @@ namespace UI.Edit
             }
 
 
-            string outcome = App.logic.EditTeacher(teacherID, address, genderID,
-                mobile, email, dob, firstName, lastName, selectedLocation.Id);
+            string outcome = App.logic.ManageDB("EditTeacher",
+                new object[] { teacherID, address, genderID, mobile, email, dob, firstName, lastName, selectedLocation.Id });
             MessageBox.Show(outcome);
 
             GoBack();
@@ -167,7 +168,7 @@ namespace UI.Edit
         {
             BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)cbSelectTeacher.SelectedItem;
 
-            string outcome = App.logic.DeleteTeacher(selectedTeacher.Id);
+            string outcome = App.logic.ManageDB("DeleteTeacher", new object[] { selectedTeacher.Id });
             MessageBox.Show(outcome);
             GoBack();
         }

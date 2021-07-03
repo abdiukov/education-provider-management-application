@@ -20,7 +20,8 @@ namespace UI.Edit
         public EditStudent()
         {
             InitializeComponent();
-            allStudents = (List<BusinessLayer.Student>)App.logic.GetStudents(true);
+            allStudents = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetStudents");
+            allStudents = App.logic.SortStudentList(allStudents);
             allGenders = (List<BusinessLayer.Gender>)App.logic.GetFromDB("GetGenders");
 
             cbSelectStudent.ItemsSource = allStudents;
@@ -136,7 +137,8 @@ namespace UI.Edit
                 return;
             }
 
-            string outcome = App.logic.EditStudent(studentID, address, genderID, mobile, email, dob, firstName, lastName);
+            string outcome = App.logic.ManageDB("EditStudent",
+                new object[] { studentID, address, genderID, mobile, email, dob, firstName, lastName });
             MessageBox.Show(outcome);
 
             GoBack();
@@ -146,7 +148,7 @@ namespace UI.Edit
         {
             BusinessLayer.Student selectedStudent = (BusinessLayer.Student)cbSelectStudent.SelectedItem;
 
-            string outcome = App.logic.DeleteStudent(selectedStudent.Id);
+            string outcome = App.logic.ManageDB("DeleteStudent", new object[] { selectedStudent.Id });
             MessageBox.Show(outcome);
 
             GoBack();
