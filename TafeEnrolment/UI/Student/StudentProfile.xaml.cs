@@ -11,8 +11,8 @@ namespace UI.Student
         public StudentProfile()
         {
             InitializeComponent();
-            comboBox_GenderSelection.ItemsSource = App.logic.GetGenders();
-            comboBox_Course.ItemsSource = App.logic.GetCourses();
+            comboBox_GenderSelection.ItemsSource = App.logic.GetFromDB("GetGenders");
+            comboBox_Course.ItemsSource = App.logic.GetFromDB("GetCourses");
 
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

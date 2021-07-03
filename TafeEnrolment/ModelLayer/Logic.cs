@@ -5,16 +5,38 @@ using System.Collections.Generic;
 
 namespace ModelLayer
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Logic
     {
         private readonly Control control;
+        private readonly Type controlType;
         /// <summary>
         /// The consturctor links to the Control.cs in the Model Layer
         /// </summary>
         public Logic()
         {
-            this.control = new Control();
+            control = new Control();
+            controlType = control.GetType();
         }
+
+
+        public IEnumerable<object> GetFromDB(string command)
+        {
+            return (IEnumerable<object>)controlType.GetMethod(command).Invoke(control, null);
+        }
+
+        public IEnumerable<object> GetFromDB(string command, object[] parameters)
+        {
+            return (IEnumerable<object>)controlType.GetMethod(command).Invoke(control, parameters);
+        }
+
+        public string ManageDB(string command, object[] parameters)
+        {
+            return (string)controlType.GetMethod(command).Invoke(control, parameters);
+        }
+
 
 
         public IEnumerable<BusinessLayer.Teacher> GetTeachers(bool sortTheOutput)
@@ -44,16 +66,6 @@ namespace ModelLayer
 
         }
 
-        public IEnumerable<BusinessLayer.CourseSelection> GetCourses()
-        {
-            return control.GetCourses();
-        }
-
-        public IEnumerable<BusinessLayer.Delivery> GetDelivery()
-        {
-            return control.GetDelivery();
-        }
-
         public IEnumerable<BusinessLayer.Student> GetStudents(bool sortTheOutput)
         {
             IEnumerable<BusinessLayer.Student> unsortedList = control.GetStudents();
@@ -81,61 +93,8 @@ namespace ModelLayer
 
         }
 
-        public IEnumerable<BusinessLayer.Student> GetAvailableStudents()
-        {
-            return control.GetAvailableStudents();
-        }
-
-
-        public IEnumerable<BusinessLayer.Enrolment> GetEnrolmentsByID(int studentID)
-        {
-            return control.GetEnrolmentsByID(studentID);
-        }
-
-
-        public IEnumerable<BusinessLayer.Location> GetLocations()
-        {
-            return control.GetLocations();
-        }
-
-        public IEnumerable<BusinessLayer.StudentResult> GetStudentResults(int studentID)
-        {
-            return control.GetStudentResults(studentID);
-        }
-
-        public bool AttemptLogin(string username, string password)
-        {
-            return control.AttemptLogin(username, password);
-        }
-
-
-        public IEnumerable<BusinessLayer.Cluster> GetClusters()
-        {
-            return control.GetClusters();
-        }
-
-        public IEnumerable<BusinessLayer.TeacherCourseHistory> GetTeacherHistoryByID(int teacherID)
-        {
-            return control.GetTeacherHistoryByID(teacherID);
-        }
-
-        public IEnumerable<BusinessLayer.CourseSelection> GetNotOfferedCourses()
-        {
-            return control.AllNotOfferedCourses();
-        }
-
-        public IEnumerable<BusinessLayer.Unit> GetUnallocatedUnits()
-        {
-            return control.GetUnallocatedUnits();
-        }
-
-        public IEnumerable<BusinessLayer.Timetable> GetTimetables()
-        {
-            return control.GetTimetables();
-        }
-
         public string InsertNewStudent(string address, int genderID, string mobile, string email, string dob,
-            string firstName, string lastName, int courseID, double courseCost)
+    string firstName, string lastName, int courseID, double courseCost)
         {
             return control.InsertNewStudent(address, genderID, mobile, email, dob, firstName,
                 lastName, courseID, courseCost);
@@ -149,20 +108,8 @@ namespace ModelLayer
                 lastName, courseID, locationID);
         }
 
-
-        public IEnumerable<BusinessLayer.Gender> GetGenders()
-        {
-            return control.GetGenders();
-        }
-
-        public IEnumerable<BusinessLayer.Semester> GetSemesters()
-        {
-            return control.GetSemesters();
-        }
-
-
         public bool InsertCourse(string courseName, int locationID, int deliveryID, Semester startSemester, Semester endSemester,
-            double courseCost, List<int> studentIDs, List<int> teacherIDs, List<int> unitIDs)
+    double courseCost, List<int> studentIDs, List<int> teacherIDs, List<int> unitIDs)
         {
             int IsCurrent = 0;
 
@@ -201,6 +148,12 @@ namespace ModelLayer
             return true;
         }
 
+
+        public bool AttemptLogin(string username, string password)
+        {
+            return control.AttemptLogin(username, password);
+        }
+
         public string DeleteTeacher(int teacherID)
         {
             return control.DeleteTeacher(teacherID);
@@ -215,7 +168,6 @@ namespace ModelLayer
         {
             return control.DeleteUnit(unitID);
         }
-
 
         public string EditUnit(int unitID, string unitName, int hoursAmount)
         {
@@ -233,68 +185,6 @@ namespace ModelLayer
         {
             return control.EditStudent(studentID, address, genderID, mobile, email, dob, firstName, lastName);
         }
-        public IEnumerable<Unit> GetUnits()
-        {
-            return control.GetUnits();
-        }
-
-        //public IEnumerable<BusinessLayer.Teacher> GetPartTimeTeachers()
-        //{
-        //    IEnumerable<BusinessLayer.Teacher> unsorted_teachers = control.GetTeachers();
-        //    List<BusinessLayer.Teacher> output = new List<BusinessLayer.Teacher>();
-        //    foreach (var teacher in unsorted_teachers)
-        //    {
-        //        if (teacher.Position == "Part Time")
-        //        {
-        //            output.Add(teacher);
-        //        }
-        //    }
-        //    return output;
-        //}
-
-
-        //public IEnumerable<BusinessLayer.Student> GetPartTimeStudents()
-        //{
-        //    IEnumerable<BusinessLayer.Student> unsorted_students = control.GetStudents();
-        //    List<BusinessLayer.Student> output = new List<BusinessLayer.Student>();
-        //    foreach (var student in unsorted_students)
-        //    {
-        //        if (student.Position == "Part Time")
-        //        {
-        //            output.Add(student);
-        //        }
-        //    }
-        //    return output;
-        //}
-
-        //public IEnumerable<BusinessLayer.Student> GetFullTimeStudents()
-        //{
-        //    IEnumerable<BusinessLayer.Student> unsorted_students = control.GetStudents();
-        //    List<BusinessLayer.Student> output = new List<BusinessLayer.Student>();
-        //    foreach (var student in unsorted_students)
-        //    {
-        //        if (student.Position == "Full Time")
-        //        {
-        //            output.Add(student);
-        //        }
-        //    }
-        //    return output;
-        //}
-
-        //public IEnumerable<BusinessLayer.Teacher> GetFullTimeTeachersOtherThanBasedLocation()
-        //{
-        //    IEnumerable<BusinessLayer.Teacher> unsorted_teachers = control.GetTeachers();
-        //    List<BusinessLayer.Teacher> output = new List<BusinessLayer.Teacher>();
-        //    foreach (var teacher in unsorted_teachers)
-        //    {
-        //        if (teacher.Position == "Full Time" //&& teacher's location is other than based location
-        //            )
-        //        {
-        //            output.Add(teacher);
-        //        }
-        //    }
-        //    return output;
-        //}
 
     }
 }

@@ -10,7 +10,7 @@ namespace UI.Student
         public StudentEnrolment(int studentID)
         {
             InitializeComponent();
-            dgStudentEnrolment.ItemsSource = App.logic.GetEnrolmentsByID(studentID);
+            dgStudentEnrolment.ItemsSource = App.logic.GetFromDB("GetEnrolmentsByID", new object[] { studentID });
             this.Title = "Enrolments for ID " + studentID;
 
         }

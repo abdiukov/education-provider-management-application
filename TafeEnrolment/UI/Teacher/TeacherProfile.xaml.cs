@@ -11,9 +11,9 @@ namespace UI.Teacher
         public TeacherProfile()
         {
             InitializeComponent();
-            comboBox_GenderSelection.ItemsSource = App.logic.GetGenders();
-            comboBox_Course.ItemsSource = App.logic.GetCourses();
-            comboBox_Locations.ItemsSource = App.logic.GetLocations();
+            comboBox_GenderSelection.ItemsSource = App.logic.GetFromDB("GetGenders");
+            comboBox_Course.ItemsSource = App.logic.GetFromDB("GetCourses");
+            comboBox_Locations.ItemsSource = App.logic.GetFromDB("GetLocations");
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

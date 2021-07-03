@@ -21,7 +21,7 @@ namespace UI.Edit
         {
             InitializeComponent();
             allStudents = (List<BusinessLayer.Student>)App.logic.GetStudents(true);
-            allGenders = (List<BusinessLayer.Gender>)App.logic.GetGenders();
+            allGenders = (List<BusinessLayer.Gender>)App.logic.GetFromDB("GetGenders");
 
             cbSelectStudent.ItemsSource = allStudents;
             comboBox_GenderSelection.ItemsSource = allGenders;

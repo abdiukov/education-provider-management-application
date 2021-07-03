@@ -10,7 +10,7 @@ namespace UI
         public SubjectsWithNoCourse()
         {
             InitializeComponent();
-            dgSubjectNoCourse.ItemsSource = App.logic.GetUnallocatedUnits();
+            dgSubjectNoCourse.ItemsSource = App.logic.GetFromDB("GetUnallocatedUnits");
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

@@ -10,7 +10,7 @@ namespace UI
         public SubjectsClustered()
         {
             InitializeComponent();
-            dgClusteredUnits.ItemsSource = App.logic.GetClusters();
+            dgClusteredUnits.ItemsSource = App.logic.GetFromDB("GetClusters");
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

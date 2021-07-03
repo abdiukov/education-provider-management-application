@@ -11,7 +11,7 @@ namespace UI.Student
         public StudentResultSearch(int studentID)
         {
             InitializeComponent();
-            dgStudentResults.ItemsSource = App.logic.GetStudentResults(studentID);
+            dgStudentResults.ItemsSource = App.logic.GetFromDB("GetStudentResults", new object[] { studentID });
             this.Title = "Results for ID " + studentID;
         }
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

@@ -15,7 +15,7 @@
                 <DataGridTextColumn Header="Course name" Binding="{Binding Path='CourseName'}"/>
                 <DataGridTextColumn Header="Start" Binding="{Binding Path='StartDate', StringFormat=dd-MM-yyyy }"/>
                 <DataGridTextColumn Header="Finish" Binding="{Binding Path='EndDate',StringFormat=dd-MM-yyyy }"/>
-                <DataGridTextColumn Header="Location" Binding="{Binding Path='Location'}"/>
+                <DataGridTextColumn Header="Location" Binding="{Binding Path='CampusName'}"/>
                 <DataGridTextColumn Header="Delivery" Binding="{Binding Path='Delivery'}"/>
                 <DataGridTextColumn Header="Contact Number" Binding="{Binding Path='ContactNumber'}"/>
                 <DataGridTextColumn Header="Amount of units" Binding="{Binding Path='AmountOfUnits'}"/>

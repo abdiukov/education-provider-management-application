@@ -27,15 +27,15 @@ namespace UI.Course
             InitializeComponent();
 
             //UI
-            comboBox_Locations.ItemsSource = App.logic.GetLocations();
-            comboBox_Delivery.ItemsSource = App.logic.GetDelivery();
-            IEnumerable<Semester> availableSemesters = App.logic.GetSemesters();
+            comboBox_Locations.ItemsSource = App.logic.GetFromDB("GetLocations");
+            comboBox_Delivery.ItemsSource = App.logic.GetFromDB("GetDelivery");
+            IEnumerable<Semester> availableSemesters = (IEnumerable<Semester>)App.logic.GetFromDB("GetSemesters");
             comboBox_SemesterStart.ItemsSource = availableSemesters;
             comboBox_SemesterEnd.ItemsSource = availableSemesters;
 
             //LOGIC
-            allStudents = (List<BusinessLayer.Student>)App.logic.GetAvailableStudents();
-            allUnits = (List<Unit>)App.logic.GetUnits();
+            allStudents = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetAvailableStudents");
+            allUnits = (List<Unit>)App.logic.GetFromDB("GetUnits");
             allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetTeachers(true);
 
             //RESETTING STATIC PUBLIC VALUES

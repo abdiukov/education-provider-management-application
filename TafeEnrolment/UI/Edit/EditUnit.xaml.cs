@@ -16,7 +16,7 @@ namespace UI.Edit
         public EditUnit()
         {
             InitializeComponent();
-            allUnits = (List<Unit>)App.logic.GetUnits();
+            allUnits = (List<Unit>)App.logic.GetFromDB("GetUnits");
             cbSelectUnit.ItemsSource = allUnits;
         }
 

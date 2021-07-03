@@ -11,7 +11,7 @@ namespace UI
         public CourseTimetableSearch()
         {
             InitializeComponent();
-            dgTimetable.ItemsSource = App.logic.GetTimetables();
+            dgTimetable.ItemsSource = App.logic.GetFromDB("GetTimetables");
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

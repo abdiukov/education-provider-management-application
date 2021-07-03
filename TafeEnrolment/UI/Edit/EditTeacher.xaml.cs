@@ -19,8 +19,8 @@ namespace UI.Edit
         {
             InitializeComponent();
             allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetTeachers(true);
-            allGenders = (List<BusinessLayer.Gender>)App.logic.GetGenders();
-            allLocations = (List<Location>)App.logic.GetLocations();
+            allGenders = (List<BusinessLayer.Gender>)App.logic.GetFromDB("GetGenders");
+            allLocations = (List<Location>)App.logic.GetFromDB("GetLocations");
             comboBox_GenderSelection.ItemsSource = allGenders;
             cbSelectTeacher.ItemsSource = allTeachers;
             comboBox_Locations.ItemsSource = allLocations;

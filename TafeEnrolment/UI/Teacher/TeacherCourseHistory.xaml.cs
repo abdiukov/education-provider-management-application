@@ -16,7 +16,7 @@ namespace UI
         {
             InitializeComponent();
             this.Title = "Course history for ID " + teacherID;
-            Courses = (List<BusinessLayer.TeacherCourseHistory>)App.logic.GetTeacherHistoryByID(teacherID);
+            Courses = (List<BusinessLayer.TeacherCourseHistory>)App.logic.GetFromDB("GetTeacherHistoryByID", new object[] { teacherID });
             dgCourseHistory.ItemsSource = Courses;
             CoursesCopy = Courses;
         }
