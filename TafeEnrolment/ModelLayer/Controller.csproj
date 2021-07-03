@@ -45,13 +45,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+    <ProjectReference Include="..\BusinessLayer\Model.csproj">
       <Project>{a6c30167-de49-48df-90d4-8aa6070ed4d5}</Project>
-      <Name>BusinessLayer</Name>
+      <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataLinkLayer\DataLinkLayer.csproj">
+    <ProjectReference Include="..\DataLinkLayer\Data Access Layer.csproj">
       <Project>{D51E463D-4376-4542-A19D-CC7F59C72C69}</Project>
-      <Name>DataLinkLayer</Name>
+      <Name>Data Access Layer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

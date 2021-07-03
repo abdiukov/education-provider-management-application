@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{66F529CE-DE0A-4AAD-86C7-C9EB3CEB05E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "UI\View.csproj", "{66F529CE-DE0A-4AAD-86C7-C9EB3CEB05E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{A6C30167-DE49-48DF-90D4-8AA6070ED4D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "BusinessLayer\Model.csproj", "{A6C30167-DE49-48DF-90D4-8AA6070ED4D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLinkLayer", "DataLinkLayer\DataLinkLayer.csproj", "{D51E463D-4376-4542-A19D-CC7F59C72C69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Access Layer", "DataLinkLayer\Data Access Layer.csproj", "{D51E463D-4376-4542-A19D-CC7F59C72C69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLayer", "ModelLayer\ModelLayer.csproj", "{8F74A360-224A-44D4-9F9B-0E29941E677A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "ModelLayer\Controller.csproj", "{8F74A360-224A-44D4-9F9B-0E29941E677A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

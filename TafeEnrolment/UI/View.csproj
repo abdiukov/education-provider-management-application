@@ -247,13 +247,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+    <ProjectReference Include="..\BusinessLayer\Model.csproj">
       <Project>{a6c30167-de49-48df-90d4-8aa6070ed4d5}</Project>
-      <Name>BusinessLayer</Name>
+      <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ModelLayer\ModelLayer.csproj">
+    <ProjectReference Include="..\ModelLayer\Controller.csproj">
       <Project>{8f74a360-224a-44d4-9f9b-0e29941e677a}</Project>
-      <Name>ModelLayer</Name>
+      <Name>Controller</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

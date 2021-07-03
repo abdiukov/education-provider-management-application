@@ -188,9 +188,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\BusinessLayer\\BusinessLayer.csproj",
-      "projectName": "BusinessLayer",
-      "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\BusinessLayer\\Model.csproj",
+      "projectName": "Model",
+      "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\BusinessLayer\\Model.csproj",
       "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\TafeEnrolment\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
