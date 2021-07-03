@@ -50,7 +50,7 @@
       <Name>BusinessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataLinkLayer\DataLinkLayer.csproj">
-      <Project>{d51e463d-4376-4542-a19d-cc7f59c72c69}</Project>
+      <Project>{D51E463D-4376-4542-A19D-CC7F59C72C69}</Project>
       <Name>DataLinkLayer</Name>
     </ProjectReference>
   </ItemGroup>

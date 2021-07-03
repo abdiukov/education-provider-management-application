@@ -3,7 +3,7 @@
 namespace BusinessLayer
 {
     /// <summary>
-    /// Contains information about all the courses and course statistics
+    /// Contains information about courses and course statistics
     /// </summary>
     public class Timetable : Course
     {

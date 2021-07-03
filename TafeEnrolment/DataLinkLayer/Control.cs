@@ -1,29 +1,36 @@
 ﻿using BusinessLayer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 
 namespace DataLinkLayer
 {
+    /// <summary>
+    /// Control.cs is responsible for database related operations
+    /// </summary>
     public class Control
     {
-        readonly public string _connectionString;
-        /// <summary>
-        /// Constructor for Control class
-        /// Connects to the Repository class and sets up the connection string
-        /// </summary>
+        //CONSTRUCTOR
         public Control()
         {
-            Repository conn_string = new Repository();
-            _connectionString = conn_string._connectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
         }
 
+        //PROPERTIES
+        private readonly string connectionString;
+
+        //
+        //METHODS TO RETRIEVE DATA FROM DATABASE
+        //
+
+        /// <returns>A list of ways how the course can be delivered (Full Time, Part Time, Online) and their respective IDs inside database.</returns>
         public IEnumerable<Delivery> GetDelivery()
         {
             List<Delivery> outputlist = new List<Delivery>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllDelivery", conn);
@@ -41,14 +48,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetDelivery()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetDelivery()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetDelivery()\n" + ex.Message);
@@ -57,182 +56,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public int InsertCourse(string courseName, int locationID, int deliveryID, int IsCurrent)
-        {
-            int output = -9999;
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_InsertCourse @name, @locationID, @deliveryID, @IsCurrent", conn);
-                cmd.Parameters.AddWithValue("@name", courseName);
-                cmd.Parameters.AddWithValue("@locationID", locationID);
-                cmd.Parameters.AddWithValue("@deliveryID", deliveryID);
-                cmd.Parameters.AddWithValue("@IsCurrent", IsCurrent);
-
-                SqlDataReader dataReader = cmd.ExecuteReader();
-
-                dataReader.Read();
-
-                output = dataReader.GetInt32(0);
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at InsertCourse()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at InsertCourse()\n" + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error has occured at InsertCourse()\n" + ex.Message);
-            }
-            //output
-            return output;
-        }
-
-        public void InsertCourseSemester(int courseID, int semesterID)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_InsertCourseSemester @courseID, @semesterID", conn);
-                cmd.Parameters.AddWithValue("@courseID", courseID);
-                cmd.Parameters.AddWithValue("@semesterID", semesterID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at InsertCourseStudentPayment()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at InsertCourseStudentPayment()\n" + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error has occured at InsertCourseStudentPayment()\n" + ex.Message);
-            }
-        }
-
-        public void InsertCourseStudentPayment(int studentID, int courseID, double courseCost)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_InsertCourseStudentPayment @studentID, @courseID, @amountDue", conn);
-                cmd.Parameters.AddWithValue("@studentID", studentID);
-                cmd.Parameters.AddWithValue("@courseID", courseID);
-                cmd.Parameters.AddWithValue("@amountDue", courseCost);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at InsertCourseStudentPayment()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at InsertCourseStudentPayment()\n" + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error has occured at InsertCourseStudentPayment()\n" + ex.Message);
-            }
-        }
-
-        public void InsertCourseTeacher(int courseID, int teacherID)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_InsertCourseTeacher @courseID, @teacherID", conn);
-                cmd.Parameters.AddWithValue("@courseID", courseID);
-                cmd.Parameters.AddWithValue("@teacherID", teacherID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at InsertCourseTeacher()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at InsertCourseTeacher()\n" + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error has occured at InsertCourseTeacher()\n" + ex.Message);
-            }
-        }
-
-        public void InsertCluster(int courseID, int unitID)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_InsertCluster @courseID, @unitID", conn);
-                cmd.Parameters.AddWithValue("@courseID", courseID);
-                cmd.Parameters.AddWithValue("@unitID", unitID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at InsertCluster()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at InsertCluster()\n" + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error has occured at InsertCluster()\n" + ex.Message);
-            }
-        }
-
+        /// <returns>List of items that store information about course such as course id, course name, campus name, delivery</returns>
         public IEnumerable<CourseSelection> GetCourses()
         {
             List<CourseSelection> outputlist = new List<CourseSelection>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllCourse", conn);
@@ -251,14 +81,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetCourses()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetCourses()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetCourses()\n" + ex.Message);
@@ -267,306 +89,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-        public string InsertNewTeacher(string address, int genderID, string mobile, string email, string dob, string firstName, string lastName, int courseID, int locationID)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_InsertTeacher @address, @genderID, @mobile, @email, @dob, @firstname, @lastname, @base_locationID, @courseID", conn);
-                cmd.Parameters.AddWithValue("@address", address);
-                cmd.Parameters.AddWithValue("@genderID", genderID);
-                cmd.Parameters.AddWithValue("@mobile", mobile);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(dob));
-                cmd.Parameters.AddWithValue("@firstname", firstName);
-                cmd.Parameters.AddWithValue("@lastname", lastName);
-                cmd.Parameters.AddWithValue("@base_locationID", locationID);
-                cmd.Parameters.AddWithValue("@courseID", courseID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-                return "Success. The teacher has been successfully inserted";
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                return "Failed to insert new teacher. Primary key violation has occured at InsertNewTeacher()\n" + ex.Message;
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                return "Failed to insert new teacher. Foreign key violation has occured at InsertNewTeacher()\n" + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                return "Failed to insert new teacher. An error has occured at InsertNewTeacher()\n" + ex.Message;
-            }
-        }
-
-        public string InsertNewStudent(string address, int genderID, string mobile, string email, string dob,
-            string firstName, string lastName, int courseID, double courseCost)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_InsertStudent @address, @genderID, @mobile, @email, @dob, @firstname, @lastname, @courseID, @amountDue", conn);
-                cmd.Parameters.AddWithValue("@address", address);
-                cmd.Parameters.AddWithValue("@genderID", genderID);
-                cmd.Parameters.AddWithValue("@mobile", mobile);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@dob", dob);
-                cmd.Parameters.AddWithValue("@firstname", firstName);
-                cmd.Parameters.AddWithValue("@lastname", lastName);
-                cmd.Parameters.AddWithValue("@courseID", courseID);
-                cmd.Parameters.AddWithValue("@amountDue", courseCost);
-
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-                return "Success. The student has been successfully inserted";
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                return "Failed to insert new student. Primary key violation has occured at InsertNewStudent()\n" + ex.Message;
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                return "Failed to insert new student. Foreign key violation has occured at InsertNewStudent()\n" + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                return "Failed to insert new student. An error has occured at InsertNewStudent()\n" + ex.Message;
-            }
-        }
-
-
-        public string EditStudent(int studentID, string address, int genderID, string mobile, string email, string dob,
-    string firstName, string lastName)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_EditStudent @studentID, @address, @genderID, @mobile, @email, @dob, @firstname, @lastname", conn);
-                cmd.Parameters.AddWithValue("@address", address);
-                cmd.Parameters.AddWithValue("@genderID", genderID);
-                cmd.Parameters.AddWithValue("@mobile", mobile);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@dob", dob);
-                cmd.Parameters.AddWithValue("@firstname", firstName);
-                cmd.Parameters.AddWithValue("@lastname", lastName);
-                cmd.Parameters.AddWithValue("@studentID", studentID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-                return "Success. The student has been successfully edited";
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                return "Failed to edit student. Primary key violation has occured at EditStudent()\n" + ex.Message;
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                return "Failed to edit student. Foreign key violation has occured at EditStudent()\n" + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                return "Failed to edit student. An error has occured at EditStudent()\n" + ex.Message;
-            }
-        }
-
-        public string EditTeacher(int teacherID, string address, int genderID, string mobile, string email, string dob,
-            string firstName, string lastName, int locationID)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_EditTeacher @teacherID, @address, @genderID, @mobile, @email, @dob, @firstname, @lastname, @base_locationID", conn);
-                cmd.Parameters.AddWithValue("@teacherID", teacherID);
-                cmd.Parameters.AddWithValue("@address", address);
-                cmd.Parameters.AddWithValue("@genderID", genderID);
-                cmd.Parameters.AddWithValue("@mobile", mobile);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(dob));
-                cmd.Parameters.AddWithValue("@firstname", firstName);
-                cmd.Parameters.AddWithValue("@lastname", lastName);
-                cmd.Parameters.AddWithValue("@base_locationID", locationID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-                return "Success. The teacher has been successfully edited";
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                return "Failed to edit teacher. Primary key violation has occured at EditTeacher()\n" + ex.Message;
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                return "Failed to edit teacher. Foreign key violation has occured at EditTeacher()\n" + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                return "Failed to edit teacher. An error has occured at EditTeacher()\n" + ex.Message;
-            }
-        }
-
-        public string EditUnit(int unitID, string unitName, int hoursAmount)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_EditUnit @unitID, @unitName, @hoursAmount", conn);
-                cmd.Parameters.AddWithValue("@unitID", unitID);
-                cmd.Parameters.AddWithValue("@unitName", unitName);
-                cmd.Parameters.AddWithValue("@hoursAmount", hoursAmount);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-                return "Success. The unit has been successfully edited";
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                return "Failed to edit unit. Primary key violation has occured at EditUnit()\n" + ex.Message;
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                return "Failed to edit unit. Foreign key violation has occured at EditUnit()\n" + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                return "Failed to edit unit. An error has occured at EditUnit()\n" + ex.Message;
-            }
-        }
-
-        public string DeleteUnit(int unitID)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_DeleteUnit @unitID", conn);
-                cmd.Parameters.AddWithValue("@unitID", unitID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-                return "Success. The unit has been successfully deleted";
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                return "Failed to delete unit. Primary key violation has occured at DeleteUnit()\n" + ex.Message;
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                return "Failed to delete unit. Foreign key violation has occured at DeleteUnit()\n" + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                return "Failed to delete unit. An error has occured at DeleteUnit()\n" + ex.Message;
-            }
-        }
-
-        public string DeleteStudent(int studentID)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_DeleteStudent @studentID", conn);
-                cmd.Parameters.AddWithValue("@studentID", studentID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-                return "Success. The student has been successfully deleted";
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                return "Failed to delete student. Primary key violation has occured at DeleteStudent()\n" + ex.Message;
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                return "Failed to delete student. Foreign key violation has occured at DeleteStudent()\n" + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                return "Failed to delete student. An error has occured at DeleteStudent()\n" + ex.Message;
-            }
-        }
-
-        public string DeleteTeacher(int teacherID)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection(_connectionString);
-                //Execute query
-                conn.Open();
-                SqlCommand cmd = new SqlCommand
-                    ("exec usp_DeleteTeacher @teacherID", conn);
-                cmd.Parameters.AddWithValue("@teacherID", teacherID);
-
-                cmd.ExecuteNonQuery();
-
-                //disposing
-                conn.Dispose();
-                cmd.Dispose();
-                return "Success. The teacher has been successfully deleted";
-            }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                return "Failed to delete teacher. Primary key violation has occured at DeleteTeacher()\n" + ex.Message;
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                return "Failed to delete teacher. Foreign key violation has occured at DeleteTeacher()\n" + ex.Message;
-            }
-            catch (Exception ex)
-            {
-                return "Failed to delete teacher. An error has occured at DeleteTeacher()\n" + ex.Message;
-            }
-        }
-
+        /// <returns>A list of different genders (Male, Female, Other) and their respective IDs inside database.</returns>
         public IEnumerable<Gender> GetGenders()
         {
             List<Gender> outputlist = new List<Gender>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllGender", conn);
@@ -585,14 +114,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetGenders()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetGenders()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetGenders()\n" + ex.Message);
@@ -601,12 +122,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>A list of units that are not allocated to any courses</returns>
         public IEnumerable<Unit> GetUnallocatedUnits()
         {
             List<Unit> outputlist = new List<Unit>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectUnallocatedUnits", conn);
@@ -625,14 +147,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetUnallocatedUnits()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetUnallocatedUnits()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetUnallocatedUnits()\n" + ex.Message);
@@ -641,12 +155,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns> A list of all courses and course information</returns>
         public IEnumerable<Timetable> GetTimetables()
         {
             List<Timetable> outputlist = new List<Timetable>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllTimetables", conn);
@@ -668,14 +183,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetTimetables()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetTimetables()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetTimetables()\n" + ex.Message);
@@ -684,12 +191,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>A list of courses that are currently not being taught</returns>
         public IEnumerable<CourseSelection> AllNotOfferedCourses()
         {
             List<CourseSelection> outputlist = new List<CourseSelection>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllNotOfferedCourse", conn);
@@ -708,14 +216,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at AllNotOfferedCourses()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at AllNotOfferedCourses()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at AllNotOfferedCourses()\n" + ex.Message);
@@ -724,13 +224,15 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <param name="studentID">ID of student inside the database e.g 10</param>
+        /// <returns>List of student results that correspond to the provided student id</returns>
         public List<StudentResult> GetStudentResults(int studentID)
         {
 
             List<StudentResult> outputlist = new List<StudentResult>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_StudentResultByID @studentID", conn);
@@ -749,14 +251,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetStudentResults()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetStudentResults()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetStudentResults()\n" + ex.Message);
@@ -764,12 +258,14 @@ namespace DataLinkLayer
             //output
             return outputlist;
         }
+
+        /// <returns>List of units and which cluster they belong to</returns>
         public List<Cluster> GetClusters()
         {
             List<Cluster> outputlist = new List<Cluster>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllCluster", conn);
@@ -788,14 +284,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetClusters()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetClusters()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetClusters()\n" + ex.Message);
@@ -804,12 +292,14 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <param name="teacherID">ID of teacher inside the database e.g 12</param>
+        /// <returns>List of all courses the teacher has taught in the past/currently teaches</returns>
         public List<TeacherCourseHistory> GetTeacherHistoryByID(int teacherID)
         {
             List<TeacherCourseHistory> outputlist = new List<TeacherCourseHistory>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectTeacherHistoryByID @teacherID", conn);
@@ -831,14 +321,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetTeacherHistoryByID()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetTeacherHistoryByID()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetTeacherHistoryByID()\n" + ex.Message);
@@ -847,12 +329,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>List of all campus locations including where the campus is located, what the phone number is, what the campus name is.</returns>
         public List<Location> GetLocations()
         {
             List<Location> outputlist = new List<Location>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllLocation", conn);
@@ -871,14 +354,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetLocations()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetLocations()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetLocations()\n" + ex.Message);
@@ -887,12 +362,14 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <param name="studentID">ID of student inside the database e.g 10</param>
+        /// <returns>List of course enrollments that the student id is enrolled at</returns>
         public List<Enrolment> GetEnrolmentsByID(int studentID)
         {
             List<Enrolment> outputlist = new List<Enrolment>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectEnrolmentById @studentID", conn);
@@ -913,14 +390,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetEnrolmentsByID()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetEnrolmentsByID()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetEnrolmentsByID()\n" + ex.Message);
@@ -929,12 +398,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>List of information about college semesters, such as when the semester starts, when the semester ends, what the semester is called</returns>
         public List<Semester> GetSemesters()
         {
             List<Semester> outputlist = new List<Semester>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllSemester", conn);
@@ -952,14 +422,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetSemesters()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetSemesters()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetSemesters()\n" + ex.Message);
@@ -968,12 +430,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>List of all students who are available - meaning they are not currently enrolled into any course. </returns>
         public List<Student> GetAvailableStudents()
         {
             List<Student> outputlist = new List<Student>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
 
                 //Execute query
                 conn.Open();
@@ -994,14 +457,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetAvailableStudents()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetAvailableStudents()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetAvailableStudents()\n" + ex.Message);
@@ -1010,12 +465,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>List of all students, past and present who have attended a college in the past. Includes information such as student personal details, whether the student has paid fees</returns>
         public List<Student> GetStudents()
         {
             List<Student> outputlist = new List<Student>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
 
                 //Execute query
                 conn.Open();
@@ -1038,14 +494,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetStudents()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetStudents()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetStudents()\n" + ex.Message);
@@ -1054,12 +502,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>List of all teachers( & their personal details) who have taught in the past or are currently teaching.</returns>
         public List<Teacher> GetTeachers()
         {
             List<Teacher> outputlist = new List<Teacher>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
 
                 //Execute query
                 conn.Open();
@@ -1081,14 +530,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetTeachers()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetTeachers()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetTeachers()\n" + ex.Message);
@@ -1097,12 +538,13 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>List of units, including unit name, unit id, amount of hours required to complete the unit</returns>
         public List<Unit> GetUnits()
         {
             List<Unit> outputlist = new List<Unit>();
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
 
                 //Execute query
                 conn.Open();
@@ -1121,14 +563,6 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at GetUnits()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at GetUnits()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetUnits()\n" + ex.Message);
@@ -1137,12 +571,19 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        //
+        //METHODS TO LOG INTO THE DATABASE
+        //
+
+        /// <param name="username">Username that is needed to log-in e.g usern2m3 </param>
+        /// <param name="password">Password that is needed to log-in e.g greatp@ssw0rd </param>
+        /// <returns>True - the log-in was successful. False - the log-in attempt had failed.</returns>
         public bool AttemptLogin(string username, string password)
         {
             bool result = false;
             try
             {
-                SqlConnection conn = new SqlConnection(_connectionString);
+                SqlConnection conn = new SqlConnection(connectionString);
 
                 //Execute query
                 conn.Open();
@@ -1161,19 +602,447 @@ namespace DataLinkLayer
                 conn.Dispose();
                 cmd.Dispose();
             }
-            catch (SqlException ex) when (ex.Number == 2627)
-            {
-                Console.WriteLine("Primary key violation has occured at AttemptLogin()\n" + ex.Message);
-            }
-            catch (SqlException ex) when (ex.Number == 547)
-            {
-                Console.WriteLine("Foreign key violation has occured at AttemptLogin()\n" + ex.Message);
-            }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at AttemptLogin()\n" + ex.Message);
             }
             return result;
+        }
+
+        //
+        //METHODS TO INSERT NEW DATA INTO THE DATABASE
+        //
+
+        /// <param name="address">Teacher's residential address e.g 22 Column Street, Blacktown 2133</param>
+        /// <param name="genderID">Teacher's gender id e.g 2</param>
+        /// <param name="mobile">Teacher's mobile number e.g 0444-323-131</param>
+        /// <param name="email">Teacher's email e.g MichaelNorton@gmail.com</param>
+        /// <param name="dob">Teacher's date of birth e.g 1993-02-20 (YYYY-MM-DD)</param>
+        /// <param name="firstName">Teacher's first name e.g Michael</param>
+        /// <param name="lastName">Teacher's last name e.g Nortons</param>
+        /// <param name="courseID">The id of the course that the inserted teacher will be teaching e.g 22</param>
+        /// <param name="locationID">ID of teacher's base location (main campus where teacher is employed at) e.g 3</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string InsertNewTeacher(string address, int genderID, string mobile, string email,
+            string dob, string firstName, string lastName, int courseID, int locationID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertTeacher @address, @genderID, @mobile, @email, @dob, @firstname, @lastname, @base_locationID, @courseID", conn);
+                cmd.Parameters.AddWithValue("@address", address);
+                cmd.Parameters.AddWithValue("@genderID", genderID);
+                cmd.Parameters.AddWithValue("@mobile", mobile);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(dob));
+                cmd.Parameters.AddWithValue("@firstname", firstName);
+                cmd.Parameters.AddWithValue("@lastname", lastName);
+                cmd.Parameters.AddWithValue("@base_locationID", locationID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The teacher has been successfully inserted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to insert new teacher. An error has occured at InsertNewTeacher()\n" + ex.Message;
+            }
+        }
+
+        /// <param name="address">Student's residential address e.g 22 Column Street, Blacktown 2133</param>
+        /// <param name="genderID">Student's gender id e.g 1</param>
+        /// <param name="mobile">Student's mobile number e.g 0444-123-431</param>
+        /// <param name="email">Student's email e.g HowardSmith@gmail.com</param>
+        /// <param name="dob">Student's date of birth e.g 2003-11-15 (YYYY-MM-DD)</param>
+        /// <param name="firstName">Student's first name e.g Howard</param>
+        /// <param name="lastName">Student's last name e.g Smith</param>
+        /// <param name="courseID">The id of the course that the student will be enrolled at e.g 12</param>
+        /// <param name="courseCost">The cost of the course e.g 5000.10</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string InsertNewStudent(string address, int genderID, string mobile, string email, string dob,
+            string firstName, string lastName, int courseID, double courseCost)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertStudent @address, @genderID, @mobile, @email, @dob, @firstname, @lastname, @courseID, @amountDue", conn);
+                cmd.Parameters.AddWithValue("@address", address);
+                cmd.Parameters.AddWithValue("@genderID", genderID);
+                cmd.Parameters.AddWithValue("@mobile", mobile);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@dob", dob);
+                cmd.Parameters.AddWithValue("@firstname", firstName);
+                cmd.Parameters.AddWithValue("@lastname", lastName);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@amountDue", courseCost);
+
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The student has been successfully inserted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to insert new student. An error has occured at InsertNewStudent()\n" + ex.Message;
+            }
+        }
+
+        /// <param name="courseName">The name of the course e.g Certificate II in Plumbing</param>
+        /// <param name="locationID">The ID of the location where the course will be offered e.g 2</param>
+        /// <param name="deliveryID">The ID on how the course will be delivered e.g 1</param>
+        /// <param name="IsCurrent">0 - the course is currently not being taught. 1 - the course is currently being taught</param>
+        /// <returns>The ID (in database) of the new course inserted</returns>
+        public int InsertCourse(string courseName, int locationID, int deliveryID, int IsCurrent)
+        {
+            int output = -9999;
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCourse @name, @locationID, @deliveryID, @IsCurrent", conn);
+                cmd.Parameters.AddWithValue("@name", courseName);
+                cmd.Parameters.AddWithValue("@locationID", locationID);
+                cmd.Parameters.AddWithValue("@deliveryID", deliveryID);
+                cmd.Parameters.AddWithValue("@IsCurrent", IsCurrent);
+
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                dataReader.Read();
+
+                output = dataReader.GetInt32(0);
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCourse()\n" + ex.Message);
+            }
+            //output
+            return output;
+        }
+
+        /// <summary>
+        /// Inserts a semester that the course belongs to into the database. For example Semester 1 2021.
+        /// The insertion happens more than once if the course has more than 1 semester.
+        /// </summary>
+        /// <param name="courseID">ID of the course e.g 12</param>
+        /// <param name="semesterID">ID of the semester e.g 5</param>
+        /// <param name="semesterID">ID of the semester e.g 5</param>
+        public void InsertCourseSemester(int courseID, int semesterID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCourseSemester @courseID, @semesterID", conn);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@semesterID", semesterID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCourseStudentPayment()\n" + ex.Message);
+            }
+        }
+
+        /// <param name="studentID">ID of the student</param>
+        /// <param name="courseID">ID of the course</param>
+        /// <param name="courseCost">Total course cost for that specific student e.g 2500.50</param>
+        public void InsertCourseStudentPayment(int studentID, int courseID, double courseCost)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCourseStudentPayment @studentID, @courseID, @amountDue", conn);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@amountDue", courseCost);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCourseStudentPayment()\n" + ex.Message);
+            }
+        }
+
+        /// <param name="courseID">ID of the course</param>
+        /// <param name="teacherID">ID of the teacher who teaches that course</param>
+        public void InsertCourseTeacher(int courseID, int teacherID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCourseTeacher @courseID, @teacherID", conn);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@teacherID", teacherID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCourseTeacher()\n" + ex.Message);
+            }
+        }
+
+        /// <param name="courseID">ID of the course</param>
+        /// <param name="unitID">ID of the unit that belongs to that course</param>
+        public void InsertCluster(int courseID, int unitID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertCluster @courseID, @unitID", conn);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                cmd.Parameters.AddWithValue("@unitID", unitID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at InsertCluster()\n" + ex.Message);
+            }
+        }
+
+        //
+        //METHODS TO EDIT/DELETE INFORMATION INSIDE THE DATABASE
+        //
+
+        /// <param name="studentID">ID of student that is being edited e.g 23</param>
+        /// <param name="address">Student's new residential address e.g 22 Column Street, Blacktown 2133</param>
+        /// <param name="genderID">Student's new gender id e.g 1</param>
+        /// <param name="mobile">Student's new mobile number e.g 0444-123-431</param>
+        /// <param name="email">Student's new email e.g HowardSmith@gmail.com</param>
+        /// <param name="dob">Student's new date of birth e.g 2003-11-15 (YYYY-MM-DD)</param>
+        /// <param name="firstName">Student's new first name e.g Howard</param>
+        /// <param name="lastName">Student's new last name e.g Smith</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string EditStudent(int studentID, string address, int genderID, string mobile,
+            string email, string dob, string firstName, string lastName)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditStudent @studentID, @address, @genderID, @mobile, @email, @dob, @firstname, @lastname", conn);
+                cmd.Parameters.AddWithValue("@address", address);
+                cmd.Parameters.AddWithValue("@genderID", genderID);
+                cmd.Parameters.AddWithValue("@mobile", mobile);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@dob", dob);
+                cmd.Parameters.AddWithValue("@firstname", firstName);
+                cmd.Parameters.AddWithValue("@lastname", lastName);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The student has been successfully edited";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit student. An error has occured at EditStudent()\n" + ex.Message;
+            }
+        }
+
+        /// <param name="teacherID">The id of teacher that is being edited e.g 22</param>
+        /// <param name="address">Teacher's new residential address e.g 22 Column Street, Blacktown 2133</param>
+        /// <param name="genderID">Teacher's new gender id e.g 2</param>
+        /// <param name="mobile">Teacher's new mobile number e.g 0444-323-131</param>
+        /// <param name="email">Teacher's new email e.g MichaelNorton@gmail.com</param>
+        /// <param name="dob">Teacher's new date of birth e.g 1993-02-20 (YYYY-MM-DD)</param>
+        /// <param name="firstName">Teacher's new first name e.g Michael</param>
+        /// <param name="lastName">Teacher's new last name e.g Nortons</param>
+        /// <param name="locationID">ID of teacher's new base location (main campus where teacher is employed at) e.g 3</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string EditTeacher(int teacherID, string address, int genderID, string mobile, string email, string dob,
+            string firstName, string lastName, int locationID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditTeacher @teacherID, @address, @genderID, @mobile, @email, @dob, @firstname, @lastname, @base_locationID", conn);
+                cmd.Parameters.AddWithValue("@teacherID", teacherID);
+                cmd.Parameters.AddWithValue("@address", address);
+                cmd.Parameters.AddWithValue("@genderID", genderID);
+                cmd.Parameters.AddWithValue("@mobile", mobile);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(dob));
+                cmd.Parameters.AddWithValue("@firstname", firstName);
+                cmd.Parameters.AddWithValue("@lastname", lastName);
+                cmd.Parameters.AddWithValue("@base_locationID", locationID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The teacher has been successfully edited";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit teacher. An error has occured at EditTeacher()\n" + ex.Message;
+            }
+        }
+
+        /// <param name="unitID">ID of the unit that will be modified</param>
+        /// <param name="unitName">New name of unit e.g Advanced algorithms</param>
+        /// <param name="hoursAmount">New number of hours requried to complete the unit e.g 200</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string EditUnit(int unitID, string unitName, int hoursAmount)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditUnit @unitID, @unitName, @hoursAmount", conn);
+                cmd.Parameters.AddWithValue("@unitID", unitID);
+                cmd.Parameters.AddWithValue("@unitName", unitName);
+                cmd.Parameters.AddWithValue("@hoursAmount", hoursAmount);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The unit has been successfully edited";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit unit. An error has occured at EditUnit()\n" + ex.Message;
+            }
+        }
+
+        /// <param name="unitID">ID of the unit that will be deleted e.g 20</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string DeleteUnit(int unitID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteUnit @unitID", conn);
+                cmd.Parameters.AddWithValue("@unitID", unitID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The unit has been successfully deleted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete unit. An error has occured at DeleteUnit()\n" + ex.Message;
+            }
+        }
+
+        /// <param name="studentID">ID of the student that will be deleted e.g 10</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string DeleteStudent(int studentID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteStudent @studentID", conn);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The student has been successfully deleted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete student. An error has occured at DeleteStudent()\n" + ex.Message;
+            }
+        }
+
+        /// <param name="teacherID">ID of the teacher that will be deleted e.g 12</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string DeleteTeacher(int teacherID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteTeacher @teacherID", conn);
+                cmd.Parameters.AddWithValue("@teacherID", teacherID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The teacher has been successfully deleted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete teacher. An error has occured at DeleteTeacher()\n" + ex.Message;
+            }
         }
 
 
