@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Edit"
         mc:Ignorable="d"
-        Title="Edit teacher" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
+        Title="Edit teacher" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
         <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>

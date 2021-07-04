@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Teacher"
         mc:Ignorable="d"
-        Title="Add new teacher" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
+        Title="Add new teacher" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
 

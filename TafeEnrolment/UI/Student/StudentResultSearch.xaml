@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Student"
         mc:Ignorable="d"
-        Title="Student results" Height="450" Width="800" IsVisibleChanged="Window_IsVisibleChanged"
+        Title="Student results" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
     <Grid>
         <DataGrid Name="DgStudentResults" MouseRightButtonDown="DgStudentResults_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,60,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">

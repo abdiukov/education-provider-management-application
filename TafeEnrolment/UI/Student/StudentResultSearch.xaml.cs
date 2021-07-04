@@ -27,8 +27,7 @@ namespace UI.Student
         //NAVIGATION CODE
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(new StudentInformation());
-            Hide();
+            PageNavigation.GoToExistingPage(0);
         }
 
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)

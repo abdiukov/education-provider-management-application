@@ -3,14 +3,20 @@ using System.Windows.Controls;
 
 namespace UI
 {
+    /// <summary>
+    /// Shows a datagrid which contains infromation about all the coures that are currently nto being taught.
+    /// </summary>
     public partial class CourseNotOffered : Window
     {
-        //INITIALISATION CODE
+        /// <summary>
+        /// Initialises the page and assigns the contents of the datagrid to be retrieved from Control.cs method AllNotOfferedCourses();
+        /// </summary>
         public CourseNotOffered()
         {
             InitializeComponent();
             DgCourseNotOffered.ItemsSource = App.logic.GetFromDB("AllNotOfferedCourses");
         }
+
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
@@ -19,13 +25,11 @@ namespace UI
                 DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
-        //END OF INITIALISATION CODE
 
         //PAGE NAVIGATION CODE
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToExistingPage(new CourseInformation());
+            PageNavigation.GoToExistingPage(0);
         }
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
@@ -34,21 +38,12 @@ namespace UI
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
 
-
-        //END OF PAGE NAVIGATION CODE
-
         //DATAGRID SETTINGS CODE
-
         private void DgCourseNotOffered_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //code for changing the datagrid settings
             DataGridSettings page = new DataGridSettings(DgCourseNotOffered);
             page.Show();
         }
-
-        //END OF DATAGRID SETTINGS CODE
-
-
 
     }
 }

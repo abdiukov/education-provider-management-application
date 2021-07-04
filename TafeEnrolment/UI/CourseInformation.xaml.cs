@@ -22,25 +22,25 @@ namespace UI
 
 
         //PAGE NAVIGATION CODE
-        private void courseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void CourseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToNewOrExistingPage(new CourseTimetableSearch());
         }
 
-        private void clusterUnitCourse_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void ClusterUnitCourse_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToNewOrExistingPage(new SubjectsClustered());
         }
 
-        private void courseNotOffered_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void CourseNotOffered_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToNewOrExistingPage(new CourseNotOffered());
         }
 
-        private void subjectsNotAllocated_navigation_btn_Click(object sender, RoutedEventArgs e)
+        private void SubjectsNotAllocated_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             Hide();
             PageNavigation.GoToNewOrExistingPage(new SubjectsWithNoCourse());
@@ -48,8 +48,7 @@ namespace UI
 
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToExistingPage(new MainWindow());
+            PageNavigation.GoToExistingPage(0);
         }
 
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)

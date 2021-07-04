@@ -27,8 +27,7 @@ namespace UI
 
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToExistingPage(new CourseInformation());
+            PageNavigation.GoToExistingPage(0);
         }
 
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)

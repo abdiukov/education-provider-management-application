@@ -22,8 +22,7 @@ namespace UI.Edit
 
         private void GoBack()
         {
-            Hide();
-            PageNavigation.GoToExistingPage(new MainWindow());
+            PageNavigation.GoToExistingPage(0);
         }
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {

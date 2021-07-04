@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UI"
+        
         mc:Ignorable="d"
-        Title="View students" Height="450" Width="800"
+        Title="View students" WindowState="Maximized"
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow" IsVisibleChanged="Window_IsVisibleChanged">
     <Grid>
         <TextBox Name="SearchBox" KeyDown="SearchBox_KeyDown" PreviewMouseDown="SearchBox_MouseClick" HorizontalAlignment="Left" Height="23" Margin="77,52,0,0" TextWrapping="Wrap" Text="Enter keywords by which criteria to search" VerticalAlignment="Top" Width="595"/>

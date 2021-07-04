@@ -92,8 +92,7 @@ namespace UI
 
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(new MainWindow());
-            Hide();
+            PageNavigation.GoToExistingPage(0);
         }
 
         private void Btn_CourseHistory_Click(object sender, RoutedEventArgs e)

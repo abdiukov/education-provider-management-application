@@ -36,8 +36,7 @@ namespace UI.Edit
 
         private void GoBack()
         {
-            Hide();
-            PageNavigation.GoToExistingPage(new MainWindow());
+            PageNavigation.GoToExistingPage(0);
         }
 
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)

@@ -37,8 +37,7 @@ namespace UI.Teacher
 
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToExistingPage(new MainWindow());
+            PageNavigation.GoToExistingPage(0);
         }
 
         private void BtnAddTeacher_Click(object sender, RoutedEventArgs e)

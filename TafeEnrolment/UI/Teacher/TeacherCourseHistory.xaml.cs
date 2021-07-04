@@ -44,8 +44,7 @@ namespace UI
 
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToExistingPage(new TeacherInformation());
+            PageNavigation.GoToExistingPage(0);
         }
 
         //END OF NAVIGATION CODE
