@@ -21,6 +21,9 @@ namespace UI
             CoursesCopy = Courses;
         }
 
+        /// <summary>
+        /// Updates the navigation bar at the top, whenever the window visibility changes
+        /// </summary>
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
@@ -35,13 +38,18 @@ namespace UI
 
         //NAVIGATION CODE
 
+        /// <summary>
+        /// When the page on the navigation bar at the top is clicked upon, this page gets hidden and the user is redirected to that page
+        /// </summary>
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
             Hide();
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
         }
-
+        /// <summary>
+        /// When the arrow button (located top left) is clicked, user is redirected to main menu
+        /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToExistingPage(0);

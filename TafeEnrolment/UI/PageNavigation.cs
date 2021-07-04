@@ -47,23 +47,6 @@ namespace UI
             }
         }
 
-        public static void CloseAndOpenPage(Window pageToCloseAndOpen)
-        {
-            string pageLocation = pageToCloseAndOpen.ToString();
-
-            //searching the page
-            for (int i = App.pagesVisitedTracker.Count - 1; i > 0; i--)
-            {
-                if (App.pagesVisitedTracker[i].ToString() == pageLocation)
-                {
-                    //if page is found close it, replace it, show the new page
-                    App.pagesVisitedTracker[i].Close();
-                    App.pagesVisitedTracker[i] = pageToCloseAndOpen;
-                    pageToCloseAndOpen.Show();
-                    return;
-                }
-            }
-        }
 
     }
 }

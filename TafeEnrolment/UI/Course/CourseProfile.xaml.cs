@@ -5,13 +5,11 @@ using System.Windows.Controls;
 namespace UI.Course
 {
     /// <summary>
-    /// Interaction logic for CourseProfile.xaml
+    /// Page allows user to add a new course into the database
     /// </summary>
     public partial class CourseProfile : Window
     {
-        //VARIABLE DECLARATIONS
-
-
+        //PROPERTIES
         public static List<BusinessLayer.Student> allStudents = new List<BusinessLayer.Student>();
 
         public static List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
@@ -19,9 +17,12 @@ namespace UI.Course
         public static List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
 
 
-
-
-        //INITIALISATION CODE
+        /// <summary>
+        /// Initialises the page.
+        /// The comboboxes(location, students, delivery, semester start/semester end) are filled from Control.cs
+        /// methods GetLocations(), GetAvailableStudents(), GetDelivery(), GetSemesters() respectively.
+        /// allStudents, allUnits, allTeachers are filled from Control.cs methods GetAvailableStudents(), GetUnits(), GetTeachers() methods respectively.
+        /// </summary>
         public CourseProfile()
         {
             InitializeComponent();
@@ -36,13 +37,12 @@ namespace UI.Course
             //LOGIC
             allStudents = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetAvailableStudents");
             allUnits = (List<Unit>)App.logic.GetFromDB("GetUnits");
-            allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers");
-            allTeachers = (List<BusinessLayer.Teacher>)App.logic.SortTeacherList(allTeachers);
-
-            //RESETTING STATIC PUBLIC VALUES
-
+            allTeachers = App.logic.SortTeacherList((List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers"));
         }
 
+        /// <summary>
+        /// Updates the navigation bar at the top, whenever the window visibility changes
+        /// </summary>
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
@@ -52,44 +52,56 @@ namespace UI.Course
             }
         }
 
-        //END OF INITIALISATION CODE
-
-        //NAVIGATION CODE
+        /// <summary>
+        /// When the page on the navigation bar at the top is clicked upon, this page gets hidden and the user is redirected to that page
+        /// </summary>
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            Hide();
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
+            Hide();
         }
 
+        /// <summary>
+        /// When the arrow button (located top left) is clicked, user is redirected to main menu
+        /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToExistingPage(0);
         }
 
-        //END OF NAVIGATION CODE
-
+        /// <summary>
+        /// When user clicks on "Select Teachers" button, a page is displayed where the user can select whichever teacher they wish.
+        /// </summary>
         private void BtnSelectTeachers_Click(object sender, RoutedEventArgs e)
         {
             CourseSelectTeacher pageobj = new CourseSelectTeacher();
             pageobj.Show();
         }
 
+        /// <summary>
+        /// When user clicks on "Select Units" button, a page is displayed where the user can select whichever units they wish.
+        /// </summary>
         private void BtnSelectUnits_Click(object sender, RoutedEventArgs e)
         {
             CourseSelectUnits pageobj = new CourseSelectUnits();
             pageobj.Show();
         }
 
+        /// <summary>
+        /// When user clicks on "Select Students" button, a page is displayed where the user can select whichever student they wish.
+        /// </summary>
         private void BtnSelectStudents_Click(object sender, RoutedEventArgs e)
         {
             CourseSelectStudent pageobj = new CourseSelectStudent();
             pageobj.Show();
         }
 
+        /// <summary>
+        /// Verifies user input and then sends it to the database
+        /// </summary>
         private void BtnAddCourse_Click(object sender, RoutedEventArgs e)
         {
-
             string courseName = textBox_CourseName.Text;
 
             if (string.IsNullOrWhiteSpace(courseName))
@@ -209,7 +221,7 @@ namespace UI.Course
             }
             else
             {
-                MessageBox.Show("Failed to insert the course. Please contact the administrator");
+                MessageBox.Show("Something went wrong - failed to insert the course. Please contact the administrator");
             }
 
 

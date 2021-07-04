@@ -4,16 +4,23 @@ using System.Windows.Input;
 
 namespace UI
 {
+    /// <summary>
+    /// Shows a datagrid which contains infromation courses and course statistics
+    /// </summary>
     public partial class CourseTimetableSearch : Window
     {
-
-        //INITIALISATION CODE
+        /// <summary>
+        /// Initialises the page and assigns the contents of the datagrid to be retrieved from Control.cs method CourseTimetableSearch();
+        /// </summary>
         public CourseTimetableSearch()
         {
             InitializeComponent();
             DgTimetable.ItemsSource = App.logic.GetFromDB("GetTimetables");
         }
 
+        /// <summary>
+        /// Updates the navigation bar at the top, whenever the window visibility changes
+        /// </summary>
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
@@ -23,38 +30,32 @@ namespace UI
             }
         }
 
-        //END OF INITIALISATION CODE
-
-        //NAVIGATION CODE
-
+        /// <summary>
+        /// When the arrow button (located top left) is clicked, user is redirected to main menu
+        /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             PageNavigation.GoToExistingPage(0);
         }
 
-
+        /// <summary>
+        /// When the page on the navigation bar at the top is clicked upon, this page gets hidden and the user is redirected to that page
+        /// </summary>
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            Hide();
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
+            Hide();
         }
-        //END OF NAVIGATION CODE
 
-        //SEARCH DATAGRID CODE
-
-        //END OF SEARCH DATAGRID CODE
-
-
-        //DATAGRID SETTINGS CODE
-
+        /// <summary>
+        /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
+        /// </summary>
         private void DgTimetable_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
             DataGridSettings page = new DataGridSettings(DgTimetable);
             page.Show();
         }
-
-        //END OF DATAGRID SETTINGS CODE
     }
 }

@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UI.Course"
         mc:Ignorable="d"
         Title="Add new course" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
         WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
@@ -16,8 +15,7 @@
                   ColumnHeaderHeight="0"
                   AutoGenerateColumns="False" FontSize="12"
                   GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage"
-                  >
+                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
             </DataGrid.Columns>
@@ -52,7 +50,6 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-
         <Label Content="Course name" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Width="95"/>
         <TextBox Name="textBox_CourseName" HorizontalAlignment="Left" Height="26" Margin="150,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
@@ -82,6 +79,5 @@
 
 
         <Button Name="BtnAddCourse" Content="Insert new course" HorizontalAlignment="Left" Margin="397,83,0,0" VerticalAlignment="Top" Width="220" Height="57"  Click="BtnAddCourse_Click"/>
-
     </Grid>
 </Window>
