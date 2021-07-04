@@ -3,10 +3,14 @@ using System.Windows.Controls;
 
 namespace UI
 {
+    /// <summary>
+    /// Shows a datagrid which contains infromation about units that are not at the moment being taught in any course
+    /// </summary>
     public partial class SubjectsWithNoCourse : Window
     {
-
-        //INITIALISATION CODE
+        /// <summary>
+        /// Initialises the page and assigns the contents of the datagrid to be retrieved from Control.cs method GetUnallocatedUnits();
+        /// </summary>
         public SubjectsWithNoCourse()
         {
             InitializeComponent();
@@ -25,14 +29,12 @@ namespace UI
             }
         }
 
-        //END OF INITIALISATION CODE
-
         /// <summary>
         /// When the arrow button (located top left) is clicked, user is redirected to main menu
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(0, this);
         }
 
         /// <summary>
@@ -41,23 +43,18 @@ namespace UI
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            Hide();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
 
-        //END OF NAVIGATION CODE
-
-
-        //DATAGRID SETTINGS CODE
-
+        /// <summary>
+        /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
+        /// </summary>
         private void DgSubjectNoCourse_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //code for changing the datagrid settings
             DataGridSettings page = new DataGridSettings(DgSubjectNoCourse);
             page.Show();
         }
 
-        //END OF DATAGRID SETTINGS CODE
     }
 }

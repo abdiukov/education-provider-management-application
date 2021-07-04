@@ -1,37 +1,52 @@
-﻿<Window x:Class="UI.Student.StudentProfile"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UI.Student"
-        mc:Ignorable="d"
-        Title="Add new student" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
+﻿<Window
+    x:Class="UI.Student.StudentProfile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Add new student"
+    IsVisibleChanged="Window_IsVisibleChanged"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
     <Grid>
-        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
-        <DataGrid Name="DgNavigationBar" 
-                   Margin="40,10,0,0" VerticalAlignment="Top" 
-                   HorizontalAlignment="Stretch" Width="25"
-                  ColumnHeaderHeight="0"
-                  AutoGenerateColumns="False" FontSize="12"
-                  GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage"
-                  >
+        <Button
+            Name="GoBack_navigation_btn"
+            Width="25"
+            Height="25"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="GoBack_navigation_btn_Click"
+            Content="&lt;--" />
+        <DataGrid
+            Name="DgNavigationBar"
+            Width="25"
+            Margin="40,10,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            ColumnHeaderHeight="0"
+            FontSize="12"
+            GridLinesVisibility="None"
+            HeadersVisibility="None"
+            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
+                <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>
-                    <RotateTransform Angle="90"/>
-                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1,0,0,1,0,0" />
                 </TransformGroup>
             </DataGrid.LayoutTransform>
             <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -39,11 +54,11 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.CellStyle>
-                <Style  TargetType="DataGridCell">
+                <Style TargetType="DataGridCell">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -51,34 +66,145 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Label Content="Address" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_Address" HorizontalAlignment="Left" Height="26" Margin="150,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label
+            Width="95"
+            Margin="50,83,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Address" />
+        <TextBox
+            Name="textBox_Address"
+            Width="120"
+            Height="26"
+            Margin="150,83,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
 
-        <Label Content="Gender" HorizontalAlignment="Left" Margin="50,114,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_GenderSelection" HorizontalAlignment="Left" Margin="150,114,0,0" 
-                  VerticalAlignment="Top" Width="120" Height="26">
-        </ComboBox>
+        <Label
+            Width="95"
+            Margin="50,114,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Gender" />
+        <ComboBox
+            Name="comboBox_GenderSelection"
+            Width="120"
+            Height="26"
+            Margin="150,114,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
 
-        <Label Content="Phone number" HorizontalAlignment="Left" Margin="50,145,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_PhoneNumber" HorizontalAlignment="Left" Height="26" Margin="150,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label
+            Width="95"
+            Margin="50,145,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Phone number" />
+        <TextBox
+            Name="textBox_PhoneNumber"
+            Width="120"
+            Height="26"
+            Margin="150,145,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
 
-        <Label Content="Email" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_Email" HorizontalAlignment="Left" Height="26" Margin="150,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label
+            Width="95"
+            Margin="50,177,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Email" />
+        <TextBox
+            Name="textBox_Email"
+            Width="120"
+            Height="26"
+            Margin="150,177,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
 
-        <Label Content="Date of birth" HorizontalAlignment="Left" Margin="50,208,0,0" VerticalAlignment="Top" Width="95"/>
-        <DatePicker Name="datePicker_DateOfBirth" HorizontalAlignment="Left" Margin="150,209,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+        <Label
+            Width="95"
+            Margin="50,208,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Date of birth" />
+        <DatePicker
+            Name="datePicker_DateOfBirth"
+            Width="120"
+            Height="26"
+            Margin="150,209,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
 
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="50,239,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_FirstName" HorizontalAlignment="Left" Height="26" Margin="150,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label
+            Width="95"
+            Margin="50,239,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="First Name" />
+        <TextBox
+            Name="textBox_FirstName"
+            Width="120"
+            Height="26"
+            Margin="150,239,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
 
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="50,270,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_LastName" HorizontalAlignment="Left" Height="26" Margin="150,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label
+            Width="95"
+            Margin="50,270,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Last Name" />
+        <TextBox
+            Name="textBox_LastName"
+            Width="120"
+            Height="26"
+            Margin="150,270,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
 
-        <Label Content="Course" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_Course" HorizontalAlignment="Left" Margin="150,301,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <Label
+            Width="95"
+            Margin="50,301,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Course" />
+        <ComboBox
+            Name="comboBox_Course"
+            Width="120"
+            Height="26"
+            Margin="150,301,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
 
-        <Label Content="Course cost" HorizontalAlignment="Left" Margin="50,332,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox x:Name="textBox_CourseCost" HorizontalAlignment="Left" Height="26" Margin="150,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Name="BtnAddStudent" Content="Insert new student" HorizontalAlignment="Left" Margin="397,83,0,0" VerticalAlignment="Top" Width="220" Height="57" Click="BtnAddStudent_Click"/>
+        <Label
+            Width="95"
+            Margin="50,332,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Course cost" />
+        <TextBox
+            x:Name="textBox_CourseCost"
+            Width="120"
+            Height="26"
+            Margin="150,332,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
+        <Button
+            Name="BtnAddStudent"
+            Width="220"
+            Height="57"
+            Margin="397,83,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnAddStudent_Click"
+            Content="Insert new student" />
     </Grid>
 </Window>

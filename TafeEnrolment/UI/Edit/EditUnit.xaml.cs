@@ -6,13 +6,16 @@ using System.Windows.Controls;
 namespace UI.Edit
 {
     /// <summary>
-    /// Interaction logic for EditUnit.xaml
+    /// Page that allows the user to select one of existing teachers and then either append its details in the database or delete the unit details
     /// </summary>
     public partial class EditUnit : Window
     {
+        public static List<Unit> allUnits = new List<Unit>();
 
-        public static List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
-
+        /// <summary>
+        /// Initialises the page.
+        /// The combobox and the allUnits are filled from Control.cs method GetUnits()
+        /// </summary>
         public EditUnit()
         {
             InitializeComponent();
@@ -20,12 +23,17 @@ namespace UI.Edit
             ComboBoxSelectUnit.ItemsSource = allUnits;
         }
 
+        /// <summary>
+        /// Redirects the user to the main menu
+        /// </summary>
         private void GoBack()
         {
-            PageNavigation.GoToExistingPage(0);
-        }        /// <summary>
-                 /// When the arrow button (located top left) is clicked, user is redirected to main menu
-                 /// </summary>
+            PageNavigation.GoToExistingPage(0, this);
+        }
+
+        /// <summary>
+        /// When the arrow button (located top left) is clicked, user is redirected to main menu
+        /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
             GoBack();
@@ -37,8 +45,7 @@ namespace UI.Edit
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            Hide();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
         /// <summary>
@@ -53,22 +60,22 @@ namespace UI.Edit
             }
         }
 
+        /// <summary>
+        /// When user selects one of units in the combobox, all the textboxes get filled.
+        /// </summary>
         private void ComboBoxSelectUnit_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Unit selectedUnit = (Unit)ComboBoxSelectUnit.SelectedItem;
 
             textBox_Name.Text = selectedUnit.UnitName;
-            textBox_Hours.Text = selectedUnit.NumberOfHours.ToString(); ;
+            textBox_Hours.Text = selectedUnit.NumberOfHours.ToString();
         }
 
-        private void BtnDeleteUnit_Click(object sender, RoutedEventArgs e)
-        {
-            Unit selectedUnit = (Unit)ComboBoxSelectUnit.SelectedItem;
-            string outcome = App.logic.ManageDB("DeleteUnit", new object[] { selectedUnit.UnitID });
-            MessageBox.Show(outcome);
-            GoBack();
-        }
-
+        /// <summary>
+        /// When user clicks on the button, user input gets verified
+        /// and then information gets send to EditUnit() method in Control.cs.
+        /// This results in unit details being altered in the database.
+        /// </summary>
         private void BtnEditUnit_Click(object sender, RoutedEventArgs e)
         {
             Unit selectedUnit = (Unit)ComboBoxSelectUnit.SelectedItem;
@@ -92,5 +99,19 @@ namespace UI.Edit
             MessageBox.Show(outcome);
             GoBack();
         }
+
+        /// <summary>
+        /// When user clicks button, information gets send to DeleteUnit() method in Control.cs.
+        /// This results in unit details being deleted in the database.
+        /// </summary>
+        private void BtnDeleteUnit_Click(object sender, RoutedEventArgs e)
+        {
+            Unit selectedUnit = (Unit)ComboBoxSelectUnit.SelectedItem;
+            string outcome = App.logic.ManageDB("DeleteUnit", new object[] { selectedUnit.UnitID });
+            MessageBox.Show(outcome);
+            GoBack();
+        }
+
+
     }
 }

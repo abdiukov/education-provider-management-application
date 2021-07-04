@@ -6,20 +6,24 @@ using System.Windows.Controls;
 namespace UI.Edit
 {
     /// <summary>
-    /// Interaction logic for EditTeacher.xaml
+    /// Page that allows the user to select one of existing teachers and then either append its details in the database or delete the teachers details
     /// </summary>
     public partial class EditTeacher : Window
     {
-
-
         private readonly List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
         private readonly List<Gender> allGenders = new List<Gender>();
         private readonly List<Location> allLocations = new List<Location>();
+
+        /// <summary>
+        /// Initialises the page.
+        /// The comboboxes(teachers, genders, locations) are filled from Control.cs
+        /// methods GetTeachers(), GetGenders(), GetLocations() respectively.
+        /// allTeachers, allGenders, allLocations are filled from Control.cs methods GetTeachers(), GetGenders(), GetLocations() methods respectively.
+        /// </summary>
         public EditTeacher()
         {
             InitializeComponent();
-            allTeachers = (List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers");
-            allTeachers = (List<BusinessLayer.Teacher>)App.logic.SortTeacherList(allTeachers);
+            allTeachers = App.logic.SortTeacherList((List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers"));
             allGenders = (List<BusinessLayer.Gender>)App.logic.GetFromDB("GetGenders");
             allLocations = (List<Location>)App.logic.GetFromDB("GetLocations");
             comboBox_GenderSelection.ItemsSource = allGenders;
@@ -35,9 +39,12 @@ namespace UI.Edit
             GoBack();
         }
 
+        /// <summary>
+        /// Redirects the user to the main menu
+        /// </summary>
         public void GoBack()
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(0, this);
         }
 
         /// <summary>
@@ -46,8 +53,7 @@ namespace UI.Edit
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            Hide();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
         /// <summary>
@@ -62,6 +68,10 @@ namespace UI.Edit
             }
         }
 
+        /// <summary>
+        /// When user selects one of students in the combobox, all the textboxes get filled.
+        /// The gender combobox, location combobox get filled as well.
+        /// </summary>
         private void ComboBoxSelectTeacher_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)ComboBoxSelectTeacher.SelectedItem;
@@ -100,12 +110,16 @@ namespace UI.Edit
             comboBox_Locations.SelectedIndex = selectedLocationIndex;
         }
 
+        /// <summary>
+        /// When user clicks on the button, user input gets verified
+        /// and then information gets send to EditTeacher() method in Control.cs.
+        /// This results in teacher details being altered in the database.
+        /// </summary>
         private void BtnEditTeacher_Click(object sender, RoutedEventArgs e)
         {
             string address = textBox_Address.Text;
             string mobile = textBox_PhoneNumber.Text;
             string email = textBox_Email.Text;
-            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
             string firstName = textBox_FirstName.Text;
             string lastName = textBox_LastName.Text;
             BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)ComboBoxSelectTeacher.SelectedItem;
@@ -138,11 +152,14 @@ namespace UI.Edit
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(dob))
+            if (datePicker_DateOfBirth.SelectedDate is null)
             {
                 MessageBox.Show("Select a valid date of birth");
                 return;
             }
+
+            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
+
 
             if (string.IsNullOrWhiteSpace(firstName))
             {
@@ -171,6 +188,10 @@ namespace UI.Edit
             GoBack();
         }
 
+        /// <summary>
+        /// When user clicks button, information gets send to DeleteTeacher() method in Control.cs.
+        /// This results in teacher details being deleted in the database.
+        /// </summary>
         private void BtnDeleteTeacher_Click(object sender, RoutedEventArgs e)
         {
             BusinessLayer.Teacher selectedTeacher = (BusinessLayer.Teacher)ComboBoxSelectTeacher.SelectedItem;

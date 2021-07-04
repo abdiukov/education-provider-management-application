@@ -16,9 +16,14 @@ namespace UI
             pageToNavigate.Show();
         }
 
-        public static void GoToExistingPage(int indexOfPage)
+        public static void GoToExistingPage(int indexOfPage, Window currentPage)
         {
-            App.pagesVisitedTracker[indexOfPage].Visibility = Visibility.Visible;
+            Window selectedPage = App.pagesVisitedTracker[indexOfPage];
+            if (currentPage != selectedPage)
+            {
+                selectedPage.Visibility = Visibility.Visible;
+                currentPage.Hide();
+            }
         }
 
         public static void GoToExistingPage(Window pageToNavigate)

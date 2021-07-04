@@ -1,37 +1,52 @@
-﻿<Window x:Class="UI.Edit.EditStudent"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UI.Edit"
-        mc:Ignorable="d"
-        Title="Edit student" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
+﻿<Window
+    x:Class="UI.Edit.EditStudent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Edit student"
+    IsVisibleChanged="Window_IsVisibleChanged"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
     <Grid>
-        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
-        <DataGrid Name="DgNavigationBar" 
-                   Margin="40,10,0,0" VerticalAlignment="Top" 
-                   HorizontalAlignment="Stretch" Width="25"
-                  ColumnHeaderHeight="0"
-                  AutoGenerateColumns="False" FontSize="12"
-                  GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage"
-                  >
+        <Button
+            Name="GoBack_navigation_btn"
+            Width="25"
+            Height="25"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="GoBack_navigation_btn_Click"
+            Content="&lt;--" />
+        <DataGrid
+            Name="DgNavigationBar"
+            Width="25"
+            Margin="40,10,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            ColumnHeaderHeight="0"
+            FontSize="12"
+            GridLinesVisibility="None"
+            HeadersVisibility="None"
+            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
+                <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>
-                    <RotateTransform Angle="90"/>
-                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1,0,0,1,0,0" />
                 </TransformGroup>
             </DataGrid.LayoutTransform>
             <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -39,11 +54,11 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.CellStyle>
-                <Style  TargetType="DataGridCell">
+                <Style TargetType="DataGridCell">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -51,32 +66,141 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Label Content="Address" HorizontalAlignment="Left" Margin="50,144,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox FontSize="10" Name="textBox_Address" HorizontalAlignment="Left" Height="26" Margin="150,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label
+            Width="95"
+            Margin="50,144,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Address" />
+        <TextBox
+            Name="textBox_Address"
+            Width="228"
+            Height="26"
+            Margin="150,144,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="10"
+            TextWrapping="Wrap" />
 
-        <Label Content="Gender" HorizontalAlignment="Left" Margin="50,175,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_GenderSelection" HorizontalAlignment="Left" Margin="150,175,0,0" 
-                  VerticalAlignment="Top" Width="228" Height="26">
-        </ComboBox>
+        <Label
+            Width="95"
+            Margin="50,175,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Gender" />
+        <ComboBox
+            Name="comboBox_GenderSelection"
+            Width="228"
+            Height="26"
+            Margin="150,175,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
 
-        <Label Content="Phone number" HorizontalAlignment="Left" Margin="50,206,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_PhoneNumber" HorizontalAlignment="Left" Height="26" Margin="150,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label
+            Width="95"
+            Margin="50,206,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Phone number" />
+        <TextBox
+            Name="textBox_PhoneNumber"
+            Width="228"
+            Height="26"
+            Margin="150,206,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
 
-        <Label Content="Email" HorizontalAlignment="Left" Margin="50,238,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_Email" HorizontalAlignment="Left" Height="26" Margin="150,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label
+            Width="95"
+            Margin="50,238,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Email" />
+        <TextBox
+            Name="textBox_Email"
+            Width="228"
+            Height="26"
+            Margin="150,238,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
 
-        <Label Content="Date of birth" HorizontalAlignment="Left" Margin="433,205,0,0" VerticalAlignment="Top" Width="95"/>
-        <DatePicker Name="datePicker_DateOfBirth" HorizontalAlignment="Left" Margin="533,206,0,0" VerticalAlignment="Top" Height="26" Width="228"/>
+        <Label
+            Width="95"
+            Margin="433,205,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Date of birth" />
+        <DatePicker
+            Name="datePicker_DateOfBirth"
+            Width="228"
+            Height="26"
+            Margin="533,206,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
 
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="433,145,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_FirstName" HorizontalAlignment="Left" Height="26" Margin="533,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label
+            Width="95"
+            Margin="433,145,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="First Name" />
+        <TextBox
+            Name="textBox_FirstName"
+            Width="228"
+            Height="26"
+            Margin="533,144,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
 
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="433,176,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_LastName" HorizontalAlignment="Left" Height="26" Margin="533,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
-        <Button Name="BtnEditStudent" Content="Alter student details" HorizontalAlignment="Left" Margin="50,343,0,0" VerticalAlignment="Top" Width="328" Height="57" Click="BtnEditStudent_Click"/>
-        <Button x:Name="BtnDeleteStudent" Content="Delete student" HorizontalAlignment="Left" Margin="433,343,0,0" VerticalAlignment="Top" Width="328" Height="57" Click="BtnDeleteStudent_Click"/>
-        <ComboBox SelectedIndex="0" Name="ComboBoxSelectStudent" SelectionChanged="ComboBoxSelectStudent_SelectionChanged" HorizontalAlignment="Left" Margin="50,76,0,0" VerticalAlignment="Top" Width="328" Height="38"/>
-        <Label Content="Select student you wish to edit" HorizontalAlignment="Left" Margin="50,45,0,0" VerticalAlignment="Top"/>
+        <Label
+            Width="95"
+            Margin="433,176,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Last Name" />
+        <TextBox
+            Name="textBox_LastName"
+            Width="228"
+            Height="26"
+            Margin="533,176,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
+        <Button
+            Name="BtnEditStudent"
+            Width="328"
+            Height="57"
+            Margin="50,343,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnEditStudent_Click"
+            Content="Alter student details" />
+        <Button
+            x:Name="BtnDeleteStudent"
+            Width="328"
+            Height="57"
+            Margin="433,343,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnDeleteStudent_Click"
+            Content="Delete student" />
+        <ComboBox
+            Name="ComboBoxSelectStudent"
+            Width="328"
+            Height="38"
+            Margin="50,76,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            SelectedIndex="0"
+            SelectionChanged="ComboBoxSelectStudent_SelectionChanged" />
+        <Label
+            Margin="50,45,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Select student you wish to edit" />
 
     </Grid>
 </Window>

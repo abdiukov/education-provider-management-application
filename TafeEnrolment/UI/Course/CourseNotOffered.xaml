@@ -1,43 +1,69 @@
-﻿<Window x:Class="UI.CourseNotOffered"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="Courses currenty not offered" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+﻿<Window
+    x:Class="UI.CourseNotOffered"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Courses currenty not offered"
+    IsVisibleChanged="Window_IsVisibleChanged"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
     <Grid>
-        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
-        <DataGrid Name="DgCourseNotOffered" MouseRightButtonDown="DgCourseNotOffered_MouseRightButtonDown" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,60,0,10" IsReadOnly="True" AutoGenerateColumns="False" FontSize="18" FontFamily="Verdana">
+        <Button
+            Name="GoBack_navigation_btn"
+            Width="25"
+            Height="25"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="GoBack_navigation_btn_Click"
+            Content="&lt;--" />
+        <DataGrid
+            Name="DgCourseNotOffered"
+            Margin="0,60,0,10"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutoGenerateColumns="False"
+            FontFamily="Verdana"
+            FontSize="18"
+            IsReadOnly="True"
+            MouseRightButtonDown="DgCourseNotOffered_MouseRightButtonDown">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Course ID" Binding="{Binding Path='CourseID'}"/>
-                <DataGridTextColumn Header="Course Name" Binding="{Binding Path='CourseName'}"/>
-                <DataGridTextColumn Header="Delivery" Binding="{Binding Path='CampusName'}"/>
-                <DataGridTextColumn Header="Campus" Binding="{Binding Path='Delivery'}"/>
+                <DataGridTextColumn Binding="{Binding Path='CourseID'}" Header="Course ID" />
+                <DataGridTextColumn Binding="{Binding Path='CourseName'}" Header="Course Name" />
+                <DataGridTextColumn Binding="{Binding Path='CampusName'}" Header="Delivery" />
+                <DataGridTextColumn Binding="{Binding Path='Delivery'}" Header="Campus" />
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Name="DgNavigationBar"
-                   Margin="40,10,0,0" VerticalAlignment="Top" 
-                   HorizontalAlignment="Stretch" Width="25"
-                  ColumnHeaderHeight="0"
-                  AutoGenerateColumns="False" FontSize="12"
-                  GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
+        <DataGrid
+            Name="DgNavigationBar"
+            Width="25"
+            Margin="40,10,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            ColumnHeaderHeight="0"
+            FontSize="12"
+            GridLinesVisibility="None"
+            HeadersVisibility="None"
+            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
+                <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>
-                    <RotateTransform Angle="90"/>
-                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1,0,0,1,0,0" />
                 </TransformGroup>
             </DataGrid.LayoutTransform>
             <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -45,11 +71,11 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.CellStyle>
-                <Style  TargetType="DataGridCell">
+                <Style TargetType="DataGridCell">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>

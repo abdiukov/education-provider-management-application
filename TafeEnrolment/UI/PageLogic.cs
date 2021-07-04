@@ -172,12 +172,6 @@ namespace UI
             return output;
         }
 
-        public static void SearchCourseTimetable(string searchQuery)
-        {
-            searchQuery = SearchBoxReplaceDefaultValue(searchQuery);
-
-            MessageBox.Show(searchQuery);
-        }
 
         public static List<BusinessLayer.TeacherCourseHistory> SearchTeacherCourseHistory
             (bool? searchPastCourse, bool? searchPresentCourse, List<BusinessLayer.TeacherCourseHistory> Courses)

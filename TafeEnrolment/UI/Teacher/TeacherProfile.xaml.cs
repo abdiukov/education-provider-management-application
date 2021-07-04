@@ -37,15 +37,14 @@ namespace UI.Teacher
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            Hide();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
         /// <summary>
         /// When the arrow button (located top left) is clicked, user is redirected to main menu
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(0, this);
         }
 
         private void BtnAddTeacher_Click(object sender, RoutedEventArgs e)

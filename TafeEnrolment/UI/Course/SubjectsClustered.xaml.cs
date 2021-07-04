@@ -4,11 +4,14 @@ using System.Windows.Controls;
 namespace UI
 {
     /// <summary>
-    /// Shows a datagrid which contains infromation 
+    /// Shows a datagrid which contains infromation about units and which cluster ID they belong to
     /// </summary>
     public partial class SubjectsClustered : Window
     {
 
+        /// <summary>
+        /// Initialises the page and assigns the contents of the datagrid to be retrieved from Control.cs method GetClusters();
+        /// </summary>
         public SubjectsClustered()
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace UI
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(0, this);
         }
 
         /// <summary>
@@ -41,23 +44,17 @@ namespace UI
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            Hide();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
-        //END OF NAVIGATION CODE
-
-
-        //DATAGRID SETTINGS CODE
-
+        /// <summary>
+        /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
+        /// </summary>
         private void DgClusteredUnits_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //code for changing the datagrid settings
             DataGridSettings page = new DataGridSettings(DgClusteredUnits);
             page.Show();
         }
-
-        //END OF DATAGRID SETTINGS CODE
 
     }
 }

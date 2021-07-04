@@ -6,7 +6,6 @@ namespace UI.Student
     public partial class StudentEnrolment : Window
     {
 
-        //INITIALISATION CODE
         public StudentEnrolment(int studentID)
         {
             InitializeComponent();
@@ -26,15 +25,13 @@ namespace UI.Student
                 DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
-        //END OF INITIALISATION CODE
 
-        //NAVIGATION CODE
         /// <summary>
         /// When the arrow button (located top left) is clicked, user is redirected to main menu
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(0, this);
         }
         /// <summary>
         /// When the page on the navigation bar at the top is clicked upon, this page gets hidden and the user is redirected to that page
@@ -42,20 +39,17 @@ namespace UI.Student
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            Hide();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
-        //END OF NAVIGATION CODE
-
-        //DATAGRID SETTINGS CODE
-
+        /// <summary>
+        /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
+        /// </summary>
         private void DgStudentEnrolment_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DataGridSettings page = new DataGridSettings(DgStudentEnrolment);
             page.Show();
         }
 
-        //END OF DATAGRID SETTINGS CODE
     }
 }

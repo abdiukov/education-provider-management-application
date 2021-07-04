@@ -1,37 +1,52 @@
-﻿<Window x:Class="UI.Edit.EditUnit"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UI.Edit"
-        mc:Ignorable="d"
-        Title="Edit unit" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
+﻿<Window
+    x:Class="UI.Edit.EditUnit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Edit unit"
+    IsVisibleChanged="Window_IsVisibleChanged"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
     <Grid>
-        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
-        <DataGrid Name="DgNavigationBar" 
-                   Margin="40,10,0,0" VerticalAlignment="Top" 
-                   HorizontalAlignment="Stretch" Width="25"
-                  ColumnHeaderHeight="0"
-                  AutoGenerateColumns="False" FontSize="12"
-                  GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage"
-                  >
+        <Button
+            Name="GoBack_navigation_btn"
+            Width="25"
+            Height="25"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="GoBack_navigation_btn_Click"
+            Content="&lt;--" />
+        <DataGrid
+            Name="DgNavigationBar"
+            Width="25"
+            Margin="40,10,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            ColumnHeaderHeight="0"
+            FontSize="12"
+            GridLinesVisibility="None"
+            HeadersVisibility="None"
+            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
+                <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>
-                    <RotateTransform Angle="90"/>
-                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1,0,0,1,0,0" />
                 </TransformGroup>
             </DataGrid.LayoutTransform>
             <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -39,11 +54,11 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.CellStyle>
-                <Style  TargetType="DataGridCell">
+                <Style TargetType="DataGridCell">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -51,15 +66,68 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Label Content="Name" HorizontalAlignment="Left" Margin="50,144,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox FontSize="10" Name="textBox_Name" HorizontalAlignment="Left" Height="26" Margin="150,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <Label
+            Width="95"
+            Margin="50,144,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Name" />
+        <TextBox
+            Name="textBox_Name"
+            Width="228"
+            Height="26"
+            Margin="150,144,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontSize="10"
+            TextWrapping="Wrap" />
 
-        <Label Content="Hours amount" HorizontalAlignment="Left" Margin="433,145,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_Hours" HorizontalAlignment="Left" Height="26" Margin="533,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
-        <Button Name="BtnEditUnit" Content="Alter unit details" Click="BtnEditUnit_Click" HorizontalAlignment="Left" Margin="50,343,0,0" VerticalAlignment="Top" Width="328" Height="57" />
-        <Button Name="BtnDeleteUnit" Content="Delete unit" Click="BtnDeleteUnit_Click" HorizontalAlignment="Left" Margin="433,343,0,0" VerticalAlignment="Top" Width="328" Height="57"/>
-        <ComboBox SelectedIndex="0" Name="ComboBoxSelectUnit" SelectionChanged="ComboBoxSelectUnit_SelectionChanged" HorizontalAlignment="Left" Margin="50,76,0,0" VerticalAlignment="Top" Width="328" Height="38"/>
-        <Label Content="Select unit you wish to edit" HorizontalAlignment="Left" Margin="50,45,0,0" VerticalAlignment="Top"/>
+        <Label
+            Width="95"
+            Margin="433,145,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Hours amount" />
+        <TextBox
+            Name="textBox_Hours"
+            Width="228"
+            Height="26"
+            Margin="533,144,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
+        <Button
+            Name="BtnEditUnit"
+            Width="328"
+            Height="57"
+            Margin="50,343,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnEditUnit_Click"
+            Content="Alter unit details" />
+        <Button
+            Name="BtnDeleteUnit"
+            Width="328"
+            Height="57"
+            Margin="433,343,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnDeleteUnit_Click"
+            Content="Delete unit" />
+        <ComboBox
+            Name="ComboBoxSelectUnit"
+            Width="328"
+            Height="38"
+            Margin="50,76,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            SelectedIndex="0"
+            SelectionChanged="ComboBoxSelectUnit_SelectionChanged" />
+        <Label
+            Margin="50,45,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Select unit you wish to edit" />
 
     </Grid>
 </Window>

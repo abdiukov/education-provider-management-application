@@ -34,7 +34,7 @@ namespace UI.Student
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(0, this);
         }
 
 
@@ -44,8 +44,7 @@ namespace UI.Student
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
-            Hide();
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
         private void BtnAddStudent_Click(object sender, RoutedEventArgs e)

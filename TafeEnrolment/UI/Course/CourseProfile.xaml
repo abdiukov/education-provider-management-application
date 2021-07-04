@@ -1,36 +1,52 @@
-﻿<Window x:Class="UI.Course.CourseProfile"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="Add new course" WindowState="Maximized" IsVisibleChanged="Window_IsVisibleChanged"
-        WindowStartupLocation="CenterScreen"  WindowStyle="ToolWindow">
+﻿<Window
+    x:Class="UI.Course.CourseProfile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Add new course"
+    IsVisibleChanged="Window_IsVisibleChanged"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
     <Grid>
-
-        <Button Name="GoBack_navigation_btn" Content="&lt;--" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="25" Height="25" Click="GoBack_navigation_btn_Click"/>
-        <DataGrid Name="DgNavigationBar" 
-                   Margin="40,10,0,0" VerticalAlignment="Top" 
-                   HorizontalAlignment="Stretch" Width="25"
-                  ColumnHeaderHeight="0"
-                  AutoGenerateColumns="False" FontSize="12"
-                  GridLinesVisibility="None"
-                  HeadersVisibility="None" PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
+        <Button
+            Name="GoBack_navigation_btn"
+            Width="25"
+            Height="25"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="GoBack_navigation_btn_Click"
+            Content="&lt;--" />
+        <DataGrid
+            Name="DgNavigationBar"
+            Width="25"
+            Margin="40,10,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            ColumnHeaderHeight="0"
+            FontSize="12"
+            GridLinesVisibility="None"
+            HeadersVisibility="None"
+            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="" Binding="{Binding Path='Title'}"/>
+                <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>
             <DataGrid.LayoutTransform>
                 <TransformGroup>
-                    <RotateTransform Angle="90"/>
-                    <MatrixTransform Matrix="-1,0,0,1,0,0"/>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1,0,0,1,0,0" />
                 </TransformGroup>
             </DataGrid.LayoutTransform>
             <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -38,11 +54,11 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
             <DataGrid.CellStyle>
-                <Style  TargetType="DataGridCell">
+                <Style TargetType="DataGridCell">
                     <Setter Property="LayoutTransform">
                         <Setter.Value>
                             <TransformGroup>
-                                <RotateTransform Angle="-90"/>
+                                <RotateTransform Angle="-90" />
                                 <ScaleTransform ScaleX="1" ScaleY="-1" />
                             </TransformGroup>
                         </Setter.Value>
@@ -50,34 +66,140 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Label Content="Course name" HorizontalAlignment="Left" Margin="50,83,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_CourseName" HorizontalAlignment="Left" Height="26" Margin="150,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label
+            Width="95"
+            Margin="50,83,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Course name" />
+        <TextBox
+            Name="textBox_CourseName"
+            Width="120"
+            Height="26"
+            Margin="150,83,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
+        <Label
+            Width="95"
+            Margin="50,114,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Location" />
+        <ComboBox
+            x:Name="comboBox_Locations"
+            Width="120"
+            Height="26"
+            Margin="150,114,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Label
+            Width="95"
+            Margin="50,145,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Delivery" />
+        <ComboBox
+            Name="comboBox_Delivery"
+            Width="120"
+            Height="26"
+            Margin="150,145,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Label
+            Width="95"
+            Margin="50,177,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Start semester" />
+        <ComboBox
+            Name="comboBox_SemesterStart"
+            Width="120"
+            Height="26"
+            Margin="150,176,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Label
+            Width="95"
+            Margin="50,208,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="End semester" />
+        <ComboBox
+            x:Name="comboBox_SemesterEnd"
+            Width="120"
+            Height="26"
+            Margin="150,207,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Label
+            Width="95"
+            Margin="50,239,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Course cost" />
+        <TextBox
+            Name="textBox_CourseCost"
+            Width="120"
+            Height="26"
+            Margin="150,239,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            TextWrapping="Wrap" />
+        <Label
+            Width="95"
+            Margin="50,270,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Students" />
+        <Button
+            Name="BtnSelectStudents"
+            Width="120"
+            Height="26"
+            Margin="150,270,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnSelectStudents_Click"
+            Content="Select students" />
 
-        <Label Content="Location" HorizontalAlignment="Left" Margin="50,114,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox x:Name="comboBox_Locations" HorizontalAlignment="Left" Margin="150,114,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-        <Label Content="Delivery" HorizontalAlignment="Left" Margin="50,145,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_Delivery" HorizontalAlignment="Left" Margin="150,145,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-        <Label Content="Start semester" HorizontalAlignment="Left" Margin="50,177,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox Name="comboBox_SemesterStart" HorizontalAlignment="Left" Margin="150,176,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-        <Label Content="End semester" HorizontalAlignment="Left" Margin="50,208,0,0" VerticalAlignment="Top" Width="95"/>
-        <ComboBox x:Name="comboBox_SemesterEnd" HorizontalAlignment="Left" Margin="150,207,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-        <Label Content="Course cost" HorizontalAlignment="Left" Margin="50,239,0,0" VerticalAlignment="Top" Width="95"/>
-        <TextBox Name="textBox_CourseCost" HorizontalAlignment="Left" Height="26" Margin="150,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
-        <Label Content="Students" HorizontalAlignment="Left" Margin="50,270,0,0" VerticalAlignment="Top" Width="95"/>
-        <Button Click="BtnSelectStudents_Click" Name="BtnSelectStudents" Content="Select students" HorizontalAlignment="Left" Margin="150,270,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-        <Label Content="Teachers" HorizontalAlignment="Left" Margin="50,301,0,0" VerticalAlignment="Top" Width="95"/>
-        <Button Click="BtnSelectTeachers_Click" Name="BtnSelectTeachers" Content="Select teachers" HorizontalAlignment="Left" Margin="150,301,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-        <Label Content="Units" HorizontalAlignment="Left" Margin="50,332,0,0" VerticalAlignment="Top" Width="95"/>
-        <Button Click="BtnSelectUnits_Click" Name="BtnSelectUnits" Content="Select teachers" HorizontalAlignment="Left" Margin="150,332,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-
-
-        <Button Name="BtnAddCourse" Content="Insert new course" HorizontalAlignment="Left" Margin="397,83,0,0" VerticalAlignment="Top" Width="220" Height="57"  Click="BtnAddCourse_Click"/>
+        <Label
+            Width="95"
+            Margin="50,301,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Teachers" />
+        <Button
+            Name="BtnSelectTeachers"
+            Width="120"
+            Height="26"
+            Margin="150,301,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnSelectTeachers_Click"
+            Content="Select teachers" />
+        <Label
+            Width="95"
+            Margin="50,332,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Units" />
+        <Button
+            Name="BtnSelectUnits"
+            Width="120"
+            Height="26"
+            Margin="150,332,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnSelectUnits_Click"
+            Content="Select teachers" />
+        <Button
+            Name="BtnAddCourse"
+            Width="220"
+            Height="57"
+            Margin="397,83,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="BtnAddCourse_Click"
+            Content="Insert new course" />
     </Grid>
 </Window>

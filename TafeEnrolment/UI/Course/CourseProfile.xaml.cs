@@ -9,13 +9,9 @@ namespace UI.Course
     /// </summary>
     public partial class CourseProfile : Window
     {
-        //PROPERTIES
         public static List<BusinessLayer.Student> allStudents = new List<BusinessLayer.Student>();
-
         public static List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
-
         public static List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
-
 
         /// <summary>
         /// Initialises the page.
@@ -58,8 +54,7 @@ namespace UI.Course
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
-            Hide();
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
         /// <summary>
@@ -67,7 +62,7 @@ namespace UI.Course
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(0, this);
         }
 
         /// <summary>

@@ -32,7 +32,7 @@ namespace UI.Student
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToExistingPage(0);
+            PageNavigation.GoToExistingPage(0, this);
         }
 
         /// <summary>
@@ -41,14 +41,15 @@ namespace UI.Student
         private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
         {
             DgNavigationBar.CancelEdit();
-            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex);
-            Hide();
+            PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
         //END OF NAVIGATION CODE
 
         //DATAGRID SETTINGS CODE
-
+        /// <summary>
+        /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
+        /// </summary>
         private void DgStudentResults_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             //code for changing the datagrid settings
