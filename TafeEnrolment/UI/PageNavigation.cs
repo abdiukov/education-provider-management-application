@@ -9,7 +9,9 @@ namespace UI
     /// </summary>
     class PageNavigation
     {
-
+        /// <summary>
+        /// Go to new page, hide current page
+        /// </summary>
         public static void GoToNewPage(Window pageToNavigate, Window currentPage)
         {
             App.pagesVisitedTracker.Add(pageToNavigate);
@@ -17,14 +19,9 @@ namespace UI
             currentPage.Hide();
         }
 
-
-        public static void GoToNewPage(Window pageToNavigate)
-        {
-            App.pagesVisitedTracker.Add(pageToNavigate);
-            pageToNavigate.Show();
-        }
-
-
+        /// <summary>
+        /// Go to new page by index, hide current page. If index is 0, the page is Main Menu
+        /// </summary>
         public static void GoToExistingPage(int indexOfPage, Window currentPage)
         {
             Window selectedPage = App.pagesVisitedTracker[indexOfPage];
@@ -35,23 +32,44 @@ namespace UI
             }
         }
 
-        public static void GoToExistingPage(Window pageToNavigate)
+        /// <summary>
+        /// Go to page that already exists in App.pagesVisitedTracker, hide current page
+        /// </summary>
+        public static void GoToExistingPage(Window pageToNavigate, Window currentPage)
         {
             pageToNavigate.Visibility = Visibility.Visible;
+            currentPage.Hide();
         }
 
-        public static void GoToNewOrExistingPage(Window pageToNavigate)
+        /// <summary>
+        /// Not sure whether the page exists, so to avoid duplicates, we check all pages. If it doesn't exist, we open a new one. If it does - we open it.
+        /// </summary>
+        public static void GoToNewOrExistingPage(Window pageToNavigate, Window currentPage)
         {
-            if (App.pagesVisitedTracker.Contains(pageToNavigate))
+            bool pageExists = false;
+
+            foreach (var item in App.pagesVisitedTracker)
             {
-                GoToExistingPage(pageToNavigate);
+                if (pageToNavigate.Title == item.Title)
+                {
+                    pageExists = true;
+                    pageToNavigate = item;
+                }
+            }
+
+            if (pageExists)
+            {
+                GoToExistingPage(pageToNavigate, currentPage);
             }
             else
             {
-                GoToNewPage(pageToNavigate);
+                GoToNewPage(pageToNavigate, currentPage);
             }
         }
 
+        /// <summary>
+        /// Closes all pages except main page. Is triggered when the main page is opened.
+        /// </summary>
         public static void ClearAllPagesExceptMain()
         {
             for (int i = App.pagesVisitedTracker.Count - 1; i > 0; i--)

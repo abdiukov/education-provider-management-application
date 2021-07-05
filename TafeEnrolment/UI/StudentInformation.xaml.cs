@@ -9,13 +9,15 @@ namespace UI
 
     public partial class StudentInformation : Window
     {
+        private List<BusinessLayer.Student> Students = new List<BusinessLayer.Student>();
 
-        List<BusinessLayer.Student> Students = new List<BusinessLayer.Student>();
-
+        /// Initialises the page.
+        /// The datagrid, Students list are filled from Control.cs method GetStudents()
+        /// </summary>
         public StudentInformation()
         {
             InitializeComponent();
-            this.Students = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetStudents");
+            Students = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetStudents");
             DgStudentProfiles.ItemsSource = Students;
         }
 
@@ -30,25 +32,32 @@ namespace UI
                 DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
-        //END OF INITIALISATION CODE
 
-        //SEARCH DATAGRID CODE
-
+        /// <summary>
+        /// If "Part Time" checkbox gets selected, "Full Time" checkbox gets unselected.
+        /// </summary>
         private void Checkbox_SearchPartTime_Checked(object sender, RoutedEventArgs e)
         {
             Checkbox_SearchFullTime.IsChecked = false;
         }
-
+        /// <summary>
+        /// If "Full Time" checkbox gets selected, "Part Time" checkbox gets unselected.
+        /// </summary>
         private void Checkbox_SearchFullTime_Checked(object sender, RoutedEventArgs e)
         {
             Checkbox_SearchPartTime.IsChecked = false;
         }
-
+        /// <summary>
+        /// After clicking on the field, the default text "Enter ID that you wish to search" is replaced with ""
+        /// </summary>
         private void SearchBox_MouseClick(object sender, MouseButtonEventArgs e)
         {
             SearchBox.Text = PageLogic.SearchBoxReplaceDefaultValue(SearchBox.Text);
         }
 
+        /// <summary>
+        /// Validate user input, perform the search, update the datagrid
+        /// </summary>
         private void Search()
         {
             if (!int.TryParse(SearchBox.Text, out int idToSearch))
@@ -64,6 +73,9 @@ namespace UI
             Students = StudentsCopy;
         }
 
+        /// <summary>
+        /// If "Enter" key is pressed, perform a search
+        /// </summary>
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -71,7 +83,9 @@ namespace UI
                 Search();
             }
         }
-
+        /// <summary>
+        /// If "Search" button is clicked, perform a search
+        /// </summary>
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             Search();
@@ -86,24 +100,22 @@ namespace UI
             PageNavigation.GoToExistingPage(0, this);
         }
 
-
+        /// <summary>
+        /// Opens new "Student Results" page that corresponds to the button the user clicked on datagrid 
+        /// </summary>
         private void BtnStudentResult_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             int selectedStudentID = Students.ElementAt(DgStudentProfiles.SelectedIndex).Id;
-            //string studentName = Students.ElementAt(DgStudentProfiles.SelectedIndex).FirstName + " " + Students.ElementAt(DgStudentProfiles.SelectedIndex).LastName;
-
-            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch(selectedStudentID));
+            PageNavigation.GoToNewOrExistingPage(new StudentResultSearch(selectedStudentID), this);
         }
 
-
+        /// <summary>
+        /// Opens new "Student Enrolment" page that corresponds to the button the user clicked on datagrid 
+        /// </summary>
         private void BtnStudentEnrolment_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             int selectedStudentID = Students.ElementAt(DgStudentProfiles.SelectedIndex).Id;
-            //string studentName = Students.ElementAt(DgStudentProfiles.SelectedIndex).FirstName + " " + Students.ElementAt(DgStudentProfiles.SelectedIndex).LastName;
-
-            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment(selectedStudentID));
+            PageNavigation.GoToNewOrExistingPage(new StudentEnrolment(selectedStudentID), this);
         }
 
         /// <summary>
@@ -115,14 +127,11 @@ namespace UI
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
-
-
         /// <summary>
         /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
         /// </summary>
         private void DgStudentProfiles_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //code for changing the datagrid settings
             DataGridSettings page = new DataGridSettings(DgStudentProfiles);
             page.Show();
         }

@@ -20,7 +20,7 @@
             VerticalAlignment="Top"
             KeyDown="SearchBox_KeyDown"
             PreviewMouseDown="SearchBox_MouseClick"
-            Text="Enter keywords by which criteria to search"
+            Text="Enter ID that you wish to search"
             TextWrapping="Wrap" />
         <Button
             Name="SearchButton"

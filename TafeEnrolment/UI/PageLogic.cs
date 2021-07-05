@@ -9,11 +9,20 @@ namespace UI
     /// </summary>
     public class PageLogic
     {
+        /// <summary>Replaces the default value("Enter ID that you wish to search") with "", otherwise does nothing</summary>
+        /// <param name="searchboxText">The text inside the search box e.g Enter ID that you wish to search</param>
+        /// <returns>Either the same text, or ""</returns>
         public static string SearchBoxReplaceDefaultValue(string searchboxText)
         {
-            return searchboxText == "Enter keywords by which criteria to search" ? "" : searchboxText;
+            return searchboxText == "Enter ID that you wish to search" ? "" : searchboxText;
         }
 
+        /// <param name="searchQuery">The student ID that we search by e.g 10</param>
+        /// <param name="searchPartTime">True - the search includes part time students. False - the search excludes part time students</param>
+        /// <param name="searchFullTime">True - the search includes full time students. False - the search excludes full time students</param>
+        /// <param name="searchNoFees">True - the student has paid all course fees. False - the student has not paid their course fees.</param>
+        /// <param name="Students">List of students we are searching from</param>
+        /// <returns>List of students that correspond to the search query</returns>
         public static List<BusinessLayer.Student> SearchStudent(int searchQuery, bool? searchPartTime, bool? searchFullTime,
             bool? searchNoFees, List<BusinessLayer.Student> Students)
         {
@@ -94,6 +103,12 @@ namespace UI
             return output;
         }
 
+        /// <param name="searchQuery">The teacher ID that we search by e.g 10</param>
+        /// <param name="searchPartTime">True - the search includes part time teachers. False - the search excludes part time teachers</param>
+        /// <param name="searchFullTime">True - the search includes full time teachers. False - the search excludes full time teachers</param>
+        /// <param name="searchNotBaseLocation">True - the teacher is teaching in location other than their base location. False - the teacher is teaching at their base location.</param>
+        /// <param name="Teachers">List of teachers we are searching from</param>
+        /// <returns>List of teachers that correspond to the search query</returns>
         public static List<BusinessLayer.Teacher> SearchTeacher(int searchQuery, bool? searchPartTime, bool? searchFullTime,
             bool? searchNotBaseLocation, List<BusinessLayer.Teacher> Teachers)
         {
@@ -176,6 +191,11 @@ namespace UI
         }
 
 
+
+        /// <param name="searchPastCourse">True - the search includes past courses. False - the search excludes past course</param>
+        /// <param name="searchPresentCourse">True - the search includes present courses. False - the search excludes present course</param>
+        /// <param name="Courses">List of courses we are searching from</param>
+        /// <returns>List of courses that correspond to the search query</returns>
         public static List<BusinessLayer.TeacherCourseHistory> SearchTeacherCourseHistory
             (bool? searchPastCourse, bool? searchPresentCourse, List<BusinessLayer.TeacherCourseHistory> Courses)
         {
@@ -211,10 +231,7 @@ namespace UI
             }
             return output;
 
-
-
         }
-
 
     }
 }

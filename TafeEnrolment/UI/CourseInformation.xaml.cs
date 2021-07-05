@@ -27,22 +27,22 @@ namespace UI
 
         private void CourseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new CourseTimetableSearch());
+            PageNavigation.GoToNewOrExistingPage(new CourseTimetableSearch(), this);
         }
 
         private void ClusterUnitCourse_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new SubjectsClustered());
+            PageNavigation.GoToNewOrExistingPage(new SubjectsClustered(), this);
         }
 
         private void CourseNotOffered_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new CourseNotOffered());
+            PageNavigation.GoToNewOrExistingPage(new CourseNotOffered(), this);
         }
 
         private void SubjectsNotAllocated_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            PageNavigation.GoToNewOrExistingPage(new SubjectsWithNoCourse());
+            PageNavigation.GoToNewOrExistingPage(new SubjectsWithNoCourse(), this);
         }
 
         /// <summary>
