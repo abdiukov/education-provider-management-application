@@ -3,13 +3,16 @@ using System.Windows.Controls;
 
 namespace UI
 {
+    /// <summary>
+    /// Displays buttons that redirect to course-related pages.
+    /// </summary>
     public partial class CourseInformation : Window
     {
-        //INITIALISATION CODE
         public CourseInformation()
         {
             InitializeComponent();
         }
+
         /// <summary>
         /// Updates the navigation bar at the top, whenever the window visibility changes
         /// </summary>
@@ -21,33 +24,27 @@ namespace UI
                 DgNavigationBar.ItemsSource = App.pagesVisitedTracker;
             }
         }
-        //END OF INITIALISATION CODE
 
-
-        //PAGE NAVIGATION CODE
         private void CourseTimetables_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             PageNavigation.GoToNewOrExistingPage(new CourseTimetableSearch());
         }
 
         private void ClusterUnitCourse_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             PageNavigation.GoToNewOrExistingPage(new SubjectsClustered());
         }
 
         private void CourseNotOffered_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             PageNavigation.GoToNewOrExistingPage(new CourseNotOffered());
         }
 
         private void SubjectsNotAllocated_navigation_btn_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             PageNavigation.GoToNewOrExistingPage(new SubjectsWithNoCourse());
         }
+
         /// <summary>
         /// When the arrow button (located top left) is clicked, user is redirected to main menu
         /// </summary>
@@ -64,6 +61,5 @@ namespace UI
             DgNavigationBar.CancelEdit();
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
-        //END OF PAGE NAVIGATION CODE
     }
 }

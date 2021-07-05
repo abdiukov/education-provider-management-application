@@ -10,11 +10,20 @@ namespace UI
     class PageNavigation
     {
 
+        public static void GoToNewPage(Window pageToNavigate, Window currentPage)
+        {
+            App.pagesVisitedTracker.Add(pageToNavigate);
+            pageToNavigate.Show();
+            currentPage.Hide();
+        }
+
+
         public static void GoToNewPage(Window pageToNavigate)
         {
             App.pagesVisitedTracker.Add(pageToNavigate);
             pageToNavigate.Show();
         }
+
 
         public static void GoToExistingPage(int indexOfPage, Window currentPage)
         {

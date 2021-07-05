@@ -4,6 +4,9 @@ using System.Windows;
 
 namespace UI
 {
+    /// <summary>
+    /// Contains search logic
+    /// </summary>
     public class PageLogic
     {
         public static string SearchBoxReplaceDefaultValue(string searchboxText)

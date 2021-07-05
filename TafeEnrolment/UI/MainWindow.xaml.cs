@@ -5,20 +5,22 @@ using UI.Teacher;
 
 namespace UI
 {
+    /// <summary>
+    /// Main menu of the application. The first page the user sees after they log in
+    /// </summary>
     public partial class MainWindow : Window
     {
-        //INITIALISATION CODE
+        /// <summary>
+        /// Initialises the page and adds it to the pagesVisitedTracker (which is displayed in navigation bar)
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            if (App.pagesVisitedTracker.Count == 0)
-            {
-                App.pagesVisitedTracker.Add(this);
-            }
+            App.pagesVisitedTracker.Add(this);
         }
 
         /// <summary>
-        /// Updates the navigation bar at the top, whenever the window visibility changes
+        /// When the main menu visibility changes (for example when user navigates back to main menu)
         /// </summary>
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -27,66 +29,42 @@ namespace UI
                 PageNavigation.ClearAllPagesExceptMain();
             }
         }
-        //END OF INITIALISATION CODE
 
-
-        //NAVIGATION CODE
         private void NavigateTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new TeacherInformation());
+            PageNavigation.GoToNewPage(new TeacherInformation(), this);
         }
-
         private void NavigateCourseInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new CourseInformation());
+            PageNavigation.GoToNewPage(new CourseInformation(), this);
         }
-
         private void NavigateStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new StudentInformation());
+            PageNavigation.GoToNewPage(new StudentInformation(), this);
         }
-
         private void AddTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new TeacherProfile());
+            PageNavigation.GoToNewPage(new TeacherProfile(), this);
         }
-
         private void AddCourseInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new CourseProfile());
+            PageNavigation.GoToNewPage(new CourseProfile(), this);
         }
-
         private void AddStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new StudentProfile());
-
+            PageNavigation.GoToNewPage(new StudentProfile(), this);
         }
-
         private void AlterTeacherInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new Edit.EditTeacher());
+            PageNavigation.GoToNewPage(new Edit.EditTeacher(), this);
         }
-
         private void AlterStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new Edit.EditStudent());
+            PageNavigation.GoToNewPage(new Edit.EditStudent(), this);
         }
-
         private void AlterUnitInfo_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            PageNavigation.GoToNewPage(new Edit.EditUnit());
+            PageNavigation.GoToNewPage(new Edit.EditUnit(), this);
         }
-
-        //END OF NAVIGATION CODE
-
     }
 }

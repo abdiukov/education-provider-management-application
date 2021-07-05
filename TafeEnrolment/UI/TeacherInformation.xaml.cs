@@ -109,10 +109,6 @@ namespace UI
             PageNavigation.GoToNewOrExistingPage(new TeacherCourseHistory(selectedTeacherID));
         }
 
-        //END OF NAVIGATION CODE
-
-        //DATAGRID SETTINGS CODE
-
         /// <summary>
         /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
         /// </summary>
@@ -122,6 +118,5 @@ namespace UI
             page.Show();
         }
 
-        //END OF DATAGRID SETTINGS CODE
     }
 }

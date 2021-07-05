@@ -3,9 +3,15 @@ using System.Windows.Controls;
 
 namespace UI.Student
 {
+    /// <summary>
+    /// Shows a datagrid that contains information about all the enrolments for a specific student
+    /// </summary>
     public partial class StudentEnrolment : Window
     {
-
+        /// <summary>
+        /// Initialises the page and assigns the contents of the datagrid to be retrieved from Control.cs method GetEnrolmentsByID();
+        /// </summary>
+        /// <param name="studentID">ID of student inside the database e.g 10</param>
         public StudentEnrolment(int studentID)
         {
             InitializeComponent();

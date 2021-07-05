@@ -5,41 +5,48 @@ using System.Windows.Controls;
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for DataGridSettings.xaml
+    /// Page where they can hide/unhide columns in the datagrid
     /// </summary>
     public partial class DataGridSettings : Window
     {
-        private readonly DataGrid Dg;
-        public DataGridSettings(DataGrid Dg)
+        private readonly DataGrid dg;
+
+        /// <param name="dg">Datagrid which is being modified</param>
+        public DataGridSettings(DataGrid dg)
         {
             InitializeComponent();
-            this.Dg = Dg;
-            lbDataGridSettings.ItemsSource = Dg.Columns;
+            this.dg = dg;
+            lbDataGridSettings.ItemsSource = dg.Columns;
         }
 
+        /// <summary>
+        /// Upon mouse clicking on one of columns in datagrid, its visibility gets changed
+        /// </summary>
         private void lbDataGridSettings_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (lbDataGridSettings.SelectedIndex != -1)
             {
-                switch (Dg.Columns[lbDataGridSettings.SelectedIndex].Visibility)
+                switch (dg.Columns[lbDataGridSettings.SelectedIndex].Visibility)
                 {
                     case Visibility.Visible:
-                        Dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Hidden;
+                        dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Hidden;
                         break;
                     case Visibility.Hidden:
                     case Visibility.Collapsed:
-                        Dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Visible;
+                        dg.Columns[lbDataGridSettings.SelectedIndex].Visibility = Visibility.Visible;
                         break;
                 }
             }
         }
 
-
+        /// <summary>
+        /// If window is not visible to the user, it gets closed
+        /// </summary>
         private void Window_PreviewLostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
         {
             try
             {
-                var window = (Window)sender;
+                Window window = (Window)sender;
                 if (window.IsActive == false && window.Topmost == false)
                 {
                     window.Close();
@@ -47,6 +54,5 @@ namespace UI
             }
             catch (Exception) { };
         }
-
     }
 }

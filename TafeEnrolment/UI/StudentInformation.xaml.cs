@@ -12,7 +12,6 @@ namespace UI
 
         List<BusinessLayer.Student> Students = new List<BusinessLayer.Student>();
 
-        //INITIALISATION CODE
         public StudentInformation()
         {
             InitializeComponent();
@@ -78,10 +77,8 @@ namespace UI
             Search();
         }
 
-        //END OF SEARCH DATAGRID CODE
 
-
-        //PAGE NAVIGATION CODE        /// <summary>
+        /// <summary>
         /// When the arrow button (located top left) is clicked, user is redirected to main menu
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
@@ -118,9 +115,7 @@ namespace UI
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
-        //END OF PAGE NAVIGATION CODE
 
-        //DATAGRID SETTINGS CODE
 
         /// <summary>
         /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
@@ -131,10 +126,6 @@ namespace UI
             DataGridSettings page = new DataGridSettings(DgStudentProfiles);
             page.Show();
         }
-
-
-
-        //END OF DATAGRID SETTINGS CODE
 
     }
 }

@@ -4,10 +4,17 @@ using System.Windows.Controls;
 
 namespace UI.Student
 {
+    /// <summary>
+    /// Page allows user to add a new student into the database
+    /// </summary>
     public partial class StudentProfile : Window
     {
 
-        //INITIALISATION CODE
+        /// <summary>
+        /// Initialises the page.
+        /// The comboboxes(genders, courses) are filled from Control.cs
+        /// methods GetGenders(), GetCourses() respectively.
+        /// </summary>
         public StudentProfile()
         {
             InitializeComponent();
@@ -15,6 +22,7 @@ namespace UI.Student
             comboBox_Course.ItemsSource = App.logic.GetFromDB("GetCourses");
 
         }
+
         /// <summary>
         /// Updates the navigation bar at the top, whenever the window visibility changes
         /// </summary>
@@ -27,9 +35,8 @@ namespace UI.Student
             }
         }
 
-        //END OF INITIALISATION CODE
 
-        //NAVIGATION CODE        /// <summary>
+        /// <summary>
         /// When the arrow button (located top left) is clicked, user is redirected to main menu
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
@@ -47,13 +54,14 @@ namespace UI.Student
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
+        /// <summary>
+        /// Verifies user input and then sends it to the database
+        /// </summary>
         private void BtnAddStudent_Click(object sender, RoutedEventArgs e)
         {
             string address = textBox_Address.Text;
-
             string mobile = textBox_PhoneNumber.Text;
             string email = textBox_Email.Text;
-            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
             string firstName = textBox_FirstName.Text;
             string lastName = textBox_LastName.Text;
 
@@ -64,14 +72,14 @@ namespace UI.Student
                 return;
             }
 
-            Gender selecteDgender = (Gender)comboBox_GenderSelection.SelectedItem;
+            Gender selectedGender = (Gender)comboBox_GenderSelection.SelectedItem;
 
-            if (selecteDgender is null)
+            if (selectedGender is null)
             {
                 MessageBox.Show("Please enter a gender");
                 return;
             }
-            int genderID = selecteDgender.GenderID;
+            int genderID = selectedGender.GenderID;
 
             if (string.IsNullOrWhiteSpace(mobile))
             {
@@ -85,11 +93,13 @@ namespace UI.Student
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(dob))
+            if (datePicker_DateOfBirth.SelectedDate is null)
             {
                 MessageBox.Show("Select a valid date of birth");
                 return;
             }
+
+            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
 
             if (string.IsNullOrWhiteSpace(firstName))
             {
@@ -125,6 +135,5 @@ namespace UI.Student
             MessageBox.Show(outcome);
         }
 
-        //END OF NAVIGATION CODE
     }
 }
