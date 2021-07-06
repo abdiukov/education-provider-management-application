@@ -53,7 +53,6 @@ namespace UI.Teacher
 
             string mobile = textBox_PhoneNumber.Text;
             string email = textBox_Email.Text;
-            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
             string firstName = textBox_FirstName.Text;
             string lastName = textBox_LastName.Text;
 
@@ -63,14 +62,15 @@ namespace UI.Teacher
                 return;
             }
 
-            Gender selecteDgender = (Gender)comboBox_GenderSelection.SelectedItem;
-
-            if (selecteDgender is null)
+            if (comboBox_GenderSelection.SelectedItem is null)
             {
                 MessageBox.Show("Please select teacher gender field ");
+                return;
             }
 
-            int genderID = selecteDgender.GenderID;
+            Gender selectedGender = (Gender)comboBox_GenderSelection.SelectedItem;
+
+            int genderID = selectedGender.GenderID;
 
             if (string.IsNullOrWhiteSpace(mobile))
             {
@@ -84,11 +84,13 @@ namespace UI.Teacher
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(dob))
+            if (datePicker_DateOfBirth.SelectedDate is null)
             {
                 MessageBox.Show("Select a valid date of birth");
                 return;
             }
+
+            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
 
             if (string.IsNullOrWhiteSpace(firstName))
             {

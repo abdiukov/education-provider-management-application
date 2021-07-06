@@ -90,6 +90,7 @@ namespace UI.Edit
             comboBox_GenderSelection.SelectedIndex = selectedGenderIndex;
             datePicker_DateOfBirth.SelectedDate = selectedStudent.DateofBirth;
 
+
         }
         /// <summary>
         /// When user clicks on the button, user input gets verified
@@ -139,7 +140,7 @@ namespace UI.Edit
                 return;
             }
 
-            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-mm-dd");
+            string dob = datePicker_DateOfBirth.SelectedDate.Value.ToString("yyyy-MM-dd");
 
 
             if (string.IsNullOrWhiteSpace(firstName))

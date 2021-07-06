@@ -2153,6 +2153,8 @@ SET QUOTED_IDENTIFIER ON
 GO
 create procedure [dbo].[usp_DeleteUnit] @unitID int
 as
+delete from dbo.Assessment where Assessment.unitID = @unitID
+delete from dbo.Cluster where Cluster.unitID = @unitID
 delete from dbo.Unit where Unit.id = @unitID
 
 GO
