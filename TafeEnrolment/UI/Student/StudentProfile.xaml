@@ -66,145 +66,120 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Label
-            Width="95"
-            Margin="50,83,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Address" />
-        <TextBox
-            Name="textBox_Address"
-            Width="120"
-            Height="26"
-            Margin="150,83,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="50,114,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Gender" />
-        <ComboBox
-            Name="comboBox_GenderSelection"
-            Width="120"
-            Height="26"
-            Margin="150,114,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
+        <StackPanel Margin="50" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                </Grid.RowDefinitions>
+                <Button
+                    Name="BtnAddStudent"
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="4"
+                    Click="BtnAddStudent_Click"
+                    Content="Insert new student" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Content="Address" />
+                <TextBox
+                    Name="textBox_Address"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="50,145,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Phone number" />
-        <TextBox
-            Name="textBox_PhoneNumber"
-            Width="120"
-            Height="26"
-            Margin="150,145,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Content="Gender" />
+                <ComboBox
+                    Name="comboBox_GenderSelection"
+                    Grid.Row="1"
+                    Grid.Column="1" />
 
-        <Label
-            Width="95"
-            Margin="50,177,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Email" />
-        <TextBox
-            Name="textBox_Email"
-            Width="120"
-            Height="26"
-            Margin="150,177,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Content="Phone number" />
+                <TextBox
+                    Name="textBox_PhoneNumber"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="50,208,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Date of birth" />
-        <DatePicker
-            Name="datePicker_DateOfBirth"
-            Width="120"
-            Height="26"
-            Margin="150,209,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Content="Email" />
+                <TextBox
+                    Name="textBox_Email"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="50,239,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="First Name" />
-        <TextBox
-            Name="textBox_FirstName"
-            Width="120"
-            Height="26"
-            Margin="150,239,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Content="Date of birth" />
+                <DatePicker
+                    Name="datePicker_DateOfBirth"
+                    Grid.Row="4"
+                    Grid.Column="1" />
 
-        <Label
-            Width="95"
-            Margin="50,270,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Last Name" />
-        <TextBox
-            Name="textBox_LastName"
-            Width="120"
-            Height="26"
-            Margin="150,270,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Content="First Name" />
+                <TextBox
+                    Name="textBox_FirstName"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="50,301,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Course" />
-        <ComboBox
-            Name="comboBox_Course"
-            Width="120"
-            Height="26"
-            Margin="150,301,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
+                <Label
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Content="Last Name" />
+                <TextBox
+                    Name="textBox_LastName"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="50,332,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Course cost" />
-        <TextBox
-            x:Name="textBox_CourseCost"
-            Width="120"
-            Height="26"
-            Margin="150,332,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
-        <Button
-            Name="BtnAddStudent"
-            Width="220"
-            Height="57"
-            Margin="397,83,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="BtnAddStudent_Click"
-            Content="Insert new student" />
+                <Label
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Content="Course" />
+                <ComboBox
+                    Name="comboBox_Course"
+                    Grid.Row="7"
+                    Grid.Column="1" />
+
+                <Label
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    Content="Course cost" />
+                <TextBox
+                    x:Name="textBox_CourseCost"
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>

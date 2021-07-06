@@ -20,42 +20,41 @@
             VerticalAlignment="Top"
             Click="GoBack_navigation_btn_Click"
             Content="&lt;--" />
-        <Button
-            Name="courseNotOffered_navigation_btn"
-            Width="460"
-            Height="73"
-            Margin="174,234,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="CourseNotOffered_navigation_btn_Click"
-            Content="See all courses which are not offered this semester" />
-        <Button
-            Name="subjectsNotAllocated_navigation_btn"
-            Width="460"
-            Height="73"
-            Margin="174,312,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="SubjectsNotAllocated_navigation_btn_Click"
-            Content="See all units/subjects which are not allocated to any course in any semester." />
-        <Button
-            Name="clusterUnitCourse_navigation_btn"
-            Width="460"
-            Height="73"
-            Margin="174,156,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="ClusterUnitCourse_navigation_btn_Click"
-            Content="See cluster units for any course and semester." />
-        <Button
-            Name="courseTimetables_navigation_btn"
-            Width="460"
-            Height="73"
-            Margin="174,78,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="CourseTimetables_navigation_btn_Click"
-            Content="Display course timetables" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="80" />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button
+                Name="courseNotOffered_navigation_btn"
+                Grid.Row="2"
+                Grid.Column="0"
+                Click="CourseNotOffered_navigation_btn_Click"
+                Content="See all courses which are not offered this semester" />
+            <Button
+                Name="clusterUnitCourse_navigation_btn"
+                Grid.Row="2"
+                Grid.Column="1"
+                Click="ClusterUnitCourse_navigation_btn_Click"
+                Content="See cluster units for any course and semester." />
+            <Button
+                Name="subjectsNotAllocated_navigation_btn"
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="SubjectsNotAllocated_navigation_btn_Click"
+                Content="See all units/subjects which are not allocated to any course in any semester." />
+            <Button
+                Name="courseTimetables_navigation_btn"
+                Grid.Row="1"
+                Grid.Column="1"
+                Click="CourseTimetables_navigation_btn_Click"
+                Content="Display course timetables" />
+        </Grid>
         <DataGrid
             Name="DgNavigationBar"
             Width="25"

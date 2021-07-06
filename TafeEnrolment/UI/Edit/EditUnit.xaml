@@ -66,68 +66,73 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Label
-            Width="95"
-            Margin="50,144,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Name" />
-        <TextBox
-            Name="textBox_Name"
-            Width="228"
-            Height="26"
-            Margin="150,144,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            FontSize="10"
-            TextWrapping="Wrap" />
+        <StackPanel Margin="50" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.3*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                </Grid.RowDefinitions>
 
-        <Label
-            Width="95"
-            Margin="433,145,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Hours amount" />
-        <TextBox
-            Name="textBox_Hours"
-            Width="228"
-            Height="26"
-            Margin="533,144,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
-        <Button
-            Name="BtnEditUnit"
-            Width="328"
-            Height="57"
-            Margin="50,343,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="BtnEditUnit_Click"
-            Content="Alter unit details" />
-        <Button
-            Name="BtnDeleteUnit"
-            Width="328"
-            Height="57"
-            Margin="433,343,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="BtnDeleteUnit_Click"
-            Content="Delete unit" />
-        <ComboBox
-            Name="ComboBoxSelectUnit"
-            Width="328"
-            Height="38"
-            Margin="50,76,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            SelectedIndex="0"
-            SelectionChanged="ComboBoxSelectUnit_SelectionChanged" />
-        <Label
-            Margin="50,45,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Select unit you wish to edit" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Content="Select unit you wish to edit" />
 
+                <ComboBox
+                    Name="ComboBoxSelectUnit"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    SelectedIndex="0"
+                    SelectionChanged="ComboBoxSelectUnit_SelectionChanged" />
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Content="Name" />
+                <TextBox
+                    Name="textBox_Name"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Content="Hours amount" />
+                <TextBox
+                    Name="textBox_Hours"
+                    Grid.Row="3"
+                    Grid.Column="4"
+                    TextWrapping="Wrap" />
+                <Button
+                    Name="BtnEditUnit"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Click="BtnEditUnit_Click"
+                    Content="Alter unit details" />
+                <Button
+                    Name="BtnDeleteUnit"
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    Click="BtnDeleteUnit_Click"
+                    Content="Delete unit" />
+
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>

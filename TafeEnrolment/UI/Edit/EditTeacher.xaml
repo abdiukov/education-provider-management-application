@@ -66,155 +66,136 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <Label
-            Width="95"
-            Margin="50,144,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Address" />
-        <TextBox
-            Name="textBox_Address"
-            Width="228"
-            Height="26"
-            Margin="150,144,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            FontSize="10"
-            TextWrapping="Wrap" />
+        <StackPanel Margin="50" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="0.3*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
+                </Grid.RowDefinitions>
 
-        <Label
-            Width="95"
-            Margin="50,175,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Gender" />
-        <ComboBox
-            Name="comboBox_GenderSelection"
-            Width="228"
-            Height="26"
-            Margin="150,175,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Content="Select teacher you wish to edit" />
+                <ComboBox
+                    Name="ComboBoxSelectTeacher"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    SelectedIndex="0"
+                    SelectionChanged="ComboBoxSelectTeacher_SelectionChanged" />
 
-        <Label
-            Width="95"
-            Margin="50,206,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Phone number" />
-        <TextBox
-            Name="textBox_PhoneNumber"
-            Width="228"
-            Height="26"
-            Margin="150,206,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="50,238,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Email" />
-        <TextBox
-            Name="textBox_Email"
-            Width="228"
-            Height="26"
-            Margin="150,238,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Content="Address" />
+                <TextBox
+                    Name="textBox_Address"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="433,205,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Date of birth" />
-        <DatePicker
-            Name="datePicker_DateOfBirth"
-            Width="228"
-            Height="26"
-            Margin="533,206,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Content="Gender" />
+                <ComboBox
+                    Name="comboBox_GenderSelection"
+                    Grid.Row="4"
+                    Grid.Column="1" />
 
-        <Label
-            Width="95"
-            Margin="433,145,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="First Name" />
-        <TextBox
-            Name="textBox_FirstName"
-            Width="228"
-            Height="26"
-            Margin="533,144,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Content="Phone number" />
+                <TextBox
+                    Name="textBox_PhoneNumber"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
 
-        <Label
-            Width="95"
-            Margin="433,176,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Last Name" />
-        <TextBox
-            Name="textBox_LastName"
-            Width="228"
-            Height="26"
-            Margin="533,176,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            TextWrapping="Wrap" />
-        <Button
-            Name="BtnEditTeacher"
-            Width="328"
-            Height="57"
-            Margin="50,343,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="BtnEditTeacher_Click"
-            Content="Alter teacher details" />
-        <Button
-            x:Name="BtnDeleteTeacher"
-            Width="328"
-            Height="57"
-            Margin="433,343,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="BtnDeleteTeacher_Click"
-            Content="Delete teacher" />
-        <ComboBox
-            Name="ComboBoxSelectTeacher"
-            Width="328"
-            Height="38"
-            Margin="50,76,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            SelectedIndex="0"
-            SelectionChanged="ComboBoxSelectTeacher_SelectionChanged" />
-        <Label
-            Margin="50,45,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Select teacher you wish to edit" />
+                <Label
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Content="Email" />
+                <TextBox
+                    Name="textBox_Email"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    TextWrapping="Wrap" />
 
-        <Label
-            Width="94"
-            Margin="433,237,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Base location" />
-        <ComboBox
-            x:Name="comboBox_Locations"
-            Width="228"
-            Height="26"
-            Margin="533,237,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
 
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Content="First Name" />
+                <TextBox
+                    Name="textBox_FirstName"
+                    Grid.Row="3"
+                    Grid.Column="4"
+                    TextWrapping="Wrap" />
+
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Content="Last Name" />
+                <TextBox
+                    Name="textBox_LastName"
+                    Grid.Row="4"
+                    Grid.Column="4"
+                    TextWrapping="Wrap" />
+
+
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Content="Date of birth" />
+                <DatePicker
+                    Name="datePicker_DateOfBirth"
+                    Grid.Row="5"
+                    Grid.Column="4" />
+
+                <Label
+                    Grid.Row="6"
+                    Grid.Column="3"
+                    Content="Base location" />
+                <ComboBox
+                    x:Name="comboBox_Locations"
+                    Grid.Row="6"
+                    Grid.Column="4" />
+
+                <Button
+                    Name="BtnEditTeacher"
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Click="BtnEditTeacher_Click"
+                    Content="Alter teacher details" />
+                <Button
+                    x:Name="BtnDeleteTeacher"
+                    Grid.Row="8"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    Click="BtnDeleteTeacher_Click"
+                    Content="Delete teacher" />
+
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>
