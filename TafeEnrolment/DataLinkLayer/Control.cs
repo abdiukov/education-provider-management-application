@@ -1,7 +1,6 @@
 ﻿using BusinessLayer;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.SqlClient;
 
 namespace DataLinkLayer
@@ -12,9 +11,9 @@ namespace DataLinkLayer
     public class Control
     {
         //CONSTRUCTOR
-        public Control()
+        public Control(string connectionString)
         {
-            connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnection"].ConnectionString;
+            this.connectionString = connectionString;
         }
 
         //PROPERTIES
@@ -575,38 +574,20 @@ namespace DataLinkLayer
         //METHODS TO LOG INTO THE DATABASE
         //
 
-        /// <param name="username">Username that is needed to log-in e.g usern2m3 </param>
-        /// <param name="password">Password that is needed to log-in e.g greatp@ssw0rd </param>
         /// <returns>True - the log-in was successful. False - the log-in attempt had failed.</returns>
-        public bool AttemptLogin(string username, string password)
+        public bool CheckConnection()
         {
-            bool result = false;
+            SqlConnection conn = new SqlConnection(connectionString);
             try
             {
-                SqlConnection conn = new SqlConnection(connectionString);
-
-                //Execute query
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("exec usp_AttemptLogin @username, @password", conn);
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
-
-                SqlDataReader dataReader = cmd.ExecuteReader();
-
-                if (dataReader.HasRows)
-                {
-                    dataReader.Read();
-                    result = (dataReader[0].ToString() == "1");
-                }
-                //disposing
                 conn.Dispose();
-                cmd.Dispose();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("An error has occured at AttemptLogin()\n" + ex.Message);
+                return false;
             }
-            return result;
+            return true;
         }
 
         //

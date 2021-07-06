@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ModelLayer;
+using System.Windows;
 using System.Windows.Input;
 
 namespace UI
@@ -33,11 +34,18 @@ namespace UI
         }
 
         /// <summary>
-        /// Gets input from textboxes and provides them onto AttemptLogin() method
+        /// Gets username and password, uses it to create the connection string and then checks whether the connection can be made
         /// </summary>
         private void AttemptLogin()
         {
-            if (App.logic.AttemptLogin(Textbox_Username.Text, PasswordBox_Password.Password))
+            string connectionString = "Server=tcp:myzureserver.database.windows.net,1433;Initial Catalog=TafeSystem;Persist Security Info=False;" +
+                "User ID=" + Textbox_Username.Text +
+                ";Password=" + PasswordBox_Password.Password +
+                ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=5;";
+
+            App.logic = new Logic(connectionString);
+
+            if (App.logic.CheckConnection() == true)
             {
                 MainWindow pageobj = new MainWindow();
                 pageobj.Show();

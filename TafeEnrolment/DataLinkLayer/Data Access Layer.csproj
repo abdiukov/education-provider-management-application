@@ -70,9 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\Model.csproj">
       <Project>{a6c30167-de49-48df-90d4-8aa6070ed4d5}</Project>
       <Name>Model</Name>

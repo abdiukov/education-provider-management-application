@@ -12,7 +12,7 @@ namespace UI
         //pagesVisitedTracker is a tracker that contains pages that the user opened.
         public static List<Window> pagesVisitedTracker = new List<Window>();
 
-        public static readonly Logic logic = new Logic();
+        public static Logic logic;
 
     }
 }

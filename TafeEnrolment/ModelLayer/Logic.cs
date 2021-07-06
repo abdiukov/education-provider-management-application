@@ -15,10 +15,17 @@ namespace ModelLayer
         /// <summary>
         /// The consturctor links to the Control.cs in the Model Layer
         /// </summary>
-        public Logic()
+        public Logic(string connectionString)
         {
-            control = new Control();
+            control = new Control(connectionString);
             controlType = control.GetType();
+        }
+
+
+        /// <returns>True - the log-in was successful. False - the log-in attempt had failed.</returns>
+        public bool CheckConnection()
+        {
+            return control.CheckConnection();
         }
 
         //PROPERTIES
@@ -60,14 +67,6 @@ namespace ModelLayer
         public string ManageDB(string command, object[] parameters)
         {
             return (string)controlType.GetMethod(command).Invoke(control, parameters);
-        }
-
-        /// <param name="username">Username that is needed to log-in e.g usern2m3 </param>
-        /// <param name="password">Password that is needed to log-in e.g greatp@ssw0rd </param>
-        /// <returns>True - the log-in was successful. False - the log-in attempt had failed.</returns>
-        public bool AttemptLogin(string username, string password)
-        {
-            return control.AttemptLogin(username, password);
         }
 
         /// <param name="courseName">The name of the new course e.g Certificate II in Plumbing</param>
