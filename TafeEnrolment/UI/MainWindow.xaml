@@ -19,6 +19,9 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+
         </Grid.RowDefinitions>
 
         <Button
@@ -59,21 +62,53 @@
             Content="Add student" />
         <Button
             x:Name="AlterTeacherInfo"
-            Grid.Row="3"
+            Grid.Row="2"
             Grid.Column="0"
             Click="AlterTeacherInfo_Click"
             Content="Delete/modify teacher" />
+
+        <Button
+            x:Name="AlterCourse"
+            Grid.Row="2"
+            Grid.Column="1"
+            Click="AlterCourse_Click"
+            Content="Delete/modify course" />
+
+
+        <Button
+            x:Name="AlterStudentInfo"
+            Grid.Row="2"
+            Grid.Column="2"
+            Click="AlterStudentInfo_Click"
+            Content="Delete/modify student" />
+
+
+        <Button
+            x:Name="AddUnit"
+            Grid.Row="3"
+            Grid.Column="1"
+            Click="AddUnit_Click"
+            Content="Add unit" />
+
+        <Button
+            x:Name="ManagePayment"
+            Grid.Row="3"
+            Grid.Column="2"
+            Click="ManagePayment_Click"
+            Content="Manage student payments" />
         <Button
             x:Name="AlterUnitInfo"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="1"
             Click="AlterUnitInfo_Click"
             Content="Delete/modify units" />
+
         <Button
-            x:Name="AlterStudentInfo"
-            Grid.Row="3"
-            Grid.Column="3"
-            Click="AlterStudentInfo_Click"
-            Content="Delete/modify student" />
+            x:Name="ManageResults"
+            Grid.Row="4"
+            Grid.Column="2"
+            Click="ManageResults_Click"
+            Content="Manage student results" />
+
     </Grid>
 </Window>

@@ -66,5 +66,25 @@ namespace UI
         {
             PageNavigation.GoToNewPage(new Edit.EditUnit(), this);
         }
+
+        private void AlterCourse_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.GoToNewPage(new Edit.EditCourse(), this);
+        }
+
+        private void ManagePayment_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.GoToNewPage(new Edit.EditStudentPayment(), this);
+        }
+
+        private void AddUnit_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.GoToNewPage(new Add.UnitProfile(), this);
+        }
+
+        private void ManageResults_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigation.GoToNewPage(new Edit.EditStudentResults(), this);
+        }
     }
 }

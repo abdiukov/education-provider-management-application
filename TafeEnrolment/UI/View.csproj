@@ -58,13 +58,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Add\UnitProfile.xaml.cs">
+      <DependentUpon>UnitProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CourseInformation.xaml.cs">
       <DependentUpon>CourseInformation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Course\CourseNotOffered.xaml.cs">
       <DependentUpon>CourseNotOffered.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Course\CourseProfile.xaml.cs">
+    <Compile Include="Add\CourseProfile.xaml.cs">
       <DependentUpon>CourseProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Course\CourseSelectStudent.xaml.cs">
@@ -81,6 +84,9 @@
     </Compile>
     <Compile Include="DataGridSettings.xaml.cs">
       <DependentUpon>DataGridSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditCourse.xaml.cs">
+      <DependentUpon>EditCourse.xaml</DependentUpon>
     </Compile>
     <Compile Include="Edit\EditStudent.xaml.cs">
       <DependentUpon>EditStudent.xaml</DependentUpon>
@@ -102,7 +108,7 @@
     <Compile Include="Student\StudentEnrolment.xaml.cs">
       <DependentUpon>StudentEnrolment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Student\StudentProfile.xaml.cs">
+    <Compile Include="Add\StudentProfile.xaml.cs">
       <DependentUpon>StudentProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Student\StudentResultSearch.xaml.cs">
@@ -120,9 +126,13 @@
     <Compile Include="TeacherInformation.xaml.cs">
       <DependentUpon>TeacherInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Teacher\TeacherProfile.xaml.cs">
+    <Compile Include="Add\TeacherProfile.xaml.cs">
       <DependentUpon>TeacherProfile.xaml</DependentUpon>
     </Compile>
+    <Page Include="Add\UnitProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CourseInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,7 +141,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Course\CourseProfile.xaml">
+    <Page Include="Add\CourseProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DataGridSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditCourse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,7 +205,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Student\StudentProfile.xaml">
+    <Page Include="Add\StudentProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,7 +229,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Teacher\TeacherProfile.xaml">
+    <Page Include="Add\TeacherProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -259,5 +273,6 @@
   <ItemGroup>
     <Resource Include="icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
