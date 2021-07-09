@@ -15,8 +15,9 @@
         /// <param name="CourseLocation">Where the course is being delivered e.g Granville</param>
         /// <param name="CourseAddress">The street address on where the course is being delivered</param>
         /// <param name="IsCurrent">Boolean true or false value, whether the course is being delivered RIGHT NOW</param>
+        /// <param name="CourseStudentID">The unique ID that links the student to the course and to the course result e.g 20</param>
         public Enrolment(string FirstName, string LastName, string CourseName, double AmountPaid,
-            double AmountDue, string CourseLocation, string CourseAddress, bool IsCurrent)
+            double AmountDue, string CourseLocation, string CourseAddress, bool IsCurrent, int CourseStudentID)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -26,6 +27,7 @@
             this.CourseLocation = CourseLocation;
             this.CourseAddress = CourseAddress;
             this.IsCurrent = IsCurrent;
+            this.CourseStudentID = CourseStudentID;
         }
 
         //PROPERTIES
@@ -37,5 +39,6 @@
         public double AmountDue { get; set; }
         public string CourseLocation { get; set; }
         public string CourseAddress { get; set; }
+        public int CourseStudentID { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace UI.Edit
     public partial class EditStudentResults : Window
     {
         private readonly List<BusinessLayer.Student> allStudents = new List<BusinessLayer.Student>();
+        private readonly List<Model.Outcome> allOutcomes = new List<Model.Outcome>();
 
         /// <summary>
         /// Initialises the page.
@@ -23,6 +24,7 @@ namespace UI.Edit
             InitializeComponent();
             allStudents = App.logic.SortStudentList((List<BusinessLayer.Student>)App.logic.GetFromDB("GetStudents"));
             ComboBoxSelectStudent.ItemsSource = allStudents;
+            allOutcomes = (List<Model.Outcome>)App.logic.GetFromDB("GetOutcomes");
         }
 
         /// <summary>
@@ -80,9 +82,9 @@ namespace UI.Edit
 
         private void BtnEditOutcome_Click(object sender, RoutedEventArgs e)
         {
-            BusinessLayer.Student selectedStudent = (BusinessLayer.Student)ComboBoxSelectStudent.SelectedItem;
-
-            string outcome = App.logic.ManageDB("", new object[] { selectedStudent.Id });
+            BusinessLayer.StudentResult selectedStudentResult = (BusinessLayer.StudentResult)DgStudentResults.SelectedItem;
+            int outcomeID = 0;
+            string outcome = App.logic.ManageDB("EditStudentOutcome", new object[] { outcomeID, selectedStudentResult.CourseStudentID });
             MessageBox.Show(outcome);
 
             GoBack();

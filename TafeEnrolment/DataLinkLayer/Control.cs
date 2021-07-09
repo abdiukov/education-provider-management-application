@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -242,7 +243,7 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        StudentResult output = new StudentResult(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+                        StudentResult output = new StudentResult(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetInt32(4));
                         outputlist.Add(output);
                     }
                 }
@@ -381,7 +382,7 @@ namespace DataLinkLayer
                     {
                         Enrolment output = new Enrolment(dataReader.GetString(0), dataReader.GetString(1),
                             dataReader.GetString(2), Double.Parse(dataReader[3].ToString()), Double.Parse(dataReader[4].ToString()),
-                             dataReader.GetString(5), dataReader.GetString(6), (dataReader[7].ToString() == "True"));
+                             dataReader.GetString(5), dataReader.GetString(6), (dataReader[7].ToString() == "True"), dataReader.GetInt32(8));
                         outputlist.Add(output);
                     }
                 }
@@ -565,6 +566,38 @@ namespace DataLinkLayer
             catch (Exception ex)
             {
                 Console.WriteLine("An error has occured at GetUnits()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+        public List<Outcome> GetOutcomes()
+        {
+            List<Outcome> outputlist = new List<Outcome>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectAllOutcome", conn);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Outcome output = new Outcome(dataReader.GetInt32(0), dataReader.GetString(1));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetOutcomes()\n" + ex.Message);
             }
             //output
             return outputlist;
@@ -860,6 +893,57 @@ namespace DataLinkLayer
         //
         //METHODS TO EDIT/DELETE INFORMATION INSIDE THE DATABASE
         //
+
+        public string EditStudentPayment(int courseStudentID, double amountPaid, double amountDue)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditStudentOutcome @newOutcomeID, @courseStudentID", conn);
+                cmd.Parameters.AddWithValue("@courseStudentID", courseStudentID);
+                cmd.Parameters.AddWithValue("@amountPaid", amountPaid);
+                cmd.Parameters.AddWithValue("@amountDue", amountDue);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The student payment has been changed.";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit student payment. An error has occured at EditStudentPayment()\n" + ex.Message;
+            }
+        }
+
+        public string EditStudentOutcome(int newOutcomeID, int courseStudentID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditStudentOutcome @newOutcomeID, @courseStudentID", conn);
+                cmd.Parameters.AddWithValue("@newOutcomeID", newOutcomeID);
+                cmd.Parameters.AddWithValue("@courseStudentID", courseStudentID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The student outcome has been changed.";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit student outcome. An error has occured at EditStudentOutcome()\n" + ex.Message;
+            }
+        }
 
         /// <param name="studentID">ID of student that is being edited e.g 23</param>
         /// <param name="address">Student's new residential address e.g 22 Column Street, Blacktown 2133</param>

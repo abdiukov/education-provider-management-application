@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:UI.Edit"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Edit student payments"
     IsVisibleChanged="Window_IsVisibleChanged"
@@ -114,8 +113,6 @@
             IsReadOnly="True"
             MouseRightButtonDown="DgStudentEnrolment_MouseRightButtonDown">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path='FirstName'}" Header="Student First Name" />
-                <DataGridTextColumn Binding="{Binding Path='LastName'}" Header="Student Last Name" />
                 <DataGridTextColumn Binding="{Binding Path='CourseName'}" Header="Course Name" />
                 <DataGridTextColumn Binding="{Binding Path='IsCurrent'}" Header="Is currently in progress" />
                 <DataGridTextColumn Binding="{Binding Path='AmountPaid'}" Header="Amount paid" />

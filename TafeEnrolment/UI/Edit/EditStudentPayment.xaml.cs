@@ -80,9 +80,10 @@ namespace UI.Edit
 
         private void BtnEditPayment_Click(object sender, RoutedEventArgs e)
         {
-            BusinessLayer.Student selectedStudent = (BusinessLayer.Student)ComboBoxSelectStudent.SelectedItem;
-
-            string outcome = App.logic.ManageDB("", new object[] { selectedStudent.Id });
+            BusinessLayer.Enrolment selectedPaymentToChange = (BusinessLayer.Enrolment)DgStudentEnrolment.SelectedItem;
+            double amountPaid = 0;
+            double amountDue = 0;
+            string outcome = App.logic.ManageDB("EditStudentPayment", new object[] { selectedPaymentToChange.CourseStudentID, amountPaid, amountDue });
             MessageBox.Show(outcome);
 
             GoBack();
