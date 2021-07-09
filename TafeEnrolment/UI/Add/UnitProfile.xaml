@@ -81,36 +81,40 @@
                     <RowDefinition MinHeight="50" />
                     <RowDefinition MinHeight="50" />
                     <RowDefinition MinHeight="50" />
-                    <RowDefinition MinHeight="50" />
-                    <RowDefinition MinHeight="50" />
                 </Grid.RowDefinitions>
 
                 <Label
-                    Grid.Row="3"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Content="Enter in unit details to be added into database" />
+
+                <Label
+                    Grid.Row="1"
                     Grid.Column="0"
                     Content="Name" />
                 <TextBox
                     Name="textBox_Name"
-                    Grid.Row="3"
+                    Grid.Row="1"
                     Grid.Column="1"
                     TextWrapping="Wrap" />
-
                 <Label
-                    Grid.Row="3"
+                    Grid.Row="1"
                     Grid.Column="3"
                     Content="Hours amount" />
                 <TextBox
                     Name="textBox_Hours"
-                    Grid.Row="3"
+                    Grid.Row="1"
                     Grid.Column="4"
                     TextWrapping="Wrap" />
+
                 <Button
                     Name="BtnAddUnit"
-                    Grid.Row="5"
+                    Grid.Row="3"
                     Grid.Column="3"
                     Grid.ColumnSpan="2"
                     Click="BtnAddUnit_Click"
-                    Content="Delete unit" />
+                    Content="Add unit" />
 
             </Grid>
         </StackPanel>

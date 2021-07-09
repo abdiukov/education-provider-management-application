@@ -91,6 +91,12 @@
     <Compile Include="Edit\EditStudent.xaml.cs">
       <DependentUpon>EditStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Edit\EditStudentPayment.xaml.cs">
+      <DependentUpon>EditStudentPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditStudentResults.xaml.cs">
+      <DependentUpon>EditStudentResults.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Edit\EditTeacher.xaml.cs">
       <DependentUpon>EditTeacher.xaml</DependentUpon>
     </Compile>
@@ -170,6 +176,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Edit\EditStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditStudentPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditStudentResults.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

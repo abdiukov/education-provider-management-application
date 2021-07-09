@@ -829,6 +829,34 @@ namespace DataLinkLayer
             }
         }
 
+
+        /// <param name="unitName">New name of unit e.g Advanced algorithms</param>
+        /// <param name="hoursAmount">New number of hours requried to complete the unit e.g 200</param>
+        public string InsertUnit(string unitName, int hoursAmount)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_InsertUnit @unitName, @hoursAmount", conn);
+                cmd.Parameters.AddWithValue("@unitName", unitName);
+                cmd.Parameters.AddWithValue("@hoursAmount", hoursAmount);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The unit has been successfully inserted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to insert unit. An error has occured at EditUnit()\n" + ex.Message;
+            }
+        }
+
         //
         //METHODS TO EDIT/DELETE INFORMATION INSIDE THE DATABASE
         //
