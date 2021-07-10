@@ -15,27 +15,28 @@ namespace UI.Edit
         public static List<BusinessLayer.Student> allStudents = new List<BusinessLayer.Student>();
         public static List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
         public static List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
+        public static List<BusinessLayer.Location> allLocations = new List<BusinessLayer.Location>();
+        public static List<BusinessLayer.Delivery> allDelivery = new List<BusinessLayer.Delivery>();
+        public static List<BusinessLayer.Semester> allSemesters = new List<BusinessLayer.Semester>();
 
-        /// <summary>
-        /// Initialises the page.
-        /// The comboboxes(location, students, delivery, semester start/semester end) are filled from Control.cs
-        /// methods GetLocations(), GetAvailableStudents(), GetDelivery(), GetSemesters() respectively.
-        /// allStudents, allUnits, allTeachers are filled from Control.cs methods GetAvailableStudents(), GetUnits(), GetTeachers() methods respectively.
-        /// </summary>
         public EditCourse()
         {
             InitializeComponent();
 
-            //UI
-            comboBox_Locations.ItemsSource = App.logic.GetFromDB("GetLocations");
-            comboBox_Delivery.ItemsSource = App.logic.GetFromDB("GetDelivery");
-            IEnumerable<Semester> availableSemesters = (IEnumerable<Semester>)App.logic.GetFromDB("GetSemesters");
-            comboBox_SemesterStart.ItemsSource = availableSemesters;
-            comboBox_SemesterEnd.ItemsSource = availableSemesters;
+            //Assigning to lists
+            allLocations = (List<Location>)App.logic.GetFromDB("GetLocations");
+            allDelivery = (List<Delivery>)App.logic.GetFromDB("GetDelivery");
+            allSemesters = (List<Semester>)App.logic.GetFromDB("GetSemesters");
+            allCourses = (List<Model.CourseInformation>)App.logic.GetFromDB("GetCoursesForAutofill");
 
+            //UI
+            comboBox_Locations.ItemsSource = allLocations;
+            comboBox_Delivery.ItemsSource = allDelivery;
+            comboBox_SemesterStart.ItemsSource = allSemesters;
+            comboBox_SemesterEnd.ItemsSource = allSemesters;
+            ComboBoxSelectCourse.ItemsSource = allCourses;
 
             //LOGIC
-            allCourses = (List<Model.CourseInformation>)App.logic.GetFromDB("GetCoursesForAutofill");
             allStudents = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetAvailableStudents");
             allUnits = (List<Unit>)App.logic.GetFromDB("GetUnits");
             allTeachers = App.logic.SortTeacherList((List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers"));
@@ -97,10 +98,63 @@ namespace UI.Edit
             pageobj.Show();
         }
 
-        /// <summary>
-        /// Verifies user input and then sends it to the database
-        /// </summary>
-        private void BtnAddCourse_Click(object sender, RoutedEventArgs e)
+        private void ComboBoxSelectCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Model.CourseInformation selectedCourse = (Model.CourseInformation)ComboBoxSelectCourse.SelectedItem;
+
+
+            textBox_CourseName.Text = selectedCourse.CourseName;
+
+            foreach (Location item in allLocations)
+            {
+                if (item.Id == selectedCourse.LocationID)
+                {
+                    comboBox_Locations.SelectedItem = item;
+                    break;
+                }
+            }
+
+            foreach (Delivery item in allDelivery)
+            {
+                if (item.Id == selectedCourse.DeliveryID)
+                {
+                    comboBox_Delivery.SelectedItem = item;
+                    break;
+                }
+            }
+
+            foreach (Delivery item in allDelivery)
+            {
+                if (item.Id == selectedCourse.DeliveryID)
+                {
+                    comboBox_Delivery.SelectedItem = item;
+                    break;
+                }
+            }
+
+            foreach (Semester item in allSemesters)
+            {
+                if (item.Id == selectedCourse.StartSemesterID)
+                {
+                    comboBox_SemesterStart.SelectedItem = item;
+                    break;
+                }
+            }
+
+            foreach (Semester item in allSemesters)
+            {
+                if (item.Id == selectedCourse.EndSemesterID)
+                {
+                    comboBox_SemesterEnd.SelectedItem = item;
+                    break;
+                }
+            }
+
+
+
+        }
+
+        private void BtnEditCourse_Click(object sender, RoutedEventArgs e)
         {
             string courseName = textBox_CourseName.Text;
 
@@ -152,12 +206,7 @@ namespace UI.Edit
                 return;
             }
 
-            if (!double.TryParse(textBox_CourseCost.Text, out double courseCost))
-            {
-                MessageBox.Show("Please enter a number into \"Course Cost\" field");
-                return;
-            }
-
+            double courseCost = 0;
             if (courseCost < 0)
             {
                 MessageBox.Show("The course cost cannot be a negative number");
@@ -224,9 +273,6 @@ namespace UI.Edit
                 MessageBox.Show("Something went wrong - failed to insert the course. Please contact the administrator");
             }
 
-
         }
-
-
     }
 }

@@ -67,7 +67,7 @@
             </DataGrid.CellStyle>
         </DataGrid>
 
-        <StackPanel Margin="50" VerticalAlignment="Top">
+        <StackPanel Margin="20,50,20,0" VerticalAlignment="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />

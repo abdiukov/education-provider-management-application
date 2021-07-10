@@ -9,6 +9,10 @@ namespace BusinessLayer
     public abstract class Person
     {
         //CONSTRUCTOR
+        public Person()
+        {
+        }
+
         public Person(int Id, string Address, string PersonGender, string Mobile, string Email,
             DateTime DateofBirth, string FirstName, string LastName, string Position, bool IsCurrent)
         {
@@ -31,6 +35,7 @@ namespace BusinessLayer
             this.LastName = LastName;
             this.Address = Address;
         }
+
 
         //PROPERTIES
         public string Position { get; set; }

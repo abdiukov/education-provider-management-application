@@ -30,6 +30,13 @@ namespace BusinessLayer
             this.BaseLocation = BaseLocation;
         }
 
+        public Teacher(int Id, string FirstName, string LastName)
+        {
+            this.Id = Id;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+        }
+
         //PROPERTIES
         public bool OtherThanBaseLocation { get; set; }
         public int BaseLocation { get; set; }

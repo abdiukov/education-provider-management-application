@@ -67,12 +67,13 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
-        <StackPanel Margin="50" VerticalAlignment="Top">
+        <StackPanel Margin="20,50,20,0" VerticalAlignment="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
-                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.3*" />
+                    <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -85,94 +86,108 @@
                     <RowDefinition MinHeight="50" />
                     <RowDefinition MinHeight="50" />
                     <RowDefinition MinHeight="50" />
+                    <RowDefinition MinHeight="50" />
                 </Grid.RowDefinitions>
-                <Button
-                    Name="BtnAddCourse"
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="4"
-                    Click="BtnAddCourse_Click"
-                    Content="Insert new course" />
                 <Label
                     Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Content="Select course you wish to edit" />
+                <ComboBox
+                    Name="ComboBoxSelectCourse"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    SelectedIndex="0"
+                    SelectionChanged="ComboBoxSelectCourse_SelectionChanged" />
+
+                <Label
+                    Grid.Row="3"
                     Grid.Column="0"
                     Content="Course name" />
                 <TextBox
                     Name="textBox_CourseName"
-                    Grid.Row="0"
+                    Grid.Row="3"
                     Grid.Column="1"
                     TextWrapping="Wrap" />
+
                 <Label
-                    Grid.Row="1"
+                    Grid.Row="4"
                     Grid.Column="0"
                     Content="Location" />
                 <ComboBox
                     x:Name="comboBox_Locations"
-                    Grid.Row="1"
+                    Grid.Row="4"
                     Grid.Column="1" />
+
                 <Label
-                    Grid.Row="2"
+                    Grid.Row="5"
                     Grid.Column="0"
                     Content="Delivery" />
                 <ComboBox
                     Name="comboBox_Delivery"
-                    Grid.Row="2"
+                    Grid.Row="5"
                     Grid.Column="1" />
+
                 <Label
-                    Grid.Row="3"
+                    Grid.Row="6"
                     Grid.Column="0"
                     Content="Start semester" />
                 <ComboBox
                     Name="comboBox_SemesterStart"
-                    Grid.Row="3"
+                    Grid.Row="6"
                     Grid.Column="1" />
+
                 <Label
-                    Grid.Row="4"
+                    Grid.Row="7"
                     Grid.Column="0"
                     Content="End semester" />
                 <ComboBox
                     x:Name="comboBox_SemesterEnd"
-                    Grid.Row="4"
+                    Grid.Row="7"
                     Grid.Column="1" />
+
                 <Label
-                    Grid.Row="5"
-                    Grid.Column="0"
-                    Content="Course cost" />
-                <TextBox
-                    Name="textBox_CourseCost"
-                    Grid.Row="5"
-                    Grid.Column="1"
-                    TextWrapping="Wrap" />
-                <Label
-                    Grid.Row="6"
-                    Grid.Column="0"
+                    Grid.Row="3"
+                    Grid.Column="3"
                     Content="Students" />
                 <Button
                     Name="BtnSelectStudents"
-                    Grid.Row="6"
-                    Grid.Column="1"
+                    Grid.Row="3"
+                    Grid.Column="4"
                     Click="BtnSelectStudents_Click"
                     Content="Select students" />
+
                 <Label
-                    Grid.Row="7"
-                    Grid.Column="0"
+                    Grid.Row="4"
+                    Grid.Column="3"
                     Content="Teachers" />
                 <Button
                     Name="BtnSelectTeachers"
-                    Grid.Row="7"
-                    Grid.Column="1"
+                    Grid.Row="4"
+                    Grid.Column="4"
                     Click="BtnSelectTeachers_Click"
                     Content="Select teachers" />
+
                 <Label
-                    Grid.Row="8"
-                    Grid.Column="0"
+                    Grid.Row="5"
+                    Grid.Column="3"
                     Content="Units" />
                 <Button
                     Name="BtnSelectUnits"
-                    Grid.Row="8"
-                    Grid.Column="1"
+                    Grid.Row="5"
+                    Grid.Column="4"
                     Click="BtnSelectUnits_Click"
-                    Content="Select teachers" />
+                    Content="Select units" />
+
+                <Button
+                    Name="BtnEditCourse"
+                    Grid.Row="9"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    Click="BtnEditCourse_Click"
+                    Content="Alter course details" />
+
             </Grid>
         </StackPanel>
 

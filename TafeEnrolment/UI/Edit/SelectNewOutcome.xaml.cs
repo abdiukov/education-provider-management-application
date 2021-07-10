@@ -26,7 +26,7 @@ namespace UI.Edit
             }
             Outcome selectedOutcome = (Outcome)CbOutcome.SelectedItem;
 
-            string outcome = App.logic.ManageDB("EditStudentOutcome", new object[] { CourseStudentID, selectedOutcome.OutcomeID });
+            string outcome = App.logic.ManageDB("EditStudentOutcome", new object[] { selectedOutcome.OutcomeID, CourseStudentID });
             MessageBox.Show(outcome);
             Close();
         }

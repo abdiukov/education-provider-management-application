@@ -362,6 +362,212 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        public List<Unit> GetUnitsThatDontBelongToCourse(int courseID)
+        {
+            List<Unit> outputlist = new List<Unit>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectUnitsThatDontBelongToCourse @courseID", conn);
+                cmd.Parameters.AddWithValue("@studentID", courseID);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Unit output = new Unit(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetUnitsThatDontBelongToCourse()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+        public List<Unit> GetUnitsThatBelongToCourse(int courseID)
+        {
+            List<Unit> outputlist = new List<Unit>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectUnitsThatBelongToCourse @courseID", conn);
+                cmd.Parameters.AddWithValue("@studentID", courseID);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Unit output = new Unit(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetInt32(2));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetUnitsThatBelongToCourse()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+        public List<Teacher> GetTeachersTeachingCourse(int courseID)
+        {
+            List<Teacher> outputlist = new List<Teacher>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectAllTeacherTeachingCourse @courseID", conn);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Teacher output = new Teacher(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetTeachersTeachingCourse()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+
+        public List<Teacher> GetTeachersNotTeachingCourse(int courseID)
+        {
+            List<Teacher> outputlist = new List<Teacher>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectAllTeacherNotTeachingCourse @courseID", conn);
+                cmd.Parameters.AddWithValue("@studentID", courseID);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        Teacher output = new Teacher(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetTeachersNotTeachingCourse()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+
+
+
+        public List<Student> GetStudentsAttendingCourse(int courseID)
+        {
+            List<Student> outputlist = new List<Student>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectAllStudentsEnrolledIntoCourse @courseID", conn);
+                cmd.Parameters.AddWithValue("@studentID", courseID);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        {
+                            Student output = new Student(dataReader.GetInt32(0), dataReader.GetString(1),
+                                dataReader.GetString(2), dataReader.GetString(3));
+                            outputlist.Add(output);
+                        }
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetStudentsAttendingCourse()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+
+
+        public List<Student> GetStudentsNotAttendingCourse(int courseID)
+        {
+            List<Student> outputlist = new List<Student>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_SelectAllStudentsNotEnrolledIntoCourse @courseID", conn);
+                cmd.Parameters.AddWithValue("@studentID", courseID);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        {
+                            Student output = new Student(dataReader.GetInt32(0), dataReader.GetString(1),
+                                dataReader.GetString(2), dataReader.GetString(3));
+                            outputlist.Add(output);
+                        }
+                    }
+                    //disposing
+                    conn.Dispose();
+                    cmd.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetStudentsNotAttendingCourse()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
+
+
         /// <param name="studentID">ID of student inside the database e.g 10</param>
         /// <returns>List of course enrollments that the student id is enrolled at</returns>
         public List<Enrolment> GetEnrolmentsByID(int studentID)
@@ -381,7 +587,7 @@ namespace DataLinkLayer
                     while (dataReader.Read())
                     {
                         Enrolment output = new Enrolment(dataReader.GetString(0), dataReader.GetString(1),
-                            dataReader.GetString(2), Double.Parse(dataReader[3].ToString()), Double.Parse(dataReader[4].ToString()),
+                            dataReader.GetString(2), double.Parse(dataReader[3].ToString()), double.Parse(dataReader[4].ToString()),
                              dataReader.GetString(5), dataReader.GetString(6), (dataReader[7].ToString() == "True"), dataReader.GetInt32(8));
                         outputlist.Add(output);
                     }
@@ -602,8 +808,6 @@ namespace DataLinkLayer
             //output
             return outputlist;
         }
-
-
         public List<CourseInformation> GetCoursesForAutofill()
         {
             List<CourseInformation> outputlist = new List<CourseInformation>();
@@ -620,9 +824,9 @@ namespace DataLinkLayer
                 {
                     while (dataReader.Read())
                     {
-                        CourseInformation output = new CourseInformation(dataReader.GetString(0),
-                            dataReader.GetInt32(1), dataReader.GetInt32(2), dataReader.GetInt32(3),
-                            dataReader.GetInt32(4));
+                        CourseInformation output = new CourseInformation(dataReader.GetInt32(0), dataReader.GetString(1),
+                            dataReader.GetInt32(2), dataReader.GetInt32(3), dataReader.GetInt32(4),
+                            dataReader.GetInt32(5));
                         outputlist.Add(output);
                     }
                 }
@@ -937,8 +1141,8 @@ namespace DataLinkLayer
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand
-                    ("exec usp_EditStudentOutcome @newOutcomeID, @courseStudentID", conn);
-                cmd.Parameters.AddWithValue("@courseStudentID", courseStudentID);
+                    ("exec usp_AlterPaymentByCourseStudentID @CourseStudentID, @amountPaid, @amountDue", conn);
+                cmd.Parameters.AddWithValue("@CourseStudentID", courseStudentID);
                 cmd.Parameters.AddWithValue("@amountPaid", amountPaid);
                 cmd.Parameters.AddWithValue("@amountDue", amountDue);
 
@@ -1117,6 +1321,32 @@ namespace DataLinkLayer
             catch (Exception ex)
             {
                 return "Failed to delete unit. An error has occured at DeleteUnit()\n" + ex.Message;
+            }
+        }
+
+
+        public string DeleteCourseSemester(int CourseID, int SemesterID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteCourseSemester @courseID, @semesterID", conn);
+                cmd.Parameters.AddWithValue("@courseID", CourseID);
+                cmd.Parameters.AddWithValue("@semesterID", SemesterID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The semester has been successfully deleted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete semester. An error has occured at DeleteCourseSemester()\n" + ex.Message;
             }
         }
 
