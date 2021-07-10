@@ -603,6 +603,41 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+
+        public List<CourseInformation> GetCoursesForAutofill()
+        {
+            List<CourseInformation> outputlist = new List<CourseInformation>();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("exec usp_GetCourseInfoToAutoFill", conn);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        CourseInformation output = new CourseInformation(dataReader.GetString(0),
+                            dataReader.GetInt32(1), dataReader.GetInt32(2), dataReader.GetInt32(3),
+                            dataReader.GetInt32(4));
+                        outputlist.Add(output);
+                    }
+                }
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at GetCoursesForAutofill()\n" + ex.Message);
+            }
+            //output
+            return outputlist;
+        }
+
         //
         //METHODS TO LOG INTO THE DATABASE
         //

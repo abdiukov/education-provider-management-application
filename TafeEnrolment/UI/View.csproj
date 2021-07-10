@@ -103,6 +103,12 @@
     <Compile Include="Edit\EditUnit.xaml.cs">
       <DependentUpon>EditUnit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Edit\SelectNewOutcome.xaml.cs">
+      <DependentUpon>SelectNewOutcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\SelectNewPaymentStatus.xaml.cs">
+      <DependentUpon>SelectNewPaymentStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -192,6 +198,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Edit\EditUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\SelectNewOutcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\SelectNewPaymentStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

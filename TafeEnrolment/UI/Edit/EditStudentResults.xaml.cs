@@ -83,11 +83,9 @@ namespace UI.Edit
         private void BtnEditOutcome_Click(object sender, RoutedEventArgs e)
         {
             BusinessLayer.StudentResult selectedStudentResult = (BusinessLayer.StudentResult)DgStudentResults.SelectedItem;
-            int outcomeID = 0;
-            string outcome = App.logic.ManageDB("EditStudentOutcome", new object[] { outcomeID, selectedStudentResult.CourseStudentID });
-            MessageBox.Show(outcome);
+            SelectNewOutcome page = new SelectNewOutcome(selectedStudentResult.CourseStudentID, allOutcomes);
+            page.Show();
 
-            GoBack();
         }
     }
 }

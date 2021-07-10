@@ -80,13 +80,14 @@ namespace UI.Edit
 
         private void BtnEditPayment_Click(object sender, RoutedEventArgs e)
         {
+            if (DgStudentEnrolment.SelectedItem is null)
+            {
+                return;
+            }
             BusinessLayer.Enrolment selectedPaymentToChange = (BusinessLayer.Enrolment)DgStudentEnrolment.SelectedItem;
-            double amountPaid = 0;
-            double amountDue = 0;
-            string outcome = App.logic.ManageDB("EditStudentPayment", new object[] { selectedPaymentToChange.CourseStudentID, amountPaid, amountDue });
-            MessageBox.Show(outcome);
-
-            GoBack();
+            SelectNewPaymentStatus page = new SelectNewPaymentStatus(selectedPaymentToChange.AmountPaid, selectedPaymentToChange.AmountDue,
+                selectedPaymentToChange.CourseStudentID);
+            page.Show();
         }
     }
 }

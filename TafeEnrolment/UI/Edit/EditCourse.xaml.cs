@@ -11,7 +11,7 @@ namespace UI.Edit
     /// </summary>
     public partial class EditCourse : Window
     {
-
+        public static List<Model.CourseInformation> allCourses = new List<Model.CourseInformation>();
         public static List<BusinessLayer.Student> allStudents = new List<BusinessLayer.Student>();
         public static List<BusinessLayer.Unit> allUnits = new List<BusinessLayer.Unit>();
         public static List<BusinessLayer.Teacher> allTeachers = new List<BusinessLayer.Teacher>();
@@ -33,7 +33,9 @@ namespace UI.Edit
             comboBox_SemesterStart.ItemsSource = availableSemesters;
             comboBox_SemesterEnd.ItemsSource = availableSemesters;
 
+
             //LOGIC
+            allCourses = (List<Model.CourseInformation>)App.logic.GetFromDB("GetCoursesForAutofill");
             allStudents = (List<BusinessLayer.Student>)App.logic.GetFromDB("GetAvailableStudents");
             allUnits = (List<Unit>)App.logic.GetFromDB("GetUnits");
             allTeachers = App.logic.SortTeacherList((List<BusinessLayer.Teacher>)App.logic.GetFromDB("GetTeachers"));
