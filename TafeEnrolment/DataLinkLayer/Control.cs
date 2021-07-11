@@ -371,7 +371,7 @@ namespace DataLinkLayer
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectUnitsThatDontBelongToCourse @courseID", conn);
-                cmd.Parameters.AddWithValue("@studentID", courseID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.HasRows)
@@ -403,7 +403,7 @@ namespace DataLinkLayer
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectUnitsThatBelongToCourse @courseID", conn);
-                cmd.Parameters.AddWithValue("@studentID", courseID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.HasRows)
@@ -468,7 +468,7 @@ namespace DataLinkLayer
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllTeacherNotTeachingCourse @courseID", conn);
-                cmd.Parameters.AddWithValue("@studentID", courseID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.HasRows)
@@ -503,7 +503,7 @@ namespace DataLinkLayer
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllStudentsEnrolledIntoCourse @courseID", conn);
-                cmd.Parameters.AddWithValue("@studentID", courseID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.HasRows)
@@ -540,7 +540,7 @@ namespace DataLinkLayer
                 //Execute query
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("exec usp_SelectAllStudentsNotEnrolledIntoCourse @courseID", conn);
-                cmd.Parameters.AddWithValue("@studentID", courseID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
                 if (dataReader.HasRows)
@@ -1017,7 +1017,7 @@ namespace DataLinkLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured at InsertCourseStudentPayment()\n" + ex.Message);
+                Console.WriteLine("An error has occured at usp_InsertCourseSemester()\n" + ex.Message);
             }
         }
 
@@ -1049,8 +1049,8 @@ namespace DataLinkLayer
             }
         }
 
-        /// <param name="courseID">ID of the course</param>
-        /// <param name="teacherID">ID of the teacher who teaches that course</param>
+        /// <param name="courseID">ID of the course e.g 10</param>
+        /// <param name="teacherID">ID of the teacher who teaches that course e.g 12</param>
         public void InsertCourseTeacher(int courseID, int teacherID)
         {
             try
@@ -1132,6 +1132,34 @@ namespace DataLinkLayer
         //
         //METHODS TO EDIT/DELETE INFORMATION INSIDE THE DATABASE
         //
+
+        public string EditCourse(int CourseID, string CourseName, int LocationID, int DeliveryID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_EditCourse @CourseID, @CourseName, @LocationID, @DeliveryID", conn);
+                cmd.Parameters.AddWithValue("@CourseID", CourseID);
+                cmd.Parameters.AddWithValue("@CourseName", CourseName);
+                cmd.Parameters.AddWithValue("@LocationID", LocationID);
+                cmd.Parameters.AddWithValue("@DeliveryID", DeliveryID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The course has been successfully edited.";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to edit course. An error has occured.\n" + ex.Message;
+            }
+        }
+
 
         public string EditStudentPayment(int courseStudentID, double amountPaid, double amountDue)
         {
@@ -1325,6 +1353,32 @@ namespace DataLinkLayer
         }
 
 
+        public string DeleteCluster(int unitID, int CourseID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteCluster @unitID, @CourseID", conn);
+                cmd.Parameters.AddWithValue("@unitID", unitID);
+                cmd.Parameters.AddWithValue("@CourseID", CourseID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The unit cluster has been deleted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete unit cluster.\n" + ex.Message;
+            }
+        }
+
+
         public string DeleteCourseSemester(int CourseID, int SemesterID)
         {
             try
@@ -1347,6 +1401,54 @@ namespace DataLinkLayer
             catch (Exception ex)
             {
                 return "Failed to delete semester. An error has occured at DeleteCourseSemester()\n" + ex.Message;
+            }
+        }
+
+        public void DeleteCourseTeacher(int teacherID, int courseID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteCourseTeacher @TeacherID, @CourseID", conn);
+                cmd.Parameters.AddWithValue("@TeacherID", teacherID);
+                cmd.Parameters.AddWithValue("@CourseID", courseID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured while attempting to remove a teacher from course.\n" + ex.Message);
+            }
+        }
+
+        public void DeleteCourseStudentPayment(int studentID, int courseID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteCourseStudentPayment @studentID, @courseID", conn);
+                cmd.Parameters.AddWithValue("@studentID", studentID);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error has occured at DeleteCourseStudentPayment()\n" + ex.Message);
             }
         }
 

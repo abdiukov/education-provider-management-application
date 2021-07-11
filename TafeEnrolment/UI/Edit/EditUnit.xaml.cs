@@ -11,7 +11,7 @@ namespace UI.Edit
     /// </summary>
     public partial class EditUnit : Window
     {
-        public static List<Unit> allUnits = new List<Unit>();
+        private List<Unit> allUnits = new List<Unit>();
 
         /// <summary>
         /// Initialises the page.

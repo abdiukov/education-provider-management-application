@@ -11,7 +11,7 @@ namespace UI.Edit
         public EditCourseSelectTeacher()
         {
             InitializeComponent();
-            lbSelectTeacher.ItemsSource = EditCourse.allTeachers;
+            lbSelectTeacher.ItemsSource = EditCourse.modifiedTeachers;
         }
 
 
@@ -42,7 +42,7 @@ namespace UI.Edit
                 BusinessLayer.Teacher selectedItem = (BusinessLayer.Teacher)lbSelectTeacher.SelectedItem;
                 selectedItem.IsSelected = !selectedItem.IsSelected;
                 lbSelectTeacher.ItemsSource = null;
-                lbSelectTeacher.ItemsSource = EditCourse.allUnits;
+                lbSelectTeacher.ItemsSource = EditCourse.modifiedTeachers;
             }
         }
 

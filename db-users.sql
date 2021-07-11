@@ -2,9 +2,8 @@ use TafeSystem;
 begin
 
 -- creating the users
-
-create user manager with password = 'manager';
-create user teacher with password = 'teacher';
+create user manager with password = 'M1password';
+create user teacher with password = 'T1password';
 
 -- assigning user roles
 

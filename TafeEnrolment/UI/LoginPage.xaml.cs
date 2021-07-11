@@ -55,7 +55,9 @@ namespace UI
             else
             {
                 MessageBox.Show("The username or password you entered is incorrect. Please try again.");
-                MessageBox.Show("This is a demo application.\nUsername - 'admin'. Password - 'password'");
+                MessageBox.Show("This is a demo application. Teacher has access to some commands, manager has access to all commands." +
+                    "\nUsername - 'manager'. Password - 'M1password' " +
+                    "\nUsername - 'teacher'. Password - 'T1password' ");
             }
         }
     }

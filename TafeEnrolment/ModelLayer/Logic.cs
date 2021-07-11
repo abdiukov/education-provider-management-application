@@ -159,5 +159,45 @@ namespace ModelLayer
         }
 
 
+        public List<Unit> GetUnitsThatBelongAndDontBelongCourse(int CourseID)
+        {
+            List<Unit> unitsNotBelong = control.GetUnitsThatDontBelongToCourse(CourseID);
+            List<Unit> unitsDoBelong = control.GetUnitsThatBelongToCourse(CourseID);
+            foreach (Unit item in unitsDoBelong)
+            {
+                item.IsSelected = true;
+            }
+
+            unitsDoBelong.AddRange(unitsNotBelong);
+            return unitsDoBelong;
+        }
+
+        public List<Teacher> GetTeachersThatBelongAndDontBelongCourse(int CourseID)
+        {
+            List<Teacher> teachersNotTeachingCourse = control.GetTeachersNotTeachingCourse(CourseID);
+            List<Teacher> teachersTeachingCourse = control.GetTeachersTeachingCourse(CourseID);
+            foreach (Teacher item in teachersTeachingCourse)
+            {
+                item.IsSelected = true;
+            }
+
+            teachersTeachingCourse.AddRange(teachersNotTeachingCourse);
+            return teachersTeachingCourse;
+        }
+
+        public List<Student> GetStudentsThatBelongAndDontBelongCourse(int CourseID)
+        {
+
+            List<Student> studentsAttendingCourse = control.GetStudentsAttendingCourse(CourseID);
+            List<Student> studentsNotAttendingCourse = control.GetStudentsNotAttendingCourse(CourseID);
+            foreach (Student item in studentsAttendingCourse)
+            {
+                item.IsSelected = true;
+            }
+
+            studentsAttendingCourse.AddRange(studentsNotAttendingCourse);
+            return studentsAttendingCourse;
+        }
+
     }
 }
