@@ -1402,6 +1402,31 @@ namespace DataLinkLayer
             }
         }
 
+        public string DeleteCourse(int courseID)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                //Execute query
+                conn.Open();
+                SqlCommand cmd = new SqlCommand
+                    ("exec usp_DeleteCourse @courseID", conn);
+                cmd.Parameters.AddWithValue("@courseID", courseID);
+
+                cmd.ExecuteNonQuery();
+
+                //disposing
+                conn.Dispose();
+                cmd.Dispose();
+                return "Success. The course has been successfully deleted";
+            }
+            catch (Exception ex)
+            {
+                return "Failed to delete course. An error has occured.\n" + ex.Message;
+            }
+        }
+
+
 
     }
 }

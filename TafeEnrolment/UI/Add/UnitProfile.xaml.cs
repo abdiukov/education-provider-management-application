@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace UI.Add
@@ -75,6 +76,14 @@ namespace UI.Add
             string outcome = App.logic.ManageDB("InsertUnit", new object[] { unitName, amountOfHours });
             MessageBox.Show(outcome);
             GoBack();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

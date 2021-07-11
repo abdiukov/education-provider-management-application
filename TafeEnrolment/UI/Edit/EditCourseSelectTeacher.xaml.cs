@@ -4,14 +4,14 @@ using System.Windows;
 namespace UI.Edit
 {
     /// <summary>
-    /// Interaction logic for EditCourseSelectUnit.xaml
+    /// Interaction logic for EditCourseSelectTeacher.xaml
     /// </summary>
-    public partial class EditCourseSelectUnit : Window
+    public partial class EditCourseSelectTeacher : Window
     {
-        public EditCourseSelectUnit()
+        public EditCourseSelectTeacher()
         {
             InitializeComponent();
-            lbSelectUnit.ItemsSource = EditCourse.allUnits;
+            lbSelectTeacher.ItemsSource = EditCourse.allTeachers;
         }
 
 
@@ -37,13 +37,14 @@ namespace UI.Edit
         /// </summary>
         private void Grid_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (lbSelectUnit.SelectedIndex != -1)
+            if (lbSelectTeacher.SelectedIndex != -1)
             {
-                BusinessLayer.Unit selectedItem = (BusinessLayer.Unit)lbSelectUnit.SelectedItem;
+                BusinessLayer.Teacher selectedItem = (BusinessLayer.Teacher)lbSelectTeacher.SelectedItem;
                 selectedItem.IsSelected = !selectedItem.IsSelected;
-                lbSelectUnit.ItemsSource = null;
-                lbSelectUnit.ItemsSource = EditCourse.allUnits;
+                lbSelectTeacher.ItemsSource = null;
+                lbSelectTeacher.ItemsSource = EditCourse.allUnits;
             }
         }
+
     }
 }

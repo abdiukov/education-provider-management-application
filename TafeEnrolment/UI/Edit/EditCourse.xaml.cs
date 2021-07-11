@@ -1,8 +1,8 @@
 ﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using UI.Course;
 
 namespace UI.Edit
 {
@@ -18,7 +18,7 @@ namespace UI.Edit
         public static List<BusinessLayer.Location> allLocations = new List<BusinessLayer.Location>();
         public static List<BusinessLayer.Delivery> allDelivery = new List<BusinessLayer.Delivery>();
         public static List<BusinessLayer.Semester> allSemesters = new List<BusinessLayer.Semester>();
-
+        private Model.CourseInformation selectedCourse;
         public EditCourse()
         {
             InitializeComponent();
@@ -76,7 +76,7 @@ namespace UI.Edit
         /// </summary>
         private void BtnSelectTeachers_Click(object sender, RoutedEventArgs e)
         {
-            CourseSelectTeacher pageobj = new CourseSelectTeacher();
+            EditCourseSelectTeacher pageobj = new EditCourseSelectTeacher();
             pageobj.Show();
         }
 
@@ -85,7 +85,7 @@ namespace UI.Edit
         /// </summary>
         private void BtnSelectUnits_Click(object sender, RoutedEventArgs e)
         {
-            CourseSelectUnits pageobj = new CourseSelectUnits();
+            EditCourseSelectUnit pageobj = new EditCourseSelectUnit();
             pageobj.Show();
         }
 
@@ -94,13 +94,13 @@ namespace UI.Edit
         /// </summary>
         private void BtnSelectStudents_Click(object sender, RoutedEventArgs e)
         {
-            CourseSelectStudent pageobj = new CourseSelectStudent();
+            EditCourseSelectStudent pageobj = new EditCourseSelectStudent();
             pageobj.Show();
         }
 
         private void ComboBoxSelectCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Model.CourseInformation selectedCourse = (Model.CourseInformation)ComboBoxSelectCourse.SelectedItem;
+            selectedCourse = (Model.CourseInformation)ComboBoxSelectCourse.SelectedItem;
 
 
             textBox_CourseName.Text = selectedCourse.CourseName;
@@ -156,123 +156,139 @@ namespace UI.Edit
 
         private void BtnEditCourse_Click(object sender, RoutedEventArgs e)
         {
-            string courseName = textBox_CourseName.Text;
+            //string courseName = textBox_CourseName.Text;
 
-            if (string.IsNullOrWhiteSpace(courseName))
-            {
-                MessageBox.Show("Please enter something into \"Course name\" field");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(courseName))
+            //{
+            //    MessageBox.Show("Please enter something into \"Course name\" field");
+            //    return;
+            //}
 
-            Location selectedLocation = (Location)comboBox_Locations.SelectedItem;
+            //Location selectedLocation = (Location)comboBox_Locations.SelectedItem;
 
-            if (selectedLocation is null)
-            {
-                MessageBox.Show("Please select the location");
-                return;
-            }
+            //if (selectedLocation is null)
+            //{
+            //    MessageBox.Show("Please select the location");
+            //    return;
+            //}
 
-            int selectedLocationId = selectedLocation.Id;
+            //int selectedLocationId = selectedLocation.Id;
 
-            Delivery selectedDelivery = (Delivery)comboBox_Delivery.SelectedItem;
+            //Delivery selectedDelivery = (Delivery)comboBox_Delivery.SelectedItem;
 
-            if (selectedDelivery is null)
-            {
-                MessageBox.Show("Please select the delivery of the course");
-                return;
-            }
+            //if (selectedDelivery is null)
+            //{
+            //    MessageBox.Show("Please select the delivery of the course");
+            //    return;
+            //}
 
-            int selectedDeliveryId = selectedDelivery.Id;
+            //int selectedDeliveryId = selectedDelivery.Id;
 
-            Semester startSemester = (Semester)comboBox_SemesterStart.SelectedItem;
+            //Semester startSemester = (Semester)comboBox_SemesterStart.SelectedItem;
 
-            if (startSemester is null)
-            {
-                MessageBox.Show("Please select the start semester");
-                return;
-            }
+            //if (startSemester is null)
+            //{
+            //    MessageBox.Show("Please select the start semester");
+            //    return;
+            //}
 
-            Semester endSemester = (Semester)comboBox_SemesterEnd.SelectedItem;
+            //Semester endSemester = (Semester)comboBox_SemesterEnd.SelectedItem;
 
-            if (endSemester is null)
-            {
-                MessageBox.Show("Please select the end semester");
-                return;
-            }
+            //if (endSemester is null)
+            //{
+            //    MessageBox.Show("Please select the end semester");
+            //    return;
+            //}
 
-            if (endSemester.StartDate < startSemester.StartDate)
-            {
-                MessageBox.Show("The start semester is bigger than end semester. Please select appropriate semesters");
-                return;
-            }
+            //if (endSemester.StartDate < startSemester.StartDate)
+            //{
+            //    MessageBox.Show("The start semester is bigger than end semester. Please select appropriate semesters");
+            //    return;
+            //}
 
-            double courseCost = 0;
-            if (courseCost < 0)
-            {
-                MessageBox.Show("The course cost cannot be a negative number");
-                return;
-            }
-
-
-            List<int> selectedStudentIDs = new List<int>();
-            List<int> selectedTeacherIDs = new List<int>();
-            List<int> selectedUnitIDs = new List<int>();
+            //double courseCost = 0;
+            //if (courseCost < 0)
+            //{
+            //    MessageBox.Show("The course cost cannot be a negative number");
+            //    return;
+            //}
 
 
-            foreach (var item in allStudents)
-            {
-                if (item.IsSelected)
-                {
-                    selectedStudentIDs.Add(item.Id);
-                }
-            }
+            //List<int> selectedStudentIDs = new List<int>();
+            //List<int> selectedTeacherIDs = new List<int>();
+            //List<int> selectedUnitIDs = new List<int>();
 
-            foreach (var item in allTeachers)
-            {
-                if (item.IsSelected)
-                {
-                    selectedTeacherIDs.Add(item.Id);
-                }
-            }
 
-            foreach (var item in allUnits)
-            {
-                if (item.IsSelected)
-                {
-                    selectedUnitIDs.Add(item.UnitID);
-                }
-            }
+            //foreach (var item in allStudents)
+            //{
+            //    if (item.IsSelected)
+            //    {
+            //        selectedStudentIDs.Add(item.Id);
+            //    }
+            //}
 
-            if (selectedStudentIDs.Count < 1)
-            {
-                MessageBox.Show("Please select at least one student to attend the course.");
-                return;
-            }
+            //foreach (var item in allTeachers)
+            //{
+            //    if (item.IsSelected)
+            //    {
+            //        selectedTeacherIDs.Add(item.Id);
+            //    }
+            //}
 
-            if (selectedTeacherIDs.Count < 1)
-            {
-                MessageBox.Show("Please select at least one teacher to teach the course.");
-                return;
-            }
+            //foreach (var item in allUnits)
+            //{
+            //    if (item.IsSelected)
+            //    {
+            //        selectedUnitIDs.Add(item.UnitID);
+            //    }
+            //}
 
-            if (selectedUnitIDs.Count < 1)
-            {
-                MessageBox.Show("Please select at least one unit that needs to be taught.");
-                return;
-            }
+            //if (selectedStudentIDs.Count < 1)
+            //{
+            //    MessageBox.Show("Please select at least one student to attend the course.");
+            //    return;
+            //}
 
-            bool success = App.logic.InsertCourse(courseName, selectedLocationId, selectedDeliveryId, startSemester,
-                endSemester, courseCost, selectedStudentIDs, selectedTeacherIDs, selectedUnitIDs);
+            //if (selectedTeacherIDs.Count < 1)
+            //{
+            //    MessageBox.Show("Please select at least one teacher to teach the course.");
+            //    return;
+            //}
 
-            if (success)
-            {
-                MessageBox.Show("The course has been successfully inserted");
-            }
-            else
-            {
-                MessageBox.Show("Something went wrong - failed to insert the course. Please contact the administrator");
-            }
+            //if (selectedUnitIDs.Count < 1)
+            //{
+            //    MessageBox.Show("Please select at least one unit that needs to be taught.");
+            //    return;
+            //}
+
+            //bool success = App.logic.InsertCourse(courseName, selectedLocationId, selectedDeliveryId, startSemester,
+            //    endSemester, courseCost, selectedStudentIDs, selectedTeacherIDs, selectedUnitIDs);
+
+            //if (success)
+            //{
+            //    MessageBox.Show("The course has been successfully inserted");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Something went wrong - failed to insert the course. Please contact the administrator");
+            //}
 
         }
+
+        private void BtnDeleteCourse_Click(object sender, RoutedEventArgs e)
+        {
+            string output = App.logic.ManageDB("DeleteCourse",
+                new object[] { selectedCourse.CourseID });
+            MessageBox.Show(output);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)
+            {
+                Environment.Exit(0);
+            }
+        }
+
     }
 }

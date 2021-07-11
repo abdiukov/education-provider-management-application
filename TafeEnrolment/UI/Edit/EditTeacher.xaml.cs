@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -199,6 +200,14 @@ namespace UI.Edit
             string outcome = App.logic.ManageDB("DeleteTeacher", new object[] { selectedTeacher.Id });
             MessageBox.Show(outcome);
             GoBack();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

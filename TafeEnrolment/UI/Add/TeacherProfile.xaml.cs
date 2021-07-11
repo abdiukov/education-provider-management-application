@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,7 +8,6 @@ namespace UI.Teacher
     public partial class TeacherProfile : Window
     {
 
-        //INITIALISATION CODE
         public TeacherProfile()
         {
             InitializeComponent();
@@ -28,9 +28,6 @@ namespace UI.Teacher
             }
         }
 
-        //END OF INITIALISATION CODE
-
-        //NAVIGATION CODE
         /// <summary>
         /// When the page on the navigation bar at the top is clicked upon, this page gets hidden and the user is redirected to that page
         /// </summary>
@@ -131,6 +128,13 @@ namespace UI.Teacher
             MessageBox.Show(outcome);
         }
 
-        //END OF NAVIGATION CODE
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)
+            {
+                Environment.Exit(0);
+            }
+        }
+
     }
 }

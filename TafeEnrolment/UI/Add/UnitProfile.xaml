@@ -6,9 +6,9 @@
     xmlns:local="clr-namespace:UI.Add"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Add unit"
+    Closing="Window_Closing"
     IsVisibleChanged="Window_IsVisibleChanged"
     WindowStartupLocation="CenterScreen"
-    WindowState="Maximized"
     WindowStyle="ToolWindow"
     mc:Ignorable="d">
     <Grid>

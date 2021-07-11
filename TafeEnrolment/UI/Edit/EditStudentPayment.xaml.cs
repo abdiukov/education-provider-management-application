@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -88,6 +89,14 @@ namespace UI.Edit
             SelectNewPaymentStatus page = new SelectNewPaymentStatus(selectedPaymentToChange.AmountPaid, selectedPaymentToChange.AmountDue,
                 selectedPaymentToChange.CourseStudentID);
             page.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)
+            {
+                Environment.Exit(0);
+            }
         }
     }
 }

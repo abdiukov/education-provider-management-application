@@ -12,6 +12,7 @@ namespace UI
         //pagesVisitedTracker is a tracker that contains pages that the user opened.
         public static List<Window> pagesVisitedTracker = new List<Window>();
 
+        //Logic.cs is the controller for this application
         public static Logic logic;
 
     }

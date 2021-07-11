@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -112,6 +113,12 @@ namespace UI.Edit
             GoBack();
         }
 
-
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)
+            {
+                Environment.Exit(0);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,7 +12,6 @@ namespace UI
         List<BusinessLayer.TeacherCourseHistory> Courses = new List<BusinessLayer.TeacherCourseHistory>();
         readonly List<BusinessLayer.TeacherCourseHistory> CoursesCopy = new List<BusinessLayer.TeacherCourseHistory>();
 
-        //INITIALISATION CODE
         public TeacherCourseHistory(int teacherID)
         {
             InitializeComponent();
@@ -33,10 +33,6 @@ namespace UI
             }
         }
 
-        //END OF INITIALISATION CODE
-
-
-        //NAVIGATION CODE
 
         /// <summary>
         /// When the page on the navigation bar at the top is clicked upon, this page gets hidden and the user is redirected to that page
@@ -53,11 +49,6 @@ namespace UI
         {
             PageNavigation.GoToExistingPage(0, this);
         }
-
-        //END OF NAVIGATION CODE
-
-        //SEARCH DATAGRID CODE
-
 
         private void Search()
         {
@@ -93,9 +84,6 @@ namespace UI
         }
 
 
-        //END OF SEARCH DATAGRID CODE
-
-        //DATAGRID SETTINGS CODE
 
         /// <summary>
         /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
@@ -108,7 +96,13 @@ namespace UI
             page.Show();
         }
 
-        //END OF DATAGRID SETTINGS CODE
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)
+            {
+                Environment.Exit(0);
+            }
+        }
 
     }
 }

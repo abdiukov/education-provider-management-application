@@ -88,6 +88,12 @@
     <Compile Include="Edit\EditCourse.xaml.cs">
       <DependentUpon>EditCourse.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Edit\EditCourseSelectStudent.xaml.cs">
+      <DependentUpon>EditCourseSelectStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditCourseSelectTeacher.xaml.cs">
+      <DependentUpon>EditCourseSelectTeacher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Edit\EditCourseSelectUnit.xaml.cs">
       <DependentUpon>EditCourseSelectUnit.xaml</DependentUpon>
     </Compile>
@@ -181,6 +187,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Edit\EditCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditCourseSelectStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditCourseSelectTeacher.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
