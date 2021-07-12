@@ -1017,14 +1017,14 @@ namespace DataLinkLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured at usp_InsertCourseSemester()\n" + ex.Message);
+                Console.WriteLine("An error has occured at InsertCourseSemester()\n" + ex.Message);
             }
         }
 
         /// <param name="studentID">ID of the student</param>
         /// <param name="courseID">ID of the course</param>
         /// <param name="courseCost">Total course cost for that specific student e.g 2500.50</param>
-        public void InsertCourseStudentPayment(int studentID, int courseID, double courseCost)
+        public void InsertCourseStudentPayment(int courseID, int studentID, double courseCost)
         {
             try
             {
@@ -1353,7 +1353,7 @@ namespace DataLinkLayer
         }
 
 
-        public string DeleteCluster(int unitID, int CourseID)
+        public string DeleteCluster(int CourseID, int unitID)
         {
             try
             {
@@ -1404,7 +1404,7 @@ namespace DataLinkLayer
             }
         }
 
-        public void DeleteCourseTeacher(int teacherID, int courseID)
+        public void DeleteCourseTeacher(int courseID, int teacherID)
         {
             try
             {
@@ -1428,7 +1428,7 @@ namespace DataLinkLayer
             }
         }
 
-        public void DeleteCourseStudentPayment(int studentID, int courseID)
+        public void DeleteCourseStudentPayment(int courseID, int studentID)
         {
             try
             {

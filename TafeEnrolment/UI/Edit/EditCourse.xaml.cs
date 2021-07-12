@@ -12,24 +12,22 @@ namespace UI.Edit
     public partial class EditCourse : Window
     {
         //
-        private List<Model.CourseInformation> allCourses;
-        private List<Location> allLocations;
-        private List<Delivery> allDelivery;
-        private List<Semester> allSemesters;
+        private readonly List<Model.CourseInformation> allCourses;
+        private readonly List<Location> allLocations;
+        private readonly List<Delivery> allDelivery;
+        private readonly List<Semester> allSemesters;
 
         //
         private Model.CourseInformation selectedCourse;
+
         private List<BusinessLayer.Student> initialStudents;
         public static List<BusinessLayer.Student> modifiedStudents;
 
         private List<Unit> initialUnits;
-        public static List<BusinessLayer.Unit> modifiedUnits;
+        public static List<Unit> modifiedUnits;
 
-        private int initialStartSemster;
+        private int initialStartSemester;
         private int initialEndSemester;
-        private int modifiedStartSemester;
-        private int modifiedEndSemester;
-
 
         private List<BusinessLayer.Teacher> initialTeachers;
         public static List<BusinessLayer.Teacher> modifiedTeachers;
@@ -161,55 +159,189 @@ namespace UI.Edit
                 }
             }
 
-            int initialStartSemster = selectedCourse.StartSemesterID;
-            int initialEndSemester = selectedCourse.EndSemesterID;
+            initialStartSemester = selectedCourse.StartSemesterID;
+            initialEndSemester = selectedCourse.EndSemesterID;
 
             initialUnits = App.logic.GetUnitsThatBelongAndDontBelongCourse(selectedCourse.CourseID);
             initialTeachers = App.logic.GetTeachersThatBelongAndDontBelongCourse(selectedCourse.CourseID);
             initialStudents = App.logic.GetStudentsThatBelongAndDontBelongCourse(selectedCourse.CourseID);
 
-            modifiedUnits = new List<Unit>(initialUnits);
-            modifiedTeachers = new List<BusinessLayer.Teacher>(initialTeachers);
-            modifiedStudents = new List<BusinessLayer.Student>(initialStudents);
-
+            modifiedUnits = App.logic.GetUnitsThatBelongAndDontBelongCourse(selectedCourse.CourseID);
+            modifiedTeachers = App.logic.GetTeachersThatBelongAndDontBelongCourse(selectedCourse.CourseID);
+            modifiedStudents = App.logic.GetStudentsThatBelongAndDontBelongCourse(selectedCourse.CourseID);
         }
 
         private void BtnEditCourse_Click(object sender, RoutedEventArgs e)
         {
-            string courseName = textBox_CourseName.Text;
+            VerifyInput();
 
-            if (string.IsNullOrWhiteSpace(courseName))
+            List<int> studentsToInsert = new List<int>();
+            List<int> studentsToDelete = new List<int>();
+
+            for (int i = 0; i < modifiedStudents.Count; i++)
             {
-                MessageBox.Show("Please enter something into \"Course name\" field");
-                return;
+                if (initialStudents[i].IsSelected != modifiedStudents[i].IsSelected)
+                {
+                    //if student was selected initially but is now not selected
+                    if (initialStudents[i].IsSelected == true)
+                    {
+                        studentsToDelete.Add(initialStudents[i].Id);
+                    }
+                    //if student was not selected initially but is now selected
+                    else
+                    {
+                        studentsToInsert.Add(initialStudents[i].Id);
+                    }
+                }
             }
 
-            Location selectedLocation = (Location)comboBox_Locations.SelectedItem;
+            List<int> teachersToInsert = new List<int>();
+            List<int> teachersToDelete = new List<int>();
 
-            if (selectedLocation is null)
+            for (int i = 0; i < modifiedTeachers.Count; i++)
             {
-                MessageBox.Show("Please select the location");
-                return;
+                if (initialTeachers[i].IsSelected != modifiedTeachers[i].IsSelected)
+                {
+                    //if teacher was selected initially but is now not selected
+                    if (initialTeachers[i].IsSelected == true)
+                    {
+                        teachersToDelete.Add(initialTeachers[i].Id);
+                    }
+                    //if teacher was not selected initially but is now selected
+                    else
+                    {
+                        teachersToInsert.Add(initialTeachers[i].Id);
+                    }
+                }
             }
 
-            int selectedLocationId = selectedLocation.Id;
+            List<int> unitsToInsert = new List<int>();
+            List<int> unitsToDelete = new List<int>();
+
+            for (int i = 0; i < modifiedUnits.Count; i++)
+            {
+                if (initialUnits[i].IsSelected != modifiedUnits[i].IsSelected)
+                {
+                    //if unit was selected initially but is now not selected
+                    if (initialUnits[i].IsSelected == true)
+                    {
+                        unitsToDelete.Add(initialUnits[i].UnitID);
+                    }
+                    //if unit was not selected initially but is now selected
+                    else
+                    {
+                        unitsToInsert.Add(initialUnits[i].UnitID);
+                    }
+                }
+            }
+
+            Semester startSemester = (Semester)comboBox_SemesterStart.SelectedItem;
+            Semester endSemester = (Semester)comboBox_SemesterEnd.SelectedItem;
+
+            int modifiedStartSemester = startSemester.Id;
+            int modifiedEndSemester = endSemester.Id;
+
+            List<int> initialSemesters = new List<int>();
+            List<int> modifiedSemesters = new List<int>();
+
+            for (int i = initialStartSemester; i <= initialEndSemester; i++)
+            {
+                initialSemesters.Add(i);
+            }
+            for (int i = modifiedStartSemester; i <= modifiedEndSemester; i++)
+            {
+                modifiedSemesters.Add(i);
+            }
+
+            List<int> semestersToInsert = new List<int>();
+            List<int> semestersToDelete = new List<int>();
+
+            foreach (int item in initialSemesters)
+            {
+                if (modifiedSemesters.Contains(item))
+                {
+                    modifiedSemesters.Remove(item);
+                }
+                else
+                {
+                    semestersToDelete.Add(item);
+                }
+            }
+
+            foreach (int item in modifiedSemesters)
+            {
+                semestersToInsert.Add(item);
+            }
+
+            double courseCost = -1;
+
+            if (studentsToInsert.Count > 0)
+            {
+                if (!double.TryParse(textBox_CourseCost.Text, out double coursecost))
+                {
+                    MessageBox.Show("Please enter a number into \"Course Cost\" field");
+                    return;
+                }
+
+                if (coursecost < 0)
+                {
+                    MessageBox.Show("The course cost cannot be a negative number");
+                    return;
+                }
+                courseCost = coursecost;
+            }
 
             Delivery selectedDelivery = (Delivery)comboBox_Delivery.SelectedItem;
+            Location selectedLocation = (Location)comboBox_Locations.SelectedItem;
+            string courseName = textBox_CourseName.Text;
+            int locationID = selectedLocation.Id;
+            int deliveryID = selectedDelivery.Id;
 
-            if (selectedDelivery is null)
+
+            MessageBox.Show(
+                SendData(selectedCourse.CourseID,
+                courseName,
+                locationID, deliveryID)
+                );
+
+            string output =
+                SendDataBridgingTables(studentsToInsert, studentsToDelete, teachersToInsert,
+                teachersToDelete, unitsToInsert, unitsToDelete,
+                semestersToInsert, semestersToDelete, selectedCourse.CourseID, courseCost);
+
+            if (!string.IsNullOrEmpty(output))
             {
-                MessageBox.Show("Please select the delivery of the course");
-                return;
+                MessageBox.Show(output);
             }
 
-            int selectedDeliveryId = selectedDelivery.Id;
+            PageNavigation.GoToExistingPage(0, this);
+        }
+
+        private bool VerifyInput()
+        {
+            if (string.IsNullOrWhiteSpace(textBox_CourseName.Text))
+            {
+                MessageBox.Show("Please enter something into \"Course name\" field");
+                return false;
+            }
+
+            if (comboBox_Locations.SelectedItem is null)
+            {
+                MessageBox.Show("Please select the location");
+                return false;
+            }
+            if (comboBox_Delivery.SelectedItem is null)
+            {
+                MessageBox.Show("Please select the delivery of the course");
+                return false;
+            }
 
             Semester startSemester = (Semester)comboBox_SemesterStart.SelectedItem;
 
             if (startSemester is null)
             {
                 MessageBox.Show("Please select the start semester");
-                return;
+                return false;
             }
 
             Semester endSemester = (Semester)comboBox_SemesterEnd.SelectedItem;
@@ -217,82 +349,67 @@ namespace UI.Edit
             if (endSemester is null)
             {
                 MessageBox.Show("Please select the end semester");
-                return;
+                return false;
             }
 
             if (endSemester.StartDate < startSemester.StartDate)
             {
                 MessageBox.Show("The start semester is bigger than end semester. Please select appropriate semesters");
-                return;
+                return false;
             }
 
-            double courseCost = 0;
-            if (courseCost < 0)
+            return true;
+        }
+
+        private string SendDataBridgingTables(List<int> studentsToInsert, List<int> studentsToDelete,
+            List<int> teachersToInsert, List<int> teachersToDelete, List<int> unitsToInsert,
+            List<int> unitsToDelete, List<int> semestersToInsert, List<int> semestersToDelete, int courseID, double courseCost)
+        {
+            //PERFORMING DB OPERATIONS
+            string outcome = "";
+
+            foreach (int item in teachersToInsert)
             {
-                MessageBox.Show("The course cost cannot be a negative number");
-                return;
+                outcome += App.logic.ManageDB("InsertCourseTeacher", new object[] { courseID, item });
+            }
+            foreach (int item in teachersToDelete)
+            {
+                outcome += App.logic.ManageDB("DeleteCourseTeacher", new object[] { courseID, item });
             }
 
+            foreach (int item in unitsToInsert)
+            {
+                outcome += App.logic.ManageDB("InsertCluster", new object[] { courseID, item });
+            }
+            foreach (int item in unitsToDelete)
+            {
+                outcome += App.logic.ManageDB("DeleteCluster", new object[] { courseID, item });
+            }
 
-            //List<int> selectedStudentIDs = new List<int>();
-            //List<int> selectedTeacherIDs = new List<int>();
-            //List<int> selectedUnitIDs = new List<int>();
+            foreach (int item in semestersToInsert)
+            {
+                outcome += App.logic.ManageDB("InsertCourseSemester", new object[] { courseID, item });
+            }
+            foreach (int item in semestersToDelete)
+            {
+                outcome += App.logic.ManageDB("DeleteCourseSemester", new object[] { courseID, item });
+            }
 
+            foreach (int item in studentsToInsert)
+            {
+                outcome += App.logic.ManageDB("InsertCourseStudentPayment", new object[] { courseID, item, courseCost });
+            }
+            foreach (int item in studentsToDelete)
+            {
+                outcome += App.logic.ManageDB("DeleteCourseStudentPayment", new object[] { courseID, item });
+            }
+            return outcome;
+        }
 
-            //foreach (var item in allStudents)
-            //{
-            //    if (item.IsSelected)
-            //    {
-            //        selectedStudentIDs.Add(item.Id);
-            //    }
-            //}
-
-            //foreach (var item in allTeachers)
-            //{
-            //    if (item.IsSelected)
-            //    {
-            //        selectedTeacherIDs.Add(item.Id);
-            //    }
-            //}
-
-            //foreach (var item in allUnits)
-            //{
-            //    if (item.IsSelected)
-            //    {
-            //        selectedUnitIDs.Add(item.UnitID);
-            //    }
-            //}
-
-            //if (selectedStudentIDs.Count < 1)
-            //{
-            //    MessageBox.Show("Please select at least one student to attend the course.");
-            //    return;
-            //}
-
-            //if (selectedTeacherIDs.Count < 1)
-            //{
-            //    MessageBox.Show("Please select at least one teacher to teach the course.");
-            //    return;
-            //}
-
-            //if (selectedUnitIDs.Count < 1)
-            //{
-            //    MessageBox.Show("Please select at least one unit that needs to be taught.");
-            //    return;
-            //}
-
-            //bool success = App.logic.InsertCourse(courseName, selectedLocationId, selectedDeliveryId, startSemester,
-            //    endSemester, courseCost, selectedStudentIDs, selectedTeacherIDs, selectedUnitIDs);
-
-            //if (success)
-            //{
-            //    MessageBox.Show("The course has been successfully inserted");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Something went wrong - failed to insert the course. Please contact the administrator");
-            //}
-
+        private string SendData(int courseID, string courseName, int locationID, int deliveryID)
+        {
+            string outcome = App.logic.ManageDB("EditCourse", new object[] { courseID, courseName, locationID, deliveryID });
+            return outcome;
         }
 
         private void BtnDeleteCourse_Click(object sender, RoutedEventArgs e)
