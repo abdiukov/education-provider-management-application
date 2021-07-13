@@ -2,6 +2,8 @@
 CREATE DATABASE [TafeSystem]
 GO
 /****** Object:  Table [dbo].[Course]    Script Date: 11/07/2021 4:59:32 PM ******/
+USE TafeSystem;
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -726,7 +728,10 @@ insert into dbo.CourseStudent values(@StudentID, @courseID, 3)
 
 declare @CourseStudentID int
 
-set @CourseStudentID = IDENT_CURRENT('CourseStudent')  
+set @CourseStudentID = (select top (1) CourseStudent.id from CourseStudent 
+						where CourseStudent.courseID = @courseID 
+						and CourseStudent.studentID = @StudentID 
+						and CourseStudent.outcomeID = 3)
 
 insert into dbo.Payment values(0, @amountDue, @CourseStudentID)
 end

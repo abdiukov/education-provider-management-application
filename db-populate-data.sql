@@ -1,109 +1,5 @@
 USE [TafeSystem]
 GO
-SET IDENTITY_INSERT [dbo].[Unit] ON 
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (1, N'Use query language to work with databases', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (2, N'Develop web based mobile applications', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (3, N'Apply object-oriented design and language skills', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (4, N'Write and maintain program code', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (5, N'Test, debug, diagnose and correct errors and faults in applications', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (6, N'Address cyber security requirements', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (7, N'Manage the software development lifecycle', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (8, N'Create and test software programs', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (9, N'Use different programming languages and tools', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (10, N'Design and develop web-related products and applications', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (11, N'Contribute to copyright, ethics and privacy in an IT environment', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (12, N'Apply occupational psychology skills', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (13, N'Use interpersonal skills', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (14, N'Manipulate a team to improve productivity', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (15, N'Prepare dishes uses different techniques, equipment and methods', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (16, N'Develop and adapt menus to meet dietary requirements', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (17, N'Manage kitchen operations', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (18, N'Lead a team and coach individuals', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (19, N'Establish, develop and monitor teams', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (20, N'Conduct waste resource recovery', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (21, N'Identify and respond to hazards and emergencies in waste management', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (22, N'Develop proposals for waste management services', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (23, N'Assess and advise on waste avoidance options', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (24, N'Develop waste management plans', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (25, N'Apply accounting fundamentals', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (26, N'Create financial reports', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (27, N'Process financial transactions', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (28, N'Use computerised accounting and payroll systems', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (29, N'Create and lodge Business Activity Statements (BAS)', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (30, N'Use essential industry tools and programs', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (31, N'Learn to navigate computer software and hardware', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (32, N'Practise algorithm programming', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (33, N'Gain advanced problem-solving skills', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (34, N'Apply your learning to complex computing challenges', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (35, N'Manage the flow of goods between suppliers and customers', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (36, N'Perform record-keeping duties', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (37, N'Manage transportation', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (38, N'Apply risk management principles of water industry standards, guidelines and legislation', 300)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (39, N'Assess, implement and report environmental procedures', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (40, N'Manage risk', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (41, N'Create management plans across drainage, gas, excavation and ventilation functions', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (42, N'Implement secure encryption technologies', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (43, N'Design and implement a security perimeter for ICT networks', 400)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (44, N'Design and implement a security system', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (45, N'Plan, configure and test advanced server-based security', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (46, N'Integrate sustainability in ICT planning and design projects', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (47, N'Work collaboratively with other services', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (48, N'Understand trauma care', 200)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (49, N'Respond to crises', 100)
-GO
-INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (50, N'Support people experiencing mental illness and psychiatric disability', 100)
-GO
-SET IDENTITY_INSERT [dbo].[Unit] OFF
-GO
 SET IDENTITY_INSERT [dbo].[Delivery] ON 
 GO
 INSERT [dbo].[Delivery] ([id], [description]) VALUES (1, N'Full Time')
@@ -154,110 +50,6 @@ INSERT [dbo].[Course] ([id], [name], [locationID], [deliveryID], [isCurrent]) VA
 GO
 SET IDENTITY_INSERT [dbo].[Course] OFF
 GO
-SET IDENTITY_INSERT [dbo].[Cluster] ON 
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 1, 1)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 2, 2)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 3, 3)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 4, 4)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 5, 5)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 6, 6)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 7, 7)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 8, 8)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 9, 9)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 10, 10)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 11, 11)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 12, 12)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 13, 13)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 14, 14)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 15, 15)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 16, 16)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 17, 17)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 18, 18)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 19, 19)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 20, 20)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 21, 21)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 22, 22)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 23, 23)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 24, 24)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 25, 25)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 26, 26)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 27, 27)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 28, 28)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 29, 29)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 30, 30)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 31, 31)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 32, 32)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 33, 33)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 34, 34)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 35, 35)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 36, 36)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 37, 37)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (9, 38, 38)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (9, 39, 39)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (10, 40, 40)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (10, 41, 41)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 42, 42)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 43, 43)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 44, 44)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 45, 45)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 46, 46)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 47, 47)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 48, 48)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 49, 49)
-GO
-INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 50, 50)
-GO
-SET IDENTITY_INSERT [dbo].[Cluster] OFF
-GO
 SET IDENTITY_INSERT [dbo].[Semester] ON 
 GO
 INSERT [dbo].[Semester] ([id], [name], [startDate], [finishDate]) VALUES (1, N'Semester 1 2016', CAST(N'2016-02-01' AS Date), CAST(N'2016-07-01' AS Date))
@@ -296,10 +88,6 @@ INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (1, 11, 1)
 GO
 INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (2, 11, 2)
 GO
-INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (3, 10, 3)
-GO
-INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (3, 11, 4)
-GO
 INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (4, 7, 5)
 GO
 INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (5, 6, 6)
@@ -329,6 +117,14 @@ GO
 INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (12, 11, 18)
 GO
 INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (12, 12, 19)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (1, 12, 20)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (2, 12, 21)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (2, 13, 22)
+GO
+INSERT [dbo].[CourseSemester] ([courseID], [semesterID], [id]) VALUES (3, 12, 23)
 GO
 SET IDENTITY_INSERT [dbo].[CourseSemester] OFF
 GO
@@ -613,10 +409,6 @@ GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (139, N'24 ADAH STREET,GUILDFORD,NSW,2161', 1, N'0479-038-971', N'Roman.Kym@gmail.com', CAST(N'1951-01-14' AS Date), N'Roman', N'Kym')
 GO
 INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (140, N'61 WAIROA AVENUE,NORTH BONDI,NSW,2026', 2, N'0484-530-191', N'Tiffiny.Koelzer@gmail.com', CAST(N'1978-11-03' AS Date), N'Tiffiny', N'Koelzer')
-GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (141, N'18 Mother Street', 1, N'0414000123', N'myemail@gmail.com', CAST(N'1991-12-12' AS Date), N'Michael', N'Road')
-GO
-INSERT [dbo].[Student] ([id], [address], [genderID], [mobile], [email], [dob], [firstname], [lastname]) VALUES (142, N'18 Mother Street', 1, N'0414000123', N'myemail@gmail.com', CAST(N'2001-10-01' AS Date), N'Michael', N'Road')
 GO
 SET IDENTITY_INSERT [dbo].[Student] OFF
 GO
@@ -1004,10 +796,6 @@ INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES
 GO
 INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (120, 11, 2, 208)
 GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (141, 2, 3, 209)
-GO
-INSERT [dbo].[CourseStudent] ([studentID], [courseID], [outcomeID], [id]) VALUES (142, 2, 3, 210)
-GO
 SET IDENTITY_INSERT [dbo].[CourseStudent] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Teacher] ON 
@@ -1089,6 +877,214 @@ GO
 INSERT [dbo].[CourseTeacher] ([courseID], [teacherID], [id]) VALUES (8, 8, 24)
 GO
 SET IDENTITY_INSERT [dbo].[CourseTeacher] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Unit] ON 
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (1, N'Use query language to work with databases', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (2, N'Develop web based mobile applications', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (3, N'Apply object-oriented design and language skills', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (4, N'Write and maintain program code', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (5, N'Test, debug, diagnose and correct errors and faults in applications', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (6, N'Address cyber security requirements', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (7, N'Manage the software development lifecycle', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (8, N'Create and test software programs', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (9, N'Use different programming languages and tools', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (10, N'Design and develop web-related products and applications', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (11, N'Contribute to copyright, ethics and privacy in an IT environment', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (12, N'Apply occupational psychology skills', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (13, N'Use interpersonal skills', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (14, N'Manipulate a team to improve productivity', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (15, N'Prepare dishes uses different techniques, equipment and methods', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (16, N'Develop and adapt menus to meet dietary requirements', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (17, N'Manage kitchen operations', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (18, N'Lead a team and coach individuals', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (19, N'Establish, develop and monitor teams', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (20, N'Conduct waste resource recovery', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (21, N'Identify and respond to hazards and emergencies in waste management', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (22, N'Develop proposals for waste management services', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (23, N'Assess and advise on waste avoidance options', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (24, N'Develop waste management plans', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (25, N'Apply accounting fundamentals', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (26, N'Create financial reports', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (27, N'Process financial transactions', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (28, N'Use computerised accounting and payroll systems', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (29, N'Create and lodge Business Activity Statements (BAS)', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (30, N'Use essential industry tools and programs', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (31, N'Learn to navigate computer software and hardware', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (32, N'Practise algorithm programming', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (33, N'Gain advanced problem-solving skills', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (34, N'Apply your learning to complex computing challenges', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (35, N'Manage the flow of goods between suppliers and customers', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (36, N'Perform record-keeping duties', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (37, N'Manage transportation', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (38, N'Apply risk management principles of water industry standards, guidelines and legislation', 300)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (39, N'Assess, implement and report environmental procedures', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (40, N'Manage risk', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (41, N'Create management plans across drainage, gas, excavation and ventilation functions', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (42, N'Implement secure encryption technologies', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (43, N'Design and implement a security perimeter for ICT networks', 400)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (44, N'Design and implement a security system', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (45, N'Plan, configure and test advanced server-based security', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (46, N'Integrate sustainability in ICT planning and design projects', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (47, N'Work collaboratively with other services', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (48, N'Understand trauma care', 200)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (49, N'Respond to crises', 100)
+GO
+INSERT [dbo].[Unit] ([id], [name], [hoursAmount]) VALUES (50, N'Support people experiencing mental illness and psychiatric disability', 100)
+GO
+SET IDENTITY_INSERT [dbo].[Unit] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Cluster] ON 
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 1, 1)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 2, 2)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 3, 3)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 4, 4)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 5, 5)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (1, 6, 6)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 7, 7)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 8, 8)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 9, 9)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 10, 10)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (2, 11, 11)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 12, 12)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 13, 13)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (3, 14, 14)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 15, 15)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 16, 16)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 17, 17)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (4, 18, 18)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 19, 19)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 20, 20)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 21, 21)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 22, 22)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 23, 23)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (5, 24, 24)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 25, 25)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 26, 26)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 27, 27)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 28, 28)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 29, 29)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (6, 30, 30)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 31, 31)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 32, 32)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 33, 33)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (7, 34, 34)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 35, 35)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 36, 36)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (8, 37, 37)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (9, 38, 38)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (9, 39, 39)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (10, 40, 40)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (10, 41, 41)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 42, 42)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 43, 43)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 44, 44)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 45, 45)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (11, 46, 46)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 47, 47)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 48, 48)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 49, 49)
+GO
+INSERT [dbo].[Cluster] ([courseID], [unitID], [id]) VALUES (12, 50, 50)
+GO
+SET IDENTITY_INSERT [dbo].[Cluster] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Payment] ON 
 GO
@@ -1473,10 +1469,6 @@ GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (207, 2000.0000, 7000.0000, 207)
 GO
 INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (208, 6000.0000, 10000.0000, 208)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (209, 0.0000, 700.0000, 209)
-GO
-INSERT [dbo].[Payment] ([id], [amountPaid], [amountDue], [CourseStudentID]) VALUES (210, 0.0000, 700.0000, 210)
 GO
 SET IDENTITY_INSERT [dbo].[Payment] OFF
 GO

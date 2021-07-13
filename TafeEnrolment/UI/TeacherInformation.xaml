@@ -49,7 +49,7 @@
             FontFamily="Verdana"
             FontSize="12"
             IsReadOnly="True"
-            MouseRightButtonDown="DgTeacherProfiles_MouseRightButtonDown">
+            VerticalScrollBarVisibility="Visible" MouseRightButtonDown="DgTeacherProfiles_MouseRightButtonDown">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='IsCurrent'}" Header="Currently teaches" />
                 <DataGridTextColumn Binding="{Binding Path='Id'}" Header="Id" />
@@ -108,7 +108,7 @@
             FontSize="12"
             GridLinesVisibility="None"
             HeadersVisibility="None"
-            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
+           VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>

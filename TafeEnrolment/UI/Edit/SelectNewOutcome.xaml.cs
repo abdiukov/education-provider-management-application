@@ -28,6 +28,7 @@ namespace UI.Edit
 
             string outcome = App.logic.ManageDB("EditStudentOutcome", new object[] { selectedOutcome.OutcomeID, CourseStudentID });
             MessageBox.Show(outcome);
+            PageNavigation.ClearAllPagesExceptMain();
             Close();
         }
     }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace UI.Add
 {
@@ -36,9 +35,9 @@ namespace UI.Add
         /// <summary>
         /// When the page on the navigation bar at the top is clicked upon, this page gets hidden and the user is redirected to that page
         /// </summary>
-        private void DgNavigationBar_NavigateToSelectedPage(object sender, DataGridPreparingCellForEditEventArgs e)
+        private void DgNavigationBar_NavigateToSelectedPage(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            DgNavigationBar.CancelEdit();
+
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 

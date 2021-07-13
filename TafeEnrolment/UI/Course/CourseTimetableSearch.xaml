@@ -29,7 +29,7 @@
             FontFamily="Verdana"
             FontSize="18"
             IsReadOnly="True"
-            MouseRightButtonDown="DgTimetable_MouseRightButtonDown">
+            VerticalScrollBarVisibility="Visible" MouseRightButtonDown="DgTimetable_MouseRightButtonDown">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='CourseID'}" Header="Course id" />
                 <DataGridTextColumn Binding="{Binding Path='CourseName'}" Header="Course name" />
@@ -55,7 +55,7 @@
             FontSize="12"
             GridLinesVisibility="None"
             HeadersVisibility="None"
-            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
+           VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>

@@ -29,7 +29,7 @@
             FontFamily="Verdana"
             FontSize="18"
             IsReadOnly="True"
-            MouseRightButtonDown="DgSubjectNoCourse_MouseRightButtonDown">
+            VerticalScrollBarVisibility="Visible" MouseRightButtonDown="DgSubjectNoCourse_MouseRightButtonDown">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='UnitID'}" Header="Unit ID" />
                 <DataGridTextColumn Binding="{Binding Path='UnitName'}" Header="Unit name" />
@@ -47,7 +47,7 @@
             FontSize="12"
             GridLinesVisibility="None"
             HeadersVisibility="None"
-            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
+           VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>

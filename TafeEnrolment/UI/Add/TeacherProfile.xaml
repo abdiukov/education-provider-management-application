@@ -32,7 +32,7 @@
             FontSize="12"
             GridLinesVisibility="None"
             HeadersVisibility="None"
-            PreparingCellForEdit="DgNavigationBar_NavigateToSelectedPage">
+           VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>
