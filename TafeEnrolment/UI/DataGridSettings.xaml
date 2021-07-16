@@ -15,7 +15,7 @@
         <ListBox Name="lbDataGridSettings" HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="0,2" MouseLeftButtonUp="lbDataGridSettings_MouseLeftButtonDown">
+                    <Grid Margin="0,2" MouseLeftButtonUp="LbDataGridSettings_MouseLeftButtonDown">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="100" />

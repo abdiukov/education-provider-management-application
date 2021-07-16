@@ -21,18 +21,18 @@ namespace ModelLayer
             controlType = control.GetType();
         }
 
+        //PROPERTIES
+
+        private readonly Control control;
+        private readonly Type controlType;
+
+        //METHODS
 
         /// <returns>True - the log-in was successful. False - the log-in attempt had failed.</returns>
         public bool CheckConnection()
         {
             return control.CheckConnection();
         }
-
-        //PROPERTIES
-        private readonly Control control;
-        private readonly Type controlType;
-
-        //METHODS
 
         /// <summary>
         /// Generic method that is used to retrieve a list of objects from the database.
@@ -159,6 +159,8 @@ namespace ModelLayer
         }
 
 
+        /// <param name="CourseID">ID of course that we use to check against e.g 10</param>
+        /// <returns>List of units that belong (IsSelected = true) and don't belong (IsSelected = false) to provided Course ID</returns>
         public List<Unit> GetUnitsThatBelongAndDontBelongCourse(int CourseID)
         {
             List<Unit> unitsNotBelong = control.GetUnitsThatDontBelongToCourse(CourseID);
@@ -172,6 +174,8 @@ namespace ModelLayer
             return unitsDoBelong;
         }
 
+        /// <param name="CourseID">ID of course that we use to check against e.g 10</param>
+        /// <returns>List of teachers that belong (IsSelected = true) and don't belong (IsSelected = false) to provided Course ID</returns>
         public List<Teacher> GetTeachersThatBelongAndDontBelongCourse(int CourseID)
         {
             List<Teacher> teachersNotTeachingCourse = control.GetTeachersNotTeachingCourse(CourseID);
@@ -185,6 +189,8 @@ namespace ModelLayer
             return teachersTeachingCourse;
         }
 
+        /// <param name="CourseID">ID of course that we use to check against e.g 10</param>
+        /// <returns>List of students that belong (IsSelected = true) and don't belong (IsSelected = false) to provided Course ID</returns>
         public List<Student> GetStudentsThatBelongAndDontBelongCourse(int CourseID)
         {
 

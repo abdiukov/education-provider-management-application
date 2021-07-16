@@ -22,7 +22,7 @@ namespace UI
         /// <summary>
         /// Upon mouse clicking on one of columns in datagrid, its visibility gets changed
         /// </summary>
-        private void lbDataGridSettings_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void LbDataGridSettings_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (lbDataGridSettings.SelectedIndex != -1)
             {

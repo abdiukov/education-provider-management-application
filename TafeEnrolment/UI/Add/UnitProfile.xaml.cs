@@ -77,6 +77,9 @@ namespace UI.Add
             GoBack();
         }
 
+        /// <summary>
+        /// If the main window is not visible, and this window is being closed - shut down the application.
+        /// </summary>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)

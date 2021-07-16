@@ -29,7 +29,8 @@
             FontFamily="Verdana"
             FontSize="18"
             IsReadOnly="True"
-            VerticalScrollBarVisibility="Visible" MouseRightButtonDown="DgCourseHistory_MouseRightButtonDown">
+            MouseRightButtonDown="DgCourseHistory_MouseRightButtonDown"
+            VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='CourseName'}" Header="Course name" />
                 <DataGridTextColumn Binding="{Binding Path='Semester'}" Header="Semester" />
@@ -66,7 +67,9 @@
             FontSize="12"
             GridLinesVisibility="None"
             HeadersVisibility="None"
-           VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage">
+            IsReadOnly="True"
+            MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage"
+            VerticalScrollBarVisibility="Disabled">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>

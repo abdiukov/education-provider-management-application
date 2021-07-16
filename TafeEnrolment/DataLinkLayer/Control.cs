@@ -362,6 +362,8 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <param name="courseID">ID of course e.g 10</param>
+        /// <returns>List of untis that don't belong(are not being taught) in the Course ID provided</returns>
         public List<Unit> GetUnitsThatDontBelongToCourse(int courseID)
         {
             List<Unit> outputlist = new List<Unit>();
@@ -394,6 +396,8 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <param name="courseID">ID of course e.g 10</param>
+        /// <returns>List of untis that belong(are being taught) in the Course ID provided</returns>
         public List<Unit> GetUnitsThatBelongToCourse(int courseID)
         {
             List<Unit> outputlist = new List<Unit>();
@@ -426,6 +430,8 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <param name="courseID">ID of course e.g 10</param>
+        /// <returns>List of teachers that teach the Course ID provided</returns>
         public List<Teacher> GetTeachersTeachingCourse(int courseID)
         {
             List<Teacher> outputlist = new List<Teacher>();
@@ -459,6 +465,8 @@ namespace DataLinkLayer
         }
 
 
+        /// <param name="courseID">ID of course e.g 10</param>
+        /// <returns>List of teachers that don't teach the Course ID provided</returns>
         public List<Teacher> GetTeachersNotTeachingCourse(int courseID)
         {
             List<Teacher> outputlist = new List<Teacher>();
@@ -491,9 +499,8 @@ namespace DataLinkLayer
             return outputlist;
         }
 
-
-
-
+        /// <param name="courseID">ID of course e.g 10</param>
+        /// <returns>List of students that attend the Course ID provided</returns>
         public List<Student> GetStudentsAttendingCourse(int courseID)
         {
             List<Student> outputlist = new List<Student>();
@@ -530,7 +537,8 @@ namespace DataLinkLayer
         }
 
 
-
+        /// <param name="courseID">ID of course e.g 10</param>
+        /// <returns>List of students that don't attend the Course ID provided</returns>
         public List<Student> GetStudentsNotAttendingCourse(int courseID)
         {
             List<Student> outputlist = new List<Student>();
@@ -565,7 +573,6 @@ namespace DataLinkLayer
             //output
             return outputlist;
         }
-
 
 
         /// <param name="studentID">ID of student inside the database e.g 10</param>
@@ -777,6 +784,7 @@ namespace DataLinkLayer
             return outputlist;
         }
 
+        /// <returns>List of different course outcomes and corresponding IDs e.g "Satisfactory", "No outcome available", "Unsatisfactory" </returns>
         public List<Outcome> GetOutcomes()
         {
             List<Outcome> outputlist = new List<Outcome>();
@@ -808,6 +816,8 @@ namespace DataLinkLayer
             //output
             return outputlist;
         }
+
+        /// <returns>List of course informations that is used to fill in the "Edit Course" window</returns>
         public List<CourseInformation> GetCoursesForAutofill()
         {
             List<CourseInformation> outputlist = new List<CourseInformation>();
@@ -1133,6 +1143,11 @@ namespace DataLinkLayer
         //METHODS TO EDIT/DELETE INFORMATION INSIDE THE DATABASE
         //
 
+        /// <param name="CourseID">ID of course that is being edited</param>
+        /// <param name="CourseName">The new name of the course e.g Certificate II in Plumbing</param>
+        /// <param name="LocationID">The new ID of the location where the course will be offered e.g 2</param>
+        /// <param name="DeliveryID">Ihe new ID on how the course will be delivered e.g 1</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
         public string EditCourse(int CourseID, string CourseName, int LocationID, int DeliveryID)
         {
             try
@@ -1161,6 +1176,11 @@ namespace DataLinkLayer
         }
 
 
+
+        /// <param name="courseStudentID">ID that links specific student to specific course e.g 100 </param>
+        /// <param name="amountPaid">The amount that has been paid by student for that specific course e.g 2000.00</param>
+        /// <param name="amountDue">Total course cost for that specific student e.g 2500.50</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
         public string EditStudentPayment(int courseStudentID, double amountPaid, double amountDue)
         {
             try
@@ -1187,6 +1207,10 @@ namespace DataLinkLayer
             }
         }
 
+
+        /// <param name="newOutcomeID">The new course outcome ID for the specific student e.g 1</param>
+        /// <param name="courseStudentID">ID that links specific student to specific course e.g 100 </param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
         public string EditStudentOutcome(int newOutcomeID, int courseStudentID)
         {
             try
@@ -1352,7 +1376,12 @@ namespace DataLinkLayer
             }
         }
 
-
+        /// <summary>
+        /// Makes it so that unit does no longer belong to specific course
+        /// </summary>
+        /// <param name="CourseID">ID of course where the unit is being removed from e.g 10</param>
+        /// <param name="unitID">ID of the unit that will be removed from course e.g 20</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
         public string DeleteCluster(int CourseID, int unitID)
         {
             try
@@ -1378,7 +1407,12 @@ namespace DataLinkLayer
             }
         }
 
-
+        /// <summary>
+        /// Removes a semester from course
+        /// </summary>
+        /// <param name="CourseID">ID of course where the semester is being removed form e.g 10</param>
+        /// <param name="SemesterID">ID of semester which is being removed from course e.g 4</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
         public string DeleteCourseSemester(int CourseID, int SemesterID)
         {
             try
@@ -1404,6 +1438,9 @@ namespace DataLinkLayer
             }
         }
 
+
+        /// <param name="courseID">ID of course where we wish to remove the teacher from e.g 12</param>
+        /// <param name="teacherID">ID of teacher who is being removed from course e.g 10</param>
         public void DeleteCourseTeacher(int courseID, int teacherID)
         {
             try
@@ -1428,6 +1465,9 @@ namespace DataLinkLayer
             }
         }
 
+
+        /// <param name="courseID">ID of course where the student payment is being removed from e.g 12 </param>
+        /// <param name="studentID">ID of student whose course payment is being removed e.g 120</param>
         public void DeleteCourseStudentPayment(int courseID, int studentID)
         {
             try
@@ -1504,6 +1544,9 @@ namespace DataLinkLayer
             }
         }
 
+
+        /// <param name="courseID">ID of course that is being deleted from database e.g 10</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
         public string DeleteCourse(int courseID)
         {
             try

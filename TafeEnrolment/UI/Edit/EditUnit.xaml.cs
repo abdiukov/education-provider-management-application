@@ -11,7 +11,7 @@ namespace UI.Edit
     /// </summary>
     public partial class EditUnit : Window
     {
-        private List<Unit> allUnits = new List<Unit>();
+        private readonly List<Unit> allUnits = new List<Unit>();
 
         /// <summary>
         /// Initialises the page.
@@ -113,6 +113,9 @@ namespace UI.Edit
             GoBack();
         }
 
+        /// <summary>
+        /// If the main window is not visible, and this window is being closed - shut down the application.
+        /// </summary>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (App.pagesVisitedTracker[0].Visibility == Visibility.Hidden)

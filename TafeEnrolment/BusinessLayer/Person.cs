@@ -8,7 +8,7 @@ namespace BusinessLayer
     /// </summary>
     public abstract class Person
     {
-        //CONSTRUCTOR
+        //CONSTRUCTORS
         public Person()
         {
         }
