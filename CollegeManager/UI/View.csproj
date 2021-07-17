@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66F529CE-DE0A-4AAD-86C7-C9EB3CEB05E6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>View</RootNamespace>
+    <AssemblyName>View</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Add\UnitProfile.xaml.cs">
+      <DependentUpon>UnitProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CourseInformation.xaml.cs">
+      <DependentUpon>CourseInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\CourseNotOffered.xaml.cs">
+      <DependentUpon>CourseNotOffered.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add\CourseProfile.xaml.cs">
+      <DependentUpon>CourseProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\CourseSelectStudent.xaml.cs">
+      <DependentUpon>CourseSelectStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\CourseSelectTeacher.xaml.cs">
+      <DependentUpon>CourseSelectTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\CourseSelectUnits.xaml.cs">
+      <DependentUpon>CourseSelectUnits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\CourseTimetableSearch.xaml.cs">
+      <DependentUpon>CourseTimetableSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridSettings.xaml.cs">
+      <DependentUpon>DataGridSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditCourse.xaml.cs">
+      <DependentUpon>EditCourse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditCourseSelectStudent.xaml.cs">
+      <DependentUpon>EditCourseSelectStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditCourseSelectTeacher.xaml.cs">
+      <DependentUpon>EditCourseSelectTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditCourseSelectUnit.xaml.cs">
+      <DependentUpon>EditCourseSelectUnit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditStudent.xaml.cs">
+      <DependentUpon>EditStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditStudentPayment.xaml.cs">
+      <DependentUpon>EditStudentPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditStudentResults.xaml.cs">
+      <DependentUpon>EditStudentResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditTeacher.xaml.cs">
+      <DependentUpon>EditTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\EditUnit.xaml.cs">
+      <DependentUpon>EditUnit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\SelectNewOutcome.xaml.cs">
+      <DependentUpon>SelectNewOutcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit\SelectNewPaymentStatus.xaml.cs">
+      <DependentUpon>SelectNewPaymentStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageLogic.cs" />
+    <Compile Include="PageNavigation.cs" />
+    <Compile Include="StudentInformation.xaml.cs">
+      <DependentUpon>StudentInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Student\StudentEnrolment.xaml.cs">
+      <DependentUpon>StudentEnrolment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add\StudentProfile.xaml.cs">
+      <DependentUpon>StudentProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Student\StudentResultSearch.xaml.cs">
+      <DependentUpon>StudentResultSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\SubjectsClustered.xaml.cs">
+      <DependentUpon>SubjectsClustered.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Course\SubjectsWithNoCourse.xaml.cs">
+      <DependentUpon>SubjectsWithNoCourse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\TeacherCourseHistory.xaml.cs">
+      <DependentUpon>TeacherCourseHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherInformation.xaml.cs">
+      <DependentUpon>TeacherInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add\TeacherProfile.xaml.cs">
+      <DependentUpon>TeacherProfile.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Add\UnitProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CourseInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseNotOffered.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add\CourseProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseSelectStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseSelectTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseSelectUnits.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\CourseTimetableSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataGridSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditCourseSelectStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditCourseSelectTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditCourseSelectUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditStudentPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditStudentResults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\EditUnit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\SelectNewOutcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Edit\SelectNewPaymentStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="StudentInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Student\StudentEnrolment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add\StudentProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Student\StudentResultSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\SubjectsClustered.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Course\SubjectsWithNoCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Teacher\TeacherCourseHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeacherInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add\TeacherProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\Model.csproj">
+      <Project>{a6c30167-de49-48df-90d4-8aa6070ed4d5}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelLayer\Controller.csproj">
+      <Project>{8f74a360-224a-44d4-9f9b-0e29941e677a}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

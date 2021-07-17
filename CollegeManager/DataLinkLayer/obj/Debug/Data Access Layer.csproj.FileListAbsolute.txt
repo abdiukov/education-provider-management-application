@@ -1,0 +1,17 @@
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\Model.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\System.Security.Permissions.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\Model.pdb
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\System.Security.Permissions.xml
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\Data Access Layer.csproj.AssemblyReference.cache
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\Data Access Layer.csproj.CoreCompileInputs.cache
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\Data Access Layer.csproj.CopyComplete
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\DataLinkLayer\obj\Debug\DataAccessLayer.pdb

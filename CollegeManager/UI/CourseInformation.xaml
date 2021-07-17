@@ -1,0 +1,105 @@
+﻿<Window
+    x:Class="View.CourseInformation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Course information"
+    Closing="Window_Closing"
+    IsVisibleChanged="Window_IsVisibleChanged"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
+    <Grid>
+        <Button
+            Name="GoBack_navigation_btn"
+            Width="25"
+            Height="25"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="GoBack_navigation_btn_Click"
+            Content="&lt;--" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="80" />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button
+                Name="courseNotOffered_navigation_btn"
+                Grid.Row="2"
+                Grid.Column="0"
+                Click="CourseNotOffered_navigation_btn_Click"
+                Content="See all courses which are not offered this semester" />
+            <Button
+                Name="clusterUnitCourse_navigation_btn"
+                Grid.Row="2"
+                Grid.Column="1"
+                Click="ClusterUnitCourse_navigation_btn_Click"
+                Content="See cluster units for any course and semester." />
+            <Button
+                Name="subjectsNotAllocated_navigation_btn"
+                Grid.Row="1"
+                Grid.Column="0"
+                Click="SubjectsNotAllocated_navigation_btn_Click"
+                Content="See all units/subjects which are not allocated to any course in any semester." />
+            <Button
+                Name="courseTimetables_navigation_btn"
+                Grid.Row="1"
+                Grid.Column="1"
+                Click="CourseTimetables_navigation_btn_Click"
+                Content="Display course timetables" />
+        </Grid>
+        <DataGrid
+            Name="DgNavigationBar"
+            Width="25"
+            Margin="40,10,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            ColumnHeaderHeight="0"
+            FontSize="12"
+            GridLinesVisibility="None"
+            HeadersVisibility="None"
+           VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
+            </DataGrid.Columns>
+            <DataGrid.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1,0,0,1,0,0" />
+                </TransformGroup>
+            </DataGrid.LayoutTransform>
+            <DataGrid.ColumnHeaderStyle>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90" />
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90" />
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
+    </Grid>
+</Window>

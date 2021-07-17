@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "KLMHhxEDXr0EAgsXmsjI5zTfh9Si6yhLFNXaqsv3VKYR5KVR0zUj8RnyZI/oipri7rzDPMOtNX2NLwSCDKsE7A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ash\\Desktop\\GitHub\\EnrolmentWPF\\CollegeManager\\BusinessLayer\\Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ash\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Ash\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

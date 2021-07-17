@@ -1,0 +1,11 @@
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\obj\Debug\Controller.csproj.AssemblyReference.cache
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\obj\Debug\Controller.csproj.CoreCompileInputs.cache
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\bin\Debug\Model.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\bin\Debug\Model.pdb
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\obj\Debug\Controller.csproj.CopyComplete
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\bin\Debug\Controller.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\bin\Debug\Controller.pdb
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\obj\Debug\Controller.dll
+C:\Users\Ash\Desktop\GitHub\EnrolmentWPF\TafeEnrolment\ModelLayer\obj\Debug\Controller.pdb

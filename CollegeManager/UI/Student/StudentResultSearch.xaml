@@ -1,0 +1,87 @@
+﻿<Window
+    x:Class="View.Student.StudentResultSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Student results"
+    Closing="Window_Closing"
+    IsVisibleChanged="Window_IsVisibleChanged"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="ToolWindow"
+    mc:Ignorable="d">
+    <Grid>
+        <DataGrid
+            Name="DgStudentResults"
+            Margin="0,60,0,10"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutoGenerateColumns="False"
+            FontFamily="Verdana"
+            FontSize="18"
+            IsReadOnly="True"
+            VerticalScrollBarVisibility="Visible" MouseRightButtonDown="DgStudentResults_MouseRightButtonDown">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path='StudentID'}" Header="Student id" />
+                <DataGridTextColumn Binding="{Binding Path='CourseName'}" Header="Course Name" />
+                <DataGridTextColumn Binding="{Binding Path='CourseLocation'}" Header="Course Location" />
+                <DataGridTextColumn Binding="{Binding Path='Outcome'}" Header="Course Outcome" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button
+            Name="GoBack_navigation_btn"
+            Width="25"
+            Height="25"
+            Margin="10,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="GoBack_navigation_btn_Click"
+            Content="&lt;--" />
+        <DataGrid
+            Name="DgNavigationBar"
+            Width="25"
+            Margin="40,10,0,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            ColumnHeaderHeight="0"
+            FontSize="12"
+            GridLinesVisibility="None"
+            HeadersVisibility="None"
+           VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
+            </DataGrid.Columns>
+            <DataGrid.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="90" />
+                    <MatrixTransform Matrix="-1,0,0,1,0,0" />
+                </TransformGroup>
+            </DataGrid.LayoutTransform>
+            <DataGrid.ColumnHeaderStyle>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90" />
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <TransformGroup>
+                                <RotateTransform Angle="-90" />
+                                <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            </TransformGroup>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
+    </Grid>
+</Window>
