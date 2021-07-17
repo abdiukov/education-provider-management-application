@@ -49,9 +49,9 @@
             FontFamily="Verdana"
             FontSize="12"
             IsReadOnly="True"
-            VerticalScrollBarVisibility="Visible" MouseRightButtonDown="DgStudentProfiles_MouseRightButtonDown">
+            MouseRightButtonDown="DgStudentProfiles_MouseRightButtonDown"
+            VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path='IsCurrent'}" Header="Currently attends" />
                 <DataGridTextColumn Binding="{Binding Path='Id'}" Header="Id" />
                 <DataGridTextColumn Binding="{Binding Path='FirstName'}" Header="First Name" />
                 <DataGridTextColumn Binding="{Binding Path='LastName'}" Header="Last Name" />
@@ -62,6 +62,7 @@
                 <DataGridTextColumn Binding="{Binding Path='DateofBirth', StringFormat=dd-MM-yyyy}" Header="Date of Birth" />
                 <DataGridTextColumn Binding="{Binding Path='IsFeesNotPaid'}" Header="Not paid" />
                 <DataGridTextColumn Binding="{Binding Path='Position'}" Header="Position" />
+                <DataGridTextColumn Binding="{Binding Path='IsCurrent'}" Header="Currently attends" />
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -95,6 +96,18 @@
             Checked="Checkbox_SearchPartTime_Checked"
             Content="Part Time" />
         <CheckBox
+            x:Name="Checkbox_SearchPast"
+            Margin="245,80,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Not current" />
+        <CheckBox
+            x:Name="Checkbox_SearchCurrent"
+            Margin="340,80,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Current" />
+        <CheckBox
             x:Name="Checkbox_EnrolledNoFees"
             Margin="77,114,0,0"
             HorizontalAlignment="Left"
@@ -111,7 +124,9 @@
             FontSize="12"
             GridLinesVisibility="None"
             HeadersVisibility="None"
-           VerticalScrollBarVisibility="Disabled" IsReadOnly="True" MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage">
+            IsReadOnly="True"
+            MouseDoubleClick="DgNavigationBar_NavigateToSelectedPage"
+            VerticalScrollBarVisibility="Disabled">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path='Title'}" Header="" />
             </DataGrid.Columns>
@@ -146,5 +161,7 @@
                 </Style>
             </DataGrid.CellStyle>
         </DataGrid>
+
+
     </Grid>
 </Window>

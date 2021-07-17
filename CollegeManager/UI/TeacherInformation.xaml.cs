@@ -19,6 +19,8 @@ namespace View
             InitializeComponent();
             Teachers = (List<Model.Teacher>)App.logic.GetFromDB("GetTeachers");
             DgTeacherProfiles.ItemsSource = Teachers;
+            Checkbox_SearchCurrent.IsChecked = true;
+            Search();
         }
 
         /// <summary>
@@ -64,7 +66,8 @@ namespace View
             List<Model.Teacher> TeachersCopy = new List<Model.Teacher>(Teachers);
 
             List<Model.Teacher> SearchResult = PageLogic.SearchTeacher(idToSearch, Checkbox_SearchPartTime.IsChecked,
-    Checkbox_SearchFullTime.IsChecked, Checkbox_SearchTeacherNotBasedLocation.IsChecked, Teachers);
+    Checkbox_SearchFullTime.IsChecked, Checkbox_SearchTeacherNotBasedLocation.IsChecked,
+    Checkbox_SearchCurrent.IsChecked, Checkbox_SearchPast.IsChecked, Teachers);
 
             //making copy
             DgTeacherProfiles.ItemsSource = SearchResult;

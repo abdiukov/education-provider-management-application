@@ -52,7 +52,6 @@
             MouseRightButtonDown="DgTeacherProfiles_MouseRightButtonDown"
             VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path='IsCurrent'}" Header="Currently teaches" />
                 <DataGridTextColumn Binding="{Binding Path='Id'}" Header="Id" />
                 <DataGridTextColumn Binding="{Binding Path='FirstName'}" Header="First Name" />
                 <DataGridTextColumn Binding="{Binding Path='LastName'}" Header="Last Name" />
@@ -63,6 +62,7 @@
                 <DataGridTextColumn Binding="{Binding Path='Mobile'}" Header="Mobile" />
                 <DataGridTextColumn Binding="{Binding Path='Position'}" Header="Position" />
                 <DataGridTextColumn Binding="{Binding Path='OtherThanBaseLocation'}" Header="Other than based location" />
+                <DataGridTextColumn Binding="{Binding Path='IsCurrent'}" Header="Currently teaches" />
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -91,6 +91,18 @@
             VerticalAlignment="Top"
             Checked="Checkbox_SearchPartTime_Checked"
             Content="Part Time" />
+        <CheckBox
+            x:Name="Checkbox_SearchPast"
+            Margin="245,80,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Not current" />
+        <CheckBox
+            x:Name="Checkbox_SearchCurrent"
+            Margin="340,80,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Current" />
         <CheckBox
             x:Name="Checkbox_SearchTeacherNotBasedLocation"
             Margin="77,114,0,0"

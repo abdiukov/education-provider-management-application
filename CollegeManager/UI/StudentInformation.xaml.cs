@@ -19,6 +19,8 @@ namespace View
             InitializeComponent();
             Students = (List<Model.Student>)App.logic.GetFromDB("GetStudents");
             DgStudentProfiles.ItemsSource = Students;
+            Checkbox_SearchCurrent.IsChecked = true;
+            Search();
         }
 
         /// <summary>
@@ -47,6 +49,8 @@ namespace View
         {
             Checkbox_SearchPartTime.IsChecked = false;
         }
+
+
         /// <summary>
         /// After clicking on the field, the default text "Enter ID that you wish to search" is replaced with ""
         /// </summary>
@@ -68,7 +72,8 @@ namespace View
             List<Model.Student> StudentsCopy = new List<Model.Student>(Students);
 
             List<Model.Student> SearchResult = PageLogic.SearchStudent(idToSearch, Checkbox_SearchPartTime.IsChecked,
-    Checkbox_SearchFullTime.IsChecked, Checkbox_EnrolledNoFees.IsChecked, Students);
+    Checkbox_SearchFullTime.IsChecked, Checkbox_EnrolledNoFees.IsChecked,
+    Checkbox_SearchCurrent.IsChecked, Checkbox_SearchPast.IsChecked, Students);
             DgStudentProfiles.ItemsSource = SearchResult;
             Students = StudentsCopy;
         }
@@ -146,5 +151,7 @@ namespace View
                 Environment.Exit(0);
             }
         }
+
+
     }
 }

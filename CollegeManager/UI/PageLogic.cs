@@ -24,7 +24,7 @@ namespace View
         /// <param name="Students">List of students we are searching from</param>
         /// <returns>List of students that correspond to the search query</returns>
         public static List<Model.Student> SearchStudent(int searchQuery, bool? searchPartTime, bool? searchFullTime,
-            bool? searchNoFees, List<Model.Student> Students)
+            bool? searchNoFees, bool? searchCurrent, bool? searchPast, List<Model.Student> Students)
         {
             int v = 0;
             if ((bool)searchPartTime) { v += 4; } //x
@@ -88,6 +88,36 @@ namespace View
                     break;
             }
 
+
+            int v2 = 0;
+
+            if ((bool)searchCurrent) { v2 += 1; } //x
+            if ((bool)searchPast) { v2 += 2; } //y
+
+            switch (v2)
+            {
+                case 1: // x is true
+                    foreach (Model.Student item in output.ToList())
+                    {
+                        if (item.IsCurrent == false)
+                        {
+                            output.Remove(item);
+                        }
+                    }
+                    break;
+                case 2: // y is true
+                    foreach (Model.Student item in output.ToList())
+                    {
+                        if (item.IsCurrent == true)
+                        {
+                            output.Remove(item);
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+
             if (searchQuery != -99999)
             {
                 foreach (var item in output.ToList())
@@ -110,7 +140,7 @@ namespace View
         /// <param name="Teachers">List of teachers we are searching from</param>
         /// <returns>List of teachers that correspond to the search query</returns>
         public static List<Model.Teacher> SearchTeacher(int searchQuery, bool? searchPartTime, bool? searchFullTime,
-            bool? searchNotBaseLocation, List<Model.Teacher> Teachers)
+            bool? searchNotBaseLocation, bool? searchCurrent, bool? searchPast, List<Model.Teacher> Teachers)
         {
             int v = 0;
             if ((bool)searchPartTime) { v += 4; } //x
@@ -175,6 +205,36 @@ namespace View
                     output = Teachers;
                     break;
             }
+
+            int v2 = 0;
+
+            if ((bool)searchCurrent) { v2 += 1; } //x
+            if ((bool)searchPast) { v2 += 2; } //y
+
+            switch (v2)
+            {
+                case 1: // x is true
+                    foreach (Model.Teacher item in output.ToList())
+                    {
+                        if (item.IsCurrent == false)
+                        {
+                            output.Remove(item);
+                        }
+                    }
+                    break;
+                case 2: // y is true
+                    foreach (Model.Teacher item in output.ToList())
+                    {
+                        if (item.IsCurrent == true)
+                        {
+                            output.Remove(item);
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+
 
             if (searchQuery != -99999)
             {
