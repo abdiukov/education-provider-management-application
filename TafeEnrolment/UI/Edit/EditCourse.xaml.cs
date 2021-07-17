@@ -7,7 +7,7 @@ using System.Windows.Controls;
 namespace UI.Edit
 {
     /// <summary>
-    /// Interaction logic for EditCourse.xaml
+    /// Page that allows the user to select one of existing courses and then change details or delete details
     /// </summary>
     public partial class EditCourse : Window
     {
@@ -32,6 +32,11 @@ namespace UI.Edit
         private List<BusinessLayer.Teacher> initialTeachers;
         public static List<BusinessLayer.Teacher> modifiedTeachers;
 
+        /// <summary>
+        /// Initialises the page.
+        /// The comboboxes(locations, deliveries, semesters, courses) are filled from Control.cs
+        /// methods GetLocations(), GetDelivery(), GetSemesters(), GetCoursesForAutofill() respectively.
+        /// </summary>
         public EditCourse()
         {
             InitializeComponent();
@@ -68,7 +73,6 @@ namespace UI.Edit
         /// </summary>
         private void DgNavigationBar_NavigateToSelectedPage(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
@@ -76,6 +80,14 @@ namespace UI.Edit
         /// When the arrow button (located top left) is clicked, user is redirected to main menu
         /// </summary>
         private void GoBack_navigation_btn_Click(object sender, RoutedEventArgs e)
+        {
+            GoBack();
+        }
+
+        /// <summary>
+        /// Redirects the user to the main menu
+        /// </summary>
+        private void GoBack()
         {
             PageNavigation.GoToExistingPage(0, this);
         }
@@ -107,6 +119,16 @@ namespace UI.Edit
             pageobj.Show();
         }
 
+        /// <summary>
+        /// When the combobox is changed, the textboxes get filled in,
+        /// the location combobox gets changed to the selected course location,
+        /// the delivery combobox gets changed to selected course delivery,
+        /// the start semester combobox gets changed to selected course start semester,
+        /// the end semester combobox gets changed to selected course end semester.
+        /// Fields such as initialStartSemester, initialEndSemester, initialUnits, initialTeachers, initialStudents are filled.
+        /// Fields such as modifiedUnits, modifiedTeachers, modifiedStudents are filled.
+        /// "modified" and "initial" then get compared and the difference gets added to the database.
+        /// </summary>
         private void ComboBoxSelectCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedCourse = (Model.CourseInformation)ComboBoxSelectCourse.SelectedItem;
@@ -119,15 +141,6 @@ namespace UI.Edit
                 if (item.Id == selectedCourse.LocationID)
                 {
                     comboBox_Locations.SelectedItem = item;
-                    break;
-                }
-            }
-
-            foreach (Delivery item in allDelivery)
-            {
-                if (item.Id == selectedCourse.DeliveryID)
-                {
-                    comboBox_Delivery.SelectedItem = item;
                     break;
                 }
             }
@@ -171,9 +184,20 @@ namespace UI.Edit
             modifiedStudents = App.logic.GetStudentsThatBelongAndDontBelongCourse(selectedCourse.CourseID);
         }
 
+
+        /// <summary>
+        /// Transforms user input into a list of items that need to be added and removed from the database.
+        /// Then sends that list to Logic.EditCourse() method.
+        /// Displays the result to the user.
+        /// </summary>
         private void BtnEditCourse_Click(object sender, RoutedEventArgs e)
         {
-            VerifyInput();
+            bool inputIsValid = VerifyInput();
+
+            if (!inputIsValid)
+            {
+                return;
+            }
 
             List<int> studentsToInsert = new List<int>();
             List<int> studentsToDelete = new List<int>();
@@ -298,25 +322,17 @@ namespace UI.Edit
             int deliveryID = selectedDelivery.Id;
 
 
-            MessageBox.Show(
-                SendData(selectedCourse.CourseID,
-                courseName,
-                locationID, deliveryID)
-                );
-
             string output =
-                SendDataBridgingTables(studentsToInsert, studentsToDelete, teachersToInsert,
+                App.logic.EditCourse(studentsToInsert, studentsToDelete, teachersToInsert,
                 teachersToDelete, unitsToInsert, unitsToDelete,
-                semestersToInsert, semestersToDelete, selectedCourse.CourseID, courseCost);
+                semestersToInsert, semestersToDelete, selectedCourse.CourseID, courseCost, courseName, locationID, deliveryID);
 
-            if (!string.IsNullOrEmpty(output))
-            {
-                MessageBox.Show(output);
-            }
-
-            PageNavigation.GoToExistingPage(0, this);
+            MessageBox.Show(output);
+            GoBack();
         }
 
+
+        /// <returns>True - user input is valid. False - user input is not valid</returns>
         private bool VerifyInput()
         {
             if (string.IsNullOrWhiteSpace(textBox_CourseName.Text))
@@ -361,62 +377,16 @@ namespace UI.Edit
             return true;
         }
 
-        private string SendDataBridgingTables(List<int> studentsToInsert, List<int> studentsToDelete,
-            List<int> teachersToInsert, List<int> teachersToDelete, List<int> unitsToInsert,
-            List<int> unitsToDelete, List<int> semestersToInsert, List<int> semestersToDelete, int courseID, double courseCost)
-        {
-            //PERFORMING DB OPERATIONS
-            string outcome = "";
-
-            foreach (int item in teachersToInsert)
-            {
-                outcome += App.logic.ManageDB("InsertCourseTeacher", new object[] { courseID, item });
-            }
-            foreach (int item in teachersToDelete)
-            {
-                outcome += App.logic.ManageDB("DeleteCourseTeacher", new object[] { courseID, item });
-            }
-
-            foreach (int item in unitsToInsert)
-            {
-                outcome += App.logic.ManageDB("InsertCluster", new object[] { courseID, item });
-            }
-            foreach (int item in unitsToDelete)
-            {
-                outcome += App.logic.ManageDB("DeleteCluster", new object[] { courseID, item });
-            }
-
-            foreach (int item in semestersToInsert)
-            {
-                outcome += App.logic.ManageDB("InsertCourseSemester", new object[] { courseID, item });
-            }
-            foreach (int item in semestersToDelete)
-            {
-                outcome += App.logic.ManageDB("DeleteCourseSemester", new object[] { courseID, item });
-            }
-
-            foreach (int item in studentsToInsert)
-            {
-                outcome += App.logic.ManageDB("InsertCourseStudentPayment", new object[] { courseID, item, courseCost });
-            }
-            foreach (int item in studentsToDelete)
-            {
-                outcome += App.logic.ManageDB("DeleteCourseStudentPayment", new object[] { courseID, item });
-            }
-            return outcome;
-        }
-
-        private string SendData(int courseID, string courseName, int locationID, int deliveryID)
-        {
-            string outcome = App.logic.ManageDB("EditCourse", new object[] { courseID, courseName, locationID, deliveryID });
-            return outcome;
-        }
-
+        /// <summary>
+        /// When user clicks button, information gets send to DeleteCourse() method in Control.cs.
+        /// This results in course details being deleted in the database.
+        /// </summary>
         private void BtnDeleteCourse_Click(object sender, RoutedEventArgs e)
         {
             string output = App.logic.ManageDB("DeleteCourse",
                 new object[] { selectedCourse.CourseID });
             MessageBox.Show(output);
+            GoBack();
         }
 
         /// <summary>

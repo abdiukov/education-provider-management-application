@@ -7,7 +7,7 @@ using System.Windows.Input;
 namespace UI.Edit
 {
     /// <summary>
-    /// Interaction logic for EditStudentResults.xaml
+    /// Page that allows user to select student and then edit their result in another window
     /// </summary>
     public partial class EditStudentResults : Window
     {
@@ -49,7 +49,6 @@ namespace UI.Edit
         /// </summary>
         private void DgNavigationBar_NavigateToSelectedPage(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
@@ -72,15 +71,20 @@ namespace UI.Edit
         {
             BusinessLayer.Student selectedStudent = (BusinessLayer.Student)ComboBoxSelectStudent.SelectedItem;
             DgStudentResults.ItemsSource = App.logic.GetFromDB("GetStudentResults", new object[] { selectedStudent.Id });
-
         }
 
+        /// <summary>
+        /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
+        /// </summary>
         private void DgStudentResults_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             DataGridSettings page = new DataGridSettings(DgStudentResults);
             page.Show();
         }
 
+        /// <summary>
+        /// Passes student outcome/student details into new page "SelectNewOutcome" where they can be edited.
+        /// </summary>
         private void BtnEditOutcome_Click(object sender, RoutedEventArgs e)
         {
             BusinessLayer.StudentResult selectedStudentResult = (BusinessLayer.StudentResult)DgStudentResults.SelectedItem;

@@ -4,7 +4,7 @@ using System.Windows;
 namespace UI.Edit
 {
     /// <summary>
-    /// Interaction logic for EditCourseSelectUnit.xaml
+    /// Page that allows user to select which units are going to be edited
     /// </summary>
     public partial class EditCourseSelectUnit : Window
     {

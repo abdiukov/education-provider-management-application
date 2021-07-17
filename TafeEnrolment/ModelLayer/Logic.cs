@@ -119,6 +119,71 @@ namespace ModelLayer
             return true;
         }
 
+        /// <param name="studentsToInsert">List of student ids that will need to be added into course</param>
+        /// <param name="studentsToDelete">List of student ids that will need to be deleted from course</param>
+        /// <param name="teachersToInsert">List of teacher ids that will need to be added into course</param>
+        /// <param name="teachersToDelete">List of teacher ids that will need to be deleted from course</param>
+        /// <param name="unitsToInsert">List of unit ids that will need to be added into course</param>
+        /// <param name="unitsToDelete">List of unit ids that will need to be deleted from course</param>
+        /// <param name="semestersToInsert">List of semester ids that will need to be added into course</param>
+        /// <param name="semestersToDelete">List of semester ids that will need to be deleted from course</param>
+        /// <param name="courseID">The ID of the course that is being modified e.g 10</param>
+        /// <param name="courseCost">The cost of course for students that are being inserted (NOT EVERYONE, ONLY NEWLY INSERTED STUDENTS)</param>
+        /// <param name="courseName">The new name of the course</param>
+        /// <param name="locationID">The new course location id</param>
+        /// <param name="deliveryID">The new course delivery id</param>
+        /// <returns>Success/Failure messages that will be displayed to the user</returns>
+        public string EditCourse(List<int> studentsToInsert, List<int> studentsToDelete,
+    List<int> teachersToInsert, List<int> teachersToDelete, List<int> unitsToInsert,
+    List<int> unitsToDelete, List<int> semestersToInsert, List<int> semestersToDelete, int courseID, double courseCost,
+    string courseName, int locationID, int deliveryID)
+        {
+            //PERFORMING DB OPERATIONS
+            string outcome = "";
+
+
+            outcome += control.EditCourse(courseID, courseName, locationID, deliveryID);
+
+
+            foreach (int item in teachersToInsert)
+            {
+                outcome += control.InsertCourseTeacher(courseID, item);
+            }
+            foreach (int item in teachersToDelete)
+            {
+                outcome += control.DeleteCourseTeacher(courseID, item);
+            }
+
+            foreach (int item in unitsToInsert)
+            {
+                outcome += control.InsertCluster(courseID, item);
+            }
+            foreach (int item in unitsToDelete)
+            {
+                outcome += control.DeleteCluster(courseID, item);
+            }
+
+            foreach (int item in semestersToInsert)
+            {
+                outcome += control.InsertCourseSemester(courseID, item);
+            }
+            foreach (int item in semestersToDelete)
+            {
+                outcome += control.DeleteCourseSemester(courseID, item);
+            }
+
+            foreach (int item in studentsToInsert)
+            {
+                outcome += control.InsertCourseStudentPayment(courseID, item, courseCost);
+            }
+            foreach (int item in studentsToDelete)
+            {
+                outcome += control.DeleteCourseStudentPayment(courseID, item);
+            }
+            return outcome;
+        }
+
+
         /// <param name="unsortedList">List where some teacher IDs repeat more than once</param>
         /// <returns>Sorted list where every teacher ID is unique</returns>
         public List<Teacher> SortTeacherList(IEnumerable<Teacher> unsortedList)

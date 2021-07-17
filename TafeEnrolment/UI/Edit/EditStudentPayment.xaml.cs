@@ -7,7 +7,7 @@ using System.Windows.Input;
 namespace UI.Edit
 {
     /// <summary>
-    /// Interaction logic for EditStudentPayment.xaml
+    /// Page that allows user to select student and then edit their payment in another window
     /// </summary>
     public partial class EditStudentPayment : Window
     {
@@ -47,7 +47,6 @@ namespace UI.Edit
         /// </summary>
         private void DgNavigationBar_NavigateToSelectedPage(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
             PageNavigation.GoToExistingPage(DgNavigationBar.SelectedIndex, this);
         }
 
@@ -72,13 +71,18 @@ namespace UI.Edit
             DgStudentEnrolment.ItemsSource = App.logic.GetFromDB("GetEnrolmentsByID", new object[] { selectedStudent.Id });
         }
 
-
+        /// <summary>
+        /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
+        /// </summary>
         private void DgStudentEnrolment_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             DataGridSettings page = new DataGridSettings(DgStudentEnrolment);
             page.Show();
         }
 
+        /// <summary>
+        /// Passes student payment information/ student details into new page "SelectNewPaymentStatus" where they can be edited.
+        /// </summary>
         private void BtnEditPayment_Click(object sender, RoutedEventArgs e)
         {
             if (DgStudentEnrolment.SelectedItem is null)

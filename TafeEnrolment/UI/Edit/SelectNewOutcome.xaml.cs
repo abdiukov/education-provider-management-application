@@ -5,7 +5,7 @@ using System.Windows;
 namespace UI.Edit
 {
     /// <summary>
-    /// Interaction logic for SelectNewOutcome.xaml
+    /// Page which allows the user to select the course outcome for the CourseStudentID provided
     /// </summary>
     public partial class SelectNewOutcome : Window
     {
@@ -17,6 +17,10 @@ namespace UI.Edit
             CbOutcome.ItemsSource = allOutcomes;
         }
 
+        /// <summary>
+        /// Verifies user input and then sends that information into database.
+        /// Shows user the outcome of student outcome being modified.
+        /// </summary>
         private void Btn_EditOutcome_Click(object sender, RoutedEventArgs e)
         {
             if (CbOutcome.SelectedItem is null)

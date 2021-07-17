@@ -5,12 +5,19 @@ using System.Windows.Input;
 
 namespace UI
 {
+    /// <summary>
+    /// Shows a datagrid that contains information about all the courses for a specific teacher
+    /// </summary>
     public partial class TeacherCourseHistory : Window
     {
 
         List<BusinessLayer.TeacherCourseHistory> Courses = new List<BusinessLayer.TeacherCourseHistory>();
         readonly List<BusinessLayer.TeacherCourseHistory> CoursesCopy = new List<BusinessLayer.TeacherCourseHistory>();
 
+        /// <summary>
+        /// Initialises the page and assigns the contents of the datagrid to be retrieved from Control.cs method GetTeacherHistoryByID();
+        /// </summary>
+        /// <param name="teacherID">ID of teacher inside the database e.g 10</param>
         public TeacherCourseHistory(int teacherID)
         {
             InitializeComponent();
@@ -49,9 +56,11 @@ namespace UI
             PageNavigation.GoToExistingPage(0, this);
         }
 
+        /// <summary>
+        /// Performs the search and assigns the contents of the datagrid to show search results
+        /// </summary>
         private void Search()
         {
-
             List<BusinessLayer.TeacherCourseHistory> SearchResult = PageLogic.SearchTeacherCourseHistory(Checkbox_SearchPastCourse.IsChecked,
                 Checkbox_SearchPresentCourse.IsChecked, Courses);
 
@@ -59,24 +68,35 @@ namespace UI
             Courses = CoursesCopy;
         }
 
-
+        /// <summary>
+        /// When checkbox is unchecked, do the search
+        /// </summary>
         private void Checkbox_SearchPastCourse_Checked(object sender, RoutedEventArgs e)
         {
             Checkbox_SearchPresentCourse.IsChecked = false;
             Search();
         }
 
+        /// <summary>
+        /// When checkbox is unchecked, do the search
+        /// </summary>
         private void Checkbox_SearchPresentCourse_Checked(object sender, RoutedEventArgs e)
         {
             Checkbox_SearchPastCourse.IsChecked = false;
             Search();
         }
 
+        /// <summary>
+        /// When checkbox is checked, do the search
+        /// </summary>
         private void Checkbox_SearchPresentCourse_Unchecked(object sender, RoutedEventArgs e)
         {
             Search();
         }
 
+        /// <summary>
+        /// When checkbox is checked, do the search
+        /// </summary>
         private void Checkbox_SearchPastCourse_Unchecked(object sender, RoutedEventArgs e)
         {
             Search();

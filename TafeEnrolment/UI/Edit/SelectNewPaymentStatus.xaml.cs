@@ -46,9 +46,6 @@ namespace UI.Edit
                 MessageBox.Show("Amount paid cannot be more than amount due");
                 return;
             }
-
-
-
             string outcome = App.logic.ManageDB("EditStudentPayment", new object[] { CourseStudentID, amountPaid, amountDue });
             MessageBox.Show(outcome);
             PageNavigation.ClearAllPagesExceptMain();
