@@ -67,6 +67,11 @@ namespace UI.Edit
         /// </summary>
         private void ComboBoxSelectStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            FillInDataGrid();
+        }
+
+        private void FillInDataGrid()
+        {
             BusinessLayer.Student selectedStudent = (BusinessLayer.Student)ComboBoxSelectStudent.SelectedItem;
             DgStudentEnrolment.ItemsSource = App.logic.GetFromDB("GetEnrolmentsByID", new object[] { selectedStudent.Id });
         }
@@ -92,7 +97,9 @@ namespace UI.Edit
             BusinessLayer.Enrolment selectedPaymentToChange = (BusinessLayer.Enrolment)DgStudentEnrolment.SelectedItem;
             SelectNewPaymentStatus page = new SelectNewPaymentStatus(selectedPaymentToChange.AmountPaid, selectedPaymentToChange.AmountDue,
                 selectedPaymentToChange.CourseStudentID);
-            page.Show();
+            page.ShowDialog();
+            FillInDataGrid();
+
         }
 
         /// <summary>

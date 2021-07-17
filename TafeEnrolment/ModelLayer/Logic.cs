@@ -138,47 +138,52 @@ namespace ModelLayer
     List<int> unitsToDelete, List<int> semestersToInsert, List<int> semestersToDelete, int courseID, double courseCost,
     string courseName, int locationID, int deliveryID)
         {
-            //PERFORMING DB OPERATIONS
             string outcome = "";
-
 
             outcome += control.EditCourse(courseID, courseName, locationID, deliveryID);
 
-
             foreach (int item in teachersToInsert)
             {
+                //
                 outcome += control.InsertCourseTeacher(courseID, item);
             }
             foreach (int item in teachersToDelete)
             {
+                //
                 outcome += control.DeleteCourseTeacher(courseID, item);
             }
 
             foreach (int item in unitsToInsert)
             {
+                //
                 outcome += control.InsertCluster(courseID, item);
             }
             foreach (int item in unitsToDelete)
             {
+                //
                 outcome += control.DeleteCluster(courseID, item);
             }
 
             foreach (int item in semestersToInsert)
             {
+                //
                 outcome += control.InsertCourseSemester(courseID, item);
             }
             foreach (int item in semestersToDelete)
             {
+                //
                 outcome += control.DeleteCourseSemester(courseID, item);
             }
 
             foreach (int item in studentsToInsert)
             {
+                //
                 outcome += control.InsertCourseStudentPayment(courseID, item, courseCost);
             }
             foreach (int item in studentsToDelete)
             {
-                outcome += control.DeleteCourseStudentPayment(courseID, item);
+                //
+                control.DeleteCourseStudentPayment(courseID, item);
             }
             return outcome;
         }

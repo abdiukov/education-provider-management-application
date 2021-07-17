@@ -103,7 +103,6 @@ namespace UI
         }
 
 
-
         /// <summary>
         /// Upon right clicking on the datagrid, the user is presented with the page where they can hide columns in the datagrid
         /// </summary>

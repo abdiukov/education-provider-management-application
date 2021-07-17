@@ -48,7 +48,6 @@ namespace UI.Edit
             }
             string outcome = App.logic.ManageDB("EditStudentPayment", new object[] { CourseStudentID, amountPaid, amountDue });
             MessageBox.Show(outcome);
-            PageNavigation.ClearAllPagesExceptMain();
             Close();
         }
     }

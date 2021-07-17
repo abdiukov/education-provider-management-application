@@ -33,6 +33,7 @@ GRANT EXECUTE ON [dbo].[usp_SelectUnenrolledStudents] TO teacher;
 GRANT EXECUTE ON [dbo].[usp_SelectUnitsThatBelongToCourse] TO teacher;
 GRANT EXECUTE ON [dbo].[usp_SelectUnitsThatDontBelongToCourse] TO teacher;
 GRANT EXECUTE ON [dbo].[usp_StudentResultByID] TO teacher;
+GRANT EXECUTE ON [dbo].[usp_GetCourseInfoToAutoFill] TO manager;
 
 
 -- manager

@@ -69,6 +69,11 @@ namespace UI.Edit
         /// </summary>
         private void ComboBoxSelectStudent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            FillInDataGrid();
+        }
+
+        private void FillInDataGrid()
+        {
             BusinessLayer.Student selectedStudent = (BusinessLayer.Student)ComboBoxSelectStudent.SelectedItem;
             DgStudentResults.ItemsSource = App.logic.GetFromDB("GetStudentResults", new object[] { selectedStudent.Id });
         }
@@ -89,8 +94,8 @@ namespace UI.Edit
         {
             BusinessLayer.StudentResult selectedStudentResult = (BusinessLayer.StudentResult)DgStudentResults.SelectedItem;
             SelectNewOutcome page = new SelectNewOutcome(selectedStudentResult.CourseStudentID, allOutcomes);
-            page.Show();
-
+            page.ShowDialog();
+            FillInDataGrid();
         }
 
         /// <summary>

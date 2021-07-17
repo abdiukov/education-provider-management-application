@@ -911,11 +911,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The teacher has been successfully inserted";
+                return "Success. The teacher " + firstName + " " + lastName + " has been successfully added to database.\n";
             }
             catch (Exception ex)
             {
-                return "Failed to insert new teacher. An error has occured at InsertNewTeacher()\n" + ex.Message;
+                return "Failed to insert new teacher " + firstName + " " + lastName + " .An error has occured\n" + ex.Message + "\n";
             }
         }
 
@@ -955,11 +955,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The student has been successfully inserted";
+                return "Success. The student " + firstName + " " + lastName + " has been successfully added to database.\n";
             }
             catch (Exception ex)
             {
-                return "Failed to insert new student. An error has occured at InsertNewStudent()\n" + ex.Message;
+                return "Failed to insert new student " + firstName + " " + lastName + " .An error has occured\n" + ex.Message + "\n";
             }
         }
 
@@ -1007,7 +1007,8 @@ namespace DataLinkLayer
         /// </summary>
         /// <param name="courseID">ID of the course e.g 12</param>
         /// <param name="semesterID">ID of the semester e.g 5</param>
-        public void InsertCourseSemester(int courseID, int semesterID)
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string InsertCourseSemester(int courseID, int semesterID)
         {
             try
             {
@@ -1024,17 +1025,21 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+                return "Success. The semester ID " + semesterID + " has been successfully added to course ID " + courseID + "\n";
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured at InsertCourseSemester()\n" + ex.Message);
+                return "Failed to add semester ID " + semesterID + " to course ID " + courseID + ". An error has occured\n" + ex.Message + "\n";
             }
         }
 
         /// <param name="studentID">ID of the student</param>
         /// <param name="courseID">ID of the course</param>
         /// <param name="courseCost">Total course cost for that specific student e.g 2500.50</param>
-        public void InsertCourseStudentPayment(int courseID, int studentID, double courseCost)
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+
+        public string InsertCourseStudentPayment(int courseID, int studentID, double courseCost)
         {
             try
             {
@@ -1052,16 +1057,21 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+
+                return "Success. The student id " + studentID + " has been added to course id " + courseID + " with the course cost being " + courseCost + "\n";
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured at InsertCourseStudentPayment()\n" + ex.Message);
+                return "Failed to alter payment for student id " + studentID + " .An error has occured\n" + ex.Message + "\n";
             }
         }
 
         /// <param name="courseID">ID of the course e.g 10</param>
         /// <param name="teacherID">ID of the teacher who teaches that course e.g 12</param>
-        public void InsertCourseTeacher(int courseID, int teacherID)
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+
+        public string InsertCourseTeacher(int courseID, int teacherID)
         {
             try
             {
@@ -1078,16 +1088,19 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+                return "Success. The teacher id " + teacherID + " has been appended into course id " + courseID + " .\n";
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured at InsertCourseTeacher()\n" + ex.Message);
+                return "Failed to insert teacher id " + teacherID + " into course id " + courseID + " .An error has occured\n" + ex.Message + "\n";
             }
         }
 
         /// <param name="courseID">ID of the course</param>
         /// <param name="unitID">ID of the unit that belongs to that course</param>
-        public void InsertCluster(int courseID, int unitID)
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+        public string InsertCluster(int courseID, int unitID)
         {
             try
             {
@@ -1104,16 +1117,20 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+                return "Success. The unit id " + unitID + " has been appended into course id " + courseID + " .\n";
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured at InsertCluster()\n" + ex.Message);
+                return "Failed to insert unit id " + unitID + " into course id " + courseID + " .An error has occured\n" + ex.Message + "\n";
             }
         }
 
 
         /// <param name="unitName">New name of unit e.g Advanced algorithms</param>
         /// <param name="hoursAmount">New number of hours requried to complete the unit e.g 200</param>
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+
         public string InsertUnit(string unitName, int hoursAmount)
         {
             try
@@ -1131,11 +1148,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The unit has been successfully inserted";
+                return "Success. The unit " + unitName + " has been successfully inserted";
             }
             catch (Exception ex)
             {
-                return "Failed to insert unit. An error has occured at EditUnit()\n" + ex.Message;
+                return "Failed to insert unit " + unitName + " .An error had occured \n" + ex.Message + "\n";
             }
         }
 
@@ -1167,11 +1184,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The course has been successfully edited.";
+                return "Success. The course has been successfully edited.\n";
             }
             catch (Exception ex)
             {
-                return "Failed to edit course. An error has occured.\n" + ex.Message;
+                return "Failed to edit course. An error has occured.\n" + ex.Message + "\n";
             }
         }
 
@@ -1199,11 +1216,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The student payment has been changed.";
+                return "Success. The student payment has been changed.\n";
             }
             catch (Exception ex)
             {
-                return "Failed to edit student payment. An error has occured at EditStudentPayment()\n" + ex.Message;
+                return "Failed to edit student payment. An error has occured \n" + ex.Message + "\n";
             }
         }
 
@@ -1228,11 +1245,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The student outcome has been changed.";
+                return "Success. The student outcome has been changed.\n";
             }
             catch (Exception ex)
             {
-                return "Failed to edit student outcome. An error has occured at EditStudentOutcome()\n" + ex.Message;
+                return "Failed to edit student outcome. An error has occured\n" + ex.Message + "\n";
             }
         }
 
@@ -1269,11 +1286,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The student has been successfully edited";
+                return "Success. The student has been successfully edited\n";
             }
             catch (Exception ex)
             {
-                return "Failed to edit student. An error has occured at EditStudent()\n" + ex.Message;
+                return "Failed to edit student. An error has occured \n" + ex.Message + "\n";
             }
         }
 
@@ -1312,11 +1329,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The teacher has been successfully edited";
+                return "Success. The teacher has been successfully edited\n";
             }
             catch (Exception ex)
             {
-                return "Failed to edit teacher. An error has occured at EditTeacher()\n" + ex.Message;
+                return "Failed to edit teacher. An error has occured\n" + ex.Message + "\n";
             }
         }
 
@@ -1342,11 +1359,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The unit has been successfully edited";
+                return "Success. The unit has been successfully edited\n";
             }
             catch (Exception ex)
             {
-                return "Failed to edit unit. An error has occured at EditUnit()\n" + ex.Message;
+                return "Failed to edit unit. An error has occured\n" + ex.Message + "\n";
             }
         }
 
@@ -1368,11 +1385,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The unit has been successfully deleted";
+                return "Success. The unit has been successfully deleted\n";
             }
             catch (Exception ex)
             {
-                return "Failed to delete unit. An error has occured at DeleteUnit()\n" + ex.Message;
+                return "Failed to delete unit. An error has occured\n" + ex.Message + "\n";
             }
         }
 
@@ -1399,11 +1416,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The unit cluster has been deleted";
+                return "Success. The unit id " + unitID + " has been removed from course id " + CourseID + " .\n";
             }
             catch (Exception ex)
             {
-                return "Failed to delete unit cluster.\n" + ex.Message;
+                return "Failed to remove unit id " + unitID + " from course id " + CourseID + " .An error has occured\n" + ex.Message + "\n";
             }
         }
 
@@ -1430,18 +1447,20 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The semester has been successfully deleted";
+                return "Success. The semester id " + SemesterID + " has been removed from course id " + CourseID + " .\n";
             }
             catch (Exception ex)
             {
-                return "Failed to delete semester. An error has occured at DeleteCourseSemester()\n" + ex.Message;
+                return "Failed to semester id " + SemesterID + " from course id " + CourseID + " .An error has occured\n" + ex.Message + "\n";
             }
         }
 
 
         /// <param name="courseID">ID of course where we wish to remove the teacher from e.g 12</param>
         /// <param name="teacherID">ID of teacher who is being removed from course e.g 10</param>
-        public void DeleteCourseTeacher(int courseID, int teacherID)
+        /// <returns>Success/Failure message that will be displayed to the user</returns>
+
+        public string DeleteCourseTeacher(int courseID, int teacherID)
         {
             try
             {
@@ -1458,16 +1477,19 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
+                return "Success. The teacher id " + teacherID + " has been removed from course id " + courseID + " .\n";
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured while attempting to remove a teacher from course.\n" + ex.Message);
+                return "Failed to remove teacher id " + teacherID + " from course id " + courseID + " .An error has occured\n" + ex.Message + "\n";
             }
         }
 
 
         /// <param name="courseID">ID of course where the student payment is being removed from e.g 12 </param>
         /// <param name="studentID">ID of student whose course payment is being removed e.g 120</param>
+
         public void DeleteCourseStudentPayment(int courseID, int studentID)
         {
             try
@@ -1510,11 +1532,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The student has been successfully deleted";
+                return "Success. The student has been successfully deleted\n";
             }
             catch (Exception ex)
             {
-                return "Failed to delete student. An error has occured at DeleteStudent()\n" + ex.Message;
+                return "Failed to delete student. An error has occured\n" + ex.Message + "\n";
             }
         }
 
@@ -1536,11 +1558,11 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The teacher has been successfully deleted";
+                return "Success. The teacher has been successfully deleted\n";
             }
             catch (Exception ex)
             {
-                return "Failed to delete teacher. An error has occured at DeleteTeacher()\n" + ex.Message;
+                return "Failed to delete teacher. An error has occured \n" + ex.Message + "\n";
             }
         }
 
@@ -1563,15 +1585,13 @@ namespace DataLinkLayer
                 //disposing
                 conn.Dispose();
                 cmd.Dispose();
-                return "Success. The course has been successfully deleted";
+                return "Success. The course has been successfully deleted\n";
             }
             catch (Exception ex)
             {
-                return "Failed to delete course. An error has occured.\n" + ex.Message;
+                return "Failed to delete course. An error has occured.\n" + ex.Message + "\n";
             }
         }
-
-
 
     }
 }
