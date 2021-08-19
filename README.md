@@ -17,7 +17,7 @@ This application :
 
 ## How to set up:
 
-1. Start the application.
+1. Start the application (View.exe).
 2. Log in as either a manager or a teacher. The Manager has access to all features, whereas the Teacher can only view information and cannot edit/delete/add new information.
     - Username - "manager". Password - "M1password" 
     - Username - "teacher". Password - "T1password"
