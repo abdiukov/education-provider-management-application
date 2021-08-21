@@ -24,4 +24,4 @@ This application :
 
 ## Credits
 
-- The application icon - > https://github.com/Remix-Design/remixicon. Apache-2.0 Licence.
+- The application icon - > https://github.com/Remix-Design/remixicon by Remix Design. Apache-2.0 License.
